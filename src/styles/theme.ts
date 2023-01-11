@@ -4,12 +4,17 @@ export default {
   },
   font: {
     family:
-      "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+      "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+    sizes: {
+      xsmall: "1.2rem",
+      small: "1.4rem",
+      medium: "1.6rem",
+      large: "1.8rem",
+      xlarge: "2.0rem",
+    },
   },
   colors: {
-    primary: "#FA641E",
-    orange: "#FA641E",
-    secondary: "#394F63",
+    primary: "#1A1A2E",
   },
   transition: {
     default: "0.3s ease-in-out",
