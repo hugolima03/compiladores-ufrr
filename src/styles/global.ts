@@ -20,11 +20,31 @@ const GlobalStyles = createGlobalStyle`
       }
 
       body {
+        width: 100vw;
+        height: 100vh;
         background-color: ${theme.colors.primary};
       }
 
       a {
         text-decoration: none;
+      }
+
+      p,
+      h1,
+      h2,
+      h3 {
+        color: white;
+      }
+
+      strong,
+      h1,
+      h2,
+      h3 {
+        font-weight: 700;
+      }
+
+      h1 {
+        font-size: ${theme.font.sizes.xxxlarge};
       }
     `}  
 `;
