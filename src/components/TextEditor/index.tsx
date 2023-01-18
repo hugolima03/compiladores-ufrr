@@ -20,6 +20,7 @@ const CodeEditor = ({ onSubmit }: CodeEditorProps) => {
       reader.readAsText(file, "UTF-8");
       reader.onload = (suc) => {
         setValue(String(suc.target?.result));
+        onSubmit(String(suc.target?.result));
       };
       reader.onerror = (err) => {
         window.alert(`Falha ao carregar arquivo ${err}`);
