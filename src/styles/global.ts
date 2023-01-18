@@ -22,7 +22,7 @@ const GlobalStyles = createGlobalStyle`
       body {
         width: 100vw;
         height: 100vh;
-        background-color: ${theme.colors.primary};
+        background: ${theme.gradients.primary};
       }
 
       a {
