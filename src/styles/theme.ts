@@ -22,6 +22,7 @@ const theme = {
     green: "#00CA4E",
     yellow: "#FFBD44",
     blue: "#0072F5",
+    black: "rgba(41, 41, 41, 1)",
   },
   transition: {
     default: "0.3s ease-in-out",

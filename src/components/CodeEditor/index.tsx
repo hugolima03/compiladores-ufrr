@@ -3,10 +3,11 @@ import React, { useState } from "react";
 import * as S from "./styles";
 
 type CodeEditorProps = {
+  title?: string;
   onSubmit: (value: string) => void;
 };
 
-const CodeEditor = ({ onSubmit }: CodeEditorProps) => {
+const CodeEditor = ({ title, onSubmit }: CodeEditorProps) => {
   const [value, setValue] = useState("");
 
   function onClick() {
@@ -30,6 +31,7 @@ const CodeEditor = ({ onSubmit }: CodeEditorProps) => {
 
   return (
     <S.CodeEditorWrapper>
+      {title && <S.Title>{title}</S.Title>}
       <S.CodeEditorHeader>
         <S.CodeEditorHeaderDots color="red" />
         <S.CodeEditorHeaderDots color="green" />

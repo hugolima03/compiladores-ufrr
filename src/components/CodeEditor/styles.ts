@@ -1,10 +1,22 @@
 import styled, { css } from "styled-components";
 import { Colors } from "styles/theme";
 
+export const Title = styled.h1`
+  ${() => css`
+    font-size: 2.4rem;
+    font-weight: 700;
+    align-self: flex-start;
+
+    margin-bottom: 0.8rem;
+  `}
+`;
+
 export const CodeEditorWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 60rem;
+  width: 100%;
+  min-width: 50rem;
+  max-width: 60rem;
 `;
 
 export const CodeEditorHeader = styled.header`
@@ -41,7 +53,7 @@ export const Textarea = styled.textarea`
     height: 35rem;
 
     font-family: ${theme.font.monospace};
-    color: rgba(41, 41, 41, 1);
+    color: ${theme.colors.black};
 
     padding: 0.8rem 1.6rem;
     border: none;
