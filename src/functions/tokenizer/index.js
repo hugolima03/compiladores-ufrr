@@ -1,11 +1,9 @@
 // REGEX
-const spacesRegex = /\s+/g;
+const spacesRegex = /\s+/g; // marca os espaços no código
 const idRegex = /^[a-zA-Z\_][a-zA-Z\_0-9]*$/;
 const numIRegex = /^[0-9]+$/;
 const numFRegex = /^(([0-9]+(\.[0-9]+))|(\.[0-9]+))$/;
-
-// PATTERNS
-const strPattern = "([\"'])(?:(?=(\\\\?))\\2.)*?\\1";
+const strPattern = /\'(.*?)\'/; // utilizado para identificar cadeias de strings no código
 
 // LEXEMAS
 const boolLiterals = ["true", "false"];
@@ -29,7 +27,7 @@ function matchLexemeCategory(lexeme) {
     id: (l) => l.match(idRegex) != null,
     literalStr: (l) => l.match(new RegExp("^" + strPattern + "$")) != null,
     numI: (l) => l.match(numIRegex) != null,
-    numF: (l) => l.match(Lexer.numFRegex) != null,
+    numF: (l) => l.match(numFRegex) != null,
     undefined: (l) => true,
   };
 
@@ -67,7 +65,7 @@ function parseLexemes(line) {
   const regex = new RegExp(
     "[\\" + separators.join("\\") + "]|" + strPattern,
     "g"
-  );
+  ); // este regex marca todos os símbolos considerados separadores.
 
   const frags = splitSpaces(line);
   const lexemes = [];
@@ -92,7 +90,7 @@ function parseLexemes(line) {
   return lexemes;
 }
 
-function tokenizer(line) {
+export function tokenizer(line) {
   const lexemes = parseLexemes(line);
 
   for (let i in lexemes) {
@@ -101,10 +99,7 @@ function tokenizer(line) {
     if (cat === "undefined") {
       console.log('Invalid identifier "' + lexemes[i] + '" at line ' + line);
     }
-
-    console.log(cat, lexemes[i]);
   }
-}
 
-const line = "x = y + 5";
-tokenizer(line);
+  return lexemes;
+}
