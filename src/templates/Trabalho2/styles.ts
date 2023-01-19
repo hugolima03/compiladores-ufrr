@@ -42,7 +42,7 @@ export const Table = styled.table`
     }
 
     tbody tr:last-of-type {
-      border-bottom: 2px solid #009879;
+      border-bottom: 2px solid ${theme.colors.blue};
     }
   `}
 `;

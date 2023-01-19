@@ -78,13 +78,15 @@ function parseLexemes(line) {
       const sep = matched[j][0];
       const left = frags[i].substr(cursor, matched[j]["index"] - cursor);
 
-      if (left.length > 0) lexemes.push(left);
-      lexemes.push(sep);
+      if (left.length > 0) lexemes.push({ lexeme: left });
+      lexemes.push({ lexeme: sep });
 
       cursor = matched[j]["index"] + sep.length;
     }
 
-    if (cursor < frags[i].length) lexemes.push(frags[i].substr(cursor));
+    if (cursor < frags[i].length) {
+      lexemes.push({ lexeme: frags[i].substr(cursor) });
+    }
   }
 
   return lexemes;
@@ -94,7 +96,8 @@ export function tokenizer(line) {
   const lexemes = parseLexemes(line);
 
   for (let i in lexemes) {
-    const cat = matchLexemeCategory(lexemes[i]);
+    const cat = matchLexemeCategory(lexemes[i].lexeme);
+    lexemes[i].label = cat;
 
     if (cat === "undefined") {
       console.log('Invalid identifier "' + lexemes[i] + '" at line ' + line);
