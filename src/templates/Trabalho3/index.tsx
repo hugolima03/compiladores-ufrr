@@ -40,8 +40,8 @@ const Trabalho3Template = () => {
         <Table>
           <thead>
             <TableRow>
-              <TableHeader>Lexema</TableHeader>
-              <TableHeader>Rótulo</TableHeader>
+              <TableHeader>Token</TableHeader>
+              <TableHeader>Linguagem</TableHeader>
             </TableRow>
           </thead>
 
