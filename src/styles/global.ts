@@ -13,6 +13,22 @@ const GlobalStyles = createGlobalStyle`
 
         font-size: ${theme.font.sizes.medium};
         font-family: ${theme.font.family};
+
+        &::-webkit-scrollbar {
+          width: 6px;
+          height: 6px;
+        }
+        &::-webkit-scrollbar-track {
+          border-radius: 10px;
+          background: rgba(0, 0, 0, 0.1);
+        }
+        &::-webkit-scrollbar-thumb {
+          border-radius: 10px;
+          background: rgba(100, 100, 100, 0.8);
+        }
+        &::-webkit-scrollbar-thumb:hover {
+          background: rgba(100, 100, 100, 1);
+        }
       }
 
       html {

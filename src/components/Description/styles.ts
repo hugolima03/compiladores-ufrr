@@ -31,21 +31,5 @@ export const Container = styled.div`
       font-family: "Playfair Display";
       font-weight: 400;
     }
-
-    &::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    &::-webkit-scrollbar-track {
-      border-radius: 10px;
-      background: rgba(0, 0, 0, 0.1);
-    }
-    &::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      background: rgba(100, 100, 100, 0.8);
-    }
-    &::-webkit-scrollbar-thumb:hover {
-      background: rgba(100, 100, 100, 1);
-    }
   `}
 `;

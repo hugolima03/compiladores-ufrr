@@ -5,6 +5,12 @@ import CodeEditor from "components/CodeEditor";
 import { tokenizer } from "functions/tokenizer/index";
 
 import * as S from "./styles";
+import {
+  Table,
+  TableDatacell,
+  TableHeader,
+  TableRow,
+} from "components/Table/styles";
 
 type Lexeme = {
   lexeme: string;
@@ -32,27 +38,27 @@ const Trabalho2Template = () => {
       <CodeEditor title="Analisador de Lexemas" onSubmit={onSubmit} />
 
       {!!lexemes?.length && (
-        <S.Table>
+        <Table>
           <thead>
-            <S.TableRow>
-              <S.TableHeader>Lexema</S.TableHeader>
-              <S.TableHeader>Rótulo</S.TableHeader>
-              <S.TableHeader>Código</S.TableHeader>
-            </S.TableRow>
+            <TableRow>
+              <TableHeader>Lexema</TableHeader>
+              <TableHeader>Rótulo</TableHeader>
+              <TableHeader>Código</TableHeader>
+            </TableRow>
           </thead>
 
           <tbody>
             {lexemes?.map((l, index) => {
               return (
-                <S.TableRow key={index + l.label}>
-                  <S.TableDatacell>{l.lexeme}</S.TableDatacell>
-                  <S.TableDatacell>{l.label}</S.TableDatacell>
-                  <S.TableDatacell>{index + 1}</S.TableDatacell>
-                </S.TableRow>
+                <TableRow key={index + l.label}>
+                  <TableDatacell>{l.lexeme}</TableDatacell>
+                  <TableDatacell>{l.label}</TableDatacell>
+                  <TableDatacell>{index + 1}</TableDatacell>
+                </TableRow>
               );
             })}
           </tbody>
-        </S.Table>
+        </Table>
       )}
     </S.Container>
   );
