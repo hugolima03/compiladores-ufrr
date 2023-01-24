@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
 import { Colors } from "styles/theme";
 
+import { Error } from "./index";
+
 export const Title = styled.h1`
   ${() => css`
     font-size: 2.4rem;
@@ -110,4 +112,57 @@ export const SendValue = styled(SubmitButton)`
   input {
     display: none;
   }
+`;
+
+export const ErrorsWrapper = styled.div`
+  ${() => css`
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    overflow: auto;
+    max-height: 6rem;
+    margin-top: 1.6rem;
+  `}
+`;
+
+type ErrorProps = Pick<Error, "type">;
+
+export const ErrorItem = styled.span<ErrorProps>`
+  ${({ theme, type }) => css`
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 0.8rem;
+
+    p {
+      font-size: 1.6rem;
+    }
+
+    svg {
+      height: 2.4rem;
+    }
+
+    ${type === "warning" &&
+    css`
+      p {
+        color: ${theme.colors.yellow};
+      }
+
+      svg {
+        fill: ${theme.colors.yellow};
+      }
+    `}
+
+    ${type === "compilation" &&
+    css`
+      p {
+        color: ${theme.colors.red};
+      }
+
+      svg {
+        fill: ${theme.colors.red};
+      }
+    `}
+  `}
 `;

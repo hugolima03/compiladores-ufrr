@@ -1,13 +1,21 @@
 import React, { useState } from "react";
 
+import { Warning, InfoWithCircle } from "@styled-icons/entypo";
+
 import * as S from "./styles";
 
 type CodeEditorProps = {
   title?: string;
   onSubmit: (value: string) => void;
+  errors?: Error[];
 };
 
-const CodeEditor = ({ title, onSubmit }: CodeEditorProps) => {
+export type Error = {
+  type: "warning" | "compilation";
+  message: string;
+};
+
+const CodeEditor = ({ title, onSubmit, errors }: CodeEditorProps) => {
   const [value, setValue] = useState("");
 
   function onClick() {
@@ -57,6 +65,18 @@ const CodeEditor = ({ title, onSubmit }: CodeEditorProps) => {
           Compilar
         </S.SubmitButton>
       </S.ButtonsWrapper>
+
+      {!!errors?.length && (
+        <S.ErrorsWrapper>
+          {errors.map(({ message, type }, index) => (
+            <S.ErrorItem key={message + index} type={type}>
+              {type === "warning" && <InfoWithCircle />}
+              {type === "compilation" && <Warning />}
+              <p>{message}</p>
+            </S.ErrorItem>
+          ))}
+        </S.ErrorsWrapper>
+      )}
     </S.CodeEditorWrapper>
   );
 };
