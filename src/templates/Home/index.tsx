@@ -16,7 +16,8 @@ const HomeTemplate = () => {
 
         <S.LinksWrapper>
           <Link href="/Trabalhos/trab1.pdf">Trabalho 1</Link>
-          <Link href="/trabalhos/analisadorLexemas">Trabalho 2</Link>
+          <Link href="/trabalhos/analisadorLexemas">Trabalho 2 - Analisador de Lexemas</Link>
+          <Link href="/trabalhos/analisadorLexico">Trabalho 3 - Analisador Léxico</Link>
         </S.LinksWrapper>
 
         <p>

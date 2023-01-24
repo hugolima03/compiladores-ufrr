@@ -11,18 +11,7 @@ export default function Document() {
           crossOrigin=""
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700&display=swap"
-          rel="stylesheet"
-        />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin=""
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700&family=Playfair+Display:ital@&family=Roboto+Mono1&display=swap"
           rel="stylesheet"
         />
       </Head>
