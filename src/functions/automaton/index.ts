@@ -39,7 +39,9 @@ function checkSourceCode(
       let currentState = initialState;
       for (let i = 0; i < sentence.length; i++) {
         const char = sentence.charAt(i);
-        currentState = transitions[currentState][char];
+        if (currentState !== undefined) {
+          currentState = transitions[currentState][char];
+        }
       }
 
       if (finalStates.includes(currentState)) {

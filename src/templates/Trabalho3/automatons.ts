@@ -1,3 +1,4 @@
+// (Q, Σ, δ, q0, F)
 export const automatons = [
   {
     name: "Linguagem A",
@@ -15,4 +16,71 @@ export const automatons = [
     initialState: "q0",
     finalStates: ["q0"],
   },
+  {
+    name: "Linguagem B",
+    states: ["q0", "q1"],
+    alphabet: ["a", "b", "c", "d"],
+    transitions: {
+      q0: { a: "q1", b: "q0", c: "q0", d: "q0" },
+      q1: { a: "q1", b: "q0", c: "q0", d: "q0" },
+    },
+    initialState: "q0",
+    finalStates: ["q1"],
+  },
+  {
+    name: "Linguagem C",
+    states: ["q0", "q1", "q2"],
+    alphabet: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+    transitions: {
+      q0: {
+        "0": "q2",
+        "1": "q1",
+        "2": "q1",
+        "3": "q1",
+        "4": "q1",
+        "5": "q1",
+        "6": "q1",
+        "7": "q1",
+        "8": "q1",
+        "9": "q1",
+      },
+      q1: {
+        "0": "q1",
+        "1": "q1",
+        "2": "q1",
+        "3": "q1",
+        "4": "q1",
+        "5": "q1",
+        "6": "q1",
+        "7": "q1",
+        "8": "q1",
+        "9": "q1",
+      },
+      q2: {
+        "0": "q2",
+        "1": "q2",
+        "2": "q2",
+        "3": "q2",
+        "4": "q2",
+        "5": "q2",
+        "6": "q2",
+        "7": "q2",
+        "8": "q2",
+        "9": "q2",
+      },
+    },
+    initialState: "q0",
+    finalStates: ["q1"],
+  },
+  {
+    name: "Linguagem D",
+    states: ["q0", "q1"],
+    alphabet: ["0", "1"],
+    transitions: {
+      q0: { "0": "q0", "1": "q1" },
+      q1: { "0": "q1", "1": "q0" },
+    },
+    initialState: "q0",
+    finalStates: ["q1"],
+  }
 ];

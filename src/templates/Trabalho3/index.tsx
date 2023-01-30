@@ -20,11 +20,11 @@ const Trabalho3Template = () => {
   const { checkSourceCode } = useLexicalAnalyser(automatons);
 
   const [errors, setErrors] = useState<Error[]>([]);
-  const [tokens, setTokens] = useState<Token[]>([]);
+  const [tokens, setTokens] = useState<Token[] | null>(null);
 
   function onsubmit(sourceCode: string) {
     const { errors, data } = checkSourceCode(sourceCode);
-    if (data.length) setTokens(data);
+    setTokens(data);
     setErrors(errors);
   }
 
@@ -36,7 +36,7 @@ const Trabalho3Template = () => {
         errors={errors}
       />
 
-      {tokens.length ? (
+      {!!tokens?.length && (
         <Table>
           <thead>
             <TableRow>
@@ -56,7 +56,18 @@ const Trabalho3Template = () => {
             })}
           </tbody>
         </Table>
-      ) : (
+      )}
+
+      {tokens?.length === 0 && (
+        <Description>
+          <h1>Nenhuma linguagem foi identificada⚠️.</h1>
+          <p>
+            Tente separar as sentenças por espaço ou utilizando quebra de linhas.
+          </p>
+        </Description>
+      )}
+
+      {tokens === null && (
         <Description>
           <h1>Linguagens Regulares</h1>
           <p>
@@ -66,8 +77,8 @@ const Trabalho3Template = () => {
           </p>
 
           <p>
-            <em>B</em> - Inicia com uma letra ou sublinhado (regra de nomeação
-            de variáveis).
+            <em>B</em> - Cadeia formada pelas letras a, b, c, d que terminam com
+            a.
           </p>
 
           <p>
@@ -75,8 +86,7 @@ const Trabalho3Template = () => {
           </p>
 
           <p>
-            <em>D</em> - Sequência de números separados pelo operador aritmético
-            de soma.
+            <em>D</em> - Sequência formada por um número ímpar de "1s"
           </p>
         </Description>
       )}
