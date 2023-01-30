@@ -29,9 +29,8 @@ function checkSourceCode(
   const lines = sourceCode.split("\n");
   const sentences: string[] = [];
   const tokens: Token[] = [];
-
   for (let i in lines) {
-    sentences.push(...lines[i].split(spacesRegex));
+    sentences.push(...lines[i].split(spacesRegex).filter((s) => s !== ""));
   }
 
   sentences.forEach((sentence) => {
