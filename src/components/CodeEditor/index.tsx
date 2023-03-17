@@ -8,6 +8,7 @@ type CodeEditorProps = {
   title?: string;
   onSubmit: (value: string) => void;
   errors?: Error[];
+  placeholder?: string;
 };
 
 export type Error = {
@@ -15,7 +16,7 @@ export type Error = {
   message: string;
 };
 
-const CodeEditor = ({ title, onSubmit, errors }: CodeEditorProps) => {
+const CodeEditor = ({ title, onSubmit, errors, placeholder }: CodeEditorProps) => {
   const [value, setValue] = useState("");
 
   function onClick() {
@@ -49,6 +50,7 @@ const CodeEditor = ({ title, onSubmit, errors }: CodeEditorProps) => {
         value={value}
         onChange={(e) => setValue(e.target.value)}
         spellCheck={false}
+        placeholder={placeholder}
       />
 
       <S.ButtonsWrapper>
