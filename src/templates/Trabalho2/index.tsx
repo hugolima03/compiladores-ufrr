@@ -35,7 +35,7 @@ const Trabalho2Template = () => {
 
   return (
     <S.Container>
-      <CodeEditor title="Analisador de Lexemas" onSubmit={onSubmit} />
+      <CodeEditor title="Analisador de Lexemas" onSubmit={onSubmit} placeholder="let x = y + 1;"/>
 
       {!!lexemes?.length && (
         <Table>
