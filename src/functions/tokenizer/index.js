@@ -65,24 +65,23 @@ function parseLexemes(line) {
   const regex = new RegExp(
     "[\\" + separators.join("\\") + "]|" + strPattern,
     "g"
-  ); // este regex marca todos os símbolos considerados separadores(Ex: =, +, ;, []).
+  );
   const frags = splitSpaces(line); //  ["let", "x", "=", "y", "+", "1;"]
   const lexemes = [];
 
-  // Nesta rotina, buscamos nos tokens separados por espaço se há algum outro token
   frags.forEach((frag) => {
-    const matched = [...frag.matchAll(regex)]; // buscamos por tokens que possuem separadores
+    const matched = [...frag.matchAll(regex)];
     let cursor = 0;
 
     matched.forEach((matchedFrag) => {
       const separator = matchedFrag[0]
-      const leftChar = frag.substr(cursor, matchedFrag["index"] - cursor); // Identificamos o character à esquerda do separador
-      if (leftChar.length > 0) { lexemes.push({ lexeme: leftChar }) }; // Adicionando char à esquerda aos lexemas
+      const leftChar = frag.substr(cursor, matchedFrag["index"] - cursor);
+      if (leftChar.length > 0) { lexemes.push({ lexeme: leftChar }) };
       lexemes.push({ lexeme: separator });
       cursor = matchedFrag["index"] + separator.length;
     })
 
-    if (cursor < frag.length) { // Adiciona o lexema a partir do pivo
+    if (cursor < frag.length) {
       lexemes.push({ lexeme: frag.substr(cursor) });
     }
   })
@@ -93,14 +92,13 @@ function parseLexemes(line) {
 export function tokenizer(line) {
   const lexemes = parseLexemes(line);
 
-  for (let i in lexemes) {
-    const cat = matchLexemeCategory(lexemes[i].lexeme);
-    lexemes[i].label = cat;
+  return lexemes.map(({ lexeme }) => {
+    const cat = matchLexemeCategory(lexeme);
 
     if (cat === "undefined") {
-      console.log('Invalid identifier "' + lexemes[i] + '" at line ' + line);
+      console.log('Invalid identifier "' + lexeme + '" at line ' + line);
     }
-  }
 
-  return lexemes;
+    return { lexeme, label: cat }
+  })
 }
