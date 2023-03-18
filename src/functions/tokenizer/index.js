@@ -14,21 +14,21 @@ const primitiveTypes = ["int", "float", "string", "bool"];
 
 function matchLexemeCategory(lexeme) {
   const categories = {
-    primitiveType: (l) =>
-      l.match(new RegExp("^" + primitiveTypes.join("|") + "$")) != null,
-    keyWord: (l) => l.match(new RegExp("^" + keyWords.join("|") + "$")) != null,
-    boolLiteral: (l) =>
-      l.match(new RegExp("^" + boolLiterals.join("|") + "$")) != null,
-    arithmeticOperators: (l) =>
-      l.match(new RegExp("^\\" + arithmeticOperators.join("|\\") + "$")) !=
+    primitiveType: (lexeme) =>
+      lexeme.match(new RegExp("^" + primitiveTypes.join("|") + "$")) != null,
+    keyWord: (lexeme) => lexeme.match(new RegExp("^" + keyWords.join("|") + "$")) != null,
+    boolLiteral: (lexeme) =>
+      lexeme.match(new RegExp("^" + boolLiterals.join("|") + "$")) != null,
+    arithmeticOperators: (lexeme) =>
+      lexeme.match(new RegExp("^\\" + arithmeticOperators.join("|\\") + "$")) !=
       null,
-    grouper: (l) =>
-      l.match(new RegExp("^\\" + groupers.join("|\\") + "$")) != null,
-    id: (l) => l.match(idRegex) != null,
-    literalStr: (l) => l.match(new RegExp("^" + strPattern + "$")) != null,
-    numI: (l) => l.match(numIRegex) != null,
-    numF: (l) => l.match(numFRegex) != null,
-    undefined: (l) => true,
+    grouper: (lexeme) =>
+      lexeme.match(new RegExp("^\\" + groupers.join("|\\") + "$")) != null,
+    id: (lexeme) => lexeme.match(idRegex) != null,
+    literalStr: (lexeme) => lexeme.match(new RegExp("^" + strPattern + "$")) != null,
+    numI: (lexeme) => lexeme.match(numIRegex) != null,
+    numF: (lexeme) => lexeme.match(numFRegex) != null,
+    undefined: (lexeme) => true,
   };
 
   for (let i in categories) {
@@ -65,29 +65,27 @@ function parseLexemes(line) {
   const regex = new RegExp(
     "[\\" + separators.join("\\") + "]|" + strPattern,
     "g"
-  ); // este regex marca todos os símbolos considerados separadores.
-
-  const frags = splitSpaces(line);
+  ); // este regex marca todos os símbolos considerados separadores(Ex: =, +, ;, []).
+  const frags = splitSpaces(line); //  ["let", "x", "=", "y", "+", "1;"]
   const lexemes = [];
 
-  for (let i in frags) {
-    const matched = [...frags[i].matchAll(regex)];
+  // Nesta rotina, buscamos nos tokens separados por espaço se há algum outro token
+  frags.forEach((frag) => {
+    const matched = [...frag.matchAll(regex)]; // buscamos por tokens que possuem separadores
     let cursor = 0;
 
-    for (let j in matched) {
-      const sep = matched[j][0];
-      const left = frags[i].substr(cursor, matched[j]["index"] - cursor);
+    matched.forEach((matchedFrag) => {
+      const separator = matchedFrag[0]
+      const leftChar = frag.substr(cursor, matchedFrag["index"] - cursor); // Identificamos o character à esquerda do separador
+      if (leftChar.length > 0) { lexemes.push({ lexeme: leftChar }) }; // Adicionando char à esquerda aos lexemas
+      lexemes.push({ lexeme: separator });
+      cursor = matchedFrag["index"] + separator.length;
+    })
 
-      if (left.length > 0) lexemes.push({ lexeme: left });
-      lexemes.push({ lexeme: sep });
-
-      cursor = matched[j]["index"] + sep.length;
+    if (cursor < frag.length) { // Adiciona o lexema a partir do pivo
+      lexemes.push({ lexeme: frag.substr(cursor) });
     }
-
-    if (cursor < frags[i].length) {
-      lexemes.push({ lexeme: frags[i].substr(cursor) });
-    }
-  }
+  })
 
   return lexemes;
 }
