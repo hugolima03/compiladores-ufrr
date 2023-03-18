@@ -25,7 +25,7 @@ function matchLexemeCategory(lexeme) {
     grouper: (lexeme) =>
       lexeme.match(new RegExp("^\\" + groupers.join("|\\") + "$")) != null,
     id: (lexeme) => lexeme.match(idRegex) != null,
-    literalStr: (lexeme) => lexeme.match(new RegExp("^" + strPattern + "$")) != null,
+    literalStr: (lexeme) => lexeme.match(new RegExp(strPattern)) != null,
     numI: (lexeme) => lexeme.match(numIRegex) != null,
     numF: (lexeme) => lexeme.match(numFRegex) != null,
     undefined: (lexeme) => true,
