@@ -86,7 +86,7 @@ const Trabalho3Template = () => {
           </p>
 
           <p>
-            <em>D</em> - Sequência formada por um número ímpar de "1s"
+            <em>D</em> - Cadeias do alfabeto "x" e "y" que começam e terminam com x ou que começam e terminam com y.
           </p>
         </Description>
       )}

@@ -5,9 +5,9 @@ export type Token = {
   language: string;
 };
 
-export type State = string;
+export type State = { label: string, value: number };
 
-export type Alphabet = string[];
+export type Alphabet = { label: string, value: number }[];
 
 export type Transition = any;
 
@@ -16,8 +16,8 @@ export type Automaton = {
   states: State[];
   alphabet: Alphabet;
   transitions: Transition;
-  initialState: State;
-  finalStates: State[];
+  initialState: number;
+  finalStates: number[];
 };
 
 const spacesRegex = /\s+/g; // marca os espaços no código
@@ -34,12 +34,14 @@ function checkSourceCode(
   }
 
   sentences.forEach((sentence) => {
-    automatons.forEach(({ name, transitions, initialState, finalStates }) => {
+    automatons.forEach(({ name, transitions, initialState, finalStates, alphabet }) => {
       let currentState = initialState;
       for (let i = 0; i < sentence.length; i++) {
-        const char = sentence.charAt(i);
-        if (currentState !== undefined) {
-          currentState = transitions[currentState][char];
+        const char = alphabet.find(t => t.label === sentence.charAt(i))?.value;
+        if (currentState !== undefined && char !== undefined) {
+          currentState = transitions[char][currentState];
+        } else {
+          currentState = -1 // Estado de erro
         }
       }
 
