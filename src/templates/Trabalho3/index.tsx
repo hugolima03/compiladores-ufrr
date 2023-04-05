@@ -70,10 +70,8 @@ const Trabalho3Template = () => {
       {tokens === null && (
         <Description>
           <h1>Linguagens Regulares</h1>
-          <p>
-            <em>A</em> - Cadeias formadas por um número arbitrário de repetições
-            de 1 a 3 a's seguidos pelo mesmo número de b's. Ex: (ab, aabb, abab,
-            aaabbb).
+          <p style={{ margin: 0 }}>
+            <em>A</em> - Cadeia que forma um número negativo.
           </p>
 
           <p>
