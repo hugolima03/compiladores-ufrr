@@ -32,6 +32,7 @@ const Trabalho3Template = () => {
     <S.Container>
       <CodeEditor
         title="Analisador Léxico"
+        placeholder="Tente abcda 1024 -12"
         onSubmit={onsubmit}
         errors={errors}
       />
