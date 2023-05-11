@@ -16,8 +16,21 @@ const HomeTemplate = () => {
 
         <S.LinksWrapper>
           <Link href="/Trabalhos/trab1.pdf">Trabalho 1</Link>
-          <Link href="/trabalhos/analisadorLexemas">Trabalho 2 - Analisador de Lexemas</Link>
-          <Link href="/trabalhos/analisadorLexico">Trabalho 3 - Analisador Léxico</Link>
+          <Link href="/trabalhos/analisadorLexemas">
+            Trabalho 2 - Analisador de Lexemas
+          </Link>
+          <Link href="/trabalhos/analisadorLexico">
+            Trabalho 3 - Analisador Léxico
+          </Link>
+          <Link
+            href="https://docs.google.com/document/d/1SPpUzQKTs95QJ8qROZOQhjd-OgTnz8LbVH43VIEpNO4/edit?usp=sharing"
+            target="_blank"
+          >
+            Trabalho 4 - Pesquisa Gramáticas LL(1)
+          </Link>
+          <Link href="/trabalhos/analisadorSintaticoPreditivo">
+            Trabalho 5 - Analisador Sintático Preditivo
+          </Link>
         </S.LinksWrapper>
 
         <p>
