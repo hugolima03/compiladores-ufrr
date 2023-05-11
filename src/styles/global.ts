@@ -36,8 +36,6 @@ const GlobalStyles = createGlobalStyle`
       }
 
       body {
-        width: 100vw;
-        height: 100vh;
         background: ${theme.gradients.primary};
       }
 

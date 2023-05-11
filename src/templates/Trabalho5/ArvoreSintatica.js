@@ -13,8 +13,8 @@ export default class ArvoreSintatica {
             throw 'O símbolo deve ser uma string não vazia'
         }
 
-        this._simbolo = simbolo;
-        this._nos = [];
+        this.name = simbolo;
+        this.children = [];
     }
 
     /**
@@ -27,16 +27,16 @@ export default class ArvoreSintatica {
      * Retorna a lista de nós filhos deste nó
      * @return {[ArvoreSintatica]}
      */
-    get nos() { return this._nos; }
+    get nos() { return this.children; }
 
     preOrdem (handle) {
         handle(this);
-        for (const no of this._nos) no.preOrdem(handle);
+        for (const no of this.children) no.preOrdem(handle);
     }
 
     posOrdem (handle) {
         handle(this);
-        for (const no of this._nos.reverse()) no.posOrdem(handle);
+        for (const no of this.children.reverse()) no.posOrdem(handle);
     }
 
     /**
@@ -93,7 +93,7 @@ export default class ArvoreSintatica {
 
             // Se ele for um terminal, apenas cria um nó e o adiciona como filho
             if (!gram.simboloEhNaoTerminal(s)){
-                no._nos.push(new ArvoreSintatica(s));
+                no.children.push(new ArvoreSintatica(s));
                 continue;
             }
 
@@ -101,7 +101,7 @@ export default class ArvoreSintatica {
             const noFilho = ArvoreSintatica._parsearProducoesEsq(prods, gram);
 
             // Se o nó retornado for válido, adiciona-o como filho
-            if(noFilho !== null) no._nos.push(noFilho);
+            if(noFilho !== null) no.children.push(noFilho);
         }
 
         // Retorna o nó criado
@@ -131,7 +131,7 @@ export default class ArvoreSintatica {
 
             // Se ele for um terminal, apenas cria um nó e o adiciona como filho
             if (!gram.simboloEhNaoTerminal(s)){
-                no._nos.unshift(new ArvoreSintatica(s));
+                no.children.unshift(new ArvoreSintatica(s));
                 continue;
             }
 
@@ -139,7 +139,7 @@ export default class ArvoreSintatica {
             const noFilho = ArvoreSintatica._parsearProducoesDir(prods, gram);
 
             // Se o nó retornado for válido, adiciona-o como filho
-            if(noFilho !== null) no._nos.unshift(noFilho);
+            if(noFilho !== null) no.children.unshift(noFilho);
         }
 
         // Retorna o nó criado
