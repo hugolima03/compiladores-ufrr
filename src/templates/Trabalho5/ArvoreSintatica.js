@@ -85,10 +85,10 @@ export default class ArvoreSintatica {
         if(p === undefined) return null;
 
         // Cria um nó com o símbolo da cabeça da produção
-        const no = new ArvoreSintatica(p.cabeca);
+        const no = new ArvoreSintatica(p.left);
 
         // Para cada símbolo do corpo...
-        for (const s of p.corpo) {
+        for (const s of p.right) {
 
             // Se ele for um terminal, apenas cria um nó e o adiciona como filho
             if (!gram.simboloEhNaoTerminal(s)){
@@ -123,10 +123,10 @@ export default class ArvoreSintatica {
         if(p === undefined) return null;
 
         // Cria um nó com o símbolo da cabeça da produção
-        const no = new ArvoreSintatica(p.cabeca);
+        const no = new ArvoreSintatica(p.left);
 
         // Para cada símbolo do corpo...
-        for (const s of p.corpo.reverse()) {
+        for (const s of p.right.reverse()) {
 
             // Se ele for um terminal, apenas cria um nó e o adiciona como filho
             if (!gram.simboloEhNaoTerminal(s)){

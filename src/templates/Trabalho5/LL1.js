@@ -3,7 +3,7 @@
  */
 export default class LL1 {
 
-    constructor () {
+    constructor() {
         this._inicial = null;
         this._fdc = null;
         this._gramatica = null;
@@ -15,13 +15,13 @@ export default class LL1 {
      * @param  {string|[string]} entrada String ou lista de string como entrada
      * @return {[Producao]}
      */
-    analisar (entrada) {
+    analisar(entrada) {
 
         // Se a entrada for uma string, converte para uma lista de caracteres
-        if(typeof(entrada) === 'string') entrada = [ ...entrada ];
+        if (typeof (entrada) === 'string') entrada = [...entrada];
 
         // Se não for uma lista, lança um erro
-        if(typeof(entrada) !== 'object' || !(entrada instanceof Array)) {
+        if (typeof (entrada) !== 'object' || !(entrada instanceof Array)) {
             throw 'A entrada deve ser uma string ou uma lista de tokens';
         }
 
@@ -30,7 +30,7 @@ export default class LL1 {
         entrada.push(this._fdc);
 
         // Cria a pilha com o símbolo inicial e o símbolo de fim de cadadeia
-        let pilha = [ this._inicial, this._fdc ];
+        let pilha = [this._inicial, this._fdc];
 
         // Cria uma lista vazia para as produções que irão descrever a árvore
         const prods = [];
@@ -40,7 +40,7 @@ export default class LL1 {
 
             // Se o topo da pilha for igual ao símbolo atual da entrada,
             // houve um casamento
-            if(pilha[0] === entrada[0]) {
+            if (pilha[0] === entrada[0]) {
                 // Desempilha o símbolo
                 pilha.shift();
 
@@ -84,7 +84,7 @@ export default class LL1 {
 
             // Empilha os símbolos do corpo da produção encontrada
             pilha = [
-                ...prod.corpo.filter(s => !this._gramatica.simboloEhVazio(s)),
+                ...prod.right.filter(s => !this._gramatica.simboloEhVazio(s)),
                 ...pilha
             ];
         }
@@ -100,13 +100,13 @@ export default class LL1 {
      * @param  {string} fdc     Símbolo de fim de cadeia
      * @return {LL1}
      */
-    static criar (gram, inicial, fdc) {
+    static criar(gram, inicial, fdc) {
 
-        if (typeof(gram) !== 'object') {
+        if (typeof (gram) !== 'object') {
             throw 'A gramática deve ser uma instância de Gramatica';
         }
 
-        if (typeof(inicial) !== 'string') {
+        if (typeof (inicial) !== 'string') {
             throw 'O símbolo inicial deve ser uma string não vazia';
         }
 
@@ -114,7 +114,7 @@ export default class LL1 {
             throw 'O símbolo inicial deve ser um símbolo não terminal da gramática';
         }
 
-        if (typeof(fdc) !== 'string') {
+        if (typeof (fdc) !== 'string') {
             throw 'O símbolo de fim de cadeia deve ser uma string não vazia';
         }
 
@@ -142,7 +142,7 @@ export default class LL1 {
      * @param  {Gramatica} gram    Gramática
      * @return {object}
      */
-    static _criarTabela (inicial, fdc, gram) {
+    static _criarTabela(inicial, fdc, gram) {
 
         // Cria o objeto chave valor para a tabela
         const tabela = {};
@@ -152,7 +152,7 @@ export default class LL1 {
 
         // Guarda os símbolos terminais e mais o símbolo de fim de cadadeia na
         // mesma lista
-        const terminais = [ ...gram._terminais, fdc ];
+        const terminais = [...gram._terminais, fdc];
 
         // Guarda todas as produções
         const producoes = gram.producoes;
@@ -164,9 +164,9 @@ export default class LL1 {
             tabela[snt] = {};
 
             // Para cada símbolo terminal...
-            for (const st of terminais){
+            for (const st of terminais) {
                 // Cria a "coluna" na tabela, caso não seja o vazio
-                if(gram.simboloEhVazio(st)) continue;
+                if (gram.simboloEhVazio(st)) continue;
                 tabela[snt][st] = null;
             }
         }
@@ -181,8 +181,8 @@ export default class LL1 {
         for (const prod of producoes) {
 
             // Guarda a string do corpo e a linha da tabela referente ao não terminal
-            const corpoStr = prod.corpo.join('');
-            const tabelaLinha = tabela[prod.cabeca];
+            const corpoStr = prod.right.join('');
+            const tabelaLinha = tabela[prod.left];
 
             // Calcula os primeiros da produção, caso não já tenha sido calculdo
             if (primeiros[corpoStr] === undefined) {
@@ -193,9 +193,9 @@ export default class LL1 {
             if (primeiros[corpoStr].includes(gram.vazio)) {
 
                 // Adiciona a produção nas colunas de dos seguidores da cabeça
-                for (const seguidor of seguidores[prod.cabeca]) {
+                for (const seguidor of seguidores[prod.left]) {
 
-                    if(tabelaLinha[seguidor] === null) {
+                    if (tabelaLinha[seguidor] === null) {
                         tabelaLinha[seguidor] = prod;
                         continue;
                     }
@@ -209,7 +209,7 @@ export default class LL1 {
 
                 // Adiciona a produção nas colunas dos símbolos dos primeiros do corpo
                 for (const primeiro of primeiros[corpoStr]) {
-                    if(tabelaLinha[primeiro] === null) {
+                    if (tabelaLinha[primeiro] === null) {
                         tabelaLinha[primeiro] = prod;
                         continue;
                     }
@@ -230,23 +230,23 @@ export default class LL1 {
      * @param  {Gramatica} gram Gramática
      * @return {[string]}
      */
-    static _primeiros (ent, gram) {
+    static _primeiros(ent, gram) {
 
-        ent = [ ...ent ];
+        ent = [...ent];
         let primeiros = [];
 
         for (const index in ent) {
 
             const atual = ent[index];
-            if(gram.simboloEhVazio(atual)) continue;
-            if (!gram.simboloEhNaoTerminal(atual)) return [ atual ];
+            if (gram.simboloEhVazio(atual)) continue;
+            if (!gram.simboloEhNaoTerminal(atual)) return [atual];
 
             ent = ent.splice(index);
 
             const prods = gram._buscarProducoesPorNaoTerminal(atual);
             for (const prod of prods) {
-                const saida = prod.aplicarPelaEsquerda(ent.join(''));
-                const snv = [ ...saida ].find(s => !gram.simboloEhVazio(s));
+                const saida = prod.applyByLeft(ent.join(''));
+                const snv = [...saida].find(s => !gram.simboloEhVazio(s));
 
                 if (snv === undefined) {
                     primeiros.push(gram.vazio);
@@ -258,7 +258,7 @@ export default class LL1 {
                     continue;
                 }
 
-                primeiros = [ ...primeiros, ...LL1._primeiros(saida, gram) ];
+                primeiros = [...primeiros, ...LL1._primeiros(saida, gram)];
             }
 
             primeiros = primeiros.filter((s, i) => {
@@ -266,10 +266,10 @@ export default class LL1 {
                 else return primeiros.indexOf(s) === i;
             });
 
-            if(primeiros.length >= 1 && !gram.simboloEhVazio(primeiros[0])) break;
+            if (primeiros.length >= 1 && !gram.simboloEhVazio(primeiros[0])) break;
         }
 
-        return primeiros.length > 0 ? primeiros : [ gram.vazio ];
+        return primeiros.length > 0 ? primeiros : [gram.vazio];
     }
 
     /**
@@ -279,11 +279,11 @@ export default class LL1 {
      * @param  {Gramatica} gram    Gramática
      * @return {Object}
      */
-    static _seguidores (inicial, fdc, gram) {
+    static _seguidores(inicial, fdc, gram) {
 
         const descricao = {};
         descricao[inicial] = {
-            valor: [ fdc ],
+            valor: [fdc],
             seguidores: [],
             primeiros: []
         };
@@ -293,23 +293,23 @@ export default class LL1 {
 
         for (const snt of gram._naoTerminais) {
 
-            if(descricao[snt] === undefined) descricao[snt] = {
+            if (descricao[snt] === undefined) descricao[snt] = {
                 valor: [],
                 seguidores: [],
                 primeiros: []
             };
 
             for (const prod of producoes) {
-                const pos = prod.corpo.indexOf(snt);
-                if(pos === -1) continue;
+                const pos = prod.right.indexOf(snt);
+                if (pos === -1) continue;
 
                 // A -> aB
-                if(pos === prod.corpo.length - 1) {
-                    descricao[snt].seguidores.push(prod.cabeca)
+                if (pos === prod.right.length - 1) {
+                    descricao[snt].seguidores.push(prod.left)
                     continue;
                 }
 
-                const ps = prod.corpo[pos + 1];
+                const ps = prod.right[pos + 1];
 
                 // A -> aBb onde b é terminal
                 if (!gram.simboloEhNaoTerminal(ps)) {
@@ -329,25 +329,25 @@ export default class LL1 {
 
                 // A -> aBC, onde vazio pertence a primeiros(C)
                 descricao[snt].primeiros.push(ps);
-                descricao[snt].seguidores.push(prod.cabeca);
+                descricao[snt].seguidores.push(prod.left);
             }
         }
 
         const seguidores = {};
         let algumIncompleto = true;
-        while(algumIncompleto) {
+        while (algumIncompleto) {
 
             for (const snt of gram._naoTerminais) {
 
-                if(seguidores[snt] === undefined) {
+                if (seguidores[snt] === undefined) {
                     seguidores[snt] = null;
                 }
 
-                if(seguidores[snt] !== null) continue;
+                if (seguidores[snt] !== null) continue;
 
                 for (const i in descricao[snt].primeiros) {
 
-                    if(typeof(descricao[snt].primeiros[i]) !== 'string') continue;
+                    if (typeof (descricao[snt].primeiros[i]) !== 'string') continue;
 
                     const simbolo = descricao[snt].primeiros[i];
                     if (primeiros[simbolo] === undefined) {
@@ -359,7 +359,7 @@ export default class LL1 {
                 let seguidoresPententes = false;
                 for (const i in descricao[snt].seguidores) {
 
-                    if(typeof(descricao[snt].seguidores[i]) !== 'string') continue;
+                    if (typeof (descricao[snt].seguidores[i]) !== 'string') continue;
                     const simbolo = descricao[snt].seguidores[i];
 
                     if (descricao[simbolo].seguidores.indexOf(snt) !== -1) {
@@ -372,7 +372,7 @@ export default class LL1 {
                         continue;
                     }
 
-                    if(seguidores[simbolo] === null || seguidores[simbolo] === undefined) {
+                    if (seguidores[simbolo] === null || seguidores[simbolo] === undefined) {
                         seguidoresPententes = true;
                         continue;
                     }
@@ -381,15 +381,15 @@ export default class LL1 {
                 }
 
 
-                if(!seguidoresPententes) {
-                    seguidores[snt] = [ ...descricao[snt].valor ];
+                if (!seguidoresPententes) {
+                    seguidores[snt] = [...descricao[snt].valor];
 
                     for (const a of descricao[snt].primeiros) {
-                        seguidores[snt] = [ ...seguidores[snt], ...a ];
+                        seguidores[snt] = [...seguidores[snt], ...a];
                     }
 
                     for (const a of descricao[snt].seguidores) {
-                        seguidores[snt] = [ ...seguidores[snt], ...a ];
+                        seguidores[snt] = [...seguidores[snt], ...a];
                     }
 
                     seguidores[snt] = seguidores[snt].filter((s, i) => {

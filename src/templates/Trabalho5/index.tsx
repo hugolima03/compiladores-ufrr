@@ -109,11 +109,7 @@ const Trabalho5Template = () => {
                     (st: any, index: number) => (
                       <TableDatacell key={index}>
                         {analisadorLL1._tabela[snt][st] !== null
-                          ? `${
-                              analisadorLL1._tabela[snt][st]?._cabeca
-                            } -> ${analisadorLL1._tabela[snt][st]?._corpo.join(
-                              ""
-                            )}`
+                          ? analisadorLL1._tabela[snt][st].asString
                           : "-"}
                       </TableDatacell>
                     )

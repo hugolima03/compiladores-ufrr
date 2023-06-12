@@ -10,13 +10,13 @@ export default class Derivacao {
      *                          base para as derivações
      * @param {Gramatica} gramatica Instância de uma gramática
      */
-    constructor (entrada, gramatica) {
+    constructor(entrada, gramatica) {
 
-        if(typeof(entrada) !== 'string' || entrada.length === 0) {
+        if (typeof (entrada) !== 'string' || entrada.length === 0) {
             throw 'A entrada deve ser uma string não vazia'
         }
 
-        if(typeof(gramatica) !== 'object') {
+        if (typeof (gramatica) !== 'object') {
             throw 'Deve uma instância Gramática'
         }
 
@@ -39,22 +39,22 @@ export default class Derivacao {
         const prod = this._gramatica.producao(snt, indice);
 
         // Se a posicao for um número, apenas aplica a produção com esta posição
-        if (typeof(posicao) === 'number') {
+        if (typeof (posicao) === 'number') {
             return prod.aplicar(this._gerado, posicao);
         }
 
         // Se não for uma string, define para aplicar pela esquerda, se for uma
         // string, converte toda para minusculo
-        if(typeof(posicao) !== 'string') posicao = 'e';
+        if (typeof (posicao) !== 'string') posicao = 'e';
         else posicao = posicao.toLowerCase();
 
         // Verifica se foi definido para aplicar pela direita
         if (['d', 'dir', 'direita', 'r', 'right'].includes(posicao)) {
-            return prod.aplicarPelaDireita(this._gerado);
+            return prod.applyByRight(this._gerado);
         }
 
         // Se não aplica pela esquerca
-        return prod.aplicarPelaEsquerda(this._gerado);
+        return prod.applyByLeft(this._gerado);
     }
 
     /**
@@ -66,10 +66,10 @@ export default class Derivacao {
      *                                  ou esqueda, ou direita
      * @return {Derivacao}
      */
-    proximo (snt, indice, posicao) {
+    proximo(snt, indice, posicao) {
 
         // Se não existir mais símbolos terminais, não faz mais nada
-        if(!this._gramatica.existeNaoTerminal(this._gerado)) return this;
+        if (!this._gramatica.existeNaoTerminal(this._gerado)) return this;
 
         // Se ainda existir, aplica a proxima produção
         this._gerado = this._aplicarProducao(snt, indice, posicao);
@@ -82,5 +82,5 @@ export default class Derivacao {
      * Retorna a string gerada até então
      * @return {string}
      */
-    get gerado () { return this._gerado; }
+    get gerado() { return this._gerado; }
 }
