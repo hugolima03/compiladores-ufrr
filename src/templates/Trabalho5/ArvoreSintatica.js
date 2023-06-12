@@ -46,18 +46,17 @@ export default class ArvoreSintatica {
      * @return {ArvoreSintatica}
      */
     static parsearProducoes (prods, gram, lado) {
+        // if (typeof(prods) !== 'object' || !(prods instanceof Array)) {
+        //     throw 'As producaoções devem estar em uma lista de Producao';
+        // }
 
-        if (typeof(prods) !== 'object' || !(prods instanceof Array)) {
-            throw 'As producaoções devem estar em uma lista de Producao';
-        }
+        // if (!prods.every(i => typeof(i) === 'object')) {
+        //     throw 'As producaoções devem estar em uma lista de Producao';
+        // }
 
-        if (!prods.every(i => typeof(i) === 'object')) {
-            throw 'As producaoções devem estar em uma lista de Producao';
-        }
-
-        if (typeof(gram) !== 'object') {
-            throw 'A gramática deve ser uma instância de Gramatica';
-        }
+        // if (typeof(gram) !== 'object') {
+        //     throw 'A gramática deve ser uma instância de Gramatica';
+        // }
 
         if(typeof(lado) !== 'string') lado = 'e';
         else lado = lado.toLowerCase();

@@ -24,7 +24,7 @@ export const Row = styled.div`
 `
 
 export const TreeWrapper = styled.div`
-  height: 50rem;
+  height: 90vh;
   background-color: white;
   border-radius: 0.4rem;
 `

@@ -45,4 +45,6 @@ export const TableRow = styled.tr``;
 export const TableDatacell = styled.td`
   border-collapse: collapse;
   background-color: white;
+
+  white-space: nowrap;
 `;

@@ -1,6 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useEffect, useState } from "react";
 
+import Tree from "react-d3-tree";
+import toast, { Toaster } from "react-hot-toast";
+
 import CodeEditor from "components/CodeEditor";
 import {
   Table,
@@ -9,55 +12,29 @@ import {
   TableRow,
 } from "components/Table/styles";
 
-import ArvoreSintatica from "./ArvoreSintatica";
-import Gramatica from "./Gramatica";
 import LL1 from "./LL1";
+import Gramatica from "./Gramatica";
+import ArvoreSintatica from "./ArvoreSintatica";
 
 import * as S from "./styles";
-import Tree from "react-d3-tree";
-
-const orgChart = {
-  name: "CEO",
-  children: [
-    {
-      name: "Manager",
-      attributes: {
-        department: "Production",
-      },
-      children: [
-        {
-          name: "Foreman",
-          attributes: {
-            department: "Fabrication",
-          },
-          children: [
-            {
-              name: "Worker",
-            },
-          ],
-        },
-        {
-          name: "Foreman",
-          attributes: {
-            department: "Assembly",
-          },
-          children: [
-            {
-              name: "Worker",
-            },
-          ],
-        },
-      ],
-    },
-  ],
-};
 
 const Trabalho5Template = () => {
   const [arvore, setArvore] = useState<ArvoreSintatica>();
   const [gramaticaLL1, setGramaticaLL1] = useState<Gramatica>();
   const [analisadorLL1, setAnalisadorLL1] = useState<LL1>();
   function onsubmit(sourceCode: string) {
-    console.log(sourceCode);
+    try {
+      const prods = analisadorLL1?.analisar(sourceCode);
+      const arvore = ArvoreSintatica.parsearProducoes(
+        prods!,
+        gramaticaLL1,
+        "e"
+      );
+      setArvore(arvore);
+    } catch {
+      toast.error("Sentença não reconhecida");
+      setArvore(undefined);
+    }
   }
 
   useEffect(() => {
@@ -74,14 +51,11 @@ const Trabalho5Template = () => {
     setGramaticaLL1(gramaticaLL1);
     const analisadorLL1 = LL1.criar(gramaticaLL1, "E", "$");
     setAnalisadorLL1(analisadorLL1);
-    const prods = analisadorLL1.analisar("(v+v)xv");
-    const arvore = ArvoreSintatica.parsearProducoes(prods, gramaticaLL1, "r");
-    setArvore(arvore);
   }, []);
 
   return (
-    <S.Container>
-      <S.Row>
+    <>
+      <S.Container>
         <CodeEditor
           title="Analisador Sintático Preditivo"
           placeholder="placeholder"
@@ -104,25 +78,30 @@ const Trabalho5Template = () => {
                   {Object.keys(analisadorLL1._tabela[snt]).map(
                     (st: any, index: number) => (
                       <TableDatacell key={index}>
-                        {analisadorLL1._tabela[snt][st] !== null ? `P` : "-"}
+                        {analisadorLL1._tabela[snt][st] !== null
+                          ? `${
+                              analisadorLL1._tabela[snt][st]?._cabeca
+                            } -> ${analisadorLL1._tabela[snt][st]?._corpo.join(
+                              ""
+                            )}`
+                          : "-"}
                       </TableDatacell>
                     )
                   )}
                 </TableRow>
               ))}
-            {/* <TableRow>
-              {analisadorLL1?._tabela.map((row) => {
-                return <TableDatacell>{row}</TableDatacell>
-              })}
-            </TableRow> */}
           </tbody>
         </Table>
-      </S.Row>
+      </S.Container>
 
-      <S.TreeWrapper>
-        <Tree orientation="vertical" data={orgChart} />
-      </S.TreeWrapper>
-    </S.Container>
+      {arvore && (
+        <S.TreeWrapper>
+          <Tree orientation="vertical" data={arvore} />
+        </S.TreeWrapper>
+      )}
+
+      <Toaster />
+    </>
   );
 };
 
