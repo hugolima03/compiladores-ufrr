@@ -15,25 +15,21 @@ import {
 
 import LL1 from "./LL1";
 import Gramatica from "./Gramatica";
-import ArvoreSintatica from "./ArvoreSintatica";
+import SyntaxTree from "./SyntaxTree";
 
 import * as S from "./styles";
 
 const Trabalho5Template = () => {
   const tree = useRef<HTMLDivElement>(null);
 
-  const [arvore, setArvore] = useState<ArvoreSintatica>();
+  const [arvore, setArvore] = useState<SyntaxTree>();
   const [gramaticaLL1, setGramaticaLL1] = useState<Gramatica>();
   const [analisadorLL1, setAnalisadorLL1] = useState<LL1>();
 
   function onsubmit(sourceCode: string) {
     try {
       const prods = analisadorLL1?.analisar(sourceCode);
-      const arvore = ArvoreSintatica.parsearProducoes(
-        prods!,
-        gramaticaLL1,
-        "e"
-      );
+      const arvore = SyntaxTree._parseProductionsLeft(prods!, gramaticaLL1);
       setArvore(arvore);
       tree.current?.scrollIntoView();
     } catch {
