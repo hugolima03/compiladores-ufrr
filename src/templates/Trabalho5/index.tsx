@@ -1,10 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Tree from "react-d3-tree";
 import toast, { Toaster } from "react-hot-toast";
 
 import CodeEditor from "components/CodeEditor";
+import Description from "components/Description";
 import {
   Table,
   TableDatacell,
@@ -19,9 +20,12 @@ import ArvoreSintatica from "./ArvoreSintatica";
 import * as S from "./styles";
 
 const Trabalho5Template = () => {
+  const tree = useRef<HTMLDivElement>(null);
+
   const [arvore, setArvore] = useState<ArvoreSintatica>();
   const [gramaticaLL1, setGramaticaLL1] = useState<Gramatica>();
   const [analisadorLL1, setAnalisadorLL1] = useState<LL1>();
+
   function onsubmit(sourceCode: string) {
     try {
       const prods = analisadorLL1?.analisar(sourceCode);
@@ -31,6 +35,7 @@ const Trabalho5Template = () => {
         "e"
       );
       setArvore(arvore);
+      tree.current?.scrollIntoView();
     } catch {
       toast.error("Sentença não reconhecida");
       setArvore(undefined);
@@ -56,11 +61,36 @@ const Trabalho5Template = () => {
   return (
     <>
       <S.Container>
-        <CodeEditor
-          title="Analisador Sintático Preditivo"
-          placeholder="placeholder"
-          onSubmit={onsubmit}
-        />
+        <S.Row>
+          <CodeEditor
+            title="Analisador Sintático Preditivo"
+            placeholder="placeholder"
+            onSubmit={onsubmit}
+          />
+
+          <Description>
+            <p>
+              O seguinte analisador sintático preditivo reconhece a gramática
+              LL(1) <em>G1</em> para operações aritméticas de soma e
+              multiplicação.
+              <br />
+              <br />
+              E → MF
+              <br />
+              F → +MF | ε
+              <br />
+              M → PN
+              <br />
+              N → xPN | ε
+              <br />
+              P → (E) | v
+              <br />
+              <br />
+              Utilize o botão compilar para visualizar a árvore sintática da
+              sentença no final da página.
+            </p>
+          </Description>
+        </S.Row>
         <Table>
           <thead>
             <TableRow>
@@ -94,11 +124,9 @@ const Trabalho5Template = () => {
         </Table>
       </S.Container>
 
-      {arvore && (
-        <S.TreeWrapper>
-          <Tree orientation="vertical" data={arvore} />
-        </S.TreeWrapper>
-      )}
+      <S.TreeWrapper ref={tree}>
+        {arvore && <Tree orientation="vertical" data={arvore} />}
+      </S.TreeWrapper>
 
       <Toaster />
     </>
