@@ -1,6 +1,5 @@
+import Grammar from "./Grammar";
 import Production from "./Production";
-
-type Grammar = any;
 
 export default class SyntaxTree {
   name: string;

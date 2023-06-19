@@ -1,6 +1,11 @@
 import Production from "./Production";
 
-export default class Gramatica {
+export default class Grammar {
+  _terminais: string[]
+  _naoTerminais: string[]
+  _producoes: { [key: string]: Production[] }
+  _vazio: string
+
   constructor() {
     this._terminais = [];
     this._naoTerminais = [];
@@ -8,16 +13,10 @@ export default class Gramatica {
     this._vazio = "";
   }
 
-  get vazio() {
-    return this._vazio;
-  }
-
   /**
    * Busca por todas produções de um determinado símbolo não terminal
-   * @param  {string} snt Símbolo não terminal
-   * @return {Array}
    */
-  _buscarProducoesPorNaoTerminal(snt) {
+  _buscarProducoesPorNaoTerminal(snt: string) {
     // Verifica se o símbolo não terminal existe na gramática
     if (typeof this._producoes[snt] === "undefined") {
       throw "O símbolo não terminai não foi definido";
@@ -30,26 +29,21 @@ export default class Gramatica {
   /**
    * Verifica uma string e procura todas ocorrências de símbolos não terminais
    * da gramática
-   * @param  {string}  entrada String de entrada
-   * @return {object} Objeto chave-valor com listas das posições de cada
-   *                  ocorrência de cada símbolo não terminal
    */
-  _ocorrenciasDeNaoTermiais(entrada) {
+  _ocorrenciasDeNaoTermiais(entrada: string) {
     // Utiliza expressão regular para encontrar os não terminais na entrada
     const regex = new RegExp(this._naoTerminais.join("|"), "g");
-    const encontrados = [...entrada.matchAll(regex)];
-
+    const encontrados = Array.from(entrada.matchAll(regex));
     // Cria um objeto vazio
-    const ocorrencias = {};
+    const ocorrencias: { [key: string]: number[] } = {};
 
     // Para cada ocorrencia encontrada...
     for (const e of encontrados) {
       if (typeof ocorrencias[e[0]] === "undefined") ocorrencias[e[0]] = [];
 
       // Adiciona a posição do símbolo a lista de ocorrências
-      ocorrencias[e[0]].push(e.index);
+      ocorrencias[e[0]].push(e.index!);
     }
-
     // Retorna as ocorrências
     return ocorrencias;
   }
@@ -57,38 +51,29 @@ export default class Gramatica {
   /**
    * Verifica se em uma string existe a ocorrência de algum símbolo não
    * terminal da gramáitica
-   * @param  {string} entrada String de entrada
-   * @return {boolean}
    */
-  existeNaoTerminal(entrada) {
+  existeNaoTerminal(entrada: string) {
     return Object.keys(this._ocorrenciasDeNaoTermiais(entrada)).length > 0;
   }
 
   /**
    * Varifica se um símblo é um não terminal na gramática
-   * @param  {string} simbolo Símbolo que será verificado
-   * @return {bool}
    */
-  simboloEhNaoTerminal(simbolo) {
+  simboloEhNaoTerminal(simbolo: string) {
     return this._naoTerminais.includes(simbolo);
   }
 
   /**
    * Verifica se o um símbolo é o símbolo vazio da gramática
-   * @param  {string} simbolo Símblo que será testado
-   * @return {bool}
    */
-  simboloEhVazio(simbolo) {
+  simboloEhVazio(simbolo: string) {
     return this._vazio === simbolo;
   }
 
   /**
    * Retorna uma produção de um símbolo não terminal válido na gramática
-   * @param  {string} snt    Símbolo não terminal
-   * @param  {integer} indice Índice da produção respectivo símbolo não terminal
-   * @return {Producao}
    */
-  producao(snt, indice) {
+  producao(snt: string, indice: number) {
     if (typeof indice !== "number") indice = 0;
 
     const producoes = this._buscarProducoesPorNaoTerminal(snt);
@@ -101,10 +86,9 @@ export default class Gramatica {
 
   /**
    * Retorna uma lista de todas a produções da gramática
-   * @return {[Producao]}
    */
   get producoes() {
-    let producoes = [];
+    let producoes: Production[] = [];
     for (const snt of this._naoTerminais) {
       producoes = [...producoes, ...this._buscarProducoesPorNaoTerminal(snt)];
     }
@@ -113,12 +97,8 @@ export default class Gramatica {
 
   /**
    * Cria e inicializa uma instância de Gramatica
-   * @param  {object} producoes   Objeto chave-valor contendo os símbolos não
-   *                              terminais e suas respectivas dereivações
-   * @param {string}  vazio       Símbolo que representa o vazio na gramática
-   * @return {Gramatica}
    */
-  static criar(producoes, vazio) {
+  static criar(producoes: { [key: string]: string[] }, vazio: string) {
     if (typeof producoes !== "object") {
       throw "As produções devem ser um objeto chave valor não vazio";
     }
@@ -128,7 +108,7 @@ export default class Gramatica {
     }
 
     // Cria a instância de Gramatica e define os símbolos não terminais
-    const gram = new Gramatica();
+    const gram = new Grammar();
     gram._naoTerminais = Object.keys(producoes);
 
     if (gram._naoTerminais.length === 0) {
@@ -142,33 +122,24 @@ export default class Gramatica {
     gram._vazio = vazio;
 
     // Para cada símbolo não terminal...
-    let terminais = [];
+    let terminais: string[] = [];
     for (const snt of gram._naoTerminais) {
       gram._producoes[snt] = [];
 
       // Valida e cria as produções
-      const prods =
-        typeof producoes[snt] === "string" ? [producoes[snt]] : producoes[snt];
+      const prods = producoes[snt];
 
-      if (typeof prods !== "object" || !(prods instanceof Array)) {
-        throw "As produções deve uma string ou uma lista não vaiza de strings";
-      }
-
-      if (prods.length === 0 || !prods.every((i) => typeof i === "string")) {
-        throw "As produções deve uma string ou uma lista não vaiza de strings";
-      }
-
-      // Para cada símbolo terminal referente as prpduções do símbolo não
+      // Para cada símbolo terminal referente as produções do símbolo não
       // termial atual...
       for (const st of prods) {
         // Gera uma lista com todos os símbolos do corpo
-        const corpo = Gramatica._parsearCorpoProducao(
+        const corpo = Grammar._parsearCorpoProducao(
           st,
-          gram._ocorrenciasDeNaoTermiais(st)
+          gram._ocorrenciasDeNaoTermiais(st as string)
         );
 
         // Cria uma instância de Produção e adiciona a gramática
-        gram._producoes[snt].push(new Production(snt, corpo, gram.vazio));
+        gram._producoes[snt].push(new Production(snt, corpo, gram._vazio));
 
         // Guarda todos os símbolos terminais em uma lista
         terminais = [
@@ -188,17 +159,13 @@ export default class Gramatica {
 
   /**
    * Transforma uma string em uma lista de símbolos terminais e não terminais
-   * @param  {string} str         String de entrada
-   * @param  {object} ocorrencias Objeto contendo o mapeamento das posições
-   *                              dos não terminais na string
-   * @return {[string]}
    */
-  static _parsearCorpoProducao(str, ocorrencias) {
+  static _parsearCorpoProducao(str: string, ocorrencias: { [key: string]: number[] }) {
     // Gera a lista de não terminais presentes na string
     const naoTermnais = Object.keys(ocorrencias);
 
     // Se não existir não terminais, apenas transforma a string em lista
-    if (naoTermnais.length === 0) return [...str];
+    if (naoTermnais.length === 0) return str.split('');
 
     // Gera uma lista contento todas as posições onde a string deve ser quebrada
     let locaisDivisao = [0];
@@ -216,7 +183,7 @@ export default class Gramatica {
       .sort();
 
     // Gera a lista de símbolos
-    let corpo = [];
+    let corpo: string[] = [];
     for (let i = 0; i < locaisDivisao.length - 1; i++) {
       // Pega a parte da string na posição atual
       const substr = str.substring(locaisDivisao[i], locaisDivisao[i + 1]);
@@ -224,7 +191,7 @@ export default class Gramatica {
       // Se símbolo for um não terminal, apenas adiciona a lista
       if (naoTermnais.includes(substr)) corpo.push(substr);
       //Se fpr um terminal, concatenada a lista de símbolos na lista final
-      else corpo = [...corpo, ...substr];
+      else corpo = [...corpo, ...substr.split('')];
     }
 
     return corpo;

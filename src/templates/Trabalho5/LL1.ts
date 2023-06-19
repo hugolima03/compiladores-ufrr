@@ -1,33 +1,43 @@
+import Grammar from "./Grammar";
+
+type Follows = {
+    [key: string]: string[];
+}
+
+type Firsts = {
+    [key: string]: string[];
+}
+
+type TableRow = {
+    [key: string]: Object | null;
+}
+
+type Table = {
+    [key: string]: TableRow;
+};
+
 /**
  * Classe responsável por representar analisadores LL(1)
  */
 export default class LL1 {
+    _inicial?: string;
+    _fdc?: string;
+    _gramatica?: Grammar;
+    _tabela?: Table;
 
     constructor() {
-        this._inicial = null;
-        this._fdc = null;
-        this._gramatica = null;
-        this._tabela = null;
+        this._inicial = undefined;
+        this._fdc = undefined;
+        this._gramatica = undefined;
+        this._tabela = undefined;
     }
 
-    /**
-     * Realiza a análise sintática de uma entrada e retorna uma lista de produções
-     * @param  {string|[string]} entrada String ou lista de string como entrada
-     * @return {[Producao]}
-     */
-    analisar(entrada) {
-
-        // Se a entrada for uma string, converte para uma lista de caracteres
-        if (typeof (entrada) === 'string') entrada = [...entrada];
-
-        // Se não for uma lista, lança um erro
-        if (typeof (entrada) !== 'object' || !(entrada instanceof Array)) {
-            throw 'A entrada deve ser uma string ou uma lista de tokens';
-        }
+    analisar(input: string) {
+        let entrada = input.split("");
 
         // Adiciona o símbolo de fim de cadeia ao final da entrada
         let entradaPos = 0;
-        entrada.push(this._fdc);
+        entrada.push(this._fdc!);
 
         // Cria a pilha com o símbolo inicial e o símbolo de fim de cadadeia
         let pilha = [this._inicial, this._fdc];
@@ -37,7 +47,6 @@ export default class LL1 {
 
         // Enquanto o topo da pilha não for o símbo de fim de cadeia...
         while (pilha[0] !== this._fdc) {
-
             // Se o topo da pilha for igual ao símbolo atual da entrada,
             // houve um casamento
             if (pilha[0] === entrada[0]) {
@@ -55,16 +64,19 @@ export default class LL1 {
 
             // Se o topo for um símbolo terminal diferente do atual da entrada,
             // gera erro
-            if (!this._gramatica.simboloEhNaoTerminal(pilha[0])) {
+            if (!this._gramatica?.simboloEhNaoTerminal(pilha[0]!)) {
                 throw {
                     posicao: entradaPos,
                     esperado: pilha[0],
-                    encontrado: entrada[0]
+                    encontrado: entrada[0],
                 };
             }
 
             // Busca na tabela sintática a produção que deve ser aplicada
-            const prod = this._tabela[pilha[0]][entrada[0]];
+            const prod: any =
+                this._tabela![pilha[0] as keyof typeof this._tabela][
+                entrada[0] as keyof typeof this._tabela
+                ];
 
             // Se não exisir uma produção, gera um erro
             if (prod === null || prod === undefined) {
@@ -72,7 +84,7 @@ export default class LL1 {
                 throw {
                     posicao: entradaPos,
                     esperado: LL1._primeiros(pilha[0], this._gramatica),
-                    encontrado: entrada[0]
+                    encontrado: entrada[0],
                 };
             }
 
@@ -84,8 +96,10 @@ export default class LL1 {
 
             // Empilha os símbolos do corpo da produção encontrada
             pilha = [
-                ...prod.right.filter(s => !this._gramatica.simboloEhVazio(s)),
-                ...pilha
+                ...prod.right.filter(
+                    (s: string) => !this._gramatica!.simboloEhVazio(s)
+                ),
+                ...pilha,
             ];
         }
 
@@ -93,37 +107,29 @@ export default class LL1 {
         return prods;
     }
 
-    /**
-     * Cria uma instância de LL1
-     * @param  {Gramatica} gram    Gramática que será utilizada para as analises
-     * @param  {string} inicial Símbolo inicial da gramática
-     * @param  {string} fdc     Símbolo de fim de cadeia
-     * @return {LL1}
-     */
-    static criar(gram, inicial, fdc) {
-
-        if (typeof (gram) !== 'object') {
-            throw 'A gramática deve ser uma instância de Gramatica';
+    static criar(gram: Grammar, inicial: string, fdc: string) {
+        if (typeof gram !== "object") {
+            throw "A gramática deve ser uma instância de Gramatica";
         }
 
-        if (typeof (inicial) !== 'string') {
-            throw 'O símbolo inicial deve ser uma string não vazia';
+        if (typeof inicial !== "string") {
+            throw "O símbolo inicial deve ser uma string não vazia";
         }
 
         if (!gram.simboloEhNaoTerminal(inicial)) {
-            throw 'O símbolo inicial deve ser um símbolo não terminal da gramática';
+            throw "O símbolo inicial deve ser um símbolo não terminal da gramática";
         }
 
-        if (typeof (fdc) !== 'string') {
-            throw 'O símbolo de fim de cadeia deve ser uma string não vazia';
+        if (typeof fdc !== "string") {
+            throw "O símbolo de fim de cadeia deve ser uma string não vazia";
         }
 
         if (gram.simboloEhNaoTerminal(fdc)) {
-            throw 'O símbolo de fim de cadeia não pode ser um símbolo não terminal da gramática';
+            throw "O símbolo de fim de cadeia não pode ser um símbolo não terminal da gramática";
         }
 
         if (gram._terminais.includes(fdc)) {
-            throw 'O símbolo de fim de cadeia não pode ser um símbolo terminal conhecido da gramática';
+            throw "O símbolo de fim de cadeia não pode ser um símbolo terminal conhecido da gramática";
         }
 
         const ll1 = new LL1();
@@ -135,17 +141,9 @@ export default class LL1 {
         return ll1;
     }
 
-    /**
-     * Cria a tabela sintática de uma gramática LL(1)
-     * @param  {string} inicial Símbolo inicial da gramática
-     * @param  {string} fdc     Símbolo de fim de cadeias
-     * @param  {Gramatica} gram    Gramática
-     * @return {object}
-     */
-    static _criarTabela(inicial, fdc, gram) {
-
+    static _criarTabela(inicial: string, fdc: string, gram: Grammar) {
         // Cria o objeto chave valor para a tabela
-        const tabela = {};
+        const tabela: Table = {};
 
         // Guarda os símbolos não terminais da gramática
         const naoTerminais = gram._naoTerminais;
@@ -159,7 +157,6 @@ export default class LL1 {
 
         // Para cada símbolo não terminal...
         for (const snt of naoTerminais) {
-
             // Cria a "linha" na tabela
             tabela[snt] = {};
 
@@ -172,16 +169,14 @@ export default class LL1 {
         }
 
         // Calcula os seguidores
-        const seguidores = LL1._seguidores(inicial, fdc, gram);
-
+        const seguidores: Follows = LL1._seguidores(inicial, fdc, gram);
         // Cria um objeto chave-valor para guardar temporáriamente os primerios
-        const primeiros = {};
+        const primeiros: Firsts = {};
 
         // Para cada produção...
         for (const prod of producoes) {
-
             // Guarda a string do corpo e a linha da tabela referente ao não terminal
-            const corpoStr = prod.right.join('');
+            const corpoStr = prod.right.join("");
             const tabelaLinha = tabela[prod.left];
 
             // Calcula os primeiros da produção, caso não já tenha sido calculdo
@@ -191,22 +186,19 @@ export default class LL1 {
 
             // Se os primerios incluirem o vazio...
             if (primeiros[corpoStr].includes(gram.vazio)) {
-
                 // Adiciona a produção nas colunas de dos seguidores da cabeça
                 for (const seguidor of seguidores[prod.left]) {
-
                     if (tabelaLinha[seguidor] === null) {
                         tabelaLinha[seguidor] = prod;
                         continue;
                     }
 
                     // Se a celula não estiver vazia, gera erro de não determinismo
-                    throw 'Não determinísmo';
+                    throw "Não determinísmo";
                 }
             }
             // Se os primeiros não incluirem o vazio...
             else {
-
                 // Adiciona a produção nas colunas dos símbolos dos primeiros do corpo
                 for (const primeiro of primeiros[corpoStr]) {
                     if (tabelaLinha[primeiro] === null) {
@@ -215,11 +207,10 @@ export default class LL1 {
                     }
 
                     // Se a celula não estiver vazia, gera erro de não determinismo
-                    throw 'Não determinísmo';
+                    throw "Não determinísmo";
                 }
             }
         }
-
         // Retorna a tabela
         return tabela;
     }
@@ -230,23 +221,21 @@ export default class LL1 {
      * @param  {Gramatica} gram Gramática
      * @return {[string]}
      */
-    static _primeiros(ent, gram) {
-
-        ent = [...ent];
-        let primeiros = [];
+    static _primeiros(input: string, gram: Grammar): (string | undefined)[] {
+        let ent = input.split('');
+        let primeiros: (string | undefined)[] = [];
 
         for (const index in ent) {
-
             const atual = ent[index];
             if (gram.simboloEhVazio(atual)) continue;
             if (!gram.simboloEhNaoTerminal(atual)) return [atual];
 
-            ent = ent.splice(index);
+            ent = ent.splice(Number(index));
 
             const prods = gram._buscarProducoesPorNaoTerminal(atual);
             for (const prod of prods) {
-                const saida = prod.applyByLeft(ent.join(''));
-                const snv = [...saida].find(s => !gram.simboloEhVazio(s));
+                const saida = prod.applyByLeft(ent.join(""));
+                const snv = saida.split('').find((s) => !gram.simboloEhVazio(s));
 
                 if (snv === undefined) {
                     primeiros.push(gram.vazio);
@@ -266,7 +255,7 @@ export default class LL1 {
                 else return primeiros.indexOf(s) === i;
             });
 
-            if (primeiros.length >= 1 && !gram.simboloEhVazio(primeiros[0])) break;
+            if (primeiros.length >= 1 && !gram.simboloEhVazio(primeiros[0]!)) break;
         }
 
         return primeiros.length > 0 ? primeiros : [gram.vazio];
@@ -279,25 +268,24 @@ export default class LL1 {
      * @param  {Gramatica} gram    Gramática
      * @return {Object}
      */
-    static _seguidores(inicial, fdc, gram) {
-
-        const descricao = {};
+    static _seguidores(inicial: string, fdc: string, gram: Grammar) {
+        const descricao: Record<string, any> = {};
         descricao[inicial] = {
             valor: [fdc],
             seguidores: [],
-            primeiros: []
+            primeiros: [],
         };
 
-        const primeiros = {};
+        const primeiros: Record<string, any> = {};
         const producoes = gram.producoes;
 
         for (const snt of gram._naoTerminais) {
-
-            if (descricao[snt] === undefined) descricao[snt] = {
-                valor: [],
-                seguidores: [],
-                primeiros: []
-            };
+            if (descricao[snt] === undefined)
+                descricao[snt] = {
+                    valor: [],
+                    seguidores: [],
+                    primeiros: [],
+                };
 
             for (const prod of producoes) {
                 const pos = prod.right.indexOf(snt);
@@ -305,7 +293,7 @@ export default class LL1 {
 
                 // A -> aB
                 if (pos === prod.right.length - 1) {
-                    descricao[snt].seguidores.push(prod.left)
+                    descricao[snt].seguidores.push(prod.left);
                     continue;
                 }
 
@@ -333,12 +321,10 @@ export default class LL1 {
             }
         }
 
-        const seguidores = {};
+        const seguidores: Record<string, any> = {};
         let algumIncompleto = true;
         while (algumIncompleto) {
-
             for (const snt of gram._naoTerminais) {
-
                 if (seguidores[snt] === undefined) {
                     seguidores[snt] = null;
                 }
@@ -346,8 +332,7 @@ export default class LL1 {
                 if (seguidores[snt] !== null) continue;
 
                 for (const i in descricao[snt].primeiros) {
-
-                    if (typeof (descricao[snt].primeiros[i]) !== 'string') continue;
+                    if (typeof descricao[snt].primeiros[i] !== "string") continue;
 
                     const simbolo = descricao[snt].primeiros[i];
                     if (primeiros[simbolo] === undefined) {
@@ -358,8 +343,7 @@ export default class LL1 {
 
                 let seguidoresPententes = false;
                 for (const i in descricao[snt].seguidores) {
-
-                    if (typeof (descricao[snt].seguidores[i]) !== 'string') continue;
+                    if (typeof descricao[snt].seguidores[i] !== "string") continue;
                     const simbolo = descricao[snt].seguidores[i];
 
                     if (descricao[simbolo].seguidores.indexOf(snt) !== -1) {
@@ -372,14 +356,16 @@ export default class LL1 {
                         continue;
                     }
 
-                    if (seguidores[simbolo] === null || seguidores[simbolo] === undefined) {
+                    if (
+                        seguidores[simbolo] === null ||
+                        seguidores[simbolo] === undefined
+                    ) {
                         seguidoresPententes = true;
                         continue;
                     }
 
                     descricao[snt].seguidores[i] = seguidores[simbolo];
                 }
-
 
                 if (!seguidoresPententes) {
                     seguidores[snt] = [...descricao[snt].valor];
@@ -392,7 +378,7 @@ export default class LL1 {
                         seguidores[snt] = [...seguidores[snt], ...a];
                     }
 
-                    seguidores[snt] = seguidores[snt].filter((s, i) => {
+                    seguidores[snt] = seguidores[snt].filter((s: string | undefined, i: number) => {
                         return seguidores[snt].indexOf(s) === i && s !== gram.vazio;
                     });
                 }
@@ -405,7 +391,6 @@ export default class LL1 {
                     break;
                 }
             }
-
         }
 
         return seguidores;

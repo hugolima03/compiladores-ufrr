@@ -14,7 +14,7 @@ import {
 } from "components/Table/styles";
 
 import LL1 from "./LL1";
-import Gramatica from "./Gramatica";
+import Grammar from "./Grammar";
 import SyntaxTree from "./SyntaxTree";
 
 import * as S from "./styles";
@@ -22,24 +22,26 @@ import * as S from "./styles";
 const Trabalho5Template = () => {
   const tree = useRef<HTMLDivElement>(null);
 
-  const [arvore, setArvore] = useState<SyntaxTree>();
-  const [gramaticaLL1, setGramaticaLL1] = useState<Gramatica>();
+  const [arvore, setArvore] = useState<SyntaxTree | null>(null);
+  const [gramaticaLL1, setGramaticaLL1] = useState<Grammar>();
   const [analisadorLL1, setAnalisadorLL1] = useState<LL1>();
 
   function onsubmit(sourceCode: string) {
     try {
-      const prods = analisadorLL1?.analisar(sourceCode);
-      const arvore = SyntaxTree._parseProductionsLeft(prods!, gramaticaLL1);
-      setArvore(arvore);
-      tree.current?.scrollIntoView();
+      if (gramaticaLL1) {
+        const prods = analisadorLL1?.analisar(sourceCode);
+        const arvore = SyntaxTree._parseProductionsLeft(prods!, gramaticaLL1);
+        setArvore(arvore);
+        tree.current?.scrollIntoView();
+      }
     } catch {
       toast.error("Sentença não reconhecida");
-      setArvore(undefined);
+      setArvore(null);
     }
   }
 
   useEffect(() => {
-    const gramaticaLL1 = Gramatica.criar(
+    const gramaticaLL1 = Grammar.criar(
       {
         E: ["MF"],
         F: ["+MF", "ε"], //E'
@@ -52,6 +54,10 @@ const Trabalho5Template = () => {
     setGramaticaLL1(gramaticaLL1);
     const analisadorLL1 = LL1.criar(gramaticaLL1, "E", "$");
     setAnalisadorLL1(analisadorLL1);
+
+    const prods = analisadorLL1?.analisar("v+v");
+    const arvore = SyntaxTree._parseProductionsLeft(prods!, gramaticaLL1);
+    setArvore(arvore);
   }, []);
 
   return (
@@ -98,14 +104,16 @@ const Trabalho5Template = () => {
           </thead>
           <tbody>
             {analisadorLL1 &&
+              analisadorLL1._tabela &&
               Object.keys(analisadorLL1._tabela).map((snt) => (
                 <TableRow key={snt}>
                   <TableDatacell>{snt}</TableDatacell>
-                  {Object.keys(analisadorLL1._tabela[snt]).map(
+                  {Object.keys(analisadorLL1._tabela![snt]).map(
                     (st: any, index: number) => (
                       <TableDatacell key={index}>
-                        {analisadorLL1._tabela[snt][st] !== null
-                          ? analisadorLL1._tabela[snt][st].asString
+                        {analisadorLL1._tabela &&
+                        analisadorLL1._tabela[snt][st] !== null
+                          ? (analisadorLL1._tabela[snt][st] as any).asString
                           : "-"}
                       </TableDatacell>
                     )
