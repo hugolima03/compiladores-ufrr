@@ -41,7 +41,7 @@ const Trabalho5Template = () => {
   }
 
   useEffect(() => {
-    const gramaticaLL1 = Grammar.criar(
+    const gramaticaLL1 = Grammar.createGrammar(
       {
         E: ["MF"],
         F: ["+MF", "ε"], //E'
@@ -96,7 +96,7 @@ const Trabalho5Template = () => {
         <Table>
           <thead>
             <TableRow>
-              {gramaticaLL1?._terminais.map((n) => (
+              {gramaticaLL1?.terminals.map((n) => (
                 <TableHeader key={n}>{n}</TableHeader>
               ))}
               <TableHeader>$</TableHeader>

@@ -1,199 +1,145 @@
 import Production from "./Production";
 
 export default class Grammar {
-  _terminais: string[]
-  _naoTerminais: string[]
-  _producoes: { [key: string]: Production[] }
-  _vazio: string
+  terminals: string[]
+  nonTerminals: string[]
+  _productions: { [key: string]: Production[] }
+  _empty: string
 
   constructor() {
-    this._terminais = [];
-    this._naoTerminais = [];
-    this._producoes = {};
-    this._vazio = "";
+    this.terminals = [];
+    this.nonTerminals = [];
+    this._productions = {};
+    this._empty = "";
   }
 
-  /**
-   * Busca por todas produções de um determinado símbolo não terminal
-   */
-  _buscarProducoesPorNaoTerminal(snt: string) {
-    // Verifica se o símbolo não terminal existe na gramática
-    if (typeof this._producoes[snt] === "undefined") {
+  get empty() {
+    return this._empty;
+  }
+
+  get productions() {
+    let productions: Production[] = [];
+    for (const snt of this.nonTerminals) {
+      productions = [...productions, ...this.getNonTerminalsProductions(snt)];
+    }
+    return productions;
+  }
+
+  getNonTerminalsProductions(nonTerminal: string) {
+    if (typeof this._productions[nonTerminal] === "undefined") {
       throw "O símbolo não terminai não foi definido";
     }
 
-    // Se existir, retorna suas produções
-    return this._producoes[snt];
+    return this._productions[nonTerminal];
   }
 
-  /**
-   * Verifica uma string e procura todas ocorrências de símbolos não terminais
-   * da gramática
-   */
-  _ocorrenciasDeNaoTermiais(entrada: string) {
-    // Utiliza expressão regular para encontrar os não terminais na entrada
-    const regex = new RegExp(this._naoTerminais.join("|"), "g");
-    const encontrados = Array.from(entrada.matchAll(regex));
-    // Cria um objeto vazio
-    const ocorrencias: { [key: string]: number[] } = {};
+  getNonTerminalsOccurrences(input: string) {
+    const regex = new RegExp(this.nonTerminals.join("|"), "g");
+    const found = Array.from(input.matchAll(regex));
 
-    // Para cada ocorrencia encontrada...
-    for (const e of encontrados) {
-      if (typeof ocorrencias[e[0]] === "undefined") ocorrencias[e[0]] = [];
+    const occurrences: { [key: string]: number[] } = {};
 
-      // Adiciona a posição do símbolo a lista de ocorrências
-      ocorrencias[e[0]].push(e.index!);
+    for (const symbol of found) {
+      const nonTerminal = symbol[0]
+      if (typeof occurrences[nonTerminal] === "undefined") occurrences[nonTerminal] = [];
+
+      occurrences[nonTerminal].push(symbol.index!);
     }
-    // Retorna as ocorrências
-    return ocorrencias;
+    return occurrences;
   }
 
-  /**
-   * Verifica se em uma string existe a ocorrência de algum símbolo não
-   * terminal da gramáitica
-   */
-  existeNaoTerminal(entrada: string) {
-    return Object.keys(this._ocorrenciasDeNaoTermiais(entrada)).length > 0;
+  isNonTerminal(symbol: string) {
+    return this.nonTerminals.includes(symbol);
   }
 
-  /**
-   * Varifica se um símblo é um não terminal na gramática
-   */
-  simboloEhNaoTerminal(simbolo: string) {
-    return this._naoTerminais.includes(simbolo);
+  isEmptySymbol(symbol: string) {
+    return this.empty === symbol;
   }
 
-  /**
-   * Verifica se o um símbolo é o símbolo vazio da gramática
-   */
-  simboloEhVazio(simbolo: string) {
-    return this._vazio === simbolo;
-  }
-
-  /**
-   * Retorna uma produção de um símbolo não terminal válido na gramática
-   */
-  producao(snt: string, indice: number) {
-    if (typeof indice !== "number") indice = 0;
-
-    const producoes = this._buscarProducoesPorNaoTerminal(snt);
-    if (indice < 0 || indice >= producoes.length) {
-      throw "Produção é inválida";
-    }
-
-    return producoes[indice];
-  }
-
-  /**
-   * Retorna uma lista de todas a produções da gramática
-   */
-  get producoes() {
-    let producoes: Production[] = [];
-    for (const snt of this._naoTerminais) {
-      producoes = [...producoes, ...this._buscarProducoesPorNaoTerminal(snt)];
-    }
-    return producoes;
-  }
-
-  /**
-   * Cria e inicializa uma instância de Gramatica
-   */
-  static criar(producoes: { [key: string]: string[] }, vazio: string) {
-    if (typeof producoes !== "object") {
-      throw "As produções devem ser um objeto chave valor não vazio";
-    }
-
-    if (typeof vazio !== "string" || vazio.length > 1) {
+  static createGrammar(productions: { [key: string]: string[] }, emptySymbol: string) {
+    if (emptySymbol.length > 1) {
       throw "O símbolo vazio deve ser um string com tamanho 1";
     }
 
-    // Cria a instância de Gramatica e define os símbolos não terminais
     const gram = new Grammar();
-    gram._naoTerminais = Object.keys(producoes);
+    gram.nonTerminals = Object.keys(productions);
 
-    if (gram._naoTerminais.length === 0) {
+    if (gram.nonTerminals.length === 0) {
       throw "As produções devem ser um objeto chave valor não vazio";
     }
 
-    // O símbolo vazio não pode ser um símbolo não terminal
-    if (gram.simboloEhNaoTerminal(vazio)) {
+    if (gram.isNonTerminal(emptySymbol)) {
       throw "O símbolo não pode ser um símbolo não terminal";
     }
-    gram._vazio = vazio;
+    gram._empty = emptySymbol;
 
-    // Para cada símbolo não terminal...
     let terminais: string[] = [];
-    for (const snt of gram._naoTerminais) {
-      gram._producoes[snt] = [];
+    for (const synbol of gram.nonTerminals) {
+      gram._productions[synbol] = [];
 
-      // Valida e cria as produções
-      const prods = producoes[snt];
+      const prods = productions[synbol];
 
-      // Para cada símbolo terminal referente as produções do símbolo não
-      // termial atual...
+      // Para cada símbolo terminal referente as produções do símbolo não terminal atual...
       for (const st of prods) {
         // Gera uma lista com todos os símbolos do corpo
-        const corpo = Grammar._parsearCorpoProducao(
+        const body = Grammar.parseProductionBody(
           st,
-          gram._ocorrenciasDeNaoTermiais(st as string)
+          gram.getNonTerminalsOccurrences(st as string)
         );
 
         // Cria uma instância de Produção e adiciona a gramática
-        gram._producoes[snt].push(new Production(snt, corpo, gram._vazio));
+        gram._productions[synbol].push(new Production(synbol, body, gram.empty));
 
         // Guarda todos os símbolos terminais em uma lista
         terminais = [
           ...terminais,
-          ...corpo.filter((i, p) => !gram._naoTerminais.includes(i)),
+          ...body.filter((i, p) => !gram.nonTerminals.includes(i)),
         ];
       }
     }
 
     // Ao terminar de criar todas as produções, remove ocorrências repetidas
     // de símbolos terminais
-    gram._terminais = terminais.filter((i, p) => terminais.indexOf(i) === p);
+    gram.terminals = terminais.filter((i, p) => terminais.indexOf(i) === p);
 
     // Retorna a instância de Gramatica
     return gram;
   }
 
-  /**
-   * Transforma uma string em uma lista de símbolos terminais e não terminais
-   */
-  static _parsearCorpoProducao(str: string, ocorrencias: { [key: string]: number[] }) {
+  static parseProductionBody(input: string, occurrences: { [key: string]: number[] }) {
     // Gera a lista de não terminais presentes na string
-    const naoTermnais = Object.keys(ocorrencias);
+    const nonTerminals = Object.keys(occurrences);
 
     // Se não existir não terminais, apenas transforma a string em lista
-    if (naoTermnais.length === 0) return str.split('');
+    if (nonTerminals.length === 0) return input.split('');
 
     // Gera uma lista contento todas as posições onde a string deve ser quebrada
-    let locaisDivisao = [0];
-    for (const snt of naoTermnais) {
-      for (const o of ocorrencias[snt]) {
-        locaisDivisao.push(o);
-        locaisDivisao.push(o + snt.length);
+    let splitIndexes = [0];
+    for (const snt of nonTerminals) {
+      for (const o of occurrences[snt]) {
+        splitIndexes.push(o);
+        splitIndexes.push(o + snt.length);
       }
     }
-    locaisDivisao.push(str.length);
+    splitIndexes.push(input.length);
 
     // Remove valores repetidos e os ordena
-    locaisDivisao = locaisDivisao
-      .filter((i, p) => locaisDivisao.indexOf(i) === p)
+    splitIndexes = splitIndexes
+      .filter((i, p) => splitIndexes.indexOf(i) === p)
       .sort();
 
     // Gera a lista de símbolos
-    let corpo: string[] = [];
-    for (let i = 0; i < locaisDivisao.length - 1; i++) {
+    let body: string[] = [];
+    for (let i = 0; i < splitIndexes.length - 1; i++) {
       // Pega a parte da string na posição atual
-      const substr = str.substring(locaisDivisao[i], locaisDivisao[i + 1]);
+      const substr = input.substring(splitIndexes[i], splitIndexes[i + 1]);
 
       // Se símbolo for um não terminal, apenas adiciona a lista
-      if (naoTermnais.includes(substr)) corpo.push(substr);
+      if (nonTerminals.includes(substr)) body.push(substr);
       //Se fpr um terminal, concatenada a lista de símbolos na lista final
-      else corpo = [...corpo, ...substr.split('')];
+      else body = [...body, ...substr.split('')];
     }
 
-    return corpo;
+    return body;
   }
 }

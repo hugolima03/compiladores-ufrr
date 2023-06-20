@@ -27,7 +27,7 @@ export default class SyntaxTree {
     // Para cada símbolo do corpo...
     for (const s of p.right) {
       // Se ele for um terminal, apenas cria um nó e o adiciona como filho
-      if (!gram.simboloEhNaoTerminal(s)) {
+      if (!gram.isNonTerminal(s)) {
         node.children.push(new SyntaxTree(s));
         continue;
       }
