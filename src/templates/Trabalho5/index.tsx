@@ -29,7 +29,7 @@ const Trabalho5Template = () => {
   function onsubmit(sourceCode: string) {
     try {
       if (gramaticaLL1) {
-        const prods = analisadorLL1?.analisar(sourceCode);
+        const prods = analisadorLL1?.analyse(sourceCode);
         const arvore = SyntaxTree._parseProductionsLeft(prods!, gramaticaLL1);
         setArvore(arvore);
         tree.current?.scrollIntoView();
@@ -52,10 +52,10 @@ const Trabalho5Template = () => {
       "ε"
     );
     setGramaticaLL1(gramaticaLL1);
-    const analisadorLL1 = LL1.criar(gramaticaLL1, "E", "$");
+    const analisadorLL1 = LL1.create(gramaticaLL1, "E", "$");
     setAnalisadorLL1(analisadorLL1);
 
-    const prods = analisadorLL1?.analisar("v+v");
+    const prods = analisadorLL1?.analyse("v+v");
     const arvore = SyntaxTree._parseProductionsLeft(prods!, gramaticaLL1);
     setArvore(arvore);
   }, []);
@@ -104,16 +104,16 @@ const Trabalho5Template = () => {
           </thead>
           <tbody>
             {analisadorLL1 &&
-              analisadorLL1._tabela &&
-              Object.keys(analisadorLL1._tabela).map((snt) => (
+              analisadorLL1.table &&
+              Object.keys(analisadorLL1.table).map((snt) => (
                 <TableRow key={snt}>
                   <TableDatacell>{snt}</TableDatacell>
-                  {Object.keys(analisadorLL1._tabela![snt]).map(
+                  {Object.keys(analisadorLL1.table![snt]).map(
                     (st: any, index: number) => (
                       <TableDatacell key={index}>
-                        {analisadorLL1._tabela &&
-                        analisadorLL1._tabela[snt][st] !== null
-                          ? (analisadorLL1._tabela[snt][st] as any).asString
+                        {analisadorLL1.table &&
+                        analisadorLL1.table[snt][st] !== null
+                          ? (analisadorLL1.table[snt][st] as any).asString
                           : "-"}
                       </TableDatacell>
                     )
@@ -125,7 +125,14 @@ const Trabalho5Template = () => {
       </S.Container>
 
       <S.TreeWrapper ref={tree}>
-        {arvore && <Tree orientation="vertical" data={arvore} />}
+        {arvore && (
+          <Tree
+            orientation="vertical"
+            data={arvore}
+            translate={{ x: 600, y: 40 }}
+            collapsible={false}
+          />
+        )}
       </S.TreeWrapper>
 
       <Toaster />
