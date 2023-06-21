@@ -33,12 +33,11 @@ export default class Grammar {
     return this._productions[nonTerminal];
   }
 
-  getNonTerminalsOccurrences(input: string) {
+  getNonTerminalsOccurrencesIndexes(input: string) {
     const regex = new RegExp(this.nonTerminals.join("|"), "g");
     const found = Array.from(input.matchAll(regex));
 
     const occurrences: { [key: string]: number[] } = {};
-
     for (const symbol of found) {
       const nonTerminal = symbol[0]
       if (typeof occurrences[nonTerminal] === "undefined") occurrences[nonTerminal] = [];
@@ -57,52 +56,33 @@ export default class Grammar {
   }
 
   static createGrammar(productions: { [key: string]: string[] }, emptySymbol: string) {
-    if (emptySymbol.length > 1) {
-      throw "O símbolo vazio deve ser um string com tamanho 1";
-    }
-
     const gram = new Grammar();
+
     gram.nonTerminals = Object.keys(productions);
-
-    if (gram.nonTerminals.length === 0) {
-      throw "As produções devem ser um objeto chave valor não vazio";
-    }
-
-    if (gram.isNonTerminal(emptySymbol)) {
-      throw "O símbolo não pode ser um símbolo não terminal";
-    }
     gram._empty = emptySymbol;
+
 
     let terminais: string[] = [];
     for (const synbol of gram.nonTerminals) {
       gram._productions[synbol] = [];
-
       const prods = productions[synbol];
 
-      // Para cada símbolo terminal referente as produções do símbolo não terminal atual...
-      for (const st of prods) {
-        // Gera uma lista com todos os símbolos do corpo
-        const body = Grammar.parseProductionBody(
-          st,
-          gram.getNonTerminalsOccurrences(st as string)
+      for (const production of prods) {
+        const productionBody = Grammar.parseProductionBody(
+          production,
+          gram.getNonTerminalsOccurrencesIndexes(production as string)
         );
 
-        // Cria uma instância de Produção e adiciona a gramática
-        gram._productions[synbol].push(new Production(synbol, body, gram.empty));
+        gram._productions[synbol].push(new Production(synbol, productionBody, gram.empty));
 
-        // Guarda todos os símbolos terminais em uma lista
         terminais = [
           ...terminais,
-          ...body.filter((i, p) => !gram.nonTerminals.includes(i)),
+          ...productionBody.filter((i, p) => !gram.nonTerminals.includes(i)), // filter nonTerminals
         ];
       }
     }
 
-    // Ao terminar de criar todas as produções, remove ocorrências repetidas
-    // de símbolos terminais
-    gram.terminals = terminais.filter((i, p) => terminais.indexOf(i) === p);
-
-    // Retorna a instância de Gramatica
+    gram.terminals = terminais.filter((i, p) => terminais.indexOf(i) === p); // remove duplicated entries
     return gram;
   }
 

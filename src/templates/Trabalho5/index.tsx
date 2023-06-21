@@ -27,16 +27,16 @@ const Trabalho5Template = () => {
   const [analisadorLL1, setAnalisadorLL1] = useState<LL1>();
 
   function onsubmit(sourceCode: string) {
-    try {
-      if (gramaticaLL1) {
+    if (gramaticaLL1) {
+      try {
         const prods = analisadorLL1?.analyse(sourceCode);
         const arvore = SyntaxTree._parseProductionsLeft(prods!, gramaticaLL1);
         setArvore(arvore);
         tree.current?.scrollIntoView();
+      } catch {
+        toast.error("Sentença não reconhecida");
+        setArvore(null);
       }
-    } catch {
-      toast.error("Sentença não reconhecida");
-      setArvore(null);
     }
   }
 
@@ -51,6 +51,7 @@ const Trabalho5Template = () => {
       },
       "ε"
     );
+
     setGramaticaLL1(gramaticaLL1);
     const analisadorLL1 = LL1.create(gramaticaLL1, "E", "$");
     setAnalisadorLL1(analisadorLL1);
