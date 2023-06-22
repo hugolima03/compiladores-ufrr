@@ -31,6 +31,9 @@ const HomeTemplate = () => {
           <Link href="/trabalhos/analisadorSintaticoPreditivo">
             Trabalho 5 - Analisador Sintático Preditivo
           </Link>
+          <Link href="/trabalhos/analisadorPrecedenciaFraca">
+            Trabalho 6 - Analisador Sintático de Precedência Fraca
+          </Link>
         </S.LinksWrapper>
 
         <p>

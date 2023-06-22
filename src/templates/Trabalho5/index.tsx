@@ -67,7 +67,7 @@ const Trabalho5Template = () => {
         <S.Row>
           <CodeEditor
             title="Analisador Sintático Preditivo"
-            placeholder="placeholder"
+            placeholder="v+v"
             onSubmit={onsubmit}
           />
 

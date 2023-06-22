@@ -12,7 +12,7 @@ type TableRow = {
     [key: string]: Object | null;
 }
 
-type Table = {
+export type Table = {
     [key: string]: TableRow;
 };
 
