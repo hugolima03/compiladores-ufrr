@@ -5,7 +5,7 @@ import { Container, TreeWrapper } from "templates/Trabalho5/styles";
 
 import CodeEditor from "components/CodeEditor";
 
-import PrecedenciaFraca from "./PrecedenciaFraca";
+import WeakPrecedenceParser from "./WeakPrecedenceParser";
 import SyntaxTree from "templates/Trabalho5/SyntaxTree";
 import Tree from "react-d3-tree";
 import {
@@ -20,11 +20,11 @@ const Trabalho6Template = () => {
 
   const [grammar, setGrammar] = useState<Grammar>();
   const [arvore, setArvore] = useState<SyntaxTree | null>(null);
-  const [analisadorPF, setAnalisadorPF] = useState<PrecedenciaFraca>();
+  const [analisadorPF, setAnalisadorPF] = useState<WeakPrecedenceParser>();
 
   function onSubmit(sourceCode: string) {
     if (analisadorPF && grammar) {
-      const prods = analisadorPF.analisar(sourceCode);
+      const prods = analisadorPF.analyse(sourceCode);
       const arvore = SyntaxTree._parseProductionsRight(prods, grammar);
       setArvore(arvore);
       tree.current?.scrollIntoView();
@@ -43,13 +43,13 @@ const Trabalho6Template = () => {
 
     setGrammar(weakPrecedenceGrammar);
 
-    const analisadorPF = PrecedenciaFraca.criar(
+    const analisadorPF = WeakPrecedenceParser.create(
       weakPrecedenceGrammar,
       "E",
       "$"
     );
     setAnalisadorPF(analisadorPF);
-    const prods = analisadorPF.analisar("v+vxv");
+    const prods = analisadorPF.analyse("v+vxv");
     const arvore = SyntaxTree._parseProductionsRight(
       prods,
       weakPrecedenceGrammar
@@ -66,25 +66,25 @@ const Trabalho6Template = () => {
           onSubmit={onSubmit}
         />
 
-        {analisadorPF?._tabelaDR ? (
+        {analisadorPF?.table ? (
           <Table>
             <thead>
               <TableRow>
                 <TableHeader></TableHeader>
-                {analisadorPF._gramatica?.terminals.map((t) => (
+                {analisadorPF.grammar?.terminals.map((t) => (
                   <TableHeader key={t}>{t}</TableHeader>
                 ))}
-                <TableHeader>{analisadorPF._fdc}</TableHeader>
+                <TableHeader>{analisadorPF.sentential}</TableHeader>
               </TableRow>
             </thead>
             <tbody>
-              {Object.keys(analisadorPF._tabelaDR).map((line) => {
+              {Object.keys(analisadorPF.table).map((line) => {
                 return (
                   <TableRow key={line}>
                     <TableDatacell>{line}</TableDatacell>
-                    {Object.keys(analisadorPF._tabelaDR![line]).map((r) => (
+                    {Object.keys(analisadorPF.table![line]).map((r) => (
                       <TableDatacell key={r}>
-                        {`${analisadorPF._tabelaDR![line][r]}`}
+                        {`${analisadorPF.table![line][r]}`}
                       </TableDatacell>
                     ))}
                   </TableRow>
