@@ -84,7 +84,7 @@ const Trabalho6Template = () => {
                     <TableDatacell>{line}</TableDatacell>
                     {Object.keys(analisadorPF._tabelaDR![line]).map((r) => (
                       <TableDatacell key={r}>
-                        {analisadorPF._tabelaDR[line][r]}
+                        {`${analisadorPF._tabelaDR![line][r]}`}
                       </TableDatacell>
                     ))}
                   </TableRow>
