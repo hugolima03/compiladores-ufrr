@@ -5,8 +5,8 @@ import Tree from "react-d3-tree";
 import CodeEditor from "components/CodeEditor";
 
 import Mips from "./Ed/sintese/Mips.mjs";
-import Sintatico from "./Ed/sintatico/Sintatico.mjs";
-import Arvore from "./Ed/sintatico/Arvore.mjs";
+import Sintatico from "./Ed/sintatico/Sintatico";
+import Arvore from "./Ed/sintatico/Arvore";
 import Semantico from "./Ed/semantico/Semantico.mjs";
 import Intermediario from "./Ed/sintese/Intermediario.mjs";
 

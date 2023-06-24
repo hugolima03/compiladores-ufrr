@@ -1,6 +1,12 @@
-export default class Arvore {
+import Gramatica from "./Gramatica";
+import Production from "./Production";
 
-    constructor(name) {
+export default class Arvore {
+    name: string
+    children: Arvore[]
+    extra: any
+
+    constructor(name: string) {
         this.name = name;
         this.children = [];
         this.extra = null;
@@ -9,29 +15,29 @@ export default class Arvore {
 
     get ehFolha() { return this.children.length === 0; }
 
-    emOrdem(handle) {
+    emOrdem(handle: (arv: Arvore) => void) {
         for (const no of this.children) no.emOrdem(handle);
         handle(this);
     }
 
-    preOrdem(handle) {
+    preOrdem(handle: (arv: Arvore) => void) {
         handle(this);
         for (const no of this.children) no.preOrdem(handle);
     }
 
-    preOrdemMaxNivel(handle, maxNivel, atual) {
+    preOrdemMaxNivel(handle: (arv: Arvore) => void, maxNivel: number, atual: number) {
         handle(this);
         if (maxNivel <= atual) return;
         for (const no of this.children) no.preOrdemMaxNivel(handle, maxNivel, atual + 1);
     }
 
-    posOrdem(handle) {
+    posOrdem(handle: (arv: Arvore) => void) {
         handle(this);
         for (const no of this.children.reverse()) no.posOrdem(handle);
     }
 
-    encontrarTodosNosPreOrdem(simbolo, maxNivel) {
-        const listaNos = [];
+    encontrarTodosNosPreOrdem(simbolo: string, maxNivel: number) {
+        const listaNos: Arvore[] = [];
 
         if (typeof (maxNivel) === 'number' && maxNivel > 0) {
             this.preOrdemMaxNivel(
@@ -49,11 +55,11 @@ export default class Arvore {
         return listaNos;
     }
 
-    static parsearProducoes(prods, gram) {
+    static parsearProducoes(prods: Production[], gram: Gramatica) {
         return Arvore._parsearProducoesDir(prods, gram);
     }
 
-    static _parsearProducoesDir(prods, gram) {
+    static _parsearProducoesDir(prods: Production[], gram: Gramatica) {
 
         // Remove a primeira produção da lista
         const p = prods.shift();
