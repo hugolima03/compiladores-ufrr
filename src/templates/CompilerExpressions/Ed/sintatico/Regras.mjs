@@ -1,4 +1,4 @@
-import Gramatica from './Gramatica.mjs'
+import Gramatica from './Gramatica'
 
 const gramatica = new Gramatica({
 
