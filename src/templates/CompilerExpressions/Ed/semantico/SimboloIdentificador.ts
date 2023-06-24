@@ -1,6 +1,11 @@
-export default class SimboloIdentificador {
+import Token from "../lexico/Token";
 
-    constructor(nome, tipo, token) {
+export default class SimboloIdentificador {
+    _nome: string
+    _tipo: string
+    _token: Token
+
+    constructor(nome: string, tipo: string, token: Token) {
         this._nome = nome;
         this._tipo = tipo;
         this._token = token;

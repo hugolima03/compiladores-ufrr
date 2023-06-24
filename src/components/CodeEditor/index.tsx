@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import { Warning, InfoWithCircle } from "@styled-icons/entypo";
 
@@ -24,6 +24,7 @@ const CodeEditor = ({
   placeholder,
   defaultValue = "",
 }: CodeEditorProps) => {
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [value, setValue] = useState(defaultValue);
 
   function onClick() {
@@ -45,6 +46,22 @@ const CodeEditor = ({
     }
   }
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    const { current } = textareaRef;
+    if (e.key === "Tab" && current) {
+      e.preventDefault();
+      const start = current.selectionStart;
+      const end = current.selectionEnd;
+
+      // set textarea value to: text before caret + tab + text after caret
+      current.value =
+        current.value.substring(0, start) + "\t" + current.value.substring(end);
+
+      // put caret at right position again
+      current.selectionStart = current.selectionEnd = start + 1;
+    }
+  };
+
   return (
     <S.CodeEditorWrapper>
       {title && <S.Title>{title}</S.Title>}
@@ -54,10 +71,12 @@ const CodeEditor = ({
         <S.CodeEditorHeaderDots color="yellow" />
       </S.CodeEditorHeader>
       <S.Textarea
+        ref={textareaRef}
         value={value}
         onChange={(e) => setValue(e.target.value)}
         spellCheck={false}
         placeholder={placeholder}
+        onKeyDown={handleKeyDown}
       />
 
       <S.ButtonsWrapper>

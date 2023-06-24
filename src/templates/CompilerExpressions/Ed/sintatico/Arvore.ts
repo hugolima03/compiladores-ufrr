@@ -36,7 +36,7 @@ export default class Arvore {
         for (const no of this.children.reverse()) no.posOrdem(handle);
     }
 
-    encontrarTodosNosPreOrdem(simbolo: string, maxNivel: number) {
+    encontrarTodosNosPreOrdem(simbolo: string, maxNivel?: number) {
         const listaNos: Arvore[] = [];
 
         if (typeof (maxNivel) === 'number' && maxNivel > 0) {
