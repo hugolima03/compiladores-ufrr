@@ -14,6 +14,7 @@ import {
   TableHeader,
   TableRow,
 } from "components/Table/styles";
+import { Toaster, toast } from "react-hot-toast";
 
 const Trabalho6Template = () => {
   const tree = useRef<HTMLDivElement>(null);
@@ -24,19 +25,23 @@ const Trabalho6Template = () => {
 
   function onSubmit(sourceCode: string) {
     if (analisadorPF && grammar) {
-      const prods = analisadorPF.analyse(sourceCode);
-      const arvore = SyntaxTree._parseProductionsRight(prods, grammar);
-      setArvore(arvore);
-      tree.current?.scrollIntoView();
+      try {
+        const prods = analisadorPF.analyse(sourceCode);
+        const arvore = SyntaxTree._parseProductionsRight(prods, grammar);
+        setArvore(arvore);
+        tree.current?.scrollIntoView();
+      } catch {
+        toast.error("Sentença não reconhecida");
+        setArvore(null);
+      }
     }
   }
 
   useEffect(() => {
     const weakPrecedenceGrammar = Grammar.createGrammar(
       {
-        E: ["E+M", "M"],
-        M: ["MxP", "P"],
-        P: ["(E)", "v"],
+        S: ["aSb", "Xc"],
+        X: ["d", "e"],
       },
       "ε"
     );
@@ -45,11 +50,11 @@ const Trabalho6Template = () => {
 
     const analisadorPF = WeakPrecedenceParser.create(
       weakPrecedenceGrammar,
-      "E",
+      "S",
       "$"
     );
     setAnalisadorPF(analisadorPF);
-    const prods = analisadorPF.analyse("v+vxv");
+    const prods = analisadorPF.analyse("aadcbb");
     const arvore = SyntaxTree._parseProductionsRight(
       prods,
       weakPrecedenceGrammar
@@ -62,7 +67,7 @@ const Trabalho6Template = () => {
       <Container>
         <CodeEditor
           title="Analisador Sintático de Precedência Fraca"
-          placeholder="v+v"
+          placeholder="aadcbb"
           onSubmit={onSubmit}
         />
 
@@ -105,6 +110,8 @@ const Trabalho6Template = () => {
           />
         )}
       </TreeWrapper>
+
+      <Toaster />
     </>
   );
 };

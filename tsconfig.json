@@ -16,6 +16,12 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/templates/Trabalho5/Producao.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/templates/Trabalho5/Producao.js",
+    "src/templates/CompilerExpressions/Ed/sintatico/Arvore.mjs"
+  ],
   "exclude": ["node_modules"]
 }

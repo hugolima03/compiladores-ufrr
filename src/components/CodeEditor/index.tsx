@@ -9,6 +9,7 @@ type CodeEditorProps = {
   onSubmit: (value: string) => void;
   errors?: Error[];
   placeholder?: string;
+  defaultValue?: string;
 };
 
 export type Error = {
@@ -16,8 +17,14 @@ export type Error = {
   message: string;
 };
 
-const CodeEditor = ({ title, onSubmit, errors, placeholder }: CodeEditorProps) => {
-  const [value, setValue] = useState("");
+const CodeEditor = ({
+  title,
+  onSubmit,
+  errors,
+  placeholder,
+  defaultValue = "",
+}: CodeEditorProps) => {
+  const [value, setValue] = useState(defaultValue);
 
   function onClick() {
     onSubmit(value);
