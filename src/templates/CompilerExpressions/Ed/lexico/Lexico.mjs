@@ -1,24 +1,24 @@
-import Padroes from './Padroes.mjs';
+import Padroes, { ehEspaco, ehStringLiteral, descobrirTokenClasse, descobrirTokenSubclasse } from './Padroes';
 import Token from './Token.mjs';
 import Lexema from './Lexema.mjs';
 import ErroLexico from '../exception/ErroLexico.mjs'
 
 export default class Lexico {
 
-    constructor () {
+    constructor() {
         this._tokensReconhecidos = [];
     }
 
     _buscarTokenPelaLexema(lexema) {
 
-        const classe = Padroes.descobrirTokenClasse(lexema);
-        const subclasse = Padroes.descobrirTokenSubclasse(lexema, classe);
+        const classe = descobrirTokenClasse(lexema);
+        const subclasse = descobrirTokenSubclasse(lexema, classe);
 
         let token = this._tokensReconhecidos.find(
             t => t.classe === classe && t.subclasse === subclasse
         );
 
-        if(token !== undefined) return token;
+        if (token !== undefined) return token;
 
         token = new Token(classe, subclasse);
         this._tokensReconhecidos.push(token);
@@ -33,7 +33,7 @@ export default class Lexico {
         const lexemas = [];
 
         for (const l of lexemasStr) {
-            if(!Padroes.ehEspaco(l)) {
+            if (!ehEspaco(l)) {
 
                 const token = this._buscarTokenPelaLexema(l);
                 const lexema = new Lexema(l, linha, coluna, token);
@@ -61,7 +61,7 @@ export default class Lexico {
 
         for (const spsl of separarPorStringLiterais) {
 
-            if(Padroes.ehStringLiteral(spsl)){
+            if (ehStringLiteral(spsl)) {
                 lexemas.push(spsl);
                 continue;
             }
@@ -69,7 +69,7 @@ export default class Lexico {
             const separarPorEspacos = Lexico._separarPorEspacos(spsl);
             for (const spe of separarPorEspacos) {
 
-                if(Padroes.ehEspaco(spe)){
+                if (ehEspaco(spe)) {
                     lexemas.push(spe);
                     continue;
                 }
@@ -87,7 +87,7 @@ export default class Lexico {
     static _separarPorStringLiterais(entrada) {
 
         const stringRegex = new RegExp(Padroes.stringLiteral, 'g');
-        const strs = [ ...entrada.matchAll(stringRegex) ];
+        const strs = [...entrada.matchAll(stringRegex)];
 
         const fragmentos = [];
         let cursor = 0;
@@ -101,7 +101,7 @@ export default class Lexico {
             cursor = s['index'] + s[0].length;
         }
 
-        if(cursor < entrada.length){
+        if (cursor < entrada.length) {
             fragmentos.push(entrada.substr(cursor));
         }
 
@@ -110,7 +110,7 @@ export default class Lexico {
 
     static _separarPorEspacos(entrada) {
 
-        const strs = [ ...entrada.matchAll(Padroes.espacos) ];
+        const strs = [...entrada.matchAll(Padroes.espacos)];
 
         const fragmentos = [];
         let cursor = 0;
@@ -125,7 +125,7 @@ export default class Lexico {
             cursor = s['index'] + s[0].length;
         }
 
-        if(cursor < entrada.length){
+        if (cursor < entrada.length) {
             fragmentos.push(entrada.substr(cursor));
         }
 
@@ -140,7 +140,7 @@ export default class Lexico {
         ];
 
         const regex = new RegExp('\\' + operadores.join("|\\"), 'g');
-        const strs = [ ...entrada.matchAll(regex) ];
+        const strs = [...entrada.matchAll(regex)];
 
         const fragmentos = [];
         let cursor = 0;
@@ -155,7 +155,7 @@ export default class Lexico {
             cursor = s['index'] + s[0].length;
         }
 
-        if(cursor < entrada.length){
+        if (cursor < entrada.length) {
             fragmentos.push(entrada.substr(cursor));
         }
 

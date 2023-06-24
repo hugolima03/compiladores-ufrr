@@ -1,4 +1,4 @@
-import Padroes from './Padroes.mjs';
+import Padroes from './Padroes';
 import ParametroInvalido from '../exception/ParametroInvalido.mjs';
 import getType from '../getType.mjs';
 

@@ -1,5 +1,5 @@
 import Instrucao from './Instrucao.mjs';
-import Padroes from '../lexico/Padroes.mjs'
+import Padroes from '../lexico/Padroes'
 
 export default class Intermediario {
 

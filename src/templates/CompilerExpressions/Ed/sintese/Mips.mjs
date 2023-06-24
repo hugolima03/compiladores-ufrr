@@ -1,4 +1,4 @@
-import Padroes from '../lexico/Padroes.mjs'
+import Padroes from '../lexico/Padroes'
 import Instrucao from './Instrucao.mjs'
 
 export default class Mips {
