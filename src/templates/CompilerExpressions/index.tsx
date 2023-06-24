@@ -6,42 +6,42 @@ import CodeEditor from "components/CodeEditor";
 
 import Mips from "./Ed/sintese/Mips.mjs";
 import Sintatico from "./Ed/sintatico/Sintatico.mjs";
+import Arvore from "./Ed/sintatico/Arvore.mjs";
 import Semantico from "./Ed/semantico/Semantico.mjs";
 import Intermediario from "./Ed/sintese/Intermediario.mjs";
 
-import SyntaxTree from "templates/Trabalho5/SyntaxTree";
 import * as S from "./styles";
 
 const CompilerExpressions = () => {
   const tree = useRef<HTMLDivElement>(null);
-  const [arvore, setArvore] = useState<SyntaxTree | null>(null);
+  const [arvore, setArvore] = useState<Arvore | null>(null);
 
   function onSubmit(sourceCode: string) {
     const sintatico = new Sintatico();
     let arvoreSintatica = sintatico.parsear(sourceCode);
 
-    const semantico = new Semantico(arvoreSintatica);
-    const arvoresDeExpressoes = semantico.validarComandos();
-    const tabelaDeSimbolos = semantico.tabelaDeSimbolos;
+    // const semantico = new Semantico(arvoreSintatica);
+    // const arvoresDeExpressoes = semantico.validarComandos();
+    // const tabelaDeSimbolos = semantico.tabelaDeSimbolos;
 
-    const intermediario = new Intermediario(arvoresDeExpressoes);
-    const gerados = intermediario.comandos;
-    const optimizados = intermediario.optimizar();
+    // const intermediario = new Intermediario(arvoresDeExpressoes);
+    // const gerados = intermediario.comandos;
+    // const optimizados = intermediario.optimizar();
 
-    const mips = new Mips(tabelaDeSimbolos);
-    for (let i = 0; i < intermediario.totalComandos; ++i) {
-      gerados.push({
-        gerado: gerados[i],
-        otimizado: optimizados[i],
-        linha: arvoresDeExpressoes[i].extra.linha,
-      } as any);
+    // const mips = new Mips(tabelaDeSimbolos);
+    // for (let i = 0; i < intermediario.totalComandos; ++i) {
+    //   gerados.push({
+    //     gerado: gerados[i],
+    //     otimizado: optimizados[i],
+    //     linha: arvoresDeExpressoes[i].extra.linha,
+    //   } as any);
 
-      mips.adicionarInstrucoes(optimizados[i]);
-    }
+    //   mips.adicionarInstrucoes(optimizados[i]);
+    // }
 
-    // console.log(sintatico)
-    // setArvore(arvoreSintatica);
-    console.log(arvoreSintatica);
+    setArvore(arvoreSintatica);
+    tree.current?.scrollIntoView();
+
     // console.log(semantico)
     // console.log(arvoresDeExpressoes)
     // console.log(tabelaDeSimbolos)
@@ -64,7 +64,7 @@ fim`}
         onSubmit={onSubmit}
       />
 
-      <h1>Árvore sintática</h1>
+      <h2>Árvore sintática</h2>
 
       <S.TreeWrapper ref={tree}>
         {arvore && (

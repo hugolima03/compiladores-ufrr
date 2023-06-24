@@ -8,14 +8,17 @@ export const Container = styled.div`
   min-height: 100vh;
 
   width: 60rem;
-  margin: 0 auto;
-  margin-top: 25vh;
+  margin: 25vh auto;
 
   gap: 1.6rem;
+
+  h2 {
+    font-size: 1.8rem;
+  }
 `
 
 export const TreeWrapper = styled.div`
-  height: 50rem;
+  height: 60rem;
   background-color: white;
   border-radius: 0.4rem;
 `
