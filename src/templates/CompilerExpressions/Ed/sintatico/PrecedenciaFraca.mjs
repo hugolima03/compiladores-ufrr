@@ -98,7 +98,7 @@ export default class PrecedenciaFraca {
                                         .join(' ');
 
                     // Procura uma produção com o corpo igual a string gerada
-                    prod = prods.find(p => p.corpoStr === corpo);
+                    prod = prods.find(p => p.rightStr === corpo);
 
                     // Se encontrou uma produçao, para a busca
                     if(prod !== undefined) break;
@@ -118,7 +118,7 @@ export default class PrecedenciaFraca {
                 pilha.splice(0, retirarPilha);
 
                 // Adiciona ao topo da pilha o símbolo da cabeça da produção
-                pilha.unshift(prod.cabeca);
+                pilha.unshift(prod.left);
 
                 // Adiciona a produção a lista de produções da análise
                 prodsResultado.unshift(prod);
@@ -209,10 +209,10 @@ export default class PrecedenciaFraca {
             for (const p of prods) {
                 // Regra 1: existe algum símbolo imediatamente a direita do símbolo
                 // atual (A -> aXYb, onde Y esta imediatamente a direita de X)
-                const pos = p.corpo.indexOf(s);
+                const pos = p.right.indexOf(s);
                 if(pos === -1) continue;
-                if(pos === p.corpo.length - 1) continue;
-                regras1.push([s, '=', p.corpo[pos + 1]]);
+                if(pos === p.right.length - 1) continue;
+                regras1.push([s, '=', p.right[pos + 1]]);
             }
         }
 
@@ -260,14 +260,14 @@ export default class PrecedenciaFraca {
 
             for (const p of prods) {
 
-                if (!gram.simboloEhNaoTerminal(p.corpo[0])) {
-                    esq.push(p.corpo[0]);
+                if (!gram.simboloEhNaoTerminal(p.right[0])) {
+                    esq.push(p.right[0]);
                     continue;
                 }
 
-                if(p.corpo[0] === snt) continue;
+                if(p.right[0] === snt) continue;
 
-                esq = [ ...esq, p.corpo[0], ...esqRerc(p.corpo[0]) ];
+                esq = [ ...esq, p.right[0], ...esqRerc(p.right[0]) ];
             }
 
             return esq.filter((i, p) => esq.indexOf(i) === p);
@@ -291,19 +291,19 @@ export default class PrecedenciaFraca {
             const prods = gram.buscarProducoesPorNaoTerminal(snt);
 
             for (const p of prods) {
-                const ultimoIndex = p.corpo.length - 1;
+                const ultimoIndex = p.right.length - 1;
 
-                if (!gram.simboloEhNaoTerminal(p.corpo[ultimoIndex])) {
-                    dir.push(p.corpo[ultimoIndex]);
+                if (!gram.simboloEhNaoTerminal(p.right[ultimoIndex])) {
+                    dir.push(p.right[ultimoIndex]);
                     continue;
                 }
 
-                if(p.corpo[ultimoIndex] === snt) continue;
+                if(p.right[ultimoIndex] === snt) continue;
 
                 dir = [
                     ...dir,
-                    p.corpo[ultimoIndex],
-                    ...dirRerc(p.corpo[ultimoIndex])
+                    p.right[ultimoIndex],
+                    ...dirRerc(p.right[ultimoIndex])
                 ];
             }
 

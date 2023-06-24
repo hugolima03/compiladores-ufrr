@@ -1,4 +1,4 @@
-import Producao from './Producao.mjs'
+import Production from './Production'
 
 export default class Gramatica {
 
@@ -15,12 +15,12 @@ export default class Gramatica {
             const prods = producoes[snt];
             for (const corpo of prods) {
 
-                const p = new Producao(snt, corpo, this._vazio);
+                const p = new Production(snt, corpo, this._vazio);
                 this._producoes[snt].push(p);
 
                 terminais = [
                     ...terminais,
-                    ...p.corpo.filter(s => !this._naoTerminais.includes(s))
+                    ...p.right.filter(s => !this._naoTerminais.includes(s))
                 ];
             }
         }
