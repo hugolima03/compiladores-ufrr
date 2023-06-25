@@ -63,11 +63,11 @@ export class Grammar {
         return this._producoes[snt];
     }
 
-    simboloEhNaoTerminal(simbolo: string) {
+    isNonTerminalSymbol(simbolo: string) {
         return this._naoTerminais.includes(simbolo);
     }
 
-    simboloEhVazio(simbolo: string) {
+    isEmptySymbol(simbolo: string) {
         return this._vazio === simbolo;
     }
 }

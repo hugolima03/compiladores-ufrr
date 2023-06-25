@@ -122,7 +122,7 @@ export class WeakPrecedenceParser {
 
     // Defeine os símbolos das colunas da tabela
     const sColunas = [
-      ...gram._terminais.filter((s: string) => !gram.simboloEhVazio(s)),
+      ...gram._terminais.filter((s: string) => !gram.isEmptySymbol(s)),
       fdc,
     ];
 
@@ -182,7 +182,7 @@ export class WeakPrecedenceParser {
     const prods = gram.producoes;
     const simbolos = [
       ...gram._naoTerminais,
-      ...gram._terminais.filter((s) => !gram.simboloEhVazio(s)),
+      ...gram._terminais.filter((s) => !gram.isEmptySymbol(s)),
     ];
 
     const regras1 = [];
@@ -203,17 +203,17 @@ export class WeakPrecedenceParser {
 
     for (const r of regras1) {
       // Regra 2: esquerda qualquer símbolo e direita não terminal
-      if (gram.simboloEhNaoTerminal(r[2])) {
+      if (gram.isNonTerminalSymbol(r[2])) {
         for (const s of esq[r[2]]) {
           regras2e3.push([r[0], "<", s]);
         }
       }
 
       // Regra 3: esquerda sempre não terminal
-      if (!gram.simboloEhNaoTerminal(r[0])) continue;
+      if (!gram.isNonTerminalSymbol(r[0])) continue;
 
       // Regra 3.2: direita não terminal
-      if (gram.simboloEhNaoTerminal(r[2])) {
+      if (gram.isNonTerminalSymbol(r[2])) {
         for (const sd of dir[r[0]]) {
           for (const se of esq[r[2]]) {
             regras2e3.push([sd, ">", se]);
@@ -237,7 +237,7 @@ export class WeakPrecedenceParser {
       const prods = gram.buscarProducoesPorNaoTerminal(snt);
 
       for (const p of prods) {
-        if (!gram.simboloEhNaoTerminal(p.corpo[0])) {
+        if (!gram.isNonTerminalSymbol(p.corpo[0])) {
           esq.push(p.corpo[0]);
           continue;
         }
@@ -268,7 +268,7 @@ export class WeakPrecedenceParser {
       for (const p of prods) {
         const ultimoIndex = p.corpo.length - 1;
 
-        if (!gram.simboloEhNaoTerminal(p.corpo[ultimoIndex])) {
+        if (!gram.isNonTerminalSymbol(p.corpo[ultimoIndex])) {
           dir.push(p.corpo[ultimoIndex]);
           continue;
         }

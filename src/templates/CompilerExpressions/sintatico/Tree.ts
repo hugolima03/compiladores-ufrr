@@ -97,7 +97,7 @@ export class Tree {
         // Para cada símbolo do corpo...
         for (const s of p.corpo.reverse()) {
             // Se ele for um terminal, apenas cria um nó e o adiciona como filho
-            if (!gram.simboloEhNaoTerminal(s)) {
+            if (!gram.isNonTerminalSymbol(s)) {
                 no._nos.unshift(new Tree(s));
                 continue;
             }
