@@ -1,5 +1,5 @@
 import Instrucao from './Instrucao.mjs';
-import Padroes from '../lexico/Padroes.mjs'
+import Padroes, { matchExact } from '../lexico/Padroes'
 
 export default class Intermediario {
 
@@ -267,7 +267,7 @@ export default class Intermediario {
         return instrucoes;
     }
 
-    _ehTemporario(simbolo) { return Padroes.matchExact(simbolo, /^<\d+>$/); }
+    _ehTemporario(simbolo) { return matchExact(simbolo, /^<\d+>$/); }
     _resetarTemporario() { this._temp = 0; }
     _gerarTemporario() { return ['<', this._temp++, '>'].join(''); }
 }

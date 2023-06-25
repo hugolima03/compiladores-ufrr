@@ -8,7 +8,7 @@ import Sintatico from "./sintatico/Sintatico.mjs";
 import Semantico from "./semantico/Semantico.mjs";
 import Intermediario from "./sintese/Intermediario.mjs";
 
-import Mips from "./Ed/sintese/Mips.mjs";
+import Mips from "./sintese/Mips.mjs";
 
 import * as S from "./styles";
 import {
@@ -27,6 +27,7 @@ const CompilerExpressions = () => {
     null
   );
   const [symbolTable, setSymbolTable] = useState<SimboloIdentificador[]>();
+  const [mipsCode, setMipsCode] = useState<Mips | null>(null);
 
   function onSubmit(sourceCode: string) {
     const sintatico = new Sintatico();
@@ -36,31 +37,32 @@ const CompilerExpressions = () => {
     const arvoresDeExpressoes = semantico.validarComandos();
     const tabelaDeSimbolos = semantico.tabelaDeSimbolos;
 
-    // const intermediario = new Intermediario(arvoresDeExpressoes);
-    // const gerados = intermediario.comandos;
-    // const optimizados = intermediario.optimizar();
+    const intermediario = new Intermediario(arvoresDeExpressoes);
+    const gerados = intermediario.comandos;
+    const optimizados = intermediario.optimizar();
 
-    // const mips = new Mips(tabelaDeSimbolos);
-    // for (let i = 0; i < intermediario.totalComandos; ++i) {
-    //   gerados.push({
-    //     gerado: gerados[i],
-    //     otimizado: optimizados[i],
-    //     linha: arvoresDeExpressoes[i].extra.linha,
-    //   } as any);
+    const mips = new Mips(tabelaDeSimbolos);
+    for (let i = 0; i < intermediario.totalComandos; ++i) {
+      gerados.push({
+        gerado: gerados[i],
+        otimizado: optimizados[i],
+        linha: arvoresDeExpressoes[i].extra!.linha,
+      } as any);
 
-    //   mips.adicionarInstrucoes(optimizados[i]);
-    // }
+      mips.adicionarInstrucoes(optimizados[i]);
+    }
 
     const d3tree = getReactD3Tree(arvoreSintatica!);
     setSyntaxTree(d3tree);
     setSymbolTable(tabelaDeSimbolos);
     setExpressionsTrees(arvoresDeExpressoes);
+    setMipsCode(mips);
 
     tree.current?.scrollIntoView();
     // console.log(sintatico);
     // console.log(arvoreSintatica);
     // console.log(semantico);
-    console.log(arvoresDeExpressoes);
+    // console.log(arvoresDeExpressoes);
     // console.log(tabelaDeSimbolos);
     // console.log(intermediario);
     // console.log(gerados);
@@ -68,7 +70,7 @@ const CompilerExpressions = () => {
     // console.log(mips);
     // console.log(gerados);
     // console.log(optimizados);
-    // console.log(mips)
+    // console.log(mips);
   }
 
   return (
@@ -141,6 +143,48 @@ fim`}
             )}
           </S.TreeWrapper>
         ))}
+
+      {mipsCode ? (
+        <>
+          <h2>Variaveis</h2>
+          <Table style={{ margin: 0 }}>
+            <thead>
+              <TableRow>
+                <TableHeader>Variável</TableHeader>
+              </TableRow>
+            </thead>
+            <tbody>
+              {mipsCode._tabeladeVariaveis.map((instrucao, index) => (
+                <TableRow key={`${instrucao._nome}${index}`}>
+                  <TableDatacell>{`${instrucao._nome}${instrucao._nome}`}</TableDatacell>
+                </TableRow>
+              ))}
+            </tbody>
+          </Table>
+
+          <h2>Instruções geradas</h2>
+          <Table style={{ margin: 0 }}>
+            <thead>
+              <TableRow>
+                <TableHeader>Operador</TableHeader>
+                <TableHeader>Operando</TableHeader>
+                <TableHeader>Argumentos</TableHeader>
+              </TableRow>
+            </thead>
+            <tbody>
+              {mipsCode._texto.map((instrucao, index) => (
+                <TableRow key={`${instrucao._operador}${index}`}>
+                  <TableDatacell>{instrucao._operador}</TableDatacell>
+                  <TableDatacell>{instrucao._operando}</TableDatacell>
+                  <TableDatacell>
+                    {Array(instrucao._argumentos).toString()}
+                  </TableDatacell>
+                </TableRow>
+              ))}
+            </tbody>
+          </Table>
+        </>
+      ) : null}
     </S.Container>
   );
 };

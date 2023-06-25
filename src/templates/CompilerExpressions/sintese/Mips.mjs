@@ -1,4 +1,4 @@
-import Padroes from '../lexico/Padroes.mjs'
+import Padroes, { matchExact } from '../lexico/Padroes'
 import Instrucao from './Instrucao.mjs'
 
 export default class Mips {
@@ -169,7 +169,7 @@ export default class Mips {
         return this._codificarNomeVariavel(simbolo) !== null;
     }
 
-    _ehTemporario(simbolo) { return Padroes.matchExact(simbolo, /^<\d+>$/); }
+    _ehTemporario(simbolo) { return matchExact(simbolo, /^<\d+>$/); }
 
     _ehOpAritmetico (simbolo) {
         return ['+', '-', '*', '/', '%'].includes(simbolo);
