@@ -1,10 +1,10 @@
-import grammar from '../sintatico/Rules';
+import grammar from './Rules';
 
-import { LexicalAnalyser } from '../lexico/LexicalAnalyser';
-import { Tree } from '../sintatico/Tree';
-import { Lexeme } from '../lexico/Lexeme';
-import TokensStack from '../lexico/TokensStack';
-import { WeakPrecedenceParser } from '../sintatico/WeakPrecedenceParser';
+import { LexicalAnalyser } from './LexicalAnalyser';
+import { Tree } from './Tree';
+import { Lexeme } from './Lexeme';
+import TokensStack from './TokensStack';
+import { WeakPrecedenceParser } from './WeakPrecedenceParser';
 
 export default class Pipeline1 {
   _sourceCode: string

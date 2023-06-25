@@ -1,4 +1,4 @@
-import { patterns } from "./Patterns";
+import { patterns } from "../utils/Patterns";
 import { Lexeme } from "./Lexeme";
 
 /**

@@ -1,4 +1,4 @@
-import { Lexeme } from "../lexico/Lexeme";
+import { Lexeme } from "../pipeline1/Lexeme";
 
 export type CustomError = { detalhes?: { encontrado: Lexeme } } & Error
 

@@ -1,8 +1,8 @@
 import ErroGramatical from "../exception/ErroGramatical";
 import getType from "../getType";
 import { Grammar } from "./Grammar";
-import LexicoBuffer from "../lexico/TokensStack";
-import { Lexeme } from "../lexico/Lexeme";
+import LexicoBuffer from "./TokensStack";
+import { Lexeme } from "./Lexeme";
 
 export class WeakPrecedenceParser {
   _tabelaDR: { [key: string]: any };

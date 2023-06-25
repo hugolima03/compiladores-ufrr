@@ -1,4 +1,4 @@
-import { getReactD3Tree } from "./sintatico/Tree";
+import { getReactD3Tree } from "./pipeline1/Tree";
 
 import Semantico from "./semantico/Semantico.mjs";
 
@@ -6,7 +6,7 @@ import Intermediario from "./sintese/Intermediario.mjs";
 
 import Mips from "./sintese/Mips.mjs";
 
-import Pipeline1 from "./pipelines/Pipeline1";
+import Pipeline1 from "./pipeline1/Pipeline1";
 
 describe('CompilerExpressions', () => {
   it('Generic test', () => {

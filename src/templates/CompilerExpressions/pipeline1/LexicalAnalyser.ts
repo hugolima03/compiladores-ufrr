@@ -1,4 +1,4 @@
-import { patterns, isSpace, isStringLiteral, getTokenClass, getTokenSubClass } from './Patterns';
+import { patterns, isSpace, isStringLiteral, getTokenClass, getTokenSubClass } from '../utils/Patterns';
 import Token from './Token';
 import { Lexeme } from './Lexeme';
 import ErroLexico from '../exception/ErroLexico'

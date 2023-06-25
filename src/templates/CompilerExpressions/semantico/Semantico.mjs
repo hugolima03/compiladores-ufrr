@@ -1,6 +1,6 @@
 import SimboloIdentificador from './SimboloIdentificador.mjs';
 import ErroSemantico from '../exception/ErroSemantico';
-import { Tree } from '../sintatico/Tree';
+import { Tree } from '../pipeline1/Tree';
 
 export default class Semantico {
 

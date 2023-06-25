@@ -4,7 +4,7 @@ import * as ReactD3TreeComponent from "react-d3-tree";
 
 import CodeEditor from "components/CodeEditor";
 
-import Pipeline1 from "./pipelines/Pipeline1";
+import Pipeline1 from "./pipeline1/Pipeline1";
 import Semantico from "./semantico/Semantico.mjs";
 import Intermediario from "./sintese/Intermediario.mjs";
 
@@ -17,7 +17,7 @@ import {
   TableHeader,
   TableRow,
 } from "components/Table/styles";
-import { Tree, ReactD3Tree, getReactD3Tree } from "./sintatico/Tree";
+import { Tree, ReactD3Tree, getReactD3Tree } from "./pipeline1/Tree";
 import SimboloIdentificador from "./semantico/SimboloIdentificador.mjs";
 
 const CompilerExpressions = () => {

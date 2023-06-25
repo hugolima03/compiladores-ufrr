@@ -1,4 +1,4 @@
-import { Lexeme } from "../lexico/Lexeme";
+import { Lexeme } from "./Lexeme";
 import { Grammar } from "./Grammar";
 import { Production } from "./Production";
 
