@@ -1,4 +1,4 @@
-export default class Producao {
+export class Production {
     _cabeca: string
     _vazio: string
     _corpo: string[]

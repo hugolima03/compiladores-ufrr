@@ -1,6 +1,5 @@
 import Padroes from "./Padroes";
-import getType from "../getType";
-import Lexema from "./Lexema";
+import { Lexeme } from "./Lexeme";
 
 /**
  * Classe auxiliar utilizada durante o reconhecimento dos tokens na análise sintática. Retorna uma estrutura com lista de Lexemas.
@@ -12,14 +11,14 @@ import Lexema from "./Lexema";
  * - Chama a função callback passada que retorna os tokens da linha.
  */
 export default class TokensStack {
-  _handle: (linha: string, index: number) => Lexema[];
+  _handle: (linha: string, index: number) => Lexeme[];
   _linhas: string[];
   _linhaAtual: number;
-  _buffer: Lexema[];
+  _buffer: Lexeme[];
   _eof: string;
 
   constructor(
-    handle: (linha: string, index: number) => Lexema[],
+    handle: (linha: string, index: number) => Lexeme[],
     eof: string,
     entrada: string
   ) {

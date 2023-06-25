@@ -1,10 +1,10 @@
-import Producao from './Producao'
+import { Production } from './Production'
 
 export default class Gramatica {
     _terminais: string[]
     _naoTerminais: string[]
     _vazio: string
-    _producoes: { [key: string]: Producao[] }
+    _producoes: { [key: string]: Production[] }
 
     constructor(producoes: { [key: string]: string[] }, vazio: string) {
         this._naoTerminais = Object.keys(producoes);
@@ -18,7 +18,7 @@ export default class Gramatica {
             const prods = producoes[snt];
             for (const corpo of prods) {
 
-                const p = new Producao(snt, corpo, this._vazio);
+                const p = new Production(snt, corpo, this._vazio);
                 this._producoes[snt].push(p);
 
                 terminais = [
@@ -46,7 +46,7 @@ export default class Gramatica {
     }
 
     get producoes() {
-        let producoes: Producao[] = [];
+        let producoes: Production[] = [];
         for (const snt of this._naoTerminais) {
             producoes = [
                 ...producoes,

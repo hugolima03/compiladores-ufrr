@@ -1,6 +1,6 @@
 import { Lexeme } from "../lexico/Lexeme";
 import Gramatica from "./Gramatica";
-import Producao from "./Producao";
+import { Production } from "./Production";
 
 export type ReactD3Tree = {
     name: string;
@@ -80,11 +80,11 @@ export default class Arvore {
         return listaNos;
     }
 
-    static parsearProducoes(prods: Producao[], gram: Gramatica) {
+    static parsearProducoes(prods: Production[], gram: Gramatica) {
         return Arvore._parsearProducoesDir(prods, gram);
     }
 
-    static _parsearProducoesDir(prods: Producao[], gram: Gramatica) {
+    static _parsearProducoesDir(prods: Production[], gram: Gramatica) {
         // Remove a primeira produção da lista
         const p = prods.shift();
 

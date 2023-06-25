@@ -2,7 +2,7 @@ import ErroGramatical from "../exception/ErroGramatical";
 import getType from "../getType";
 import Gramatica from "./Gramatica";
 import LexicoBuffer from "../lexico/TokensStack";
-import Lexema from "../lexico/Lexema";
+import { Lexeme } from "../lexico/Lexeme";
 
 export default class PrecedenciaFraca {
   _tabelaDR: { [key: string]: any };
@@ -19,7 +19,7 @@ export default class PrecedenciaFraca {
 
   analisar(buffer: LexicoBuffer) {
     // Cria a pilha com o símbolo inicial e o símbolo de fim de cadadeia
-    const pilha = [this._fdc];
+    const pilha: any = [this._fdc];
 
     // Guarda todoas as produçòes da gramática
     const prods = this._gramatica.producoes;
@@ -28,8 +28,8 @@ export default class PrecedenciaFraca {
     const prodsResultado = [];
 
     // Função para descobrir o tipo do token
-    const tokenTipo = (l: Lexema | string) =>
-      getType(l) === "object" ? (l as Lexema).token.tipo : l;
+    const tokenTipo = (l: Lexeme | string) =>
+      getType(l) === "object" ? (l as Lexeme).token.tipo : l;
 
     // Ler o lexema atual
     let atual = buffer.proximo;
@@ -52,7 +52,7 @@ export default class PrecedenciaFraca {
       // (linha) e o símbolo atual da entrada (coluna)
       const acao =
         this._tabelaDR[tokenTipo(pilha[0]) as string][
-          tokenTipo(atual!) as string
+        tokenTipo(atual!) as string
         ];
 
       // Se a ação for D (deslocamento)
@@ -91,7 +91,7 @@ export default class PrecedenciaFraca {
         // Gera um erro, caso não tenha encontrado uma produção ao final
         // de todas as possiblidades de strings geradas a partir da pilha
         if (prod === null || prod === undefined) {
-          throw ErroGramatical(atual!);
+          throw ErroGramatical(atual as any);
         }
 
         // Remove da pilha todos os símbolos que casaram com o corpo da
@@ -107,7 +107,7 @@ export default class PrecedenciaFraca {
       }
 
       // Gera um erro caso não foi definida uma ação para o cruzamendo
-      throw ErroGramatical(atual!);
+      throw ErroGramatical(atual as any);
     }
 
     return prodsResultado;
