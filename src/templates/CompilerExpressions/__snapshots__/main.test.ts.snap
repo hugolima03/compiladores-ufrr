@@ -8,7 +8,7 @@ Arvore {
       "_extra": null,
       "_nos": [
         Arvore {
-          "_extra": Lexema {
+          "_extra": Lexeme {
             "_coluna": 0,
             "_linha": 0,
             "_palavra": "variaveis",
@@ -30,7 +30,7 @@ Arvore {
               "_extra": null,
               "_nos": [
                 Arvore {
-                  "_extra": Lexema {
+                  "_extra": Lexeme {
                     "_coluna": 4,
                     "_linha": 1,
                     "_palavra": "var",
@@ -38,31 +38,31 @@ Arvore {
                       "_classe": "identificador",
                       "_lexemas": [
                         [Circular],
-                        Lexema {
+                        Lexeme {
                           "_coluna": 4,
                           "_linha": 2,
                           "_palavra": "hugo",
                           "_token": [Circular],
                         },
-                        Lexema {
+                        Lexeme {
                           "_coluna": 4,
                           "_linha": 4,
                           "_palavra": "var",
                           "_token": [Circular],
                         },
-                        Lexema {
+                        Lexeme {
                           "_coluna": 4,
                           "_linha": 5,
                           "_palavra": "hugo",
                           "_token": [Circular],
                         },
-                        Lexema {
+                        Lexeme {
                           "_coluna": 12,
                           "_linha": 6,
                           "_palavra": "var",
                           "_token": [Circular],
                         },
-                        Lexema {
+                        Lexeme {
                           "_coluna": 18,
                           "_linha": 6,
                           "_palavra": "hugo",
@@ -76,7 +76,7 @@ Arvore {
                   "_simbolo": "identificador",
                 },
                 Arvore {
-                  "_extra": Lexema {
+                  "_extra": Lexeme {
                     "_coluna": 7,
                     "_linha": 1,
                     "_palavra": ":",
@@ -84,7 +84,7 @@ Arvore {
                       "_classe": "especial",
                       "_lexemas": [
                         [Circular],
-                        Lexema {
+                        Lexeme {
                           "_coluna": 8,
                           "_linha": 2,
                           "_palavra": ":",
@@ -101,7 +101,7 @@ Arvore {
                   "_extra": null,
                   "_nos": [
                     Arvore {
-                      "_extra": Lexema {
+                      "_extra": Lexeme {
                         "_coluna": 9,
                         "_linha": 1,
                         "_palavra": "int",
@@ -109,7 +109,7 @@ Arvore {
                           "_classe": "nome-escalar",
                           "_lexemas": [
                             [Circular],
-                            Lexema {
+                            Lexeme {
                               "_coluna": 10,
                               "_linha": 2,
                               "_palavra": "int",
@@ -126,7 +126,7 @@ Arvore {
                   "_simbolo": "<declaracao_tipo>",
                 },
                 Arvore {
-                  "_extra": Lexema {
+                  "_extra": Lexeme {
                     "_coluna": 12,
                     "_linha": 1,
                     "_palavra": ";",
@@ -134,25 +134,25 @@ Arvore {
                       "_classe": "especial",
                       "_lexemas": [
                         [Circular],
-                        Lexema {
+                        Lexeme {
                           "_coluna": 13,
                           "_linha": 2,
                           "_palavra": ";",
                           "_token": [Circular],
                         },
-                        Lexema {
+                        Lexeme {
                           "_coluna": 11,
                           "_linha": 4,
                           "_palavra": ";",
                           "_token": [Circular],
                         },
-                        Lexema {
+                        Lexeme {
                           "_coluna": 13,
                           "_linha": 5,
                           "_palavra": ";",
                           "_token": [Circular],
                         },
-                        Lexema {
+                        Lexeme {
                           "_coluna": 22,
                           "_linha": 6,
                           "_palavra": ";",
@@ -175,39 +175,39 @@ Arvore {
                   "_extra": null,
                   "_nos": [
                     Arvore {
-                      "_extra": Lexema {
+                      "_extra": Lexeme {
                         "_coluna": 4,
                         "_linha": 2,
                         "_palavra": "hugo",
                         "_token": Token {
                           "_classe": "identificador",
                           "_lexemas": [
-                            Lexema {
+                            Lexeme {
                               "_coluna": 4,
                               "_linha": 1,
                               "_palavra": "var",
                               "_token": [Circular],
                             },
                             [Circular],
-                            Lexema {
+                            Lexeme {
                               "_coluna": 4,
                               "_linha": 4,
                               "_palavra": "var",
                               "_token": [Circular],
                             },
-                            Lexema {
+                            Lexeme {
                               "_coluna": 4,
                               "_linha": 5,
                               "_palavra": "hugo",
                               "_token": [Circular],
                             },
-                            Lexema {
+                            Lexeme {
                               "_coluna": 12,
                               "_linha": 6,
                               "_palavra": "var",
                               "_token": [Circular],
                             },
-                            Lexema {
+                            Lexeme {
                               "_coluna": 18,
                               "_linha": 6,
                               "_palavra": "hugo",
@@ -221,14 +221,14 @@ Arvore {
                       "_simbolo": "identificador",
                     },
                     Arvore {
-                      "_extra": Lexema {
+                      "_extra": Lexeme {
                         "_coluna": 8,
                         "_linha": 2,
                         "_palavra": ":",
                         "_token": Token {
                           "_classe": "especial",
                           "_lexemas": [
-                            Lexema {
+                            Lexeme {
                               "_coluna": 7,
                               "_linha": 1,
                               "_palavra": ":",
@@ -246,14 +246,14 @@ Arvore {
                       "_extra": null,
                       "_nos": [
                         Arvore {
-                          "_extra": Lexema {
+                          "_extra": Lexeme {
                             "_coluna": 10,
                             "_linha": 2,
                             "_palavra": "int",
                             "_token": Token {
                               "_classe": "nome-escalar",
                               "_lexemas": [
-                                Lexema {
+                                Lexeme {
                                   "_coluna": 9,
                                   "_linha": 1,
                                   "_palavra": "int",
@@ -271,33 +271,33 @@ Arvore {
                       "_simbolo": "<declaracao_tipo>",
                     },
                     Arvore {
-                      "_extra": Lexema {
+                      "_extra": Lexeme {
                         "_coluna": 13,
                         "_linha": 2,
                         "_palavra": ";",
                         "_token": Token {
                           "_classe": "especial",
                           "_lexemas": [
-                            Lexema {
+                            Lexeme {
                               "_coluna": 12,
                               "_linha": 1,
                               "_palavra": ";",
                               "_token": [Circular],
                             },
                             [Circular],
-                            Lexema {
+                            Lexeme {
                               "_coluna": 11,
                               "_linha": 4,
                               "_palavra": ";",
                               "_token": [Circular],
                             },
-                            Lexema {
+                            Lexeme {
                               "_coluna": 13,
                               "_linha": 5,
                               "_palavra": ";",
                               "_token": [Circular],
                             },
-                            Lexema {
+                            Lexeme {
                               "_coluna": 22,
                               "_linha": 6,
                               "_palavra": ";",
@@ -326,7 +326,7 @@ Arvore {
       "_extra": null,
       "_nos": [
         Arvore {
-          "_extra": Lexema {
+          "_extra": Lexeme {
             "_coluna": 0,
             "_linha": 3,
             "_palavra": "inicio",
@@ -357,39 +357,39 @@ Arvore {
                           "_extra": null,
                           "_nos": [
                             Arvore {
-                              "_extra": Lexema {
+                              "_extra": Lexeme {
                                 "_coluna": 4,
                                 "_linha": 4,
                                 "_palavra": "var",
                                 "_token": Token {
                                   "_classe": "identificador",
                                   "_lexemas": [
-                                    Lexema {
+                                    Lexeme {
                                       "_coluna": 4,
                                       "_linha": 1,
                                       "_palavra": "var",
                                       "_token": [Circular],
                                     },
-                                    Lexema {
+                                    Lexeme {
                                       "_coluna": 4,
                                       "_linha": 2,
                                       "_palavra": "hugo",
                                       "_token": [Circular],
                                     },
                                     [Circular],
-                                    Lexema {
+                                    Lexeme {
                                       "_coluna": 4,
                                       "_linha": 5,
                                       "_palavra": "hugo",
                                       "_token": [Circular],
                                     },
-                                    Lexema {
+                                    Lexeme {
                                       "_coluna": 12,
                                       "_linha": 6,
                                       "_palavra": "var",
                                       "_token": [Circular],
                                     },
-                                    Lexema {
+                                    Lexeme {
                                       "_coluna": 18,
                                       "_linha": 6,
                                       "_palavra": "hugo",
@@ -403,7 +403,7 @@ Arvore {
                               "_simbolo": "identificador",
                             },
                             Arvore {
-                              "_extra": Lexema {
+                              "_extra": Lexeme {
                                 "_coluna": 8,
                                 "_linha": 4,
                                 "_palavra": "=",
@@ -411,7 +411,7 @@ Arvore {
                                   "_classe": "especial",
                                   "_lexemas": [
                                     [Circular],
-                                    Lexema {
+                                    Lexeme {
                                       "_coluna": 9,
                                       "_linha": 5,
                                       "_palavra": "=",
@@ -440,7 +440,7 @@ Arvore {
                                               "_extra": null,
                                               "_nos": [
                                                 Arvore {
-                                                  "_extra": Lexema {
+                                                  "_extra": Lexeme {
                                                     "_coluna": 10,
                                                     "_linha": 4,
                                                     "_palavra": "0",
@@ -448,7 +448,7 @@ Arvore {
                                                       "_classe": "literal-int",
                                                       "_lexemas": [
                                                         [Circular],
-                                                        Lexema {
+                                                        Lexeme {
                                                           "_coluna": 11,
                                                           "_linha": 5,
                                                           "_palavra": "10",
@@ -477,33 +477,33 @@ Arvore {
                               "_simbolo": "<retorno_valor>",
                             },
                             Arvore {
-                              "_extra": Lexema {
+                              "_extra": Lexeme {
                                 "_coluna": 11,
                                 "_linha": 4,
                                 "_palavra": ";",
                                 "_token": Token {
                                   "_classe": "especial",
                                   "_lexemas": [
-                                    Lexema {
+                                    Lexeme {
                                       "_coluna": 12,
                                       "_linha": 1,
                                       "_palavra": ";",
                                       "_token": [Circular],
                                     },
-                                    Lexema {
+                                    Lexeme {
                                       "_coluna": 13,
                                       "_linha": 2,
                                       "_palavra": ";",
                                       "_token": [Circular],
                                     },
                                     [Circular],
-                                    Lexema {
+                                    Lexeme {
                                       "_coluna": 13,
                                       "_linha": 5,
                                       "_palavra": ";",
                                       "_token": [Circular],
                                     },
-                                    Lexema {
+                                    Lexeme {
                                       "_coluna": 22,
                                       "_linha": 6,
                                       "_palavra": ";",
@@ -532,39 +532,39 @@ Arvore {
                       "_extra": null,
                       "_nos": [
                         Arvore {
-                          "_extra": Lexema {
+                          "_extra": Lexeme {
                             "_coluna": 4,
                             "_linha": 5,
                             "_palavra": "hugo",
                             "_token": Token {
                               "_classe": "identificador",
                               "_lexemas": [
-                                Lexema {
+                                Lexeme {
                                   "_coluna": 4,
                                   "_linha": 1,
                                   "_palavra": "var",
                                   "_token": [Circular],
                                 },
-                                Lexema {
+                                Lexeme {
                                   "_coluna": 4,
                                   "_linha": 2,
                                   "_palavra": "hugo",
                                   "_token": [Circular],
                                 },
-                                Lexema {
+                                Lexeme {
                                   "_coluna": 4,
                                   "_linha": 4,
                                   "_palavra": "var",
                                   "_token": [Circular],
                                 },
                                 [Circular],
-                                Lexema {
+                                Lexeme {
                                   "_coluna": 12,
                                   "_linha": 6,
                                   "_palavra": "var",
                                   "_token": [Circular],
                                 },
-                                Lexema {
+                                Lexeme {
                                   "_coluna": 18,
                                   "_linha": 6,
                                   "_palavra": "hugo",
@@ -578,14 +578,14 @@ Arvore {
                           "_simbolo": "identificador",
                         },
                         Arvore {
-                          "_extra": Lexema {
+                          "_extra": Lexeme {
                             "_coluna": 9,
                             "_linha": 5,
                             "_palavra": "=",
                             "_token": Token {
                               "_classe": "especial",
                               "_lexemas": [
-                                Lexema {
+                                Lexeme {
                                   "_coluna": 8,
                                   "_linha": 4,
                                   "_palavra": "=",
@@ -615,14 +615,14 @@ Arvore {
                                           "_extra": null,
                                           "_nos": [
                                             Arvore {
-                                              "_extra": Lexema {
+                                              "_extra": Lexeme {
                                                 "_coluna": 11,
                                                 "_linha": 5,
                                                 "_palavra": "10",
                                                 "_token": Token {
                                                   "_classe": "literal-int",
                                                   "_lexemas": [
-                                                    Lexema {
+                                                    Lexeme {
                                                       "_coluna": 10,
                                                       "_linha": 4,
                                                       "_palavra": "0",
@@ -652,33 +652,33 @@ Arvore {
                           "_simbolo": "<retorno_valor>",
                         },
                         Arvore {
-                          "_extra": Lexema {
+                          "_extra": Lexeme {
                             "_coluna": 13,
                             "_linha": 5,
                             "_palavra": ";",
                             "_token": Token {
                               "_classe": "especial",
                               "_lexemas": [
-                                Lexema {
+                                Lexeme {
                                   "_coluna": 12,
                                   "_linha": 1,
                                   "_palavra": ";",
                                   "_token": [Circular],
                                 },
-                                Lexema {
+                                Lexeme {
                                   "_coluna": 13,
                                   "_linha": 2,
                                   "_palavra": ";",
                                   "_token": [Circular],
                                 },
-                                Lexema {
+                                Lexeme {
                                   "_coluna": 11,
                                   "_linha": 4,
                                   "_palavra": ";",
                                   "_token": [Circular],
                                 },
                                 [Circular],
-                                Lexema {
+                                Lexeme {
                                   "_coluna": 22,
                                   "_linha": 6,
                                   "_palavra": ";",
@@ -707,7 +707,7 @@ Arvore {
                   "_extra": null,
                   "_nos": [
                     Arvore {
-                      "_extra": Lexema {
+                      "_extra": Lexeme {
                         "_coluna": 4,
                         "_linha": 6,
                         "_palavra": "retorne",
@@ -738,39 +738,39 @@ Arvore {
                                       "_extra": null,
                                       "_nos": [
                                         Arvore {
-                                          "_extra": Lexema {
+                                          "_extra": Lexeme {
                                             "_coluna": 12,
                                             "_linha": 6,
                                             "_palavra": "var",
                                             "_token": Token {
                                               "_classe": "identificador",
                                               "_lexemas": [
-                                                Lexema {
+                                                Lexeme {
                                                   "_coluna": 4,
                                                   "_linha": 1,
                                                   "_palavra": "var",
                                                   "_token": [Circular],
                                                 },
-                                                Lexema {
+                                                Lexeme {
                                                   "_coluna": 4,
                                                   "_linha": 2,
                                                   "_palavra": "hugo",
                                                   "_token": [Circular],
                                                 },
-                                                Lexema {
+                                                Lexeme {
                                                   "_coluna": 4,
                                                   "_linha": 4,
                                                   "_palavra": "var",
                                                   "_token": [Circular],
                                                 },
-                                                Lexema {
+                                                Lexeme {
                                                   "_coluna": 4,
                                                   "_linha": 5,
                                                   "_palavra": "hugo",
                                                   "_token": [Circular],
                                                 },
                                                 [Circular],
-                                                Lexema {
+                                                Lexeme {
                                                   "_coluna": 18,
                                                   "_linha": 6,
                                                   "_palavra": "hugo",
@@ -793,7 +793,7 @@ Arvore {
                               "_simbolo": "<expressao>",
                             },
                             Arvore {
-                              "_extra": Lexema {
+                              "_extra": Lexeme {
                                 "_coluna": 16,
                                 "_linha": 6,
                                 "_palavra": "+",
@@ -815,38 +815,38 @@ Arvore {
                                   "_extra": null,
                                   "_nos": [
                                     Arvore {
-                                      "_extra": Lexema {
+                                      "_extra": Lexeme {
                                         "_coluna": 18,
                                         "_linha": 6,
                                         "_palavra": "hugo",
                                         "_token": Token {
                                           "_classe": "identificador",
                                           "_lexemas": [
-                                            Lexema {
+                                            Lexeme {
                                               "_coluna": 4,
                                               "_linha": 1,
                                               "_palavra": "var",
                                               "_token": [Circular],
                                             },
-                                            Lexema {
+                                            Lexeme {
                                               "_coluna": 4,
                                               "_linha": 2,
                                               "_palavra": "hugo",
                                               "_token": [Circular],
                                             },
-                                            Lexema {
+                                            Lexeme {
                                               "_coluna": 4,
                                               "_linha": 4,
                                               "_palavra": "var",
                                               "_token": [Circular],
                                             },
-                                            Lexema {
+                                            Lexeme {
                                               "_coluna": 4,
                                               "_linha": 5,
                                               "_palavra": "hugo",
                                               "_token": [Circular],
                                             },
-                                            Lexema {
+                                            Lexeme {
                                               "_coluna": 12,
                                               "_linha": 6,
                                               "_palavra": "var",
@@ -873,32 +873,32 @@ Arvore {
                       "_simbolo": "<retorno_valor>",
                     },
                     Arvore {
-                      "_extra": Lexema {
+                      "_extra": Lexeme {
                         "_coluna": 22,
                         "_linha": 6,
                         "_palavra": ";",
                         "_token": Token {
                           "_classe": "especial",
                           "_lexemas": [
-                            Lexema {
+                            Lexeme {
                               "_coluna": 12,
                               "_linha": 1,
                               "_palavra": ";",
                               "_token": [Circular],
                             },
-                            Lexema {
+                            Lexeme {
                               "_coluna": 13,
                               "_linha": 2,
                               "_palavra": ";",
                               "_token": [Circular],
                             },
-                            Lexema {
+                            Lexeme {
                               "_coluna": 11,
                               "_linha": 4,
                               "_palavra": ";",
                               "_token": [Circular],
                             },
-                            Lexema {
+                            Lexeme {
                               "_coluna": 13,
                               "_linha": 5,
                               "_palavra": ";",
@@ -922,7 +922,7 @@ Arvore {
           "_simbolo": "<lista_comando>",
         },
         Arvore {
-          "_extra": Lexema {
+          "_extra": Lexeme {
             "_coluna": 0,
             "_linha": 7,
             "_palavra": "fim",
@@ -954,7 +954,7 @@ Semantico {
         "_extra": null,
         "_nos": [
           Arvore {
-            "_extra": Lexema {
+            "_extra": Lexeme {
               "_coluna": 0,
               "_linha": 0,
               "_palavra": "variaveis",
@@ -976,7 +976,7 @@ Semantico {
                 "_extra": null,
                 "_nos": [
                   Arvore {
-                    "_extra": Lexema {
+                    "_extra": Lexeme {
                       "_coluna": 4,
                       "_linha": 1,
                       "_palavra": "var",
@@ -984,31 +984,31 @@ Semantico {
                         "_classe": "identificador",
                         "_lexemas": [
                           [Circular],
-                          Lexema {
+                          Lexeme {
                             "_coluna": 4,
                             "_linha": 2,
                             "_palavra": "hugo",
                             "_token": [Circular],
                           },
-                          Lexema {
+                          Lexeme {
                             "_coluna": 4,
                             "_linha": 4,
                             "_palavra": "var",
                             "_token": [Circular],
                           },
-                          Lexema {
+                          Lexeme {
                             "_coluna": 4,
                             "_linha": 5,
                             "_palavra": "hugo",
                             "_token": [Circular],
                           },
-                          Lexema {
+                          Lexeme {
                             "_coluna": 12,
                             "_linha": 6,
                             "_palavra": "var",
                             "_token": [Circular],
                           },
-                          Lexema {
+                          Lexeme {
                             "_coluna": 18,
                             "_linha": 6,
                             "_palavra": "hugo",
@@ -1022,7 +1022,7 @@ Semantico {
                     "_simbolo": "identificador",
                   },
                   Arvore {
-                    "_extra": Lexema {
+                    "_extra": Lexeme {
                       "_coluna": 7,
                       "_linha": 1,
                       "_palavra": ":",
@@ -1030,7 +1030,7 @@ Semantico {
                         "_classe": "especial",
                         "_lexemas": [
                           [Circular],
-                          Lexema {
+                          Lexeme {
                             "_coluna": 8,
                             "_linha": 2,
                             "_palavra": ":",
@@ -1047,7 +1047,7 @@ Semantico {
                     "_extra": null,
                     "_nos": [
                       Arvore {
-                        "_extra": Lexema {
+                        "_extra": Lexeme {
                           "_coluna": 9,
                           "_linha": 1,
                           "_palavra": "int",
@@ -1055,7 +1055,7 @@ Semantico {
                             "_classe": "nome-escalar",
                             "_lexemas": [
                               [Circular],
-                              Lexema {
+                              Lexeme {
                                 "_coluna": 10,
                                 "_linha": 2,
                                 "_palavra": "int",
@@ -1072,7 +1072,7 @@ Semantico {
                     "_simbolo": "<declaracao_tipo>",
                   },
                   Arvore {
-                    "_extra": Lexema {
+                    "_extra": Lexeme {
                       "_coluna": 12,
                       "_linha": 1,
                       "_palavra": ";",
@@ -1080,25 +1080,25 @@ Semantico {
                         "_classe": "especial",
                         "_lexemas": [
                           [Circular],
-                          Lexema {
+                          Lexeme {
                             "_coluna": 13,
                             "_linha": 2,
                             "_palavra": ";",
                             "_token": [Circular],
                           },
-                          Lexema {
+                          Lexeme {
                             "_coluna": 11,
                             "_linha": 4,
                             "_palavra": ";",
                             "_token": [Circular],
                           },
-                          Lexema {
+                          Lexeme {
                             "_coluna": 13,
                             "_linha": 5,
                             "_palavra": ";",
                             "_token": [Circular],
                           },
-                          Lexema {
+                          Lexeme {
                             "_coluna": 22,
                             "_linha": 6,
                             "_palavra": ";",
@@ -1121,39 +1121,39 @@ Semantico {
                     "_extra": null,
                     "_nos": [
                       Arvore {
-                        "_extra": Lexema {
+                        "_extra": Lexeme {
                           "_coluna": 4,
                           "_linha": 2,
                           "_palavra": "hugo",
                           "_token": Token {
                             "_classe": "identificador",
                             "_lexemas": [
-                              Lexema {
+                              Lexeme {
                                 "_coluna": 4,
                                 "_linha": 1,
                                 "_palavra": "var",
                                 "_token": [Circular],
                               },
                               [Circular],
-                              Lexema {
+                              Lexeme {
                                 "_coluna": 4,
                                 "_linha": 4,
                                 "_palavra": "var",
                                 "_token": [Circular],
                               },
-                              Lexema {
+                              Lexeme {
                                 "_coluna": 4,
                                 "_linha": 5,
                                 "_palavra": "hugo",
                                 "_token": [Circular],
                               },
-                              Lexema {
+                              Lexeme {
                                 "_coluna": 12,
                                 "_linha": 6,
                                 "_palavra": "var",
                                 "_token": [Circular],
                               },
-                              Lexema {
+                              Lexeme {
                                 "_coluna": 18,
                                 "_linha": 6,
                                 "_palavra": "hugo",
@@ -1167,14 +1167,14 @@ Semantico {
                         "_simbolo": "identificador",
                       },
                       Arvore {
-                        "_extra": Lexema {
+                        "_extra": Lexeme {
                           "_coluna": 8,
                           "_linha": 2,
                           "_palavra": ":",
                           "_token": Token {
                             "_classe": "especial",
                             "_lexemas": [
-                              Lexema {
+                              Lexeme {
                                 "_coluna": 7,
                                 "_linha": 1,
                                 "_palavra": ":",
@@ -1192,14 +1192,14 @@ Semantico {
                         "_extra": null,
                         "_nos": [
                           Arvore {
-                            "_extra": Lexema {
+                            "_extra": Lexeme {
                               "_coluna": 10,
                               "_linha": 2,
                               "_palavra": "int",
                               "_token": Token {
                                 "_classe": "nome-escalar",
                                 "_lexemas": [
-                                  Lexema {
+                                  Lexeme {
                                     "_coluna": 9,
                                     "_linha": 1,
                                     "_palavra": "int",
@@ -1217,33 +1217,33 @@ Semantico {
                         "_simbolo": "<declaracao_tipo>",
                       },
                       Arvore {
-                        "_extra": Lexema {
+                        "_extra": Lexeme {
                           "_coluna": 13,
                           "_linha": 2,
                           "_palavra": ";",
                           "_token": Token {
                             "_classe": "especial",
                             "_lexemas": [
-                              Lexema {
+                              Lexeme {
                                 "_coluna": 12,
                                 "_linha": 1,
                                 "_palavra": ";",
                                 "_token": [Circular],
                               },
                               [Circular],
-                              Lexema {
+                              Lexeme {
                                 "_coluna": 11,
                                 "_linha": 4,
                                 "_palavra": ";",
                                 "_token": [Circular],
                               },
-                              Lexema {
+                              Lexeme {
                                 "_coluna": 13,
                                 "_linha": 5,
                                 "_palavra": ";",
                                 "_token": [Circular],
                               },
-                              Lexema {
+                              Lexeme {
                                 "_coluna": 22,
                                 "_linha": 6,
                                 "_palavra": ";",
@@ -1272,7 +1272,7 @@ Semantico {
         "_extra": null,
         "_nos": [
           Arvore {
-            "_extra": Lexema {
+            "_extra": Lexeme {
               "_coluna": 0,
               "_linha": 3,
               "_palavra": "inicio",
@@ -1303,39 +1303,39 @@ Semantico {
                             "_extra": null,
                             "_nos": [
                               Arvore {
-                                "_extra": Lexema {
+                                "_extra": Lexeme {
                                   "_coluna": 4,
                                   "_linha": 4,
                                   "_palavra": "var",
                                   "_token": Token {
                                     "_classe": "identificador",
                                     "_lexemas": [
-                                      Lexema {
+                                      Lexeme {
                                         "_coluna": 4,
                                         "_linha": 1,
                                         "_palavra": "var",
                                         "_token": [Circular],
                                       },
-                                      Lexema {
+                                      Lexeme {
                                         "_coluna": 4,
                                         "_linha": 2,
                                         "_palavra": "hugo",
                                         "_token": [Circular],
                                       },
                                       [Circular],
-                                      Lexema {
+                                      Lexeme {
                                         "_coluna": 4,
                                         "_linha": 5,
                                         "_palavra": "hugo",
                                         "_token": [Circular],
                                       },
-                                      Lexema {
+                                      Lexeme {
                                         "_coluna": 12,
                                         "_linha": 6,
                                         "_palavra": "var",
                                         "_token": [Circular],
                                       },
-                                      Lexema {
+                                      Lexeme {
                                         "_coluna": 18,
                                         "_linha": 6,
                                         "_palavra": "hugo",
@@ -1349,7 +1349,7 @@ Semantico {
                                 "_simbolo": "identificador",
                               },
                               Arvore {
-                                "_extra": Lexema {
+                                "_extra": Lexeme {
                                   "_coluna": 8,
                                   "_linha": 4,
                                   "_palavra": "=",
@@ -1357,7 +1357,7 @@ Semantico {
                                     "_classe": "especial",
                                     "_lexemas": [
                                       [Circular],
-                                      Lexema {
+                                      Lexeme {
                                         "_coluna": 9,
                                         "_linha": 5,
                                         "_palavra": "=",
@@ -1386,7 +1386,7 @@ Semantico {
                                                 "_extra": null,
                                                 "_nos": [
                                                   Arvore {
-                                                    "_extra": Lexema {
+                                                    "_extra": Lexeme {
                                                       "_coluna": 10,
                                                       "_linha": 4,
                                                       "_palavra": "0",
@@ -1394,7 +1394,7 @@ Semantico {
                                                         "_classe": "literal-int",
                                                         "_lexemas": [
                                                           [Circular],
-                                                          Lexema {
+                                                          Lexeme {
                                                             "_coluna": 11,
                                                             "_linha": 5,
                                                             "_palavra": "10",
@@ -1423,33 +1423,33 @@ Semantico {
                                 "_simbolo": "<retorno_valor>",
                               },
                               Arvore {
-                                "_extra": Lexema {
+                                "_extra": Lexeme {
                                   "_coluna": 11,
                                   "_linha": 4,
                                   "_palavra": ";",
                                   "_token": Token {
                                     "_classe": "especial",
                                     "_lexemas": [
-                                      Lexema {
+                                      Lexeme {
                                         "_coluna": 12,
                                         "_linha": 1,
                                         "_palavra": ";",
                                         "_token": [Circular],
                                       },
-                                      Lexema {
+                                      Lexeme {
                                         "_coluna": 13,
                                         "_linha": 2,
                                         "_palavra": ";",
                                         "_token": [Circular],
                                       },
                                       [Circular],
-                                      Lexema {
+                                      Lexeme {
                                         "_coluna": 13,
                                         "_linha": 5,
                                         "_palavra": ";",
                                         "_token": [Circular],
                                       },
-                                      Lexema {
+                                      Lexeme {
                                         "_coluna": 22,
                                         "_linha": 6,
                                         "_palavra": ";",
@@ -1478,39 +1478,39 @@ Semantico {
                         "_extra": null,
                         "_nos": [
                           Arvore {
-                            "_extra": Lexema {
+                            "_extra": Lexeme {
                               "_coluna": 4,
                               "_linha": 5,
                               "_palavra": "hugo",
                               "_token": Token {
                                 "_classe": "identificador",
                                 "_lexemas": [
-                                  Lexema {
+                                  Lexeme {
                                     "_coluna": 4,
                                     "_linha": 1,
                                     "_palavra": "var",
                                     "_token": [Circular],
                                   },
-                                  Lexema {
+                                  Lexeme {
                                     "_coluna": 4,
                                     "_linha": 2,
                                     "_palavra": "hugo",
                                     "_token": [Circular],
                                   },
-                                  Lexema {
+                                  Lexeme {
                                     "_coluna": 4,
                                     "_linha": 4,
                                     "_palavra": "var",
                                     "_token": [Circular],
                                   },
                                   [Circular],
-                                  Lexema {
+                                  Lexeme {
                                     "_coluna": 12,
                                     "_linha": 6,
                                     "_palavra": "var",
                                     "_token": [Circular],
                                   },
-                                  Lexema {
+                                  Lexeme {
                                     "_coluna": 18,
                                     "_linha": 6,
                                     "_palavra": "hugo",
@@ -1524,14 +1524,14 @@ Semantico {
                             "_simbolo": "identificador",
                           },
                           Arvore {
-                            "_extra": Lexema {
+                            "_extra": Lexeme {
                               "_coluna": 9,
                               "_linha": 5,
                               "_palavra": "=",
                               "_token": Token {
                                 "_classe": "especial",
                                 "_lexemas": [
-                                  Lexema {
+                                  Lexeme {
                                     "_coluna": 8,
                                     "_linha": 4,
                                     "_palavra": "=",
@@ -1561,14 +1561,14 @@ Semantico {
                                             "_extra": null,
                                             "_nos": [
                                               Arvore {
-                                                "_extra": Lexema {
+                                                "_extra": Lexeme {
                                                   "_coluna": 11,
                                                   "_linha": 5,
                                                   "_palavra": "10",
                                                   "_token": Token {
                                                     "_classe": "literal-int",
                                                     "_lexemas": [
-                                                      Lexema {
+                                                      Lexeme {
                                                         "_coluna": 10,
                                                         "_linha": 4,
                                                         "_palavra": "0",
@@ -1598,33 +1598,33 @@ Semantico {
                             "_simbolo": "<retorno_valor>",
                           },
                           Arvore {
-                            "_extra": Lexema {
+                            "_extra": Lexeme {
                               "_coluna": 13,
                               "_linha": 5,
                               "_palavra": ";",
                               "_token": Token {
                                 "_classe": "especial",
                                 "_lexemas": [
-                                  Lexema {
+                                  Lexeme {
                                     "_coluna": 12,
                                     "_linha": 1,
                                     "_palavra": ";",
                                     "_token": [Circular],
                                   },
-                                  Lexema {
+                                  Lexeme {
                                     "_coluna": 13,
                                     "_linha": 2,
                                     "_palavra": ";",
                                     "_token": [Circular],
                                   },
-                                  Lexema {
+                                  Lexeme {
                                     "_coluna": 11,
                                     "_linha": 4,
                                     "_palavra": ";",
                                     "_token": [Circular],
                                   },
                                   [Circular],
-                                  Lexema {
+                                  Lexeme {
                                     "_coluna": 22,
                                     "_linha": 6,
                                     "_palavra": ";",
@@ -1653,7 +1653,7 @@ Semantico {
                     "_extra": null,
                     "_nos": [
                       Arvore {
-                        "_extra": Lexema {
+                        "_extra": Lexeme {
                           "_coluna": 4,
                           "_linha": 6,
                           "_palavra": "retorne",
@@ -1684,39 +1684,39 @@ Semantico {
                                         "_extra": null,
                                         "_nos": [
                                           Arvore {
-                                            "_extra": Lexema {
+                                            "_extra": Lexeme {
                                               "_coluna": 12,
                                               "_linha": 6,
                                               "_palavra": "var",
                                               "_token": Token {
                                                 "_classe": "identificador",
                                                 "_lexemas": [
-                                                  Lexema {
+                                                  Lexeme {
                                                     "_coluna": 4,
                                                     "_linha": 1,
                                                     "_palavra": "var",
                                                     "_token": [Circular],
                                                   },
-                                                  Lexema {
+                                                  Lexeme {
                                                     "_coluna": 4,
                                                     "_linha": 2,
                                                     "_palavra": "hugo",
                                                     "_token": [Circular],
                                                   },
-                                                  Lexema {
+                                                  Lexeme {
                                                     "_coluna": 4,
                                                     "_linha": 4,
                                                     "_palavra": "var",
                                                     "_token": [Circular],
                                                   },
-                                                  Lexema {
+                                                  Lexeme {
                                                     "_coluna": 4,
                                                     "_linha": 5,
                                                     "_palavra": "hugo",
                                                     "_token": [Circular],
                                                   },
                                                   [Circular],
-                                                  Lexema {
+                                                  Lexeme {
                                                     "_coluna": 18,
                                                     "_linha": 6,
                                                     "_palavra": "hugo",
@@ -1739,7 +1739,7 @@ Semantico {
                                 "_simbolo": "<expressao>",
                               },
                               Arvore {
-                                "_extra": Lexema {
+                                "_extra": Lexeme {
                                   "_coluna": 16,
                                   "_linha": 6,
                                   "_palavra": "+",
@@ -1761,38 +1761,38 @@ Semantico {
                                     "_extra": null,
                                     "_nos": [
                                       Arvore {
-                                        "_extra": Lexema {
+                                        "_extra": Lexeme {
                                           "_coluna": 18,
                                           "_linha": 6,
                                           "_palavra": "hugo",
                                           "_token": Token {
                                             "_classe": "identificador",
                                             "_lexemas": [
-                                              Lexema {
+                                              Lexeme {
                                                 "_coluna": 4,
                                                 "_linha": 1,
                                                 "_palavra": "var",
                                                 "_token": [Circular],
                                               },
-                                              Lexema {
+                                              Lexeme {
                                                 "_coluna": 4,
                                                 "_linha": 2,
                                                 "_palavra": "hugo",
                                                 "_token": [Circular],
                                               },
-                                              Lexema {
+                                              Lexeme {
                                                 "_coluna": 4,
                                                 "_linha": 4,
                                                 "_palavra": "var",
                                                 "_token": [Circular],
                                               },
-                                              Lexema {
+                                              Lexeme {
                                                 "_coluna": 4,
                                                 "_linha": 5,
                                                 "_palavra": "hugo",
                                                 "_token": [Circular],
                                               },
-                                              Lexema {
+                                              Lexeme {
                                                 "_coluna": 12,
                                                 "_linha": 6,
                                                 "_palavra": "var",
@@ -1819,32 +1819,32 @@ Semantico {
                         "_simbolo": "<retorno_valor>",
                       },
                       Arvore {
-                        "_extra": Lexema {
+                        "_extra": Lexeme {
                           "_coluna": 22,
                           "_linha": 6,
                           "_palavra": ";",
                           "_token": Token {
                             "_classe": "especial",
                             "_lexemas": [
-                              Lexema {
+                              Lexeme {
                                 "_coluna": 12,
                                 "_linha": 1,
                                 "_palavra": ";",
                                 "_token": [Circular],
                               },
-                              Lexema {
+                              Lexeme {
                                 "_coluna": 13,
                                 "_linha": 2,
                                 "_palavra": ";",
                                 "_token": [Circular],
                               },
-                              Lexema {
+                              Lexeme {
                                 "_coluna": 11,
                                 "_linha": 4,
                                 "_palavra": ";",
                                 "_token": [Circular],
                               },
-                              Lexema {
+                              Lexeme {
                                 "_coluna": 13,
                                 "_linha": 5,
                                 "_palavra": ";",
@@ -1868,7 +1868,7 @@ Semantico {
             "_simbolo": "<lista_comando>",
           },
           Arvore {
-            "_extra": Lexema {
+            "_extra": Lexeme {
               "_coluna": 0,
               "_linha": 7,
               "_palavra": "fim",
@@ -1896,37 +1896,37 @@ Semantico {
       "_token": Token {
         "_classe": "identificador",
         "_lexemas": [
-          Lexema {
+          Lexeme {
             "_coluna": 4,
             "_linha": 1,
             "_palavra": "var",
             "_token": [Circular],
           },
-          Lexema {
+          Lexeme {
             "_coluna": 4,
             "_linha": 2,
             "_palavra": "hugo",
             "_token": [Circular],
           },
-          Lexema {
+          Lexeme {
             "_coluna": 4,
             "_linha": 4,
             "_palavra": "var",
             "_token": [Circular],
           },
-          Lexema {
+          Lexeme {
             "_coluna": 4,
             "_linha": 5,
             "_palavra": "hugo",
             "_token": [Circular],
           },
-          Lexema {
+          Lexeme {
             "_coluna": 12,
             "_linha": 6,
             "_palavra": "var",
             "_token": [Circular],
           },
-          Lexema {
+          Lexeme {
             "_coluna": 18,
             "_linha": 6,
             "_palavra": "hugo",
@@ -1942,37 +1942,37 @@ Semantico {
       "_token": Token {
         "_classe": "identificador",
         "_lexemas": [
-          Lexema {
+          Lexeme {
             "_coluna": 4,
             "_linha": 1,
             "_palavra": "var",
             "_token": [Circular],
           },
-          Lexema {
+          Lexeme {
             "_coluna": 4,
             "_linha": 2,
             "_palavra": "hugo",
             "_token": [Circular],
           },
-          Lexema {
+          Lexeme {
             "_coluna": 4,
             "_linha": 4,
             "_palavra": "var",
             "_token": [Circular],
           },
-          Lexema {
+          Lexeme {
             "_coluna": 4,
             "_linha": 5,
             "_palavra": "hugo",
             "_token": [Circular],
           },
-          Lexema {
+          Lexeme {
             "_coluna": 12,
             "_linha": 6,
             "_palavra": "var",
             "_token": [Circular],
           },
-          Lexema {
+          Lexeme {
             "_coluna": 18,
             "_linha": 6,
             "_palavra": "hugo",
@@ -1989,7 +1989,7 @@ Semantico {
 exports[`CompilerExpressions Generic test 3`] = `
 [
   Arvore {
-    "_extra": Lexema {
+    "_extra": Lexeme {
       "_coluna": 8,
       "_linha": 4,
       "_palavra": "=",
@@ -1997,7 +1997,7 @@ exports[`CompilerExpressions Generic test 3`] = `
         "_classe": "especial",
         "_lexemas": [
           [Circular],
-          Lexema {
+          Lexeme {
             "_coluna": 9,
             "_linha": 5,
             "_palavra": "=",
@@ -2009,39 +2009,39 @@ exports[`CompilerExpressions Generic test 3`] = `
     },
     "_nos": [
       Arvore {
-        "_extra": Lexema {
+        "_extra": Lexeme {
           "_coluna": 4,
           "_linha": 4,
           "_palavra": "var",
           "_token": Token {
             "_classe": "identificador",
             "_lexemas": [
-              Lexema {
+              Lexeme {
                 "_coluna": 4,
                 "_linha": 1,
                 "_palavra": "var",
                 "_token": [Circular],
               },
-              Lexema {
+              Lexeme {
                 "_coluna": 4,
                 "_linha": 2,
                 "_palavra": "hugo",
                 "_token": [Circular],
               },
               [Circular],
-              Lexema {
+              Lexeme {
                 "_coluna": 4,
                 "_linha": 5,
                 "_palavra": "hugo",
                 "_token": [Circular],
               },
-              Lexema {
+              Lexeme {
                 "_coluna": 12,
                 "_linha": 6,
                 "_palavra": "var",
                 "_token": [Circular],
               },
-              Lexema {
+              Lexeme {
                 "_coluna": 18,
                 "_linha": 6,
                 "_palavra": "hugo",
@@ -2055,7 +2055,7 @@ exports[`CompilerExpressions Generic test 3`] = `
         "_simbolo": "var",
       },
       Arvore {
-        "_extra": Lexema {
+        "_extra": Lexeme {
           "_coluna": 10,
           "_linha": 4,
           "_palavra": "0",
@@ -2063,7 +2063,7 @@ exports[`CompilerExpressions Generic test 3`] = `
             "_classe": "literal-int",
             "_lexemas": [
               [Circular],
-              Lexema {
+              Lexeme {
                 "_coluna": 11,
                 "_linha": 5,
                 "_palavra": "10",
@@ -2080,14 +2080,14 @@ exports[`CompilerExpressions Generic test 3`] = `
     "_simbolo": "=",
   },
   Arvore {
-    "_extra": Lexema {
+    "_extra": Lexeme {
       "_coluna": 9,
       "_linha": 5,
       "_palavra": "=",
       "_token": Token {
         "_classe": "especial",
         "_lexemas": [
-          Lexema {
+          Lexeme {
             "_coluna": 8,
             "_linha": 4,
             "_palavra": "=",
@@ -2100,39 +2100,39 @@ exports[`CompilerExpressions Generic test 3`] = `
     },
     "_nos": [
       Arvore {
-        "_extra": Lexema {
+        "_extra": Lexeme {
           "_coluna": 4,
           "_linha": 5,
           "_palavra": "hugo",
           "_token": Token {
             "_classe": "identificador",
             "_lexemas": [
-              Lexema {
+              Lexeme {
                 "_coluna": 4,
                 "_linha": 1,
                 "_palavra": "var",
                 "_token": [Circular],
               },
-              Lexema {
+              Lexeme {
                 "_coluna": 4,
                 "_linha": 2,
                 "_palavra": "hugo",
                 "_token": [Circular],
               },
-              Lexema {
+              Lexeme {
                 "_coluna": 4,
                 "_linha": 4,
                 "_palavra": "var",
                 "_token": [Circular],
               },
               [Circular],
-              Lexema {
+              Lexeme {
                 "_coluna": 12,
                 "_linha": 6,
                 "_palavra": "var",
                 "_token": [Circular],
               },
-              Lexema {
+              Lexeme {
                 "_coluna": 18,
                 "_linha": 6,
                 "_palavra": "hugo",
@@ -2146,14 +2146,14 @@ exports[`CompilerExpressions Generic test 3`] = `
         "_simbolo": "hugo",
       },
       Arvore {
-        "_extra": Lexema {
+        "_extra": Lexeme {
           "_coluna": 11,
           "_linha": 5,
           "_palavra": "10",
           "_token": Token {
             "_classe": "literal-int",
             "_lexemas": [
-              Lexema {
+              Lexeme {
                 "_coluna": 10,
                 "_linha": 4,
                 "_palavra": "0",
@@ -2171,7 +2171,7 @@ exports[`CompilerExpressions Generic test 3`] = `
     "_simbolo": "=",
   },
   Arvore {
-    "_extra": Lexema {
+    "_extra": Lexeme {
       "_coluna": 4,
       "_linha": 6,
       "_palavra": "retorne",
@@ -2185,7 +2185,7 @@ exports[`CompilerExpressions Generic test 3`] = `
     },
     "_nos": [
       Arvore {
-        "_extra": Lexema {
+        "_extra": Lexeme {
           "_coluna": 16,
           "_linha": 6,
           "_palavra": "+",
@@ -2199,39 +2199,39 @@ exports[`CompilerExpressions Generic test 3`] = `
         },
         "_nos": [
           Arvore {
-            "_extra": Lexema {
+            "_extra": Lexeme {
               "_coluna": 12,
               "_linha": 6,
               "_palavra": "var",
               "_token": Token {
                 "_classe": "identificador",
                 "_lexemas": [
-                  Lexema {
+                  Lexeme {
                     "_coluna": 4,
                     "_linha": 1,
                     "_palavra": "var",
                     "_token": [Circular],
                   },
-                  Lexema {
+                  Lexeme {
                     "_coluna": 4,
                     "_linha": 2,
                     "_palavra": "hugo",
                     "_token": [Circular],
                   },
-                  Lexema {
+                  Lexeme {
                     "_coluna": 4,
                     "_linha": 4,
                     "_palavra": "var",
                     "_token": [Circular],
                   },
-                  Lexema {
+                  Lexeme {
                     "_coluna": 4,
                     "_linha": 5,
                     "_palavra": "hugo",
                     "_token": [Circular],
                   },
                   [Circular],
-                  Lexema {
+                  Lexeme {
                     "_coluna": 18,
                     "_linha": 6,
                     "_palavra": "hugo",
@@ -2245,38 +2245,38 @@ exports[`CompilerExpressions Generic test 3`] = `
             "_simbolo": "var",
           },
           Arvore {
-            "_extra": Lexema {
+            "_extra": Lexeme {
               "_coluna": 18,
               "_linha": 6,
               "_palavra": "hugo",
               "_token": Token {
                 "_classe": "identificador",
                 "_lexemas": [
-                  Lexema {
+                  Lexeme {
                     "_coluna": 4,
                     "_linha": 1,
                     "_palavra": "var",
                     "_token": [Circular],
                   },
-                  Lexema {
+                  Lexeme {
                     "_coluna": 4,
                     "_linha": 2,
                     "_palavra": "hugo",
                     "_token": [Circular],
                   },
-                  Lexema {
+                  Lexeme {
                     "_coluna": 4,
                     "_linha": 4,
                     "_palavra": "var",
                     "_token": [Circular],
                   },
-                  Lexema {
+                  Lexeme {
                     "_coluna": 4,
                     "_linha": 5,
                     "_palavra": "hugo",
                     "_token": [Circular],
                   },
-                  Lexema {
+                  Lexeme {
                     "_coluna": 12,
                     "_linha": 6,
                     "_palavra": "var",
@@ -2307,37 +2307,37 @@ exports[`CompilerExpressions Generic test 4`] = `
     "_token": Token {
       "_classe": "identificador",
       "_lexemas": [
-        Lexema {
+        Lexeme {
           "_coluna": 4,
           "_linha": 1,
           "_palavra": "var",
           "_token": [Circular],
         },
-        Lexema {
+        Lexeme {
           "_coluna": 4,
           "_linha": 2,
           "_palavra": "hugo",
           "_token": [Circular],
         },
-        Lexema {
+        Lexeme {
           "_coluna": 4,
           "_linha": 4,
           "_palavra": "var",
           "_token": [Circular],
         },
-        Lexema {
+        Lexeme {
           "_coluna": 4,
           "_linha": 5,
           "_palavra": "hugo",
           "_token": [Circular],
         },
-        Lexema {
+        Lexeme {
           "_coluna": 12,
           "_linha": 6,
           "_palavra": "var",
           "_token": [Circular],
         },
-        Lexema {
+        Lexeme {
           "_coluna": 18,
           "_linha": 6,
           "_palavra": "hugo",
@@ -2353,37 +2353,37 @@ exports[`CompilerExpressions Generic test 4`] = `
     "_token": Token {
       "_classe": "identificador",
       "_lexemas": [
-        Lexema {
+        Lexeme {
           "_coluna": 4,
           "_linha": 1,
           "_palavra": "var",
           "_token": [Circular],
         },
-        Lexema {
+        Lexeme {
           "_coluna": 4,
           "_linha": 2,
           "_palavra": "hugo",
           "_token": [Circular],
         },
-        Lexema {
+        Lexeme {
           "_coluna": 4,
           "_linha": 4,
           "_palavra": "var",
           "_token": [Circular],
         },
-        Lexema {
+        Lexeme {
           "_coluna": 4,
           "_linha": 5,
           "_palavra": "hugo",
           "_token": [Circular],
         },
-        Lexema {
+        Lexeme {
           "_coluna": 12,
           "_linha": 6,
           "_palavra": "var",
           "_token": [Circular],
         },
-        Lexema {
+        Lexeme {
           "_coluna": 18,
           "_linha": 6,
           "_palavra": "hugo",
@@ -2703,37 +2703,37 @@ Mips {
       "_token": Token {
         "_classe": "identificador",
         "_lexemas": [
-          Lexema {
+          Lexeme {
             "_coluna": 4,
             "_linha": 1,
             "_palavra": "var",
             "_token": [Circular],
           },
-          Lexema {
+          Lexeme {
             "_coluna": 4,
             "_linha": 2,
             "_palavra": "hugo",
             "_token": [Circular],
           },
-          Lexema {
+          Lexeme {
             "_coluna": 4,
             "_linha": 4,
             "_palavra": "var",
             "_token": [Circular],
           },
-          Lexema {
+          Lexeme {
             "_coluna": 4,
             "_linha": 5,
             "_palavra": "hugo",
             "_token": [Circular],
           },
-          Lexema {
+          Lexeme {
             "_coluna": 12,
             "_linha": 6,
             "_palavra": "var",
             "_token": [Circular],
           },
-          Lexema {
+          Lexeme {
             "_coluna": 18,
             "_linha": 6,
             "_palavra": "hugo",
@@ -2749,37 +2749,37 @@ Mips {
       "_token": Token {
         "_classe": "identificador",
         "_lexemas": [
-          Lexema {
+          Lexeme {
             "_coluna": 4,
             "_linha": 1,
             "_palavra": "var",
             "_token": [Circular],
           },
-          Lexema {
+          Lexeme {
             "_coluna": 4,
             "_linha": 2,
             "_palavra": "hugo",
             "_token": [Circular],
           },
-          Lexema {
+          Lexeme {
             "_coluna": 4,
             "_linha": 4,
             "_palavra": "var",
             "_token": [Circular],
           },
-          Lexema {
+          Lexeme {
             "_coluna": 4,
             "_linha": 5,
             "_palavra": "hugo",
             "_token": [Circular],
           },
-          Lexema {
+          Lexeme {
             "_coluna": 12,
             "_linha": 6,
             "_palavra": "var",
             "_token": [Circular],
           },
-          Lexema {
+          Lexeme {
             "_coluna": 18,
             "_linha": 6,
             "_palavra": "hugo",

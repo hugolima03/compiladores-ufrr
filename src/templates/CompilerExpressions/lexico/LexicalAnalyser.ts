@@ -3,7 +3,7 @@ import Token from './Token';
 import { Lexeme } from './Lexeme';
 import ErroLexico from '../exception/ErroLexico'
 
-export default class Lexico {
+export class LexicalAnalyser {
     _tokensReconhecidos: Token[]
 
     constructor() {
@@ -26,7 +26,7 @@ export default class Lexico {
     }
 
     tokenizarLinha(entrada: string, linha: number) {
-        const lexemasStr = Lexico._parsearLexemas(entrada); // Popula a lista de strings de lexema
+        const lexemasStr = LexicalAnalyser._parsearLexemas(entrada); // Popula a lista de strings de lexema
 
         let coluna = 0;
 
@@ -50,13 +50,9 @@ export default class Lexico {
         return lexemas;
     }
 
-    get tokenizarHandle() {
-        return (entrada: string, nLinha: number) => this.tokenizarLinha(entrada, nLinha);
-    }
-
     static _parsearLexemas(entrada: string) {
 
-        const separarPorStringLiterais = Lexico._separarPorStringLiterais(entrada);
+        const separarPorStringLiterais = LexicalAnalyser._separarPorStringLiterais(entrada);
 
         let lexemas: string[] = [];
 
@@ -67,7 +63,7 @@ export default class Lexico {
                 continue;
             }
 
-            const separarPorEspacos = Lexico._separarPorEspacos(spsl);
+            const separarPorEspacos = LexicalAnalyser._separarPorEspacos(spsl);
             for (const spe of separarPorEspacos) {
 
                 if (ehEspaco(spe)) {
@@ -77,7 +73,7 @@ export default class Lexico {
 
                 lexemas = [
                     ...lexemas,
-                    ...Lexico._separarPorOperadores(spe)
+                    ...LexicalAnalyser._separarPorOperadores(spe)
                 ];
             }
         }
