@@ -1,12 +1,11 @@
 import { getReactD3Tree } from "./pipeline1/Tree";
 
-import Semantico from "./semantico/Semantico";
-
 import Intermediario from "./sintese/Intermediario.mjs";
 
 import Mips from "./sintese/Mips.mjs";
 
 import Pipeline1 from "./pipeline1";
+import Pipeline2 from "./pipeline2";
 
 describe('CompilerExpressions', () => {
   it('Generic test', () => {
@@ -21,9 +20,9 @@ fim`
 
     const arvoreSintatica = new Pipeline1(sourceCode).start();
 
-    const semantico = new Semantico(arvoreSintatica!);
-    const arvoresDeExpressoes = semantico.validarComandos();
-    const tabelaDeSimbolos = semantico.tabelaDeSimbolos;
+    const { arvoresDeExpressoes, tabelaDeSimbolos } = new Pipeline2(
+      arvoreSintatica!
+    ).start();
 
     const intermediario = new Intermediario(arvoresDeExpressoes);
     const gerados = intermediario.comandos;
@@ -43,7 +42,6 @@ fim`
     const d3tree = getReactD3Tree(arvoreSintatica!);
 
     expect(arvoreSintatica).toMatchSnapshot()
-    expect(semantico).toMatchSnapshot()
     expect(arvoresDeExpressoes).toMatchSnapshot()
     expect(tabelaDeSimbolos).toMatchSnapshot()
     expect(intermediario).toMatchSnapshot()

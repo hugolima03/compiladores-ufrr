@@ -4,12 +4,6 @@ import * as ReactD3TreeComponent from "react-d3-tree";
 
 import CodeEditor from "components/CodeEditor";
 
-import Pipeline1 from "./pipeline1";
-import Semantico from "./semantico/Semantico";
-import Intermediario from "./sintese/Intermediario.mjs";
-
-import Mips from "./sintese/Mips.mjs";
-
 import * as S from "./styles";
 import {
   Table,
@@ -17,8 +11,16 @@ import {
   TableHeader,
   TableRow,
 } from "components/Table/styles";
+
+
 import { Tree, ReactD3Tree, getReactD3Tree } from "./pipeline1/Tree";
-import SimboloIdentificador from "./semantico/SimboloIdentificador";
+import SimboloIdentificador from "./pipeline2/SimboloIdentificador";
+
+import Pipeline1 from "./pipeline1";
+import Pipeline2 from "./pipeline2";
+
+import Mips from "./sintese/Mips.mjs";
+import Intermediario from "./sintese/Intermediario.mjs";
 
 const CompilerExpressions = () => {
   const tree = useRef<HTMLDivElement>(null);
@@ -30,9 +32,7 @@ const CompilerExpressions = () => {
   function onSubmit(sourceCode: string) {
     const arvoreSintatica = new Pipeline1(sourceCode).start();
 
-    const semantico = new Semantico(arvoreSintatica!);
-    const arvoresDeExpressoes = semantico.validarComandos();
-    const tabelaDeSimbolos = semantico.tabelaDeSimbolos;
+    const { arvoresDeExpressoes, tabelaDeSimbolos } = new Pipeline2(arvoreSintatica!).start();
 
     const intermediario = new Intermediario(arvoresDeExpressoes);
     const gerados = intermediario.comandos;
