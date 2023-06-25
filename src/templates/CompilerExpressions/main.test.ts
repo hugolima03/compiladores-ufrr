@@ -6,7 +6,7 @@ import Intermediario from "./sintese/Intermediario.mjs";
 
 import Mips from "./sintese/Mips.mjs";
 
-import Pipeline1 from "./pipeline1/Pipeline1";
+import Pipeline1 from "./pipeline1";
 
 describe('CompilerExpressions', () => {
   it('Generic test', () => {
