@@ -1,4 +1,4 @@
-import Lexema from "../lexico/Lexema";
+import { Lexeme } from "../lexico/Lexeme";
 import Gramatica from "./Gramatica";
 import Producao from "./Producao";
 
@@ -10,7 +10,7 @@ export type ReactD3Tree = {
 export default class Arvore {
     _simbolo: string;
     _nos: Arvore[];
-    _extra: Lexema | null;
+    _extra: Lexeme | null;
 
     constructor(simbolo: string) {
         this._simbolo = simbolo;

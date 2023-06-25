@@ -1,12 +1,11 @@
 import getType from '../getType';
 import gramatica from '../sintatico/Regras';
 
-import Lexema from '../lexico/Lexema';
-
 import Lexico from '../lexico/Lexico';
 import Arvore from '../sintatico/Arvore';
 import TokensStack from '../lexico/TokensStack';
 import PrecedenciaFraca from '../sintatico/PrecedenciaFraca';
+import { Lexeme } from '../lexico/Lexeme';
 
 export default class Pipeline1 {
   _sorceCode: string
@@ -27,7 +26,7 @@ export default class Pipeline1 {
   start() {
     console.log('PIPELINE 1... START!')
 
-    let lexemas: Lexema[] = [];
+    let lexemas: Lexeme[] = [];
     const parsearLexemas = (lineContent: string, lineIndex: number) => {
       const ls = this._lexico.tokenizarHandle(lineContent, lineIndex);
 

@@ -1,11 +1,11 @@
 import ParametroInvalido from '../exception/ParametroInvalido'
 import getType from '../getType'
-import Lexema from './Lexema'
+import { Lexeme } from './Lexeme'
 
 export default class Token {
     _classe: string
     _subclasse: string
-    _lexemas: Lexema[]
+    _lexemas: Lexeme[]
 
     constructor(classe: string, subclasse: string) {
 
@@ -31,7 +31,7 @@ export default class Token {
 
     get lexemas() { return [...this._lexemas]; }
 
-    registrarLexema(lexema: Lexema) {
+    registrarLexema(lexema: Lexeme) {
         if (getType(lexema) !== 'object') {
             throw ParametroInvalido('lexema', 'Lexema', getType(lexema));
         }

@@ -1,6 +1,6 @@
 import Padroes, { ehEspaco, ehStringLiteral, descobrirTokenClasse, descobrirTokenSubclasse } from './Padroes';
 import Token from './Token';
-import Lexema from './Lexema';
+import { Lexeme } from './Lexeme';
 import ErroLexico from '../exception/ErroLexico'
 
 export default class Lexico {
@@ -36,7 +36,7 @@ export default class Lexico {
             if (!ehEspaco(l)) {
 
                 const token = this._buscarTokenPelaLexema(l);
-                const lexema = new Lexema(l, linha, coluna, token);
+                const lexema = new Lexeme(l, linha, coluna, token);
 
                 if (token === undefined || token.tipo === 'sem-categoria') {
                     throw ErroLexico(lexema);
@@ -61,7 +61,7 @@ export default class Lexico {
         let lexemas: string[] = [];
 
         for (const spsl of separarPorStringLiterais) {
-            
+
             if (ehStringLiteral(spsl)) {
                 lexemas.push(spsl);
                 continue;
