@@ -26,16 +26,18 @@ export class LexicalAnalyser {
     }
 
     tokenizarLinha(entrada: string, linha: number) {
+        // "    var: int;""
         const lexemasStr = LexicalAnalyser._parsearLexemas(entrada); // Popula a lista de strings de lexema
+        // ["    ", "var", ":", " ", "int", ";"]
 
         let coluna = 0;
-
         const lexemas = [];
 
+        // Criando as instâncias de Lexema a partir da lista de strings de lexema.
         for (const l of lexemasStr) {
-            if (!isSpace(l)) {
+            if (!isSpace(l)) { // Removendo espaços
 
-                const token = this._buscarTokenPelaLexema(l);
+                const token = this._buscarTokenPelaLexema(l); // Encontrando o token para o lexema
                 const lexema = new Lexeme(l, linha, coluna, token);
 
                 if (token === undefined || token.tipo === 'sem-categoria') {
@@ -50,8 +52,7 @@ export class LexicalAnalyser {
         return lexemas;
     }
 
-    static _parsearLexemas(entrada: string) {
-
+    static _parsearLexemas(entrada: string) { // "    var: int;""
         const separarPorStringLiterais = LexicalAnalyser._separarPorStringLiterais(entrada);
 
         let lexemas: string[] = [];
@@ -64,20 +65,20 @@ export class LexicalAnalyser {
             }
 
             const separarPorEspacos = LexicalAnalyser._separarPorEspacos(spsl);
+            // ["    ", "var=0;"]
             for (const spe of separarPorEspacos) {
 
                 if (isSpace(spe)) {
                     lexemas.push(spe);
                     continue;
                 }
-
+                console.log(LexicalAnalyser._separarPorOperadores(spe))
                 lexemas = [
                     ...lexemas,
-                    ...LexicalAnalyser._separarPorOperadores(spe)
+                    ...LexicalAnalyser._separarPorOperadores(spe) // ["    ", "var", "=", "0", ";"]
                 ];
             }
         }
-
         return lexemas;
     }
 

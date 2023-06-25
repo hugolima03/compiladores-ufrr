@@ -55,7 +55,6 @@ const CompilerExpressions = () => {
     setExpressionsTrees(arvoresDeExpressoes);
     setMipsCode(mips);
 
-    tree.current?.scrollIntoView();
     // console.log(sintatico);
     // console.log(arvoreSintatica);
     // console.log(semantico);
@@ -68,6 +67,7 @@ const CompilerExpressions = () => {
     // console.log(gerados);
     // console.log(optimizados);
     // console.log(mips);
+    tree.current?.scrollIntoView();
   }
 
   return (

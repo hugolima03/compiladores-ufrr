@@ -1,4 +1,3 @@
-import getType from '../getType';
 import grammar from '../sintatico/Rules';
 
 import { LexicalAnalyser } from '../lexico/LexicalAnalyser';
@@ -28,9 +27,10 @@ export default class Pipeline1 {
       lexemas = [...[...ls].reverse(), ...lexemas];
       return ls;
     }
+
     // Step 1: Análise Léxica e Sintática
     const prods = this._analisador.analisar(new TokensStack(parsearLexemas, '$', this._sourceCode));
-    
+
     // Step 2: Geração da árvore sintática
     const arvore = Tree.parsearProducoes(prods, grammar);
     arvore?.posOrdem((n) => {

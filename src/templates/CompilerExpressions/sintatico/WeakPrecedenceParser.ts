@@ -36,7 +36,7 @@ export class WeakPrecedenceParser {
 
     // Enquanto tiver pelo menos 3 símbolos da pilha, OU não encontrar o fim
     // de cadeia da entrada E o topo da pilha não for o símbolo inicial
-    const condicaoLoop = () => {
+    const WeakPrecedenceLoop = () => {
       return (
         pilha.length > 2 ||
         !(
@@ -47,7 +47,7 @@ export class WeakPrecedenceParser {
     };
 
     // Para cada loop...
-    while (condicaoLoop()) {
+    while (WeakPrecedenceLoop()) {
       // Ler a ação da tabela DR no cruzamendo do símbolo do topo da pilha
       // (linha) e o símbolo atual da entrada (coluna)
       const acao =
