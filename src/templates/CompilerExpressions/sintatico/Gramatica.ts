@@ -1,14 +1,17 @@
 import Producao from './Producao'
 
 export default class Gramatica {
+    _terminais: string[]
+    _naoTerminais: string[]
+    _vazio: string
+    _producoes: { [key: string]: Producao[] }
 
-    constructor (producoes, vazio) {
-
+    constructor(producoes: { [key: string]: string[] }, vazio: string) {
         this._naoTerminais = Object.keys(producoes);
         this._vazio = vazio;
         this._producoes = {};
 
-        let terminais = [];
+        let terminais: string[] = [];
         for (const snt of this._naoTerminais) {
 
             this._producoes[snt] = [];
@@ -30,12 +33,12 @@ export default class Gramatica {
 
     get vazio() { return this._vazio; }
 
-    producao (snt, indice) {
+    producao(snt: string, indice: number) {
 
-        if(typeof(indice) !== 'number') indice = 0;
+        if (typeof (indice) !== 'number') indice = 0;
 
         const producoes = this.buscarProducoesPorNaoTerminal(snt);
-        if(indice < 0 || indice >= producoes.length) {
+        if (indice < 0 || indice >= producoes.length) {
             throw new Error('Produção é inválida');
         }
 
@@ -43,7 +46,7 @@ export default class Gramatica {
     }
 
     get producoes() {
-        let producoes = [];
+        let producoes: Producao[] = [];
         for (const snt of this._naoTerminais) {
             producoes = [
                 ...producoes,
@@ -53,18 +56,18 @@ export default class Gramatica {
         return producoes;
     }
 
-    buscarProducoesPorNaoTerminal (snt) {
-        if (typeof(this._producoes[snt]) === 'undefined') {
+    buscarProducoesPorNaoTerminal(snt: string) {
+        if (typeof (this._producoes[snt]) === 'undefined') {
             throw new Error('O símbolo não terminai não foi definido')
         }
         return this._producoes[snt];
     }
 
-    simboloEhNaoTerminal(simbolo) {
+    simboloEhNaoTerminal(simbolo: string) {
         return this._naoTerminais.includes(simbolo);
     }
 
-    simboloEhVazio(simbolo) {
+    simboloEhVazio(simbolo: string) {
         return this._vazio === simbolo;
     }
 }

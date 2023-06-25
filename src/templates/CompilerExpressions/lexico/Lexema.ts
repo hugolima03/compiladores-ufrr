@@ -1,6 +1,6 @@
 import ParametroInvalido from '../exception/ParametroInvalido'
 import getType from '../getType'
-import Token from './Token.mjs';
+import Token from './Token';
 
 export default class Lexema {
     _palavra: string

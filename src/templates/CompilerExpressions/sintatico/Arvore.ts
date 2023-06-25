@@ -1,5 +1,5 @@
 import Lexema from "../lexico/Lexema";
-import Gramatica from "./Gramatica.mjs";
+import Gramatica from "./Gramatica";
 import Producao from "./Producao";
 
 export type ReactD3Tree = {

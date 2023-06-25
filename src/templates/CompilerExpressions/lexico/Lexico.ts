@@ -1,5 +1,5 @@
 import Padroes, { ehEspaco, ehStringLiteral, descobrirTokenClasse, descobrirTokenSubclasse } from './Padroes';
-import Token from './Token.mjs';
+import Token from './Token';
 import Lexema from './Lexema';
 import ErroLexico from '../exception/ErroLexico'
 

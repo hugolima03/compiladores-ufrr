@@ -4,7 +4,7 @@ import Tree from "react-d3-tree";
 
 import CodeEditor from "components/CodeEditor";
 
-import Sintatico from "./sintatico/Sintatico.mjs";
+import Sintatico from "./sintatico/Sintatico";
 import Semantico from "./semantico/Semantico.mjs";
 import Intermediario from "./sintese/Intermediario.mjs";
 
