@@ -4,7 +4,7 @@ import Tree from "react-d3-tree";
 
 import CodeEditor from "components/CodeEditor";
 
-import Sintatico from "./sintatico/Sintatico";
+import Pipeline1 from "./pipelines/Pipeline1";
 import Semantico from "./semantico/Semantico.mjs";
 import Intermediario from "./sintese/Intermediario.mjs";
 
@@ -30,8 +30,7 @@ const CompilerExpressions = () => {
   const [mipsCode, setMipsCode] = useState<Mips | null>(null);
 
   function onSubmit(sourceCode: string) {
-    const sintatico = new Sintatico();
-    let arvoreSintatica = sintatico.parsear(sourceCode);
+    const arvoreSintatica = new Pipeline1(sourceCode).start();
 
     const semantico = new Semantico(arvoreSintatica!);
     const arvoresDeExpressoes = semantico.validarComandos();

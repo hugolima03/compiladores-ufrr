@@ -1,4 +1,3 @@
-import Sintatico from "./sintatico/Sintatico";
 import { getReactD3Tree } from "./sintatico/Arvore";
 
 import Semantico from "./semantico/Semantico.mjs";
@@ -6,6 +5,8 @@ import Semantico from "./semantico/Semantico.mjs";
 import Intermediario from "./sintese/Intermediario.mjs";
 
 import Mips from "./sintese/Mips.mjs";
+
+import Pipeline1 from "./pipelines/Pipeline1";
 
 describe('CompilerExpressions', () => {
   it('Generic test', () => {
@@ -18,8 +19,7 @@ inicio
     retorne var + hugo;
 fim`
 
-    const sintatico = new Sintatico();
-    let arvoreSintatica = sintatico.parsear(sourceCode);
+    const arvoreSintatica = new Pipeline1(sourceCode).start();
 
     const semantico = new Semantico(arvoreSintatica!);
     const arvoresDeExpressoes = semantico.validarComandos();
@@ -42,7 +42,6 @@ fim`
 
     const d3tree = getReactD3Tree(arvoreSintatica!);
 
-    expect(sintatico).toMatchSnapshot()
     expect(arvoreSintatica).toMatchSnapshot()
     expect(semantico).toMatchSnapshot()
     expect(arvoresDeExpressoes).toMatchSnapshot()

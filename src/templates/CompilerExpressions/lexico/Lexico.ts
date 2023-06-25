@@ -11,7 +11,6 @@ export default class Lexico {
     }
 
     _buscarTokenPelaLexema(lexema: string) {
-
         const classe = descobrirTokenClasse(lexema);
         const subclasse = descobrirTokenSubclasse(lexema, classe!);
 
@@ -21,14 +20,14 @@ export default class Lexico {
 
         if (token !== undefined) return token;
 
-        token = new Token(classe, subclasse);
+        token = new Token(classe!, subclasse!);
         this._tokensReconhecidos.push(token);
         return token;
     }
 
     tokenizarLinha(entrada: string, linha: number) {
+        const lexemasStr = Lexico._parsearLexemas(entrada); // Popula a lista de strings de lexema
 
-        const lexemasStr = Lexico._parsearLexemas(entrada);
         let coluna = 0;
 
         const lexemas = [];
@@ -58,10 +57,11 @@ export default class Lexico {
     static _parsearLexemas(entrada: string) {
 
         const separarPorStringLiterais = Lexico._separarPorStringLiterais(entrada);
+
         let lexemas: string[] = [];
 
         for (const spsl of separarPorStringLiterais) {
-
+            
             if (ehStringLiteral(spsl)) {
                 lexemas.push(spsl);
                 continue;

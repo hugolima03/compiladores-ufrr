@@ -1,8 +1,7 @@
-import ParametroInvalido from "../exception/ParametroInvalido";
 import ErroGramatical from "../exception/ErroGramatical";
 import getType from "../getType";
 import Gramatica from "./Gramatica";
-import LexicoBuffer from "../lexico/LexicoBuffer";
+import LexicoBuffer from "../lexico/TokensStack";
 import Lexema from "../lexico/Lexema";
 
 export default class PrecedenciaFraca {
@@ -12,36 +11,6 @@ export default class PrecedenciaFraca {
   _fdc: string;
 
   constructor(gram: Gramatica, inicial: string, fdc: string) {
-    if (getType(gram) !== "object" || gram == null) {
-      throw ParametroInvalido("gram", "Gramatica", getType(gram));
-    }
-
-    if (getType(inicial) !== "string") {
-      throw ParametroInvalido("inicial", "string", getType(inicial));
-    }
-
-    if (!gram.simboloEhNaoTerminal(inicial)) {
-      throw new Error(
-        "O símbolo inicial deve ser um símbolo não terminal da gramática"
-      );
-    }
-
-    if (getType(fdc) !== "string") {
-      throw ParametroInvalido("fdc", "string", getType(fdc));
-    }
-
-    if (gram.simboloEhNaoTerminal(fdc)) {
-      throw new Error(
-        "O símbolo de fim de cadeia não pode ser um símbolo não terminal da gramática"
-      );
-    }
-
-    if (gram._terminais.includes(fdc) || gram.simboloEhVazio(fdc)) {
-      throw new Error(
-        "O símbolo de fim de cadeia não pode ser um símbolo terminal conhecido da gramática"
-      );
-    }
-
     this._tabelaDR = PrecedenciaFraca._criarTabelaDR(gram, inicial, fdc);
     this._gramatica = gram;
     this._inicial = inicial;
@@ -62,7 +31,7 @@ export default class PrecedenciaFraca {
     const tokenTipo = (l: Lexema | string) =>
       getType(l) === "object" ? (l as Lexema).token.tipo : l;
 
-    // Ler a lexema atual
+    // Ler o lexema atual
     let atual = buffer.proximo;
 
     // Enquanto tiver pelo menos 3 símbolos da pilha, OU não encontrar o fim
