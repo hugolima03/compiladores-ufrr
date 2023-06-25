@@ -9,9 +9,9 @@ import SimboloIdentificador from "./Ed/semantico/SimboloIdentificador";
 
 import Sintatico from "./Ed/sintatico/Sintatico";
 import Semantico from "./Ed/semantico/Semantico";
+import Intermediario from "./Ed/sintese/Intermediario";
 
 import Mips from "./Ed/sintese/Mips.mjs";
-import Intermediario from "./Ed/sintese/Intermediario.mjs";
 
 import * as S from "./styles";
 import {
@@ -36,6 +36,7 @@ const CompilerExpressions = () => {
     const semantico = new Semantico(arvoreSintatica!);
     const arvoresDeExpressoes = semantico.validarComandos();
     const tabelaDeSimbolos = semantico.tabelaDeSimbolos;
+
     // const intermediario = new Intermediario(arvoresDeExpressoes);
     // const gerados = intermediario.comandos;
     // const optimizados = intermediario.optimizar();
@@ -51,17 +52,22 @@ const CompilerExpressions = () => {
     //   mips.adicionarInstrucoes(optimizados[i]);
     // }
 
-    setSymbolTable(tabelaDeSimbolos);
-    setSyntaxTree(arvoreSintatica);
-    setExpressionsTrees(arvoresDeExpressoes);
-    tree.current?.scrollIntoView();
+    // setSymbolTable(tabelaDeSimbolos);
+    // setSyntaxTree(arvoreSintatica);
+    // setExpressionsTrees(arvoresDeExpressoes);
 
-    // console.log(semantico)
-    // console.log(arvoresDeExpressoes)
-    // console.log(tabelaDeSimbolos)
-    // console.log(intermediario)
-    // console.log(gerados)
-    // console.log(optimizados)
+    // tree.current?.scrollIntoView();
+    console.log(sintatico);
+    console.log(arvoreSintatica);
+    console.log(semantico);
+    console.log(arvoresDeExpressoes);
+    console.log(tabelaDeSimbolos);
+    // console.log(intermediario);
+    // console.log(gerados);
+    // console.log(optimizados);
+    // console.log(mips);
+    // console.log(gerados);
+    // console.log(optimizados);
     // console.log(mips)
   }
 
@@ -75,6 +81,7 @@ const CompilerExpressions = () => {
 inicio
     var = 0;
     hugo = 10;
+    retorne var + hugo;
 fim`}
         onSubmit={onSubmit}
       />

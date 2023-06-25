@@ -1,4 +1,4 @@
-import getType from '../getType'
+import getType from '../getType.mjs'
 export default class Instrucao {
 
     constructor(operador, operando, argumentos) {

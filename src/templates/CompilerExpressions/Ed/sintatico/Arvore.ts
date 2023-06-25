@@ -2,33 +2,36 @@ import Gramatica from "./Gramatica";
 import Production from "./Production";
 
 export default class Arvore {
-    name: string
-    children: Arvore[]
-    extra: any
+    _name: string
+    _children: Arvore[]
+    _extra: any
 
-    constructor(name: string) {
-        this.name = name;
-        this.children = [];
-        this.extra = null;
+    constructor(simbolo: string) {
+        this._name = simbolo;
+        this._children = [];
+        this._extra = null;
     }
 
-
-    get ehFolha() { return this.children.length === 0; }
+    get name() { return this._name; }
+    get children() { return [...this._children]; }
+    get ehFolha() { return this._children.length === 0; }
+    get extra() { return this._extra; }
+    set extra(extra) { this._extra = extra; }
 
     emOrdem(handle: (arv: Arvore) => void) {
-        for (const no of this.children) no.emOrdem(handle);
+        for (const no of this._children) no.emOrdem(handle);
         handle(this);
     }
 
     preOrdem(handle: (arv: Arvore) => void) {
         handle(this);
-        for (const no of this.children) no.preOrdem(handle);
+        for (const no of this._children) no.preOrdem(handle);
     }
 
     preOrdemMaxNivel(handle: (arv: Arvore) => void, maxNivel: number, atual: number) {
         handle(this);
         if (maxNivel <= atual) return;
-        for (const no of this.children) no.preOrdemMaxNivel(handle, maxNivel, atual + 1);
+        for (const no of this._children) no.preOrdemMaxNivel(handle, maxNivel, atual + 1);
     }
 
     posOrdem(handle: (arv: Arvore) => void) {
@@ -75,7 +78,7 @@ export default class Arvore {
 
             // Se ele for um terminal, apenas cria um nó e o adiciona como filho
             if (!gram.simboloEhNaoTerminal(s)) {
-                no.children.unshift(new Arvore(s));
+                no._children.unshift(new Arvore(s));
                 continue;
             }
 
@@ -83,7 +86,7 @@ export default class Arvore {
             const noFilho = Arvore._parsearProducoesDir(prods, gram);
 
             // Se o nó retornado for válido, adiciona-o como filho
-            if (noFilho !== null) no.children.unshift(noFilho);
+            if (noFilho !== null) no._children.unshift(noFilho);
         }
 
         // Retorna o nó criado
