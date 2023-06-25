@@ -8,19 +8,14 @@ import TokensStack from '../lexico/TokensStack';
 import { WeakPrecedenceParser } from '../sintatico/WeakPrecedenceParser';
 
 export default class Pipeline1 {
-  _sorceCode: string
+  _sourceCode: string
   _lexico: LexicalAnalyser
   _analisador: WeakPrecedenceParser
 
   constructor(sourceCode: string) {
-    this._sorceCode = sourceCode
+    this._sourceCode = sourceCode
     this._lexico = new LexicalAnalyser();
     this._analisador = new WeakPrecedenceParser(grammar, '<programa>', '$');
-  }
-
-  parsearProducoes(entrada: string, handle: any) {
-    if (getType(handle) !== 'function') handle = this._lexico.tokenizarLinha;
-    return this._analisador.analisar(new TokensStack(handle, '$', entrada));
   }
 
   start() {
@@ -33,9 +28,10 @@ export default class Pipeline1 {
       lexemas = [...[...ls].reverse(), ...lexemas];
       return ls;
     }
-
-    const prods = this.parsearProducoes(this._sorceCode, parsearLexemas);
-
+    // Step 1: Análise Léxica e Sintática
+    const prods = this._analisador.analisar(new TokensStack(parsearLexemas, '$', this._sourceCode));
+    
+    // Step 2: Geração da árvore sintática
     const arvore = Tree.parsearProducoes(prods, grammar);
     arvore?.posOrdem((n) => {
       if (!n.ehFolha) return;

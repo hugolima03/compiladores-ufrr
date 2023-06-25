@@ -11,7 +11,7 @@ export class WeakPrecedenceParser {
   _fdc: string;
 
   constructor(gram: Grammar, inicial: string, fdc: string) {
-    this._tabelaDR = WeakPrecedenceParser._criarTabelaDR(gram, inicial, fdc);
+    this._tabelaDR = WeakPrecedenceParser._createDRTable(gram, inicial, fdc);
     this._gramatica = gram;
     this._inicial = inicial;
     this._fdc = fdc;
@@ -113,8 +113,8 @@ export class WeakPrecedenceParser {
     return prodsResultado;
   }
 
-  static _criarTabelaDR(gram: Grammar, inicial: string, fdc: string) {
-    const regrasWW = WeakPrecedenceParser._calcularRegrasWirthWeberComFdc(
+  static _createDRTable(gram: Grammar, inicial: string, fdc: string) {
+    const WWrules = WeakPrecedenceParser._findWirthWeberComFdcRules(
       gram,
       inicial,
       fdc
@@ -140,19 +140,19 @@ export class WeakPrecedenceParser {
       // Para cada símbolo de coluna...
       for (const sc of sColunas) {
         // Adiciona a ação D (deslocamento) para a relação <
-        if (regrasWW.includes([sl, "<", sc].join(""))) {
+        if (WWrules.includes([sl, "<", sc].join(""))) {
           tabela[sl][sc] = "D";
           continue;
         }
 
         // Adiciona a ação D (deslocamento) para a relação =
-        if (regrasWW.includes([sl, "=", sc].join(""))) {
+        if (WWrules.includes([sl, "=", sc].join(""))) {
           tabela[sl][sc] = "D";
           continue;
         }
 
         // Adiciona a ação R (redução) para a relação >
-        if (regrasWW.includes([sl, ">", sc].join(""))) {
+        if (WWrules.includes([sl, ">", sc].join(""))) {
           tabela[sl][sc] = "R";
           continue;
         }
@@ -165,20 +165,20 @@ export class WeakPrecedenceParser {
     return tabela;
   }
 
-  static _calcularRegrasWirthWeberComFdc(
+  static _findWirthWeberComFdcRules(
     gram: Grammar,
     inicial: string,
     fdc: string
   ) {
-    const regrasWW = WeakPrecedenceParser._calcularRegrasWirthWeber(gram);
-    const esq = WeakPrecedenceParser._esq(gram);
-    const dir = WeakPrecedenceParser._dir(gram);
-    for (const s of esq[inicial]) regrasWW.push([fdc, "<", s].join(""));
-    for (const s of dir[inicial]) regrasWW.push([s, ">", fdc].join(""));
-    return regrasWW;
+    const WWrules = WeakPrecedenceParser._findWirthWeberRules(gram);
+    const esq = WeakPrecedenceParser._leftSet(gram);
+    const dir = WeakPrecedenceParser._rightSet(gram);
+    for (const s of esq[inicial]) WWrules.push([fdc, "<", s].join(""));
+    for (const s of dir[inicial]) WWrules.push([s, ">", fdc].join(""));
+    return WWrules;
   }
 
-  static _calcularRegrasWirthWeber(gram: Grammar) {
+  static _findWirthWeberRules(gram: Grammar) {
     const prods = gram.producoes;
     const simbolos = [
       ...gram._naoTerminais,
@@ -197,8 +197,8 @@ export class WeakPrecedenceParser {
       }
     }
 
-    const esq = WeakPrecedenceParser._esq(gram);
-    const dir = WeakPrecedenceParser._dir(gram);
+    const esq = WeakPrecedenceParser._leftSet(gram);
+    const dir = WeakPrecedenceParser._rightSet(gram);
     const regras2e3 = [];
 
     for (const r of regras1) {
@@ -231,8 +231,8 @@ export class WeakPrecedenceParser {
     return [...regras1, ...regras2e3].map((e) => e.join(""));
   }
 
-  static _esq(gram: Grammar) {
-    const esqRerc = (snt: string) => {
+  static _leftSet(gram: Grammar) {
+    const leftRecursive = (snt: string) => {
       let esq: string[] = [];
       const prods = gram.buscarProducoesPorNaoTerminal(snt);
 
@@ -244,24 +244,24 @@ export class WeakPrecedenceParser {
 
         if (p.corpo[0] === snt) continue;
 
-        esq = [...esq, p.corpo[0], ...esqRerc(p.corpo[0])];
+        esq = [...esq, p.corpo[0], ...leftRecursive(p.corpo[0])];
       }
 
       return esq.filter((i, p) => esq.indexOf(i) === p);
     };
 
-    const naoTermnais = gram._naoTerminais;
-    const conjuntos: { [key: string]: string[] } = {};
+    const nonTerminals = gram._naoTerminais;
+    const sets: { [key: string]: string[] } = {};
 
-    for (const s of naoTermnais) {
-      conjuntos[s] = esqRerc(s);
+    for (const s of nonTerminals) {
+      sets[s] = leftRecursive(s);
     }
 
-    return conjuntos;
+    return sets;
   }
 
-  static _dir(gram: Grammar) {
-    const dirRerc = (snt: string) => {
+  static _rightSet(gram: Grammar) {
+    const rightRecursive = (snt: string) => {
       let dir: string[] = [];
       const prods = gram.buscarProducoesPorNaoTerminal(snt);
 
@@ -275,19 +275,19 @@ export class WeakPrecedenceParser {
 
         if (p.corpo[ultimoIndex] === snt) continue;
 
-        dir = [...dir, p.corpo[ultimoIndex], ...dirRerc(p.corpo[ultimoIndex])];
+        dir = [...dir, p.corpo[ultimoIndex], ...rightRecursive(p.corpo[ultimoIndex])];
       }
 
       return dir.filter((i, p) => dir.indexOf(i) === p);
     };
 
-    const naoTermnais = gram._naoTerminais;
-    const conjuntos: { [key: string]: string[] } = {};
+    const nonTerminals = gram._naoTerminais;
+    const sets: { [key: string]: string[] } = {};
 
-    for (const s of naoTermnais) {
-      conjuntos[s] = dirRerc(s);
+    for (const s of nonTerminals) {
+      sets[s] = rightRecursive(s);
     }
 
-    return conjuntos;
+    return sets;
   }
 }
