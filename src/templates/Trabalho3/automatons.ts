@@ -57,7 +57,7 @@ export const automatons = [
     finalStates: [1],
   },
   {
-    name: "Linguagem C",
+    name: "Números inteiros",
     states: [
       { label: "q0", value: 0 },
       { label: "q1", value: 1 },
