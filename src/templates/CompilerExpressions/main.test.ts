@@ -1,6 +1,6 @@
 import { getReactD3Tree } from "./pipeline1/Tree";
 
-import Semantico from "./semantico/Semantico.mjs";
+import Semantico from "./semantico/Semantico";
 
 import Intermediario from "./sintese/Intermediario.mjs";
 

@@ -1,26 +1,30 @@
-import SimboloIdentificador from './SimboloIdentificador.mjs';
+import SimboloIdentificador from './SimboloIdentificador';
+
 import ErroSemantico from '../exception/ErroSemantico';
+
 import { Tree } from '../pipeline1/Tree';
 
 export default class Semantico {
+    _arvore: Tree
+    _tabelaDeSimbolos: any[]
 
-    constructor(arvore) {
+    constructor(arvore: Tree) {
         this._arvore = arvore;
         this._tabelaDeSimbolos = [];
     }
 
     get tabelaDeSimbolos() { return [...this._tabelaDeSimbolos]; }
 
-    _buscarSimbolo(nome) {
+    _buscarSimbolo(nome?: string) {
         return this._tabelaDeSimbolos.find(s => s.nome === nome);
     }
 
-    _existeSimbolo(nome) {
+    _existeSimbolo(nome?: string) {
         return this._buscarSimbolo(nome) !== undefined;
     }
 
-    _buscarEValidarIdentificador(identificador, tipo) {
-        const variavel = this._buscarSimbolo(identificador.extra.palavra);
+    _buscarEValidarIdentificador(identificador: Tree, tipo?: string) {
+        const variavel = this._buscarSimbolo(identificador.extra?.palavra);
         if (variavel === undefined) {
             throw ErroSemantico(identificador.extra, 'variavel-nao-declarada');
         }
@@ -49,15 +53,15 @@ export default class Semantico {
             const id = dec.encontrarTodosNosPreOrdem('identificador', 1)[0];
             const tipo = dec.encontrarTodosNosPreOrdem('<declaracao_tipo>')[0].nos[0];
 
-            if (this._existeSimbolo(id.extra.palavra)) {
+            if (this._existeSimbolo(id.extra?.palavra)) {
                 throw ErroSemantico(id.extra, 'redeclaracao');
             }
 
             this._tabelaDeSimbolos.push(
                 new SimboloIdentificador(
-                    id.extra.palavra,
-                    tipo.extra.palavra,
-                    id.extra.token
+                    id.extra!.palavra,
+                    tipo.extra!.palavra,
+                    id.extra!.token
                 )
             );
         }
@@ -92,12 +96,12 @@ export default class Semantico {
         return arvores;
     }
 
-    _validarAtribuicao(atribuicao) {
+    _validarAtribuicao(atribuicao: Tree) {
 
         const id = atribuicao.encontrarTodosNosPreOrdem('identificador', 1)[0];
         const variavel = this._buscarEValidarIdentificador(id);
 
-        const esquerda = new Tree(id.extra.palavra);
+        const esquerda = new Tree(id.extra!.palavra);
         esquerda.extra = id.extra;
 
         const atrOperador = atribuicao.encontrarTodosNosPreOrdem('especial-atr', 1)[0];
@@ -107,32 +111,31 @@ export default class Semantico {
             variavel.tipo
         );
 
-        const arvore = new Tree(atrOperador.extra.palavra);
+        const arvore = new Tree(atrOperador.extra!.palavra);
         arvore.extra = atrOperador.extra;
         arvore._nos = [esquerda, direita];
 
         return arvore;
     }
 
-    _validarRetornePrincipal(retorne) {
-
+    _validarRetornePrincipal(retorne: Tree) {
         const no = this._validarExpressao(
             retorne.encontrarTodosNosPreOrdem('<expressao>', 2)[0],
             'int'
         );
 
-        const arvore = new Tree(retorne.nos[0].extra.palavra);
+        const arvore = new Tree(retorne.nos[0].extra!.palavra);
         arvore.extra = retorne.nos[0].extra;
         arvore._nos = [no];
 
         return arvore;
     }
 
-    _validarExpressao(expressao, tipo) {
+    _validarExpressao(expressao: Tree, tipo: string) {
         const nos = expressao.nos;
 
         if (nos[0].simbolo === '<expressao>') {
-            const atual = new Tree(nos[1].extra.palavra);
+            const atual = new Tree(nos[1].extra!.palavra);
             atual.extra = nos[1].extra;
 
             const esquerda = this._validarExpressao(nos[0], tipo);
@@ -143,7 +146,7 @@ export default class Semantico {
         }
 
         if (nos[0].simbolo === 'op-aritmetico-sub') {
-            const atual = new Tree(nos[0].extra.palavra);
+            const atual = new Tree(nos[0].extra!.palavra);
             atual.extra = nos[0].extra;
 
             const filho = this._validarExpressaoTermo(nos[1], tipo);
@@ -155,11 +158,11 @@ export default class Semantico {
         return this._validarExpressaoTermo(nos[0], tipo);
     }
 
-    _validarExpressaoTermo(termo, tipo) {
+    _validarExpressaoTermo(termo: Tree, tipo: string) {
         const nos = termo.nos;
 
         if (nos[0].simbolo === '<expressao_termo>') {
-            const atual = new Tree(nos[1].extra.palavra);
+            const atual = new Tree(nos[1].extra!.palavra);
             atual.extra = nos[1].extra;
 
             const esquerda = this._validarExpressaoTermo(nos[0], tipo);
@@ -172,12 +175,12 @@ export default class Semantico {
         return this._validarExpressaoFator(nos[0], tipo);
     }
 
-    _validarExpressaoFator(fator, tipo) {
+    _validarExpressaoFator(fator: Tree, tipo: string): Tree {
         const nos = fator.nos;
 
         if (nos[0].simbolo === 'identificador') {
             this._buscarEValidarIdentificador(nos[0], tipo);
-            const atual = new Tree(nos[0].extra.palavra);
+            const atual = new Tree(nos[0].extra!.palavra);
             atual.extra = nos[0].extra;
             return atual;
         }
@@ -185,10 +188,10 @@ export default class Semantico {
         if (nos[0].simbolo === '<literal>') {
 
             const literal = nos[0];
-            const atual = new Tree(literal.nos[0].extra.palavra);
+            const atual = new Tree(literal.nos[0].extra!.palavra);
             atual.extra = literal.nos[0].extra;
 
-            if (atual.extra.token.classe.split('-')[1] !== tipo) {
+            if (atual.extra!.token.classe.split('-')[1] !== tipo) {
                 throw ErroSemantico(atual.extra, 'tipo-incompativel');
             }
 

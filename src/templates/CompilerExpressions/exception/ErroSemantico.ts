@@ -1,6 +1,6 @@
 type CustomError = { detalhes?: { atual: string, tipo: string } } & Error
 
-export default function ErroSemantico(atual: string, tipo: string) {
+export default function ErroSemantico(atual: any, tipo: string) {
     const exc: CustomError = new Error('Erro Semântico');
     exc.detalhes = {
         atual: atual,
