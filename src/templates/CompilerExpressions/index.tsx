@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 
-import Tree from "react-d3-tree";
+import * as ReactD3TreeComponent from "react-d3-tree";
 
 import CodeEditor from "components/CodeEditor";
 
@@ -17,15 +17,13 @@ import {
   TableHeader,
   TableRow,
 } from "components/Table/styles";
-import Arvore, { ReactD3Tree, getReactD3Tree } from "./sintatico/Arvore";
+import { Tree, ReactD3Tree, getReactD3Tree } from "./sintatico/Tree";
 import SimboloIdentificador from "./semantico/SimboloIdentificador.mjs";
 
 const CompilerExpressions = () => {
   const tree = useRef<HTMLDivElement>(null);
   const [syntaxTree, setSyntaxTree] = useState<ReactD3Tree | null>(null);
-  const [expressionsTrees, setExpressionsTrees] = useState<Arvore[] | null>(
-    null
-  );
+  const [expressionsTrees, setExpressionsTrees] = useState<Tree[] | null>(null);
   const [symbolTable, setSymbolTable] = useState<SimboloIdentificador[]>();
   const [mipsCode, setMipsCode] = useState<Mips | null>(null);
 
@@ -91,7 +89,7 @@ fim`}
 
       <S.TreeWrapper ref={tree}>
         {syntaxTree && (
-          <Tree
+          <ReactD3TreeComponent.Tree
             orientation="vertical"
             data={syntaxTree}
             translate={{ x: 600, y: 40 }}
@@ -133,7 +131,7 @@ fim`}
             style={{ height: "30rem" }}
           >
             {tree && (
-              <Tree
+              <ReactD3TreeComponent.Tree
                 orientation="vertical"
                 data={tree}
                 translate={{ x: 600, y: 40 }}
@@ -153,11 +151,13 @@ fim`}
               </TableRow>
             </thead>
             <tbody>
-              {mipsCode._tabeladeVariaveis.map((instrucao: any, index: number) => (
-                <TableRow key={`${instrucao._nome}${index}`}>
-                  <TableDatacell>{`${instrucao._nome}${instrucao._nome}`}</TableDatacell>
-                </TableRow>
-              ))}
+              {mipsCode._tabeladeVariaveis.map(
+                (instrucao: any, index: number) => (
+                  <TableRow key={`${instrucao._nome}${index}`}>
+                    <TableDatacell>{`${instrucao._nome}${instrucao._nome}`}</TableDatacell>
+                  </TableRow>
+                )
+              )}
             </tbody>
           </Table>
 

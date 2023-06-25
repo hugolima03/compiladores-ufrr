@@ -2,7 +2,7 @@ import getType from '../getType';
 import gramatica from '../sintatico/Regras';
 
 import { LexicalAnalyser } from '../lexico/LexicalAnalyser';
-import Arvore from '../sintatico/Arvore';
+import { Tree } from '../sintatico/Tree';
 import { Lexeme } from '../lexico/Lexeme';
 import TokensStack from '../lexico/TokensStack';
 import PrecedenciaFraca from '../sintatico/PrecedenciaFraca';
@@ -36,7 +36,7 @@ export default class Pipeline1 {
 
     const prods = this.parsearProducoes(this._sorceCode, parsearLexemas);
 
-    const arvore = Arvore.parsearProducoes(prods, gramatica);
+    const arvore = Tree.parsearProducoes(prods, gramatica);
     arvore?.posOrdem((n) => {
       if (!n.ehFolha) return;
       if (n.simbolo !== lexemas[0].token.tipo) return;

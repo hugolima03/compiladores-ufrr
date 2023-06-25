@@ -7,9 +7,9 @@ export type ReactD3Tree = {
     children: ReactD3Tree[];
 };
 
-export default class Arvore {
+export class Tree {
     _simbolo: string;
-    _nos: Arvore[];
+    _nos: Tree[];
     _extra: Lexeme | null;
 
     constructor(simbolo: string) {
@@ -34,18 +34,18 @@ export default class Arvore {
         this._extra = extra;
     }
 
-    emOrdem(handle: (arv: Arvore) => void) {
+    emOrdem(handle: (arv: Tree) => void) {
         for (const no of this._nos) no.emOrdem(handle);
         handle(this);
     }
 
-    preOrdem(handle: (arv: Arvore) => void) {
+    preOrdem(handle: (arv: Tree) => void) {
         handle(this);
         for (const no of this._nos) no.preOrdem(handle);
     }
 
     preOrdemMaxNivel(
-        handle: (arv: Arvore) => void,
+        handle: (arv: Tree) => void,
         maxNivel: number,
         atual: number
     ) {
@@ -55,24 +55,24 @@ export default class Arvore {
             no.preOrdemMaxNivel(handle, maxNivel, atual + 1);
     }
 
-    posOrdem(handle: (arv: Arvore) => void) {
+    posOrdem(handle: (arv: Tree) => void) {
         handle(this);
         for (const no of this.nos.reverse()) no.posOrdem(handle);
     }
 
     encontrarTodosNosPreOrdem(simbolo: string, maxNivel?: number) {
-        const listaNos: Arvore[] = [];
+        const listaNos: Tree[] = [];
 
         if (typeof maxNivel === "number" && maxNivel > 0) {
             this.preOrdemMaxNivel(
-                (no: Arvore) => {
+                (no: Tree) => {
                     if (no.simbolo === simbolo) listaNos.push(no);
                 },
                 maxNivel,
                 0
             );
         } else {
-            this.preOrdem((no: Arvore) => {
+            this.preOrdem((no: Tree) => {
                 if (no.simbolo === simbolo) listaNos.push(no);
             });
         }
@@ -81,7 +81,7 @@ export default class Arvore {
     }
 
     static parsearProducoes(prods: Production[], gram: Grammar) {
-        return Arvore._parsearProducoesDir(prods, gram);
+        return Tree._parsearProducoesDir(prods, gram);
     }
 
     static _parsearProducoesDir(prods: Production[], gram: Grammar) {
@@ -92,18 +92,18 @@ export default class Arvore {
         if (p === undefined) return null;
 
         // Cria um nó com o símbolo da cabeça da produção
-        const no = new Arvore(p.cabeca);
+        const no = new Tree(p.cabeca);
 
         // Para cada símbolo do corpo...
         for (const s of p.corpo.reverse()) {
             // Se ele for um terminal, apenas cria um nó e o adiciona como filho
             if (!gram.simboloEhNaoTerminal(s)) {
-                no._nos.unshift(new Arvore(s));
+                no._nos.unshift(new Tree(s));
                 continue;
             }
 
             // Se for um não terminal, chama recursivamente esta função
-            const noFilho = Arvore._parsearProducoesDir(prods, gram);
+            const noFilho = Tree._parsearProducoesDir(prods, gram);
 
             // Se o nó retornado for válido, adiciona-o como filho
             if (noFilho !== null) no._nos.unshift(noFilho);
@@ -114,7 +114,7 @@ export default class Arvore {
     }
 }
 
-export function getReactD3Tree(tree: Arvore) {
+export function getReactD3Tree(tree: Tree) {
     const d3: ReactD3Tree = { name: tree.simbolo, children: [] };
     tree._nos.forEach((node, index) => {
         d3.children.push(getReactD3Tree(node));

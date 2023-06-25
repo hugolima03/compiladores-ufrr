@@ -1,4 +1,4 @@
-import { getReactD3Tree } from "./sintatico/Arvore";
+import { getReactD3Tree } from "./sintatico/Tree";
 
 import Semantico from "./semantico/Semantico.mjs";
 
