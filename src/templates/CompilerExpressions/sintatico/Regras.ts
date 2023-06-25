@@ -1,6 +1,6 @@
-import Gramatica from './Gramatica'
+import { Grammar } from './Grammar'
 
-const gramatica = new Gramatica({
+const gramatica = new Grammar({
 
     // Bloco base do programa
     '<programa>': [
@@ -19,7 +19,7 @@ const gramatica = new Gramatica({
     // Declaração de variável no padrão
     // Padrão: "nome: tipo;"
     '<declaracao>': ['identificador especial-dpo <declaracao_tipo> especial-del'],
-    '<declaracao_tipo>': [ 'nome-escalar-int'],
+    '<declaracao_tipo>': ['nome-escalar-int'],
 
     // Bloco de código principal
     // Padrão: "inicio ... fim"
@@ -78,7 +78,7 @@ const gramatica = new Gramatica({
     ],
 
     // Valores liteais
-    '<literal>': [ 'literal-int' ]
+    '<literal>': ['literal-int']
 
 }, '<vazio>');
 

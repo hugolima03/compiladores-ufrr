@@ -1,16 +1,16 @@
 import ErroGramatical from "../exception/ErroGramatical";
 import getType from "../getType";
-import Gramatica from "./Gramatica";
+import { Grammar } from "./Grammar";
 import LexicoBuffer from "../lexico/TokensStack";
 import { Lexeme } from "../lexico/Lexeme";
 
 export default class PrecedenciaFraca {
   _tabelaDR: { [key: string]: any };
-  _gramatica: Gramatica;
+  _gramatica: Grammar;
   _inicial: string;
   _fdc: string;
 
-  constructor(gram: Gramatica, inicial: string, fdc: string) {
+  constructor(gram: Grammar, inicial: string, fdc: string) {
     this._tabelaDR = PrecedenciaFraca._criarTabelaDR(gram, inicial, fdc);
     this._gramatica = gram;
     this._inicial = inicial;
@@ -113,7 +113,7 @@ export default class PrecedenciaFraca {
     return prodsResultado;
   }
 
-  static _criarTabelaDR(gram: Gramatica, inicial: string, fdc: string) {
+  static _criarTabelaDR(gram: Grammar, inicial: string, fdc: string) {
     const regrasWW = PrecedenciaFraca._calcularRegrasWirthWeberComFdc(
       gram,
       inicial,
@@ -166,7 +166,7 @@ export default class PrecedenciaFraca {
   }
 
   static _calcularRegrasWirthWeberComFdc(
-    gram: Gramatica,
+    gram: Grammar,
     inicial: string,
     fdc: string
   ) {
@@ -178,7 +178,7 @@ export default class PrecedenciaFraca {
     return regrasWW;
   }
 
-  static _calcularRegrasWirthWeber(gram: Gramatica) {
+  static _calcularRegrasWirthWeber(gram: Grammar) {
     const prods = gram.producoes;
     const simbolos = [
       ...gram._naoTerminais,
@@ -231,7 +231,7 @@ export default class PrecedenciaFraca {
     return [...regras1, ...regras2e3].map((e) => e.join(""));
   }
 
-  static _esq(gram: Gramatica) {
+  static _esq(gram: Grammar) {
     const esqRerc = (snt: string) => {
       let esq: string[] = [];
       const prods = gram.buscarProducoesPorNaoTerminal(snt);
@@ -260,7 +260,7 @@ export default class PrecedenciaFraca {
     return conjuntos;
   }
 
-  static _dir(gram: Gramatica) {
+  static _dir(gram: Grammar) {
     const dirRerc = (snt: string) => {
       let dir: string[] = [];
       const prods = gram.buscarProducoesPorNaoTerminal(snt);

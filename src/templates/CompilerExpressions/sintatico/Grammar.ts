@@ -1,6 +1,6 @@
 import { Production } from './Production'
 
-export default class Gramatica {
+export class Grammar {
     _terminais: string[]
     _naoTerminais: string[]
     _vazio: string
