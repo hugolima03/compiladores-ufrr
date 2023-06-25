@@ -1,4 +1,4 @@
-import Padroes, { matchExact } from '../lexico/Padroes'
+import { matchExact } from '../lexico/Patterns'
 import Instrucao from './Instrucao.mjs'
 
 export default class Mips {

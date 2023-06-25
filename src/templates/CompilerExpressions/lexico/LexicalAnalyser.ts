@@ -1,4 +1,4 @@
-import Padroes, { ehEspaco, ehStringLiteral, descobrirTokenClasse, descobrirTokenSubclasse } from './Padroes';
+import { patterns, isSpace, isStringLiteral, getTokenClass, getTokenSubClass } from './Patterns';
 import Token from './Token';
 import { Lexeme } from './Lexeme';
 import ErroLexico from '../exception/ErroLexico'
@@ -11,8 +11,8 @@ export class LexicalAnalyser {
     }
 
     _buscarTokenPelaLexema(lexema: string) {
-        const classe = descobrirTokenClasse(lexema);
-        const subclasse = descobrirTokenSubclasse(lexema, classe!);
+        const classe = getTokenClass(lexema);
+        const subclasse = getTokenSubClass(lexema, classe!);
 
         let token = this._tokensReconhecidos.find(
             t => t.classe === classe && t.subclasse === subclasse
@@ -33,7 +33,7 @@ export class LexicalAnalyser {
         const lexemas = [];
 
         for (const l of lexemasStr) {
-            if (!ehEspaco(l)) {
+            if (!isSpace(l)) {
 
                 const token = this._buscarTokenPelaLexema(l);
                 const lexema = new Lexeme(l, linha, coluna, token);
@@ -58,7 +58,7 @@ export class LexicalAnalyser {
 
         for (const spsl of separarPorStringLiterais) {
 
-            if (ehStringLiteral(spsl)) {
+            if (isStringLiteral(spsl)) {
                 lexemas.push(spsl);
                 continue;
             }
@@ -66,7 +66,7 @@ export class LexicalAnalyser {
             const separarPorEspacos = LexicalAnalyser._separarPorEspacos(spsl);
             for (const spe of separarPorEspacos) {
 
-                if (ehEspaco(spe)) {
+                if (isSpace(spe)) {
                     lexemas.push(spe);
                     continue;
                 }
@@ -83,7 +83,7 @@ export class LexicalAnalyser {
 
     static _separarPorStringLiterais(entrada: string) {
 
-        const stringRegex = new RegExp(Padroes.stringLiteral, 'g');
+        const stringRegex = new RegExp(patterns.stringLiteral, 'g');
         const strs = Array.from(entrada.matchAll(stringRegex));
 
 
@@ -108,7 +108,7 @@ export class LexicalAnalyser {
 
     static _separarPorEspacos(entrada: string) {
 
-        const strs = Array.from(entrada.matchAll(Padroes.espacos));
+        const strs = Array.from(entrada.matchAll(patterns.espacos));
 
         const fragmentos = [];
         let cursor = 0;
@@ -132,8 +132,8 @@ export class LexicalAnalyser {
     static _separarPorOperadores(entrada: string) {
 
         const operadores = [
-            ...Padroes.opAritmeticos,
-            ...Padroes.especiais
+            ...patterns.opAritmeticos,
+            ...patterns.especiais
         ];
 
         const regex = new RegExp('\\' + operadores.join("|\\"), 'g');

@@ -1,21 +1,21 @@
 import getType from '../getType';
-import gramatica from '../sintatico/Regras';
+import grammar from '../sintatico/Rules';
 
 import { LexicalAnalyser } from '../lexico/LexicalAnalyser';
 import { Tree } from '../sintatico/Tree';
 import { Lexeme } from '../lexico/Lexeme';
 import TokensStack from '../lexico/TokensStack';
-import PrecedenciaFraca from '../sintatico/PrecedenciaFraca';
+import { WeakPrecedenceParser } from '../sintatico/WeakPrecedenceParser';
 
 export default class Pipeline1 {
   _sorceCode: string
   _lexico: LexicalAnalyser
-  _analisador: PrecedenciaFraca
+  _analisador: WeakPrecedenceParser
 
   constructor(sourceCode: string) {
     this._sorceCode = sourceCode
     this._lexico = new LexicalAnalyser();
-    this._analisador = new PrecedenciaFraca(gramatica, '<programa>', '$');
+    this._analisador = new WeakPrecedenceParser(grammar, '<programa>', '$');
   }
 
   parsearProducoes(entrada: string, handle: any) {
@@ -36,7 +36,7 @@ export default class Pipeline1 {
 
     const prods = this.parsearProducoes(this._sorceCode, parsearLexemas);
 
-    const arvore = Tree.parsearProducoes(prods, gramatica);
+    const arvore = Tree.parsearProducoes(prods, grammar);
     arvore?.posOrdem((n) => {
       if (!n.ehFolha) return;
       if (n.simbolo !== lexemas[0].token.tipo) return;

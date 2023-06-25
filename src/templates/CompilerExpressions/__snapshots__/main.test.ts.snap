@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CompilerExpressions Generic test 1`] = `
-Arvore {
+Tree {
   "_extra": null,
   "_nos": [
-    Arvore {
+    Tree {
       "_extra": null,
       "_nos": [
-        Arvore {
+        Tree {
           "_extra": Lexeme {
             "_coluna": 0,
             "_linha": 0,
@@ -23,13 +23,13 @@ Arvore {
           "_nos": [],
           "_simbolo": "comando-vari",
         },
-        Arvore {
+        Tree {
           "_extra": null,
           "_nos": [
-            Arvore {
+            Tree {
               "_extra": null,
               "_nos": [
-                Arvore {
+                Tree {
                   "_extra": Lexeme {
                     "_coluna": 4,
                     "_linha": 1,
@@ -75,7 +75,7 @@ Arvore {
                   "_nos": [],
                   "_simbolo": "identificador",
                 },
-                Arvore {
+                Tree {
                   "_extra": Lexeme {
                     "_coluna": 7,
                     "_linha": 1,
@@ -97,10 +97,10 @@ Arvore {
                   "_nos": [],
                   "_simbolo": "especial-dpo",
                 },
-                Arvore {
+                Tree {
                   "_extra": null,
                   "_nos": [
-                    Arvore {
+                    Tree {
                       "_extra": Lexeme {
                         "_coluna": 9,
                         "_linha": 1,
@@ -125,7 +125,7 @@ Arvore {
                   ],
                   "_simbolo": "<declaracao_tipo>",
                 },
-                Arvore {
+                Tree {
                   "_extra": Lexeme {
                     "_coluna": 12,
                     "_linha": 1,
@@ -168,13 +168,13 @@ Arvore {
               ],
               "_simbolo": "<declaracao>",
             },
-            Arvore {
+            Tree {
               "_extra": null,
               "_nos": [
-                Arvore {
+                Tree {
                   "_extra": null,
                   "_nos": [
-                    Arvore {
+                    Tree {
                       "_extra": Lexeme {
                         "_coluna": 4,
                         "_linha": 2,
@@ -220,7 +220,7 @@ Arvore {
                       "_nos": [],
                       "_simbolo": "identificador",
                     },
-                    Arvore {
+                    Tree {
                       "_extra": Lexeme {
                         "_coluna": 8,
                         "_linha": 2,
@@ -242,10 +242,10 @@ Arvore {
                       "_nos": [],
                       "_simbolo": "especial-dpo",
                     },
-                    Arvore {
+                    Tree {
                       "_extra": null,
                       "_nos": [
-                        Arvore {
+                        Tree {
                           "_extra": Lexeme {
                             "_coluna": 10,
                             "_linha": 2,
@@ -270,7 +270,7 @@ Arvore {
                       ],
                       "_simbolo": "<declaracao_tipo>",
                     },
-                    Arvore {
+                    Tree {
                       "_extra": Lexeme {
                         "_coluna": 13,
                         "_linha": 2,
@@ -322,10 +322,10 @@ Arvore {
       ],
       "_simbolo": "<bloco_declaracao>",
     },
-    Arvore {
+    Tree {
       "_extra": null,
       "_nos": [
-        Arvore {
+        Tree {
           "_extra": Lexeme {
             "_coluna": 0,
             "_linha": 3,
@@ -341,22 +341,22 @@ Arvore {
           "_nos": [],
           "_simbolo": "comando-inic",
         },
-        Arvore {
+        Tree {
           "_extra": null,
           "_nos": [
-            Arvore {
+            Tree {
               "_extra": null,
               "_nos": [
-                Arvore {
+                Tree {
                   "_extra": null,
                   "_nos": [
-                    Arvore {
+                    Tree {
                       "_extra": null,
                       "_nos": [
-                        Arvore {
+                        Tree {
                           "_extra": null,
                           "_nos": [
-                            Arvore {
+                            Tree {
                               "_extra": Lexeme {
                                 "_coluna": 4,
                                 "_linha": 4,
@@ -402,7 +402,7 @@ Arvore {
                               "_nos": [],
                               "_simbolo": "identificador",
                             },
-                            Arvore {
+                            Tree {
                               "_extra": Lexeme {
                                 "_coluna": 8,
                                 "_linha": 4,
@@ -424,22 +424,22 @@ Arvore {
                               "_nos": [],
                               "_simbolo": "especial-atr",
                             },
-                            Arvore {
+                            Tree {
                               "_extra": null,
                               "_nos": [
-                                Arvore {
+                                Tree {
                                   "_extra": null,
                                   "_nos": [
-                                    Arvore {
+                                    Tree {
                                       "_extra": null,
                                       "_nos": [
-                                        Arvore {
+                                        Tree {
                                           "_extra": null,
                                           "_nos": [
-                                            Arvore {
+                                            Tree {
                                               "_extra": null,
                                               "_nos": [
-                                                Arvore {
+                                                Tree {
                                                   "_extra": Lexeme {
                                                     "_coluna": 10,
                                                     "_linha": 4,
@@ -476,7 +476,7 @@ Arvore {
                               ],
                               "_simbolo": "<retorno_valor>",
                             },
-                            Arvore {
+                            Tree {
                               "_extra": Lexeme {
                                 "_coluna": 11,
                                 "_linha": 4,
@@ -525,13 +525,13 @@ Arvore {
                   ],
                   "_simbolo": "<lista_comando>",
                 },
-                Arvore {
+                Tree {
                   "_extra": null,
                   "_nos": [
-                    Arvore {
+                    Tree {
                       "_extra": null,
                       "_nos": [
-                        Arvore {
+                        Tree {
                           "_extra": Lexeme {
                             "_coluna": 4,
                             "_linha": 5,
@@ -577,7 +577,7 @@ Arvore {
                           "_nos": [],
                           "_simbolo": "identificador",
                         },
-                        Arvore {
+                        Tree {
                           "_extra": Lexeme {
                             "_coluna": 9,
                             "_linha": 5,
@@ -599,22 +599,22 @@ Arvore {
                           "_nos": [],
                           "_simbolo": "especial-atr",
                         },
-                        Arvore {
+                        Tree {
                           "_extra": null,
                           "_nos": [
-                            Arvore {
+                            Tree {
                               "_extra": null,
                               "_nos": [
-                                Arvore {
+                                Tree {
                                   "_extra": null,
                                   "_nos": [
-                                    Arvore {
+                                    Tree {
                                       "_extra": null,
                                       "_nos": [
-                                        Arvore {
+                                        Tree {
                                           "_extra": null,
                                           "_nos": [
-                                            Arvore {
+                                            Tree {
                                               "_extra": Lexeme {
                                                 "_coluna": 11,
                                                 "_linha": 5,
@@ -651,7 +651,7 @@ Arvore {
                           ],
                           "_simbolo": "<retorno_valor>",
                         },
-                        Arvore {
+                        Tree {
                           "_extra": Lexeme {
                             "_coluna": 13,
                             "_linha": 5,
@@ -700,13 +700,13 @@ Arvore {
               ],
               "_simbolo": "<lista_comando>",
             },
-            Arvore {
+            Tree {
               "_extra": null,
               "_nos": [
-                Arvore {
+                Tree {
                   "_extra": null,
                   "_nos": [
-                    Arvore {
+                    Tree {
                       "_extra": Lexeme {
                         "_coluna": 4,
                         "_linha": 6,
@@ -722,22 +722,22 @@ Arvore {
                       "_nos": [],
                       "_simbolo": "comando-reto",
                     },
-                    Arvore {
+                    Tree {
                       "_extra": null,
                       "_nos": [
-                        Arvore {
+                        Tree {
                           "_extra": null,
                           "_nos": [
-                            Arvore {
+                            Tree {
                               "_extra": null,
                               "_nos": [
-                                Arvore {
+                                Tree {
                                   "_extra": null,
                                   "_nos": [
-                                    Arvore {
+                                    Tree {
                                       "_extra": null,
                                       "_nos": [
-                                        Arvore {
+                                        Tree {
                                           "_extra": Lexeme {
                                             "_coluna": 12,
                                             "_linha": 6,
@@ -792,7 +792,7 @@ Arvore {
                               ],
                               "_simbolo": "<expressao>",
                             },
-                            Arvore {
+                            Tree {
                               "_extra": Lexeme {
                                 "_coluna": 16,
                                 "_linha": 6,
@@ -808,13 +808,13 @@ Arvore {
                               "_nos": [],
                               "_simbolo": "op-aritmetico-adi",
                             },
-                            Arvore {
+                            Tree {
                               "_extra": null,
                               "_nos": [
-                                Arvore {
+                                Tree {
                                   "_extra": null,
                                   "_nos": [
-                                    Arvore {
+                                    Tree {
                                       "_extra": Lexeme {
                                         "_coluna": 18,
                                         "_linha": 6,
@@ -872,7 +872,7 @@ Arvore {
                       ],
                       "_simbolo": "<retorno_valor>",
                     },
-                    Arvore {
+                    Tree {
                       "_extra": Lexeme {
                         "_coluna": 22,
                         "_linha": 6,
@@ -921,7 +921,7 @@ Arvore {
           ],
           "_simbolo": "<lista_comando>",
         },
-        Arvore {
+        Tree {
           "_extra": Lexeme {
             "_coluna": 0,
             "_linha": 7,
@@ -947,13 +947,13 @@ Arvore {
 
 exports[`CompilerExpressions Generic test 2`] = `
 Semantico {
-  "_arvore": Arvore {
+  "_arvore": Tree {
     "_extra": null,
     "_nos": [
-      Arvore {
+      Tree {
         "_extra": null,
         "_nos": [
-          Arvore {
+          Tree {
             "_extra": Lexeme {
               "_coluna": 0,
               "_linha": 0,
@@ -969,13 +969,13 @@ Semantico {
             "_nos": [],
             "_simbolo": "comando-vari",
           },
-          Arvore {
+          Tree {
             "_extra": null,
             "_nos": [
-              Arvore {
+              Tree {
                 "_extra": null,
                 "_nos": [
-                  Arvore {
+                  Tree {
                     "_extra": Lexeme {
                       "_coluna": 4,
                       "_linha": 1,
@@ -1021,7 +1021,7 @@ Semantico {
                     "_nos": [],
                     "_simbolo": "identificador",
                   },
-                  Arvore {
+                  Tree {
                     "_extra": Lexeme {
                       "_coluna": 7,
                       "_linha": 1,
@@ -1043,10 +1043,10 @@ Semantico {
                     "_nos": [],
                     "_simbolo": "especial-dpo",
                   },
-                  Arvore {
+                  Tree {
                     "_extra": null,
                     "_nos": [
-                      Arvore {
+                      Tree {
                         "_extra": Lexeme {
                           "_coluna": 9,
                           "_linha": 1,
@@ -1071,7 +1071,7 @@ Semantico {
                     ],
                     "_simbolo": "<declaracao_tipo>",
                   },
-                  Arvore {
+                  Tree {
                     "_extra": Lexeme {
                       "_coluna": 12,
                       "_linha": 1,
@@ -1114,13 +1114,13 @@ Semantico {
                 ],
                 "_simbolo": "<declaracao>",
               },
-              Arvore {
+              Tree {
                 "_extra": null,
                 "_nos": [
-                  Arvore {
+                  Tree {
                     "_extra": null,
                     "_nos": [
-                      Arvore {
+                      Tree {
                         "_extra": Lexeme {
                           "_coluna": 4,
                           "_linha": 2,
@@ -1166,7 +1166,7 @@ Semantico {
                         "_nos": [],
                         "_simbolo": "identificador",
                       },
-                      Arvore {
+                      Tree {
                         "_extra": Lexeme {
                           "_coluna": 8,
                           "_linha": 2,
@@ -1188,10 +1188,10 @@ Semantico {
                         "_nos": [],
                         "_simbolo": "especial-dpo",
                       },
-                      Arvore {
+                      Tree {
                         "_extra": null,
                         "_nos": [
-                          Arvore {
+                          Tree {
                             "_extra": Lexeme {
                               "_coluna": 10,
                               "_linha": 2,
@@ -1216,7 +1216,7 @@ Semantico {
                         ],
                         "_simbolo": "<declaracao_tipo>",
                       },
-                      Arvore {
+                      Tree {
                         "_extra": Lexeme {
                           "_coluna": 13,
                           "_linha": 2,
@@ -1268,10 +1268,10 @@ Semantico {
         ],
         "_simbolo": "<bloco_declaracao>",
       },
-      Arvore {
+      Tree {
         "_extra": null,
         "_nos": [
-          Arvore {
+          Tree {
             "_extra": Lexeme {
               "_coluna": 0,
               "_linha": 3,
@@ -1287,22 +1287,22 @@ Semantico {
             "_nos": [],
             "_simbolo": "comando-inic",
           },
-          Arvore {
+          Tree {
             "_extra": null,
             "_nos": [
-              Arvore {
+              Tree {
                 "_extra": null,
                 "_nos": [
-                  Arvore {
+                  Tree {
                     "_extra": null,
                     "_nos": [
-                      Arvore {
+                      Tree {
                         "_extra": null,
                         "_nos": [
-                          Arvore {
+                          Tree {
                             "_extra": null,
                             "_nos": [
-                              Arvore {
+                              Tree {
                                 "_extra": Lexeme {
                                   "_coluna": 4,
                                   "_linha": 4,
@@ -1348,7 +1348,7 @@ Semantico {
                                 "_nos": [],
                                 "_simbolo": "identificador",
                               },
-                              Arvore {
+                              Tree {
                                 "_extra": Lexeme {
                                   "_coluna": 8,
                                   "_linha": 4,
@@ -1370,22 +1370,22 @@ Semantico {
                                 "_nos": [],
                                 "_simbolo": "especial-atr",
                               },
-                              Arvore {
+                              Tree {
                                 "_extra": null,
                                 "_nos": [
-                                  Arvore {
+                                  Tree {
                                     "_extra": null,
                                     "_nos": [
-                                      Arvore {
+                                      Tree {
                                         "_extra": null,
                                         "_nos": [
-                                          Arvore {
+                                          Tree {
                                             "_extra": null,
                                             "_nos": [
-                                              Arvore {
+                                              Tree {
                                                 "_extra": null,
                                                 "_nos": [
-                                                  Arvore {
+                                                  Tree {
                                                     "_extra": Lexeme {
                                                       "_coluna": 10,
                                                       "_linha": 4,
@@ -1422,7 +1422,7 @@ Semantico {
                                 ],
                                 "_simbolo": "<retorno_valor>",
                               },
-                              Arvore {
+                              Tree {
                                 "_extra": Lexeme {
                                   "_coluna": 11,
                                   "_linha": 4,
@@ -1471,13 +1471,13 @@ Semantico {
                     ],
                     "_simbolo": "<lista_comando>",
                   },
-                  Arvore {
+                  Tree {
                     "_extra": null,
                     "_nos": [
-                      Arvore {
+                      Tree {
                         "_extra": null,
                         "_nos": [
-                          Arvore {
+                          Tree {
                             "_extra": Lexeme {
                               "_coluna": 4,
                               "_linha": 5,
@@ -1523,7 +1523,7 @@ Semantico {
                             "_nos": [],
                             "_simbolo": "identificador",
                           },
-                          Arvore {
+                          Tree {
                             "_extra": Lexeme {
                               "_coluna": 9,
                               "_linha": 5,
@@ -1545,22 +1545,22 @@ Semantico {
                             "_nos": [],
                             "_simbolo": "especial-atr",
                           },
-                          Arvore {
+                          Tree {
                             "_extra": null,
                             "_nos": [
-                              Arvore {
+                              Tree {
                                 "_extra": null,
                                 "_nos": [
-                                  Arvore {
+                                  Tree {
                                     "_extra": null,
                                     "_nos": [
-                                      Arvore {
+                                      Tree {
                                         "_extra": null,
                                         "_nos": [
-                                          Arvore {
+                                          Tree {
                                             "_extra": null,
                                             "_nos": [
-                                              Arvore {
+                                              Tree {
                                                 "_extra": Lexeme {
                                                   "_coluna": 11,
                                                   "_linha": 5,
@@ -1597,7 +1597,7 @@ Semantico {
                             ],
                             "_simbolo": "<retorno_valor>",
                           },
-                          Arvore {
+                          Tree {
                             "_extra": Lexeme {
                               "_coluna": 13,
                               "_linha": 5,
@@ -1646,13 +1646,13 @@ Semantico {
                 ],
                 "_simbolo": "<lista_comando>",
               },
-              Arvore {
+              Tree {
                 "_extra": null,
                 "_nos": [
-                  Arvore {
+                  Tree {
                     "_extra": null,
                     "_nos": [
-                      Arvore {
+                      Tree {
                         "_extra": Lexeme {
                           "_coluna": 4,
                           "_linha": 6,
@@ -1668,22 +1668,22 @@ Semantico {
                         "_nos": [],
                         "_simbolo": "comando-reto",
                       },
-                      Arvore {
+                      Tree {
                         "_extra": null,
                         "_nos": [
-                          Arvore {
+                          Tree {
                             "_extra": null,
                             "_nos": [
-                              Arvore {
+                              Tree {
                                 "_extra": null,
                                 "_nos": [
-                                  Arvore {
+                                  Tree {
                                     "_extra": null,
                                     "_nos": [
-                                      Arvore {
+                                      Tree {
                                         "_extra": null,
                                         "_nos": [
-                                          Arvore {
+                                          Tree {
                                             "_extra": Lexeme {
                                               "_coluna": 12,
                                               "_linha": 6,
@@ -1738,7 +1738,7 @@ Semantico {
                                 ],
                                 "_simbolo": "<expressao>",
                               },
-                              Arvore {
+                              Tree {
                                 "_extra": Lexeme {
                                   "_coluna": 16,
                                   "_linha": 6,
@@ -1754,13 +1754,13 @@ Semantico {
                                 "_nos": [],
                                 "_simbolo": "op-aritmetico-adi",
                               },
-                              Arvore {
+                              Tree {
                                 "_extra": null,
                                 "_nos": [
-                                  Arvore {
+                                  Tree {
                                     "_extra": null,
                                     "_nos": [
-                                      Arvore {
+                                      Tree {
                                         "_extra": Lexeme {
                                           "_coluna": 18,
                                           "_linha": 6,
@@ -1818,7 +1818,7 @@ Semantico {
                         ],
                         "_simbolo": "<retorno_valor>",
                       },
-                      Arvore {
+                      Tree {
                         "_extra": Lexeme {
                           "_coluna": 22,
                           "_linha": 6,
@@ -1867,7 +1867,7 @@ Semantico {
             ],
             "_simbolo": "<lista_comando>",
           },
-          Arvore {
+          Tree {
             "_extra": Lexeme {
               "_coluna": 0,
               "_linha": 7,
@@ -1988,7 +1988,7 @@ Semantico {
 
 exports[`CompilerExpressions Generic test 3`] = `
 [
-  Arvore {
+  Tree {
     "_extra": Lexeme {
       "_coluna": 8,
       "_linha": 4,
@@ -2008,7 +2008,7 @@ exports[`CompilerExpressions Generic test 3`] = `
       },
     },
     "_nos": [
-      Arvore {
+      Tree {
         "_extra": Lexeme {
           "_coluna": 4,
           "_linha": 4,
@@ -2054,7 +2054,7 @@ exports[`CompilerExpressions Generic test 3`] = `
         "_nos": [],
         "_simbolo": "var",
       },
-      Arvore {
+      Tree {
         "_extra": Lexeme {
           "_coluna": 10,
           "_linha": 4,
@@ -2079,7 +2079,7 @@ exports[`CompilerExpressions Generic test 3`] = `
     ],
     "_simbolo": "=",
   },
-  Arvore {
+  Tree {
     "_extra": Lexeme {
       "_coluna": 9,
       "_linha": 5,
@@ -2099,7 +2099,7 @@ exports[`CompilerExpressions Generic test 3`] = `
       },
     },
     "_nos": [
-      Arvore {
+      Tree {
         "_extra": Lexeme {
           "_coluna": 4,
           "_linha": 5,
@@ -2145,7 +2145,7 @@ exports[`CompilerExpressions Generic test 3`] = `
         "_nos": [],
         "_simbolo": "hugo",
       },
-      Arvore {
+      Tree {
         "_extra": Lexeme {
           "_coluna": 11,
           "_linha": 5,
@@ -2170,7 +2170,7 @@ exports[`CompilerExpressions Generic test 3`] = `
     ],
     "_simbolo": "=",
   },
-  Arvore {
+  Tree {
     "_extra": Lexeme {
       "_coluna": 4,
       "_linha": 6,
@@ -2184,7 +2184,7 @@ exports[`CompilerExpressions Generic test 3`] = `
       },
     },
     "_nos": [
-      Arvore {
+      Tree {
         "_extra": Lexeme {
           "_coluna": 16,
           "_linha": 6,
@@ -2198,7 +2198,7 @@ exports[`CompilerExpressions Generic test 3`] = `
           },
         },
         "_nos": [
-          Arvore {
+          Tree {
             "_extra": Lexeme {
               "_coluna": 12,
               "_linha": 6,
@@ -2244,7 +2244,7 @@ exports[`CompilerExpressions Generic test 3`] = `
             "_nos": [],
             "_simbolo": "var",
           },
-          Arvore {
+          Tree {
             "_extra": Lexeme {
               "_coluna": 18,
               "_linha": 6,

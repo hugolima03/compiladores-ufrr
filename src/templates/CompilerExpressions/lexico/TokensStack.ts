@@ -1,4 +1,4 @@
-import Padroes from "./Padroes";
+import { patterns } from "./Patterns";
 import { Lexeme } from "./Lexeme";
 
 /**
@@ -23,7 +23,7 @@ export default class TokensStack {
     entrada: string
   ) {
     this._handle = handle;
-    this._linhas = entrada.split(Padroes.EOL);
+    this._linhas = entrada.split(patterns.EOL);
     this._linhaAtual = 0;
     this._buffer = [];
     this._eof = eof;

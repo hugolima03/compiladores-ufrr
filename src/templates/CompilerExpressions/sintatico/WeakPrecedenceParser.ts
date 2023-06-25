@@ -4,14 +4,14 @@ import { Grammar } from "./Grammar";
 import LexicoBuffer from "../lexico/TokensStack";
 import { Lexeme } from "../lexico/Lexeme";
 
-export default class PrecedenciaFraca {
+export class WeakPrecedenceParser {
   _tabelaDR: { [key: string]: any };
   _gramatica: Grammar;
   _inicial: string;
   _fdc: string;
 
   constructor(gram: Grammar, inicial: string, fdc: string) {
-    this._tabelaDR = PrecedenciaFraca._criarTabelaDR(gram, inicial, fdc);
+    this._tabelaDR = WeakPrecedenceParser._criarTabelaDR(gram, inicial, fdc);
     this._gramatica = gram;
     this._inicial = inicial;
     this._fdc = fdc;
@@ -114,7 +114,7 @@ export default class PrecedenciaFraca {
   }
 
   static _criarTabelaDR(gram: Grammar, inicial: string, fdc: string) {
-    const regrasWW = PrecedenciaFraca._calcularRegrasWirthWeberComFdc(
+    const regrasWW = WeakPrecedenceParser._calcularRegrasWirthWeberComFdc(
       gram,
       inicial,
       fdc
@@ -170,9 +170,9 @@ export default class PrecedenciaFraca {
     inicial: string,
     fdc: string
   ) {
-    const regrasWW = PrecedenciaFraca._calcularRegrasWirthWeber(gram);
-    const esq = PrecedenciaFraca._esq(gram);
-    const dir = PrecedenciaFraca._dir(gram);
+    const regrasWW = WeakPrecedenceParser._calcularRegrasWirthWeber(gram);
+    const esq = WeakPrecedenceParser._esq(gram);
+    const dir = WeakPrecedenceParser._dir(gram);
     for (const s of esq[inicial]) regrasWW.push([fdc, "<", s].join(""));
     for (const s of dir[inicial]) regrasWW.push([s, ">", fdc].join(""));
     return regrasWW;
@@ -197,8 +197,8 @@ export default class PrecedenciaFraca {
       }
     }
 
-    const esq = PrecedenciaFraca._esq(gram);
-    const dir = PrecedenciaFraca._dir(gram);
+    const esq = WeakPrecedenceParser._esq(gram);
+    const dir = WeakPrecedenceParser._dir(gram);
     const regras2e3 = [];
 
     for (const r of regras1) {

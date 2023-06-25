@@ -1,6 +1,6 @@
 import { Grammar } from './Grammar'
 
-const gramatica = new Grammar({
+const grammar = new Grammar({
 
     // Bloco base do programa
     '<programa>': [
@@ -82,4 +82,4 @@ const gramatica = new Grammar({
 
 }, '<vazio>');
 
-export default gramatica;
+export default grammar;
