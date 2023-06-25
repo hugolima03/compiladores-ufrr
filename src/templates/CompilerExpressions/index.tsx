@@ -154,7 +154,7 @@ fim`}
               </TableRow>
             </thead>
             <tbody>
-              {mipsCode._tabeladeVariaveis.map((instrucao, index) => (
+              {mipsCode._tabeladeVariaveis.map((instrucao: any, index: number) => (
                 <TableRow key={`${instrucao._nome}${index}`}>
                   <TableDatacell>{`${instrucao._nome}${instrucao._nome}`}</TableDatacell>
                 </TableRow>
