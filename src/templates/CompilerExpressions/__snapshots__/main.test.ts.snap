@@ -1,0 +1,4443 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CompilerExpressions Generic test 1`] = `
+Sintatico {
+  "_analisador": PrecedenciaFraca {
+    "_fdc": "$",
+    "_gramatica": Gramatica {
+      "_naoTerminais": [
+        "<programa>",
+        "<bloco_declaracao>",
+        "<lista_declaracao>",
+        "<declaracao>",
+        "<declaracao_tipo>",
+        "<bloco_principal>",
+        "<lista_comando>",
+        "<comando>",
+        "<atribuicao>",
+        "<retorne_principal>",
+        "<retorno_valor>",
+        "<expressao>",
+        "<expressao_termo>",
+        "<expressao_fator>",
+        "<literal>",
+      ],
+      "_producoes": {
+        "<atribuicao>": [
+          Producao {
+            "_cabeca": "<atribuicao>",
+            "_corpo": [
+              "identificador",
+              "especial-atr",
+              "<retorno_valor>",
+              "especial-del",
+            ],
+            "_vazio": "<vazio>",
+          },
+        ],
+        "<bloco_declaracao>": [
+          Producao {
+            "_cabeca": "<bloco_declaracao>",
+            "_corpo": [
+              "comando-vari",
+              "<lista_declaracao>",
+            ],
+            "_vazio": "<vazio>",
+          },
+        ],
+        "<bloco_principal>": [
+          Producao {
+            "_cabeca": "<bloco_principal>",
+            "_corpo": [
+              "comando-inic",
+              "<lista_comando>",
+              "comando-fim",
+            ],
+            "_vazio": "<vazio>",
+          },
+          Producao {
+            "_cabeca": "<bloco_principal>",
+            "_corpo": [
+              "comando-inic",
+              "comando-fim",
+            ],
+            "_vazio": "<vazio>",
+          },
+        ],
+        "<comando>": [
+          Producao {
+            "_cabeca": "<comando>",
+            "_corpo": [
+              "<atribuicao>",
+            ],
+            "_vazio": "<vazio>",
+          },
+          Producao {
+            "_cabeca": "<comando>",
+            "_corpo": [
+              "<retorne_principal>",
+            ],
+            "_vazio": "<vazio>",
+          },
+        ],
+        "<declaracao>": [
+          Producao {
+            "_cabeca": "<declaracao>",
+            "_corpo": [
+              "identificador",
+              "especial-dpo",
+              "<declaracao_tipo>",
+              "especial-del",
+            ],
+            "_vazio": "<vazio>",
+          },
+        ],
+        "<declaracao_tipo>": [
+          Producao {
+            "_cabeca": "<declaracao_tipo>",
+            "_corpo": [
+              "nome-escalar-int",
+            ],
+            "_vazio": "<vazio>",
+          },
+        ],
+        "<expressao>": [
+          Producao {
+            "_cabeca": "<expressao>",
+            "_corpo": [
+              "<expressao>",
+              "op-aritmetico-adi",
+              "<expressao_termo>",
+            ],
+            "_vazio": "<vazio>",
+          },
+          Producao {
+            "_cabeca": "<expressao>",
+            "_corpo": [
+              "<expressao>",
+              "op-aritmetico-sub",
+              "<expressao_termo>",
+            ],
+            "_vazio": "<vazio>",
+          },
+          Producao {
+            "_cabeca": "<expressao>",
+            "_corpo": [
+              "op-aritmetico-sub",
+              "<expressao_termo>",
+            ],
+            "_vazio": "<vazio>",
+          },
+          Producao {
+            "_cabeca": "<expressao>",
+            "_corpo": [
+              "<expressao_termo>",
+            ],
+            "_vazio": "<vazio>",
+          },
+        ],
+        "<expressao_fator>": [
+          Producao {
+            "_cabeca": "<expressao_fator>",
+            "_corpo": [
+              "especial-apa",
+              "<expressao>",
+              "especial-fpa",
+            ],
+            "_vazio": "<vazio>",
+          },
+          Producao {
+            "_cabeca": "<expressao_fator>",
+            "_corpo": [
+              "identificador",
+            ],
+            "_vazio": "<vazio>",
+          },
+          Producao {
+            "_cabeca": "<expressao_fator>",
+            "_corpo": [
+              "<literal>",
+            ],
+            "_vazio": "<vazio>",
+          },
+        ],
+        "<expressao_termo>": [
+          Producao {
+            "_cabeca": "<expressao_termo>",
+            "_corpo": [
+              "<expressao_termo>",
+              "op-aritmetico-mul",
+              "<expressao_fator>",
+            ],
+            "_vazio": "<vazio>",
+          },
+          Producao {
+            "_cabeca": "<expressao_termo>",
+            "_corpo": [
+              "<expressao_termo>",
+              "op-aritmetico-div",
+              "<expressao_fator>",
+            ],
+            "_vazio": "<vazio>",
+          },
+          Producao {
+            "_cabeca": "<expressao_termo>",
+            "_corpo": [
+              "<expressao_termo>",
+              "op-aritmetico-mod",
+              "<expressao_fator>",
+            ],
+            "_vazio": "<vazio>",
+          },
+          Producao {
+            "_cabeca": "<expressao_termo>",
+            "_corpo": [
+              "<expressao_fator>",
+            ],
+            "_vazio": "<vazio>",
+          },
+        ],
+        "<lista_comando>": [
+          Producao {
+            "_cabeca": "<lista_comando>",
+            "_corpo": [
+              "<lista_comando>",
+              "<comando>",
+            ],
+            "_vazio": "<vazio>",
+          },
+          Producao {
+            "_cabeca": "<lista_comando>",
+            "_corpo": [
+              "<comando>",
+            ],
+            "_vazio": "<vazio>",
+          },
+        ],
+        "<lista_declaracao>": [
+          Producao {
+            "_cabeca": "<lista_declaracao>",
+            "_corpo": [
+              "<declaracao>",
+              "<lista_declaracao>",
+            ],
+            "_vazio": "<vazio>",
+          },
+          Producao {
+            "_cabeca": "<lista_declaracao>",
+            "_corpo": [
+              "<declaracao>",
+            ],
+            "_vazio": "<vazio>",
+          },
+        ],
+        "<literal>": [
+          Producao {
+            "_cabeca": "<literal>",
+            "_corpo": [
+              "literal-int",
+            ],
+            "_vazio": "<vazio>",
+          },
+        ],
+        "<programa>": [
+          Producao {
+            "_cabeca": "<programa>",
+            "_corpo": [
+              "<bloco_declaracao>",
+              "<bloco_principal>",
+            ],
+            "_vazio": "<vazio>",
+          },
+          Producao {
+            "_cabeca": "<programa>",
+            "_corpo": [
+              "<bloco_principal>",
+            ],
+            "_vazio": "<vazio>",
+          },
+        ],
+        "<retorne_principal>": [
+          Producao {
+            "_cabeca": "<retorne_principal>",
+            "_corpo": [
+              "comando-reto",
+              "<retorno_valor>",
+              "especial-del",
+            ],
+            "_vazio": "<vazio>",
+          },
+        ],
+        "<retorno_valor>": [
+          Producao {
+            "_cabeca": "<retorno_valor>",
+            "_corpo": [
+              "<expressao>",
+            ],
+            "_vazio": "<vazio>",
+          },
+        ],
+      },
+      "_terminais": [
+        "comando-vari",
+        "identificador",
+        "especial-dpo",
+        "especial-del",
+        "nome-escalar-int",
+        "comando-inic",
+        "comando-fim",
+        "especial-atr",
+        "comando-reto",
+        "op-aritmetico-adi",
+        "op-aritmetico-sub",
+        "op-aritmetico-mul",
+        "op-aritmetico-div",
+        "op-aritmetico-mod",
+        "especial-apa",
+        "especial-fpa",
+        "literal-int",
+      ],
+      "_vazio": "<vazio>",
+    },
+    "_inicial": "<programa>",
+    "_tabelaDR": {
+      "$": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": "D",
+        "comando-reto": null,
+        "comando-vari": "D",
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": null,
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+      "<atribuicao>": {
+        "$": null,
+        "comando-fim": "R",
+        "comando-inic": null,
+        "comando-reto": "R",
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": "R",
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+      "<bloco_declaracao>": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": "D",
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": null,
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+      "<bloco_principal>": {
+        "$": "R",
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": null,
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+      "<comando>": {
+        "$": null,
+        "comando-fim": "R",
+        "comando-inic": null,
+        "comando-reto": "R",
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": "R",
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+      "<declaracao>": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": "R",
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": "D",
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+      "<declaracao_tipo>": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": "D",
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": null,
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+      "<expressao>": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": "R",
+        "especial-dpo": null,
+        "especial-fpa": "D",
+        "identificador": null,
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": "D",
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": "D",
+      },
+      "<expressao_fator>": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": "R",
+        "especial-dpo": null,
+        "especial-fpa": "R",
+        "identificador": null,
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": "R",
+        "op-aritmetico-div": "R",
+        "op-aritmetico-mod": "R",
+        "op-aritmetico-mul": "R",
+        "op-aritmetico-sub": "R",
+      },
+      "<expressao_termo>": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": "R",
+        "especial-dpo": null,
+        "especial-fpa": "R",
+        "identificador": null,
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": "R",
+        "op-aritmetico-div": "D",
+        "op-aritmetico-mod": "D",
+        "op-aritmetico-mul": "D",
+        "op-aritmetico-sub": "R",
+      },
+      "<lista_comando>": {
+        "$": null,
+        "comando-fim": "D",
+        "comando-inic": null,
+        "comando-reto": "D",
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": "D",
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+      "<lista_declaracao>": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": "R",
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": null,
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+      "<literal>": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": "R",
+        "especial-dpo": null,
+        "especial-fpa": "R",
+        "identificador": null,
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": "R",
+        "op-aritmetico-div": "R",
+        "op-aritmetico-mod": "R",
+        "op-aritmetico-mul": "R",
+        "op-aritmetico-sub": "R",
+      },
+      "<programa>": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": null,
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+      "<retorne_principal>": {
+        "$": null,
+        "comando-fim": "R",
+        "comando-inic": null,
+        "comando-reto": "R",
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": "R",
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+      "<retorno_valor>": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": "D",
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": null,
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+      "comando-fim": {
+        "$": "R",
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": null,
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+      "comando-inic": {
+        "$": null,
+        "comando-fim": "D",
+        "comando-inic": null,
+        "comando-reto": "D",
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": "D",
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+      "comando-reto": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": "D",
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": "D",
+        "literal-int": "D",
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": "D",
+      },
+      "comando-vari": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": "D",
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+      "especial-apa": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": "D",
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": "D",
+        "literal-int": "D",
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": "D",
+      },
+      "especial-atr": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": "D",
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": "D",
+        "literal-int": "D",
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": "D",
+      },
+      "especial-del": {
+        "$": null,
+        "comando-fim": "R",
+        "comando-inic": "R",
+        "comando-reto": "R",
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": "R",
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+      "especial-dpo": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": null,
+        "literal-int": null,
+        "nome-escalar-int": "D",
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+      "especial-fpa": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": "R",
+        "especial-dpo": null,
+        "especial-fpa": "R",
+        "identificador": null,
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": "R",
+        "op-aritmetico-div": "R",
+        "op-aritmetico-mod": "R",
+        "op-aritmetico-mul": "R",
+        "op-aritmetico-sub": "R",
+      },
+      "identificador": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": "D",
+        "especial-del": "R",
+        "especial-dpo": "D",
+        "especial-fpa": "R",
+        "identificador": null,
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": "R",
+        "op-aritmetico-div": "R",
+        "op-aritmetico-mod": "R",
+        "op-aritmetico-mul": "R",
+        "op-aritmetico-sub": "R",
+      },
+      "literal-int": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": "R",
+        "especial-dpo": null,
+        "especial-fpa": "R",
+        "identificador": null,
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": "R",
+        "op-aritmetico-div": "R",
+        "op-aritmetico-mod": "R",
+        "op-aritmetico-mul": "R",
+        "op-aritmetico-sub": "R",
+      },
+      "nome-escalar-int": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": null,
+        "especial-atr": null,
+        "especial-del": "R",
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": null,
+        "literal-int": null,
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+      "op-aritmetico-adi": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": "D",
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": "D",
+        "literal-int": "D",
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+      "op-aritmetico-div": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": "D",
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": "D",
+        "literal-int": "D",
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+      "op-aritmetico-mod": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": "D",
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": "D",
+        "literal-int": "D",
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+      "op-aritmetico-mul": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": "D",
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": "D",
+        "literal-int": "D",
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+      "op-aritmetico-sub": {
+        "$": null,
+        "comando-fim": null,
+        "comando-inic": null,
+        "comando-reto": null,
+        "comando-vari": null,
+        "especial-apa": "D",
+        "especial-atr": null,
+        "especial-del": null,
+        "especial-dpo": null,
+        "especial-fpa": null,
+        "identificador": "D",
+        "literal-int": "D",
+        "nome-escalar-int": null,
+        "op-aritmetico-adi": null,
+        "op-aritmetico-div": null,
+        "op-aritmetico-mod": null,
+        "op-aritmetico-mul": null,
+        "op-aritmetico-sub": null,
+      },
+    },
+  },
+  "_lexico": Lexico {
+    "_tokensReconhecidos": [
+      Token {
+        "_classe": "comando",
+        "_lexemas": [
+          Lexema {
+            "_coluna": 0,
+            "_linha": 0,
+            "_palavra": "variaveis",
+            "_token": [Circular],
+          },
+        ],
+        "_subclasse": "vari",
+      },
+      Token {
+        "_classe": "identificador",
+        "_lexemas": [
+          Lexema {
+            "_coluna": 4,
+            "_linha": 1,
+            "_palavra": "var",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 4,
+            "_linha": 2,
+            "_palavra": "hugo",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 4,
+            "_linha": 4,
+            "_palavra": "var",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 4,
+            "_linha": 5,
+            "_palavra": "hugo",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 12,
+            "_linha": 6,
+            "_palavra": "var",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 18,
+            "_linha": 6,
+            "_palavra": "hugo",
+            "_token": [Circular],
+          },
+        ],
+        "_subclasse": "",
+      },
+      Token {
+        "_classe": "especial",
+        "_lexemas": [
+          Lexema {
+            "_coluna": 7,
+            "_linha": 1,
+            "_palavra": ":",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 8,
+            "_linha": 2,
+            "_palavra": ":",
+            "_token": [Circular],
+          },
+        ],
+        "_subclasse": "dpo",
+      },
+      Token {
+        "_classe": "nome-escalar",
+        "_lexemas": [
+          Lexema {
+            "_coluna": 9,
+            "_linha": 1,
+            "_palavra": "int",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 10,
+            "_linha": 2,
+            "_palavra": "int",
+            "_token": [Circular],
+          },
+        ],
+        "_subclasse": "int",
+      },
+      Token {
+        "_classe": "especial",
+        "_lexemas": [
+          Lexema {
+            "_coluna": 12,
+            "_linha": 1,
+            "_palavra": ";",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 13,
+            "_linha": 2,
+            "_palavra": ";",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 11,
+            "_linha": 4,
+            "_palavra": ";",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 13,
+            "_linha": 5,
+            "_palavra": ";",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 22,
+            "_linha": 6,
+            "_palavra": ";",
+            "_token": [Circular],
+          },
+        ],
+        "_subclasse": "del",
+      },
+      Token {
+        "_classe": "comando",
+        "_lexemas": [
+          Lexema {
+            "_coluna": 0,
+            "_linha": 3,
+            "_palavra": "inicio",
+            "_token": [Circular],
+          },
+        ],
+        "_subclasse": "inic",
+      },
+      Token {
+        "_classe": "especial",
+        "_lexemas": [
+          Lexema {
+            "_coluna": 8,
+            "_linha": 4,
+            "_palavra": "=",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 9,
+            "_linha": 5,
+            "_palavra": "=",
+            "_token": [Circular],
+          },
+        ],
+        "_subclasse": "atr",
+      },
+      Token {
+        "_classe": "literal-int",
+        "_lexemas": [
+          Lexema {
+            "_coluna": 10,
+            "_linha": 4,
+            "_palavra": "0",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 11,
+            "_linha": 5,
+            "_palavra": "10",
+            "_token": [Circular],
+          },
+        ],
+        "_subclasse": "",
+      },
+      Token {
+        "_classe": "comando",
+        "_lexemas": [
+          Lexema {
+            "_coluna": 4,
+            "_linha": 6,
+            "_palavra": "retorne",
+            "_token": [Circular],
+          },
+        ],
+        "_subclasse": "reto",
+      },
+      Token {
+        "_classe": "op-aritmetico",
+        "_lexemas": [
+          Lexema {
+            "_coluna": 16,
+            "_linha": 6,
+            "_palavra": "+",
+            "_token": [Circular],
+          },
+        ],
+        "_subclasse": "adi",
+      },
+      Token {
+        "_classe": "comando",
+        "_lexemas": [
+          Lexema {
+            "_coluna": 0,
+            "_linha": 7,
+            "_palavra": "fim",
+            "_token": [Circular],
+          },
+        ],
+        "_subclasse": "fim",
+      },
+    ],
+  },
+}
+`;
+
+exports[`CompilerExpressions Generic test 2`] = `
+Arvore {
+  "_extra": null,
+  "_nos": [
+    Arvore {
+      "_extra": null,
+      "_nos": [
+        Arvore {
+          "_extra": Lexema {
+            "_coluna": 0,
+            "_linha": 0,
+            "_palavra": "variaveis",
+            "_token": Token {
+              "_classe": "comando",
+              "_lexemas": [
+                [Circular],
+              ],
+              "_subclasse": "vari",
+            },
+          },
+          "_nos": [],
+          "_simbolo": "comando-vari",
+        },
+        Arvore {
+          "_extra": null,
+          "_nos": [
+            Arvore {
+              "_extra": null,
+              "_nos": [
+                Arvore {
+                  "_extra": Lexema {
+                    "_coluna": 4,
+                    "_linha": 1,
+                    "_palavra": "var",
+                    "_token": Token {
+                      "_classe": "identificador",
+                      "_lexemas": [
+                        [Circular],
+                        Lexema {
+                          "_coluna": 4,
+                          "_linha": 2,
+                          "_palavra": "hugo",
+                          "_token": [Circular],
+                        },
+                        Lexema {
+                          "_coluna": 4,
+                          "_linha": 4,
+                          "_palavra": "var",
+                          "_token": [Circular],
+                        },
+                        Lexema {
+                          "_coluna": 4,
+                          "_linha": 5,
+                          "_palavra": "hugo",
+                          "_token": [Circular],
+                        },
+                        Lexema {
+                          "_coluna": 12,
+                          "_linha": 6,
+                          "_palavra": "var",
+                          "_token": [Circular],
+                        },
+                        Lexema {
+                          "_coluna": 18,
+                          "_linha": 6,
+                          "_palavra": "hugo",
+                          "_token": [Circular],
+                        },
+                      ],
+                      "_subclasse": "",
+                    },
+                  },
+                  "_nos": [],
+                  "_simbolo": "identificador",
+                },
+                Arvore {
+                  "_extra": Lexema {
+                    "_coluna": 7,
+                    "_linha": 1,
+                    "_palavra": ":",
+                    "_token": Token {
+                      "_classe": "especial",
+                      "_lexemas": [
+                        [Circular],
+                        Lexema {
+                          "_coluna": 8,
+                          "_linha": 2,
+                          "_palavra": ":",
+                          "_token": [Circular],
+                        },
+                      ],
+                      "_subclasse": "dpo",
+                    },
+                  },
+                  "_nos": [],
+                  "_simbolo": "especial-dpo",
+                },
+                Arvore {
+                  "_extra": null,
+                  "_nos": [
+                    Arvore {
+                      "_extra": Lexema {
+                        "_coluna": 9,
+                        "_linha": 1,
+                        "_palavra": "int",
+                        "_token": Token {
+                          "_classe": "nome-escalar",
+                          "_lexemas": [
+                            [Circular],
+                            Lexema {
+                              "_coluna": 10,
+                              "_linha": 2,
+                              "_palavra": "int",
+                              "_token": [Circular],
+                            },
+                          ],
+                          "_subclasse": "int",
+                        },
+                      },
+                      "_nos": [],
+                      "_simbolo": "nome-escalar-int",
+                    },
+                  ],
+                  "_simbolo": "<declaracao_tipo>",
+                },
+                Arvore {
+                  "_extra": Lexema {
+                    "_coluna": 12,
+                    "_linha": 1,
+                    "_palavra": ";",
+                    "_token": Token {
+                      "_classe": "especial",
+                      "_lexemas": [
+                        [Circular],
+                        Lexema {
+                          "_coluna": 13,
+                          "_linha": 2,
+                          "_palavra": ";",
+                          "_token": [Circular],
+                        },
+                        Lexema {
+                          "_coluna": 11,
+                          "_linha": 4,
+                          "_palavra": ";",
+                          "_token": [Circular],
+                        },
+                        Lexema {
+                          "_coluna": 13,
+                          "_linha": 5,
+                          "_palavra": ";",
+                          "_token": [Circular],
+                        },
+                        Lexema {
+                          "_coluna": 22,
+                          "_linha": 6,
+                          "_palavra": ";",
+                          "_token": [Circular],
+                        },
+                      ],
+                      "_subclasse": "del",
+                    },
+                  },
+                  "_nos": [],
+                  "_simbolo": "especial-del",
+                },
+              ],
+              "_simbolo": "<declaracao>",
+            },
+            Arvore {
+              "_extra": null,
+              "_nos": [
+                Arvore {
+                  "_extra": null,
+                  "_nos": [
+                    Arvore {
+                      "_extra": Lexema {
+                        "_coluna": 4,
+                        "_linha": 2,
+                        "_palavra": "hugo",
+                        "_token": Token {
+                          "_classe": "identificador",
+                          "_lexemas": [
+                            Lexema {
+                              "_coluna": 4,
+                              "_linha": 1,
+                              "_palavra": "var",
+                              "_token": [Circular],
+                            },
+                            [Circular],
+                            Lexema {
+                              "_coluna": 4,
+                              "_linha": 4,
+                              "_palavra": "var",
+                              "_token": [Circular],
+                            },
+                            Lexema {
+                              "_coluna": 4,
+                              "_linha": 5,
+                              "_palavra": "hugo",
+                              "_token": [Circular],
+                            },
+                            Lexema {
+                              "_coluna": 12,
+                              "_linha": 6,
+                              "_palavra": "var",
+                              "_token": [Circular],
+                            },
+                            Lexema {
+                              "_coluna": 18,
+                              "_linha": 6,
+                              "_palavra": "hugo",
+                              "_token": [Circular],
+                            },
+                          ],
+                          "_subclasse": "",
+                        },
+                      },
+                      "_nos": [],
+                      "_simbolo": "identificador",
+                    },
+                    Arvore {
+                      "_extra": Lexema {
+                        "_coluna": 8,
+                        "_linha": 2,
+                        "_palavra": ":",
+                        "_token": Token {
+                          "_classe": "especial",
+                          "_lexemas": [
+                            Lexema {
+                              "_coluna": 7,
+                              "_linha": 1,
+                              "_palavra": ":",
+                              "_token": [Circular],
+                            },
+                            [Circular],
+                          ],
+                          "_subclasse": "dpo",
+                        },
+                      },
+                      "_nos": [],
+                      "_simbolo": "especial-dpo",
+                    },
+                    Arvore {
+                      "_extra": null,
+                      "_nos": [
+                        Arvore {
+                          "_extra": Lexema {
+                            "_coluna": 10,
+                            "_linha": 2,
+                            "_palavra": "int",
+                            "_token": Token {
+                              "_classe": "nome-escalar",
+                              "_lexemas": [
+                                Lexema {
+                                  "_coluna": 9,
+                                  "_linha": 1,
+                                  "_palavra": "int",
+                                  "_token": [Circular],
+                                },
+                                [Circular],
+                              ],
+                              "_subclasse": "int",
+                            },
+                          },
+                          "_nos": [],
+                          "_simbolo": "nome-escalar-int",
+                        },
+                      ],
+                      "_simbolo": "<declaracao_tipo>",
+                    },
+                    Arvore {
+                      "_extra": Lexema {
+                        "_coluna": 13,
+                        "_linha": 2,
+                        "_palavra": ";",
+                        "_token": Token {
+                          "_classe": "especial",
+                          "_lexemas": [
+                            Lexema {
+                              "_coluna": 12,
+                              "_linha": 1,
+                              "_palavra": ";",
+                              "_token": [Circular],
+                            },
+                            [Circular],
+                            Lexema {
+                              "_coluna": 11,
+                              "_linha": 4,
+                              "_palavra": ";",
+                              "_token": [Circular],
+                            },
+                            Lexema {
+                              "_coluna": 13,
+                              "_linha": 5,
+                              "_palavra": ";",
+                              "_token": [Circular],
+                            },
+                            Lexema {
+                              "_coluna": 22,
+                              "_linha": 6,
+                              "_palavra": ";",
+                              "_token": [Circular],
+                            },
+                          ],
+                          "_subclasse": "del",
+                        },
+                      },
+                      "_nos": [],
+                      "_simbolo": "especial-del",
+                    },
+                  ],
+                  "_simbolo": "<declaracao>",
+                },
+              ],
+              "_simbolo": "<lista_declaracao>",
+            },
+          ],
+          "_simbolo": "<lista_declaracao>",
+        },
+      ],
+      "_simbolo": "<bloco_declaracao>",
+    },
+    Arvore {
+      "_extra": null,
+      "_nos": [
+        Arvore {
+          "_extra": Lexema {
+            "_coluna": 0,
+            "_linha": 3,
+            "_palavra": "inicio",
+            "_token": Token {
+              "_classe": "comando",
+              "_lexemas": [
+                [Circular],
+              ],
+              "_subclasse": "inic",
+            },
+          },
+          "_nos": [],
+          "_simbolo": "comando-inic",
+        },
+        Arvore {
+          "_extra": null,
+          "_nos": [
+            Arvore {
+              "_extra": null,
+              "_nos": [
+                Arvore {
+                  "_extra": null,
+                  "_nos": [
+                    Arvore {
+                      "_extra": null,
+                      "_nos": [
+                        Arvore {
+                          "_extra": null,
+                          "_nos": [
+                            Arvore {
+                              "_extra": Lexema {
+                                "_coluna": 4,
+                                "_linha": 4,
+                                "_palavra": "var",
+                                "_token": Token {
+                                  "_classe": "identificador",
+                                  "_lexemas": [
+                                    Lexema {
+                                      "_coluna": 4,
+                                      "_linha": 1,
+                                      "_palavra": "var",
+                                      "_token": [Circular],
+                                    },
+                                    Lexema {
+                                      "_coluna": 4,
+                                      "_linha": 2,
+                                      "_palavra": "hugo",
+                                      "_token": [Circular],
+                                    },
+                                    [Circular],
+                                    Lexema {
+                                      "_coluna": 4,
+                                      "_linha": 5,
+                                      "_palavra": "hugo",
+                                      "_token": [Circular],
+                                    },
+                                    Lexema {
+                                      "_coluna": 12,
+                                      "_linha": 6,
+                                      "_palavra": "var",
+                                      "_token": [Circular],
+                                    },
+                                    Lexema {
+                                      "_coluna": 18,
+                                      "_linha": 6,
+                                      "_palavra": "hugo",
+                                      "_token": [Circular],
+                                    },
+                                  ],
+                                  "_subclasse": "",
+                                },
+                              },
+                              "_nos": [],
+                              "_simbolo": "identificador",
+                            },
+                            Arvore {
+                              "_extra": Lexema {
+                                "_coluna": 8,
+                                "_linha": 4,
+                                "_palavra": "=",
+                                "_token": Token {
+                                  "_classe": "especial",
+                                  "_lexemas": [
+                                    [Circular],
+                                    Lexema {
+                                      "_coluna": 9,
+                                      "_linha": 5,
+                                      "_palavra": "=",
+                                      "_token": [Circular],
+                                    },
+                                  ],
+                                  "_subclasse": "atr",
+                                },
+                              },
+                              "_nos": [],
+                              "_simbolo": "especial-atr",
+                            },
+                            Arvore {
+                              "_extra": null,
+                              "_nos": [
+                                Arvore {
+                                  "_extra": null,
+                                  "_nos": [
+                                    Arvore {
+                                      "_extra": null,
+                                      "_nos": [
+                                        Arvore {
+                                          "_extra": null,
+                                          "_nos": [
+                                            Arvore {
+                                              "_extra": null,
+                                              "_nos": [
+                                                Arvore {
+                                                  "_extra": Lexema {
+                                                    "_coluna": 10,
+                                                    "_linha": 4,
+                                                    "_palavra": "0",
+                                                    "_token": Token {
+                                                      "_classe": "literal-int",
+                                                      "_lexemas": [
+                                                        [Circular],
+                                                        Lexema {
+                                                          "_coluna": 11,
+                                                          "_linha": 5,
+                                                          "_palavra": "10",
+                                                          "_token": [Circular],
+                                                        },
+                                                      ],
+                                                      "_subclasse": "",
+                                                    },
+                                                  },
+                                                  "_nos": [],
+                                                  "_simbolo": "literal-int",
+                                                },
+                                              ],
+                                              "_simbolo": "<literal>",
+                                            },
+                                          ],
+                                          "_simbolo": "<expressao_fator>",
+                                        },
+                                      ],
+                                      "_simbolo": "<expressao_termo>",
+                                    },
+                                  ],
+                                  "_simbolo": "<expressao>",
+                                },
+                              ],
+                              "_simbolo": "<retorno_valor>",
+                            },
+                            Arvore {
+                              "_extra": Lexema {
+                                "_coluna": 11,
+                                "_linha": 4,
+                                "_palavra": ";",
+                                "_token": Token {
+                                  "_classe": "especial",
+                                  "_lexemas": [
+                                    Lexema {
+                                      "_coluna": 12,
+                                      "_linha": 1,
+                                      "_palavra": ";",
+                                      "_token": [Circular],
+                                    },
+                                    Lexema {
+                                      "_coluna": 13,
+                                      "_linha": 2,
+                                      "_palavra": ";",
+                                      "_token": [Circular],
+                                    },
+                                    [Circular],
+                                    Lexema {
+                                      "_coluna": 13,
+                                      "_linha": 5,
+                                      "_palavra": ";",
+                                      "_token": [Circular],
+                                    },
+                                    Lexema {
+                                      "_coluna": 22,
+                                      "_linha": 6,
+                                      "_palavra": ";",
+                                      "_token": [Circular],
+                                    },
+                                  ],
+                                  "_subclasse": "del",
+                                },
+                              },
+                              "_nos": [],
+                              "_simbolo": "especial-del",
+                            },
+                          ],
+                          "_simbolo": "<atribuicao>",
+                        },
+                      ],
+                      "_simbolo": "<comando>",
+                    },
+                  ],
+                  "_simbolo": "<lista_comando>",
+                },
+                Arvore {
+                  "_extra": null,
+                  "_nos": [
+                    Arvore {
+                      "_extra": null,
+                      "_nos": [
+                        Arvore {
+                          "_extra": Lexema {
+                            "_coluna": 4,
+                            "_linha": 5,
+                            "_palavra": "hugo",
+                            "_token": Token {
+                              "_classe": "identificador",
+                              "_lexemas": [
+                                Lexema {
+                                  "_coluna": 4,
+                                  "_linha": 1,
+                                  "_palavra": "var",
+                                  "_token": [Circular],
+                                },
+                                Lexema {
+                                  "_coluna": 4,
+                                  "_linha": 2,
+                                  "_palavra": "hugo",
+                                  "_token": [Circular],
+                                },
+                                Lexema {
+                                  "_coluna": 4,
+                                  "_linha": 4,
+                                  "_palavra": "var",
+                                  "_token": [Circular],
+                                },
+                                [Circular],
+                                Lexema {
+                                  "_coluna": 12,
+                                  "_linha": 6,
+                                  "_palavra": "var",
+                                  "_token": [Circular],
+                                },
+                                Lexema {
+                                  "_coluna": 18,
+                                  "_linha": 6,
+                                  "_palavra": "hugo",
+                                  "_token": [Circular],
+                                },
+                              ],
+                              "_subclasse": "",
+                            },
+                          },
+                          "_nos": [],
+                          "_simbolo": "identificador",
+                        },
+                        Arvore {
+                          "_extra": Lexema {
+                            "_coluna": 9,
+                            "_linha": 5,
+                            "_palavra": "=",
+                            "_token": Token {
+                              "_classe": "especial",
+                              "_lexemas": [
+                                Lexema {
+                                  "_coluna": 8,
+                                  "_linha": 4,
+                                  "_palavra": "=",
+                                  "_token": [Circular],
+                                },
+                                [Circular],
+                              ],
+                              "_subclasse": "atr",
+                            },
+                          },
+                          "_nos": [],
+                          "_simbolo": "especial-atr",
+                        },
+                        Arvore {
+                          "_extra": null,
+                          "_nos": [
+                            Arvore {
+                              "_extra": null,
+                              "_nos": [
+                                Arvore {
+                                  "_extra": null,
+                                  "_nos": [
+                                    Arvore {
+                                      "_extra": null,
+                                      "_nos": [
+                                        Arvore {
+                                          "_extra": null,
+                                          "_nos": [
+                                            Arvore {
+                                              "_extra": Lexema {
+                                                "_coluna": 11,
+                                                "_linha": 5,
+                                                "_palavra": "10",
+                                                "_token": Token {
+                                                  "_classe": "literal-int",
+                                                  "_lexemas": [
+                                                    Lexema {
+                                                      "_coluna": 10,
+                                                      "_linha": 4,
+                                                      "_palavra": "0",
+                                                      "_token": [Circular],
+                                                    },
+                                                    [Circular],
+                                                  ],
+                                                  "_subclasse": "",
+                                                },
+                                              },
+                                              "_nos": [],
+                                              "_simbolo": "literal-int",
+                                            },
+                                          ],
+                                          "_simbolo": "<literal>",
+                                        },
+                                      ],
+                                      "_simbolo": "<expressao_fator>",
+                                    },
+                                  ],
+                                  "_simbolo": "<expressao_termo>",
+                                },
+                              ],
+                              "_simbolo": "<expressao>",
+                            },
+                          ],
+                          "_simbolo": "<retorno_valor>",
+                        },
+                        Arvore {
+                          "_extra": Lexema {
+                            "_coluna": 13,
+                            "_linha": 5,
+                            "_palavra": ";",
+                            "_token": Token {
+                              "_classe": "especial",
+                              "_lexemas": [
+                                Lexema {
+                                  "_coluna": 12,
+                                  "_linha": 1,
+                                  "_palavra": ";",
+                                  "_token": [Circular],
+                                },
+                                Lexema {
+                                  "_coluna": 13,
+                                  "_linha": 2,
+                                  "_palavra": ";",
+                                  "_token": [Circular],
+                                },
+                                Lexema {
+                                  "_coluna": 11,
+                                  "_linha": 4,
+                                  "_palavra": ";",
+                                  "_token": [Circular],
+                                },
+                                [Circular],
+                                Lexema {
+                                  "_coluna": 22,
+                                  "_linha": 6,
+                                  "_palavra": ";",
+                                  "_token": [Circular],
+                                },
+                              ],
+                              "_subclasse": "del",
+                            },
+                          },
+                          "_nos": [],
+                          "_simbolo": "especial-del",
+                        },
+                      ],
+                      "_simbolo": "<atribuicao>",
+                    },
+                  ],
+                  "_simbolo": "<comando>",
+                },
+              ],
+              "_simbolo": "<lista_comando>",
+            },
+            Arvore {
+              "_extra": null,
+              "_nos": [
+                Arvore {
+                  "_extra": null,
+                  "_nos": [
+                    Arvore {
+                      "_extra": Lexema {
+                        "_coluna": 4,
+                        "_linha": 6,
+                        "_palavra": "retorne",
+                        "_token": Token {
+                          "_classe": "comando",
+                          "_lexemas": [
+                            [Circular],
+                          ],
+                          "_subclasse": "reto",
+                        },
+                      },
+                      "_nos": [],
+                      "_simbolo": "comando-reto",
+                    },
+                    Arvore {
+                      "_extra": null,
+                      "_nos": [
+                        Arvore {
+                          "_extra": null,
+                          "_nos": [
+                            Arvore {
+                              "_extra": null,
+                              "_nos": [
+                                Arvore {
+                                  "_extra": null,
+                                  "_nos": [
+                                    Arvore {
+                                      "_extra": null,
+                                      "_nos": [
+                                        Arvore {
+                                          "_extra": Lexema {
+                                            "_coluna": 12,
+                                            "_linha": 6,
+                                            "_palavra": "var",
+                                            "_token": Token {
+                                              "_classe": "identificador",
+                                              "_lexemas": [
+                                                Lexema {
+                                                  "_coluna": 4,
+                                                  "_linha": 1,
+                                                  "_palavra": "var",
+                                                  "_token": [Circular],
+                                                },
+                                                Lexema {
+                                                  "_coluna": 4,
+                                                  "_linha": 2,
+                                                  "_palavra": "hugo",
+                                                  "_token": [Circular],
+                                                },
+                                                Lexema {
+                                                  "_coluna": 4,
+                                                  "_linha": 4,
+                                                  "_palavra": "var",
+                                                  "_token": [Circular],
+                                                },
+                                                Lexema {
+                                                  "_coluna": 4,
+                                                  "_linha": 5,
+                                                  "_palavra": "hugo",
+                                                  "_token": [Circular],
+                                                },
+                                                [Circular],
+                                                Lexema {
+                                                  "_coluna": 18,
+                                                  "_linha": 6,
+                                                  "_palavra": "hugo",
+                                                  "_token": [Circular],
+                                                },
+                                              ],
+                                              "_subclasse": "",
+                                            },
+                                          },
+                                          "_nos": [],
+                                          "_simbolo": "identificador",
+                                        },
+                                      ],
+                                      "_simbolo": "<expressao_fator>",
+                                    },
+                                  ],
+                                  "_simbolo": "<expressao_termo>",
+                                },
+                              ],
+                              "_simbolo": "<expressao>",
+                            },
+                            Arvore {
+                              "_extra": Lexema {
+                                "_coluna": 16,
+                                "_linha": 6,
+                                "_palavra": "+",
+                                "_token": Token {
+                                  "_classe": "op-aritmetico",
+                                  "_lexemas": [
+                                    [Circular],
+                                  ],
+                                  "_subclasse": "adi",
+                                },
+                              },
+                              "_nos": [],
+                              "_simbolo": "op-aritmetico-adi",
+                            },
+                            Arvore {
+                              "_extra": null,
+                              "_nos": [
+                                Arvore {
+                                  "_extra": null,
+                                  "_nos": [
+                                    Arvore {
+                                      "_extra": Lexema {
+                                        "_coluna": 18,
+                                        "_linha": 6,
+                                        "_palavra": "hugo",
+                                        "_token": Token {
+                                          "_classe": "identificador",
+                                          "_lexemas": [
+                                            Lexema {
+                                              "_coluna": 4,
+                                              "_linha": 1,
+                                              "_palavra": "var",
+                                              "_token": [Circular],
+                                            },
+                                            Lexema {
+                                              "_coluna": 4,
+                                              "_linha": 2,
+                                              "_palavra": "hugo",
+                                              "_token": [Circular],
+                                            },
+                                            Lexema {
+                                              "_coluna": 4,
+                                              "_linha": 4,
+                                              "_palavra": "var",
+                                              "_token": [Circular],
+                                            },
+                                            Lexema {
+                                              "_coluna": 4,
+                                              "_linha": 5,
+                                              "_palavra": "hugo",
+                                              "_token": [Circular],
+                                            },
+                                            Lexema {
+                                              "_coluna": 12,
+                                              "_linha": 6,
+                                              "_palavra": "var",
+                                              "_token": [Circular],
+                                            },
+                                            [Circular],
+                                          ],
+                                          "_subclasse": "",
+                                        },
+                                      },
+                                      "_nos": [],
+                                      "_simbolo": "identificador",
+                                    },
+                                  ],
+                                  "_simbolo": "<expressao_fator>",
+                                },
+                              ],
+                              "_simbolo": "<expressao_termo>",
+                            },
+                          ],
+                          "_simbolo": "<expressao>",
+                        },
+                      ],
+                      "_simbolo": "<retorno_valor>",
+                    },
+                    Arvore {
+                      "_extra": Lexema {
+                        "_coluna": 22,
+                        "_linha": 6,
+                        "_palavra": ";",
+                        "_token": Token {
+                          "_classe": "especial",
+                          "_lexemas": [
+                            Lexema {
+                              "_coluna": 12,
+                              "_linha": 1,
+                              "_palavra": ";",
+                              "_token": [Circular],
+                            },
+                            Lexema {
+                              "_coluna": 13,
+                              "_linha": 2,
+                              "_palavra": ";",
+                              "_token": [Circular],
+                            },
+                            Lexema {
+                              "_coluna": 11,
+                              "_linha": 4,
+                              "_palavra": ";",
+                              "_token": [Circular],
+                            },
+                            Lexema {
+                              "_coluna": 13,
+                              "_linha": 5,
+                              "_palavra": ";",
+                              "_token": [Circular],
+                            },
+                            [Circular],
+                          ],
+                          "_subclasse": "del",
+                        },
+                      },
+                      "_nos": [],
+                      "_simbolo": "especial-del",
+                    },
+                  ],
+                  "_simbolo": "<retorne_principal>",
+                },
+              ],
+              "_simbolo": "<comando>",
+            },
+          ],
+          "_simbolo": "<lista_comando>",
+        },
+        Arvore {
+          "_extra": Lexema {
+            "_coluna": 0,
+            "_linha": 7,
+            "_palavra": "fim",
+            "_token": Token {
+              "_classe": "comando",
+              "_lexemas": [
+                [Circular],
+              ],
+              "_subclasse": "fim",
+            },
+          },
+          "_nos": [],
+          "_simbolo": "comando-fim",
+        },
+      ],
+      "_simbolo": "<bloco_principal>",
+    },
+  ],
+  "_simbolo": "<programa>",
+}
+`;
+
+exports[`CompilerExpressions Generic test 3`] = `
+Semantico {
+  "_arvore": Arvore {
+    "_extra": null,
+    "_nos": [
+      Arvore {
+        "_extra": null,
+        "_nos": [
+          Arvore {
+            "_extra": Lexema {
+              "_coluna": 0,
+              "_linha": 0,
+              "_palavra": "variaveis",
+              "_token": Token {
+                "_classe": "comando",
+                "_lexemas": [
+                  [Circular],
+                ],
+                "_subclasse": "vari",
+              },
+            },
+            "_nos": [],
+            "_simbolo": "comando-vari",
+          },
+          Arvore {
+            "_extra": null,
+            "_nos": [
+              Arvore {
+                "_extra": null,
+                "_nos": [
+                  Arvore {
+                    "_extra": Lexema {
+                      "_coluna": 4,
+                      "_linha": 1,
+                      "_palavra": "var",
+                      "_token": Token {
+                        "_classe": "identificador",
+                        "_lexemas": [
+                          [Circular],
+                          Lexema {
+                            "_coluna": 4,
+                            "_linha": 2,
+                            "_palavra": "hugo",
+                            "_token": [Circular],
+                          },
+                          Lexema {
+                            "_coluna": 4,
+                            "_linha": 4,
+                            "_palavra": "var",
+                            "_token": [Circular],
+                          },
+                          Lexema {
+                            "_coluna": 4,
+                            "_linha": 5,
+                            "_palavra": "hugo",
+                            "_token": [Circular],
+                          },
+                          Lexema {
+                            "_coluna": 12,
+                            "_linha": 6,
+                            "_palavra": "var",
+                            "_token": [Circular],
+                          },
+                          Lexema {
+                            "_coluna": 18,
+                            "_linha": 6,
+                            "_palavra": "hugo",
+                            "_token": [Circular],
+                          },
+                        ],
+                        "_subclasse": "",
+                      },
+                    },
+                    "_nos": [],
+                    "_simbolo": "identificador",
+                  },
+                  Arvore {
+                    "_extra": Lexema {
+                      "_coluna": 7,
+                      "_linha": 1,
+                      "_palavra": ":",
+                      "_token": Token {
+                        "_classe": "especial",
+                        "_lexemas": [
+                          [Circular],
+                          Lexema {
+                            "_coluna": 8,
+                            "_linha": 2,
+                            "_palavra": ":",
+                            "_token": [Circular],
+                          },
+                        ],
+                        "_subclasse": "dpo",
+                      },
+                    },
+                    "_nos": [],
+                    "_simbolo": "especial-dpo",
+                  },
+                  Arvore {
+                    "_extra": null,
+                    "_nos": [
+                      Arvore {
+                        "_extra": Lexema {
+                          "_coluna": 9,
+                          "_linha": 1,
+                          "_palavra": "int",
+                          "_token": Token {
+                            "_classe": "nome-escalar",
+                            "_lexemas": [
+                              [Circular],
+                              Lexema {
+                                "_coluna": 10,
+                                "_linha": 2,
+                                "_palavra": "int",
+                                "_token": [Circular],
+                              },
+                            ],
+                            "_subclasse": "int",
+                          },
+                        },
+                        "_nos": [],
+                        "_simbolo": "nome-escalar-int",
+                      },
+                    ],
+                    "_simbolo": "<declaracao_tipo>",
+                  },
+                  Arvore {
+                    "_extra": Lexema {
+                      "_coluna": 12,
+                      "_linha": 1,
+                      "_palavra": ";",
+                      "_token": Token {
+                        "_classe": "especial",
+                        "_lexemas": [
+                          [Circular],
+                          Lexema {
+                            "_coluna": 13,
+                            "_linha": 2,
+                            "_palavra": ";",
+                            "_token": [Circular],
+                          },
+                          Lexema {
+                            "_coluna": 11,
+                            "_linha": 4,
+                            "_palavra": ";",
+                            "_token": [Circular],
+                          },
+                          Lexema {
+                            "_coluna": 13,
+                            "_linha": 5,
+                            "_palavra": ";",
+                            "_token": [Circular],
+                          },
+                          Lexema {
+                            "_coluna": 22,
+                            "_linha": 6,
+                            "_palavra": ";",
+                            "_token": [Circular],
+                          },
+                        ],
+                        "_subclasse": "del",
+                      },
+                    },
+                    "_nos": [],
+                    "_simbolo": "especial-del",
+                  },
+                ],
+                "_simbolo": "<declaracao>",
+              },
+              Arvore {
+                "_extra": null,
+                "_nos": [
+                  Arvore {
+                    "_extra": null,
+                    "_nos": [
+                      Arvore {
+                        "_extra": Lexema {
+                          "_coluna": 4,
+                          "_linha": 2,
+                          "_palavra": "hugo",
+                          "_token": Token {
+                            "_classe": "identificador",
+                            "_lexemas": [
+                              Lexema {
+                                "_coluna": 4,
+                                "_linha": 1,
+                                "_palavra": "var",
+                                "_token": [Circular],
+                              },
+                              [Circular],
+                              Lexema {
+                                "_coluna": 4,
+                                "_linha": 4,
+                                "_palavra": "var",
+                                "_token": [Circular],
+                              },
+                              Lexema {
+                                "_coluna": 4,
+                                "_linha": 5,
+                                "_palavra": "hugo",
+                                "_token": [Circular],
+                              },
+                              Lexema {
+                                "_coluna": 12,
+                                "_linha": 6,
+                                "_palavra": "var",
+                                "_token": [Circular],
+                              },
+                              Lexema {
+                                "_coluna": 18,
+                                "_linha": 6,
+                                "_palavra": "hugo",
+                                "_token": [Circular],
+                              },
+                            ],
+                            "_subclasse": "",
+                          },
+                        },
+                        "_nos": [],
+                        "_simbolo": "identificador",
+                      },
+                      Arvore {
+                        "_extra": Lexema {
+                          "_coluna": 8,
+                          "_linha": 2,
+                          "_palavra": ":",
+                          "_token": Token {
+                            "_classe": "especial",
+                            "_lexemas": [
+                              Lexema {
+                                "_coluna": 7,
+                                "_linha": 1,
+                                "_palavra": ":",
+                                "_token": [Circular],
+                              },
+                              [Circular],
+                            ],
+                            "_subclasse": "dpo",
+                          },
+                        },
+                        "_nos": [],
+                        "_simbolo": "especial-dpo",
+                      },
+                      Arvore {
+                        "_extra": null,
+                        "_nos": [
+                          Arvore {
+                            "_extra": Lexema {
+                              "_coluna": 10,
+                              "_linha": 2,
+                              "_palavra": "int",
+                              "_token": Token {
+                                "_classe": "nome-escalar",
+                                "_lexemas": [
+                                  Lexema {
+                                    "_coluna": 9,
+                                    "_linha": 1,
+                                    "_palavra": "int",
+                                    "_token": [Circular],
+                                  },
+                                  [Circular],
+                                ],
+                                "_subclasse": "int",
+                              },
+                            },
+                            "_nos": [],
+                            "_simbolo": "nome-escalar-int",
+                          },
+                        ],
+                        "_simbolo": "<declaracao_tipo>",
+                      },
+                      Arvore {
+                        "_extra": Lexema {
+                          "_coluna": 13,
+                          "_linha": 2,
+                          "_palavra": ";",
+                          "_token": Token {
+                            "_classe": "especial",
+                            "_lexemas": [
+                              Lexema {
+                                "_coluna": 12,
+                                "_linha": 1,
+                                "_palavra": ";",
+                                "_token": [Circular],
+                              },
+                              [Circular],
+                              Lexema {
+                                "_coluna": 11,
+                                "_linha": 4,
+                                "_palavra": ";",
+                                "_token": [Circular],
+                              },
+                              Lexema {
+                                "_coluna": 13,
+                                "_linha": 5,
+                                "_palavra": ";",
+                                "_token": [Circular],
+                              },
+                              Lexema {
+                                "_coluna": 22,
+                                "_linha": 6,
+                                "_palavra": ";",
+                                "_token": [Circular],
+                              },
+                            ],
+                            "_subclasse": "del",
+                          },
+                        },
+                        "_nos": [],
+                        "_simbolo": "especial-del",
+                      },
+                    ],
+                    "_simbolo": "<declaracao>",
+                  },
+                ],
+                "_simbolo": "<lista_declaracao>",
+              },
+            ],
+            "_simbolo": "<lista_declaracao>",
+          },
+        ],
+        "_simbolo": "<bloco_declaracao>",
+      },
+      Arvore {
+        "_extra": null,
+        "_nos": [
+          Arvore {
+            "_extra": Lexema {
+              "_coluna": 0,
+              "_linha": 3,
+              "_palavra": "inicio",
+              "_token": Token {
+                "_classe": "comando",
+                "_lexemas": [
+                  [Circular],
+                ],
+                "_subclasse": "inic",
+              },
+            },
+            "_nos": [],
+            "_simbolo": "comando-inic",
+          },
+          Arvore {
+            "_extra": null,
+            "_nos": [
+              Arvore {
+                "_extra": null,
+                "_nos": [
+                  Arvore {
+                    "_extra": null,
+                    "_nos": [
+                      Arvore {
+                        "_extra": null,
+                        "_nos": [
+                          Arvore {
+                            "_extra": null,
+                            "_nos": [
+                              Arvore {
+                                "_extra": Lexema {
+                                  "_coluna": 4,
+                                  "_linha": 4,
+                                  "_palavra": "var",
+                                  "_token": Token {
+                                    "_classe": "identificador",
+                                    "_lexemas": [
+                                      Lexema {
+                                        "_coluna": 4,
+                                        "_linha": 1,
+                                        "_palavra": "var",
+                                        "_token": [Circular],
+                                      },
+                                      Lexema {
+                                        "_coluna": 4,
+                                        "_linha": 2,
+                                        "_palavra": "hugo",
+                                        "_token": [Circular],
+                                      },
+                                      [Circular],
+                                      Lexema {
+                                        "_coluna": 4,
+                                        "_linha": 5,
+                                        "_palavra": "hugo",
+                                        "_token": [Circular],
+                                      },
+                                      Lexema {
+                                        "_coluna": 12,
+                                        "_linha": 6,
+                                        "_palavra": "var",
+                                        "_token": [Circular],
+                                      },
+                                      Lexema {
+                                        "_coluna": 18,
+                                        "_linha": 6,
+                                        "_palavra": "hugo",
+                                        "_token": [Circular],
+                                      },
+                                    ],
+                                    "_subclasse": "",
+                                  },
+                                },
+                                "_nos": [],
+                                "_simbolo": "identificador",
+                              },
+                              Arvore {
+                                "_extra": Lexema {
+                                  "_coluna": 8,
+                                  "_linha": 4,
+                                  "_palavra": "=",
+                                  "_token": Token {
+                                    "_classe": "especial",
+                                    "_lexemas": [
+                                      [Circular],
+                                      Lexema {
+                                        "_coluna": 9,
+                                        "_linha": 5,
+                                        "_palavra": "=",
+                                        "_token": [Circular],
+                                      },
+                                    ],
+                                    "_subclasse": "atr",
+                                  },
+                                },
+                                "_nos": [],
+                                "_simbolo": "especial-atr",
+                              },
+                              Arvore {
+                                "_extra": null,
+                                "_nos": [
+                                  Arvore {
+                                    "_extra": null,
+                                    "_nos": [
+                                      Arvore {
+                                        "_extra": null,
+                                        "_nos": [
+                                          Arvore {
+                                            "_extra": null,
+                                            "_nos": [
+                                              Arvore {
+                                                "_extra": null,
+                                                "_nos": [
+                                                  Arvore {
+                                                    "_extra": Lexema {
+                                                      "_coluna": 10,
+                                                      "_linha": 4,
+                                                      "_palavra": "0",
+                                                      "_token": Token {
+                                                        "_classe": "literal-int",
+                                                        "_lexemas": [
+                                                          [Circular],
+                                                          Lexema {
+                                                            "_coluna": 11,
+                                                            "_linha": 5,
+                                                            "_palavra": "10",
+                                                            "_token": [Circular],
+                                                          },
+                                                        ],
+                                                        "_subclasse": "",
+                                                      },
+                                                    },
+                                                    "_nos": [],
+                                                    "_simbolo": "literal-int",
+                                                  },
+                                                ],
+                                                "_simbolo": "<literal>",
+                                              },
+                                            ],
+                                            "_simbolo": "<expressao_fator>",
+                                          },
+                                        ],
+                                        "_simbolo": "<expressao_termo>",
+                                      },
+                                    ],
+                                    "_simbolo": "<expressao>",
+                                  },
+                                ],
+                                "_simbolo": "<retorno_valor>",
+                              },
+                              Arvore {
+                                "_extra": Lexema {
+                                  "_coluna": 11,
+                                  "_linha": 4,
+                                  "_palavra": ";",
+                                  "_token": Token {
+                                    "_classe": "especial",
+                                    "_lexemas": [
+                                      Lexema {
+                                        "_coluna": 12,
+                                        "_linha": 1,
+                                        "_palavra": ";",
+                                        "_token": [Circular],
+                                      },
+                                      Lexema {
+                                        "_coluna": 13,
+                                        "_linha": 2,
+                                        "_palavra": ";",
+                                        "_token": [Circular],
+                                      },
+                                      [Circular],
+                                      Lexema {
+                                        "_coluna": 13,
+                                        "_linha": 5,
+                                        "_palavra": ";",
+                                        "_token": [Circular],
+                                      },
+                                      Lexema {
+                                        "_coluna": 22,
+                                        "_linha": 6,
+                                        "_palavra": ";",
+                                        "_token": [Circular],
+                                      },
+                                    ],
+                                    "_subclasse": "del",
+                                  },
+                                },
+                                "_nos": [],
+                                "_simbolo": "especial-del",
+                              },
+                            ],
+                            "_simbolo": "<atribuicao>",
+                          },
+                        ],
+                        "_simbolo": "<comando>",
+                      },
+                    ],
+                    "_simbolo": "<lista_comando>",
+                  },
+                  Arvore {
+                    "_extra": null,
+                    "_nos": [
+                      Arvore {
+                        "_extra": null,
+                        "_nos": [
+                          Arvore {
+                            "_extra": Lexema {
+                              "_coluna": 4,
+                              "_linha": 5,
+                              "_palavra": "hugo",
+                              "_token": Token {
+                                "_classe": "identificador",
+                                "_lexemas": [
+                                  Lexema {
+                                    "_coluna": 4,
+                                    "_linha": 1,
+                                    "_palavra": "var",
+                                    "_token": [Circular],
+                                  },
+                                  Lexema {
+                                    "_coluna": 4,
+                                    "_linha": 2,
+                                    "_palavra": "hugo",
+                                    "_token": [Circular],
+                                  },
+                                  Lexema {
+                                    "_coluna": 4,
+                                    "_linha": 4,
+                                    "_palavra": "var",
+                                    "_token": [Circular],
+                                  },
+                                  [Circular],
+                                  Lexema {
+                                    "_coluna": 12,
+                                    "_linha": 6,
+                                    "_palavra": "var",
+                                    "_token": [Circular],
+                                  },
+                                  Lexema {
+                                    "_coluna": 18,
+                                    "_linha": 6,
+                                    "_palavra": "hugo",
+                                    "_token": [Circular],
+                                  },
+                                ],
+                                "_subclasse": "",
+                              },
+                            },
+                            "_nos": [],
+                            "_simbolo": "identificador",
+                          },
+                          Arvore {
+                            "_extra": Lexema {
+                              "_coluna": 9,
+                              "_linha": 5,
+                              "_palavra": "=",
+                              "_token": Token {
+                                "_classe": "especial",
+                                "_lexemas": [
+                                  Lexema {
+                                    "_coluna": 8,
+                                    "_linha": 4,
+                                    "_palavra": "=",
+                                    "_token": [Circular],
+                                  },
+                                  [Circular],
+                                ],
+                                "_subclasse": "atr",
+                              },
+                            },
+                            "_nos": [],
+                            "_simbolo": "especial-atr",
+                          },
+                          Arvore {
+                            "_extra": null,
+                            "_nos": [
+                              Arvore {
+                                "_extra": null,
+                                "_nos": [
+                                  Arvore {
+                                    "_extra": null,
+                                    "_nos": [
+                                      Arvore {
+                                        "_extra": null,
+                                        "_nos": [
+                                          Arvore {
+                                            "_extra": null,
+                                            "_nos": [
+                                              Arvore {
+                                                "_extra": Lexema {
+                                                  "_coluna": 11,
+                                                  "_linha": 5,
+                                                  "_palavra": "10",
+                                                  "_token": Token {
+                                                    "_classe": "literal-int",
+                                                    "_lexemas": [
+                                                      Lexema {
+                                                        "_coluna": 10,
+                                                        "_linha": 4,
+                                                        "_palavra": "0",
+                                                        "_token": [Circular],
+                                                      },
+                                                      [Circular],
+                                                    ],
+                                                    "_subclasse": "",
+                                                  },
+                                                },
+                                                "_nos": [],
+                                                "_simbolo": "literal-int",
+                                              },
+                                            ],
+                                            "_simbolo": "<literal>",
+                                          },
+                                        ],
+                                        "_simbolo": "<expressao_fator>",
+                                      },
+                                    ],
+                                    "_simbolo": "<expressao_termo>",
+                                  },
+                                ],
+                                "_simbolo": "<expressao>",
+                              },
+                            ],
+                            "_simbolo": "<retorno_valor>",
+                          },
+                          Arvore {
+                            "_extra": Lexema {
+                              "_coluna": 13,
+                              "_linha": 5,
+                              "_palavra": ";",
+                              "_token": Token {
+                                "_classe": "especial",
+                                "_lexemas": [
+                                  Lexema {
+                                    "_coluna": 12,
+                                    "_linha": 1,
+                                    "_palavra": ";",
+                                    "_token": [Circular],
+                                  },
+                                  Lexema {
+                                    "_coluna": 13,
+                                    "_linha": 2,
+                                    "_palavra": ";",
+                                    "_token": [Circular],
+                                  },
+                                  Lexema {
+                                    "_coluna": 11,
+                                    "_linha": 4,
+                                    "_palavra": ";",
+                                    "_token": [Circular],
+                                  },
+                                  [Circular],
+                                  Lexema {
+                                    "_coluna": 22,
+                                    "_linha": 6,
+                                    "_palavra": ";",
+                                    "_token": [Circular],
+                                  },
+                                ],
+                                "_subclasse": "del",
+                              },
+                            },
+                            "_nos": [],
+                            "_simbolo": "especial-del",
+                          },
+                        ],
+                        "_simbolo": "<atribuicao>",
+                      },
+                    ],
+                    "_simbolo": "<comando>",
+                  },
+                ],
+                "_simbolo": "<lista_comando>",
+              },
+              Arvore {
+                "_extra": null,
+                "_nos": [
+                  Arvore {
+                    "_extra": null,
+                    "_nos": [
+                      Arvore {
+                        "_extra": Lexema {
+                          "_coluna": 4,
+                          "_linha": 6,
+                          "_palavra": "retorne",
+                          "_token": Token {
+                            "_classe": "comando",
+                            "_lexemas": [
+                              [Circular],
+                            ],
+                            "_subclasse": "reto",
+                          },
+                        },
+                        "_nos": [],
+                        "_simbolo": "comando-reto",
+                      },
+                      Arvore {
+                        "_extra": null,
+                        "_nos": [
+                          Arvore {
+                            "_extra": null,
+                            "_nos": [
+                              Arvore {
+                                "_extra": null,
+                                "_nos": [
+                                  Arvore {
+                                    "_extra": null,
+                                    "_nos": [
+                                      Arvore {
+                                        "_extra": null,
+                                        "_nos": [
+                                          Arvore {
+                                            "_extra": Lexema {
+                                              "_coluna": 12,
+                                              "_linha": 6,
+                                              "_palavra": "var",
+                                              "_token": Token {
+                                                "_classe": "identificador",
+                                                "_lexemas": [
+                                                  Lexema {
+                                                    "_coluna": 4,
+                                                    "_linha": 1,
+                                                    "_palavra": "var",
+                                                    "_token": [Circular],
+                                                  },
+                                                  Lexema {
+                                                    "_coluna": 4,
+                                                    "_linha": 2,
+                                                    "_palavra": "hugo",
+                                                    "_token": [Circular],
+                                                  },
+                                                  Lexema {
+                                                    "_coluna": 4,
+                                                    "_linha": 4,
+                                                    "_palavra": "var",
+                                                    "_token": [Circular],
+                                                  },
+                                                  Lexema {
+                                                    "_coluna": 4,
+                                                    "_linha": 5,
+                                                    "_palavra": "hugo",
+                                                    "_token": [Circular],
+                                                  },
+                                                  [Circular],
+                                                  Lexema {
+                                                    "_coluna": 18,
+                                                    "_linha": 6,
+                                                    "_palavra": "hugo",
+                                                    "_token": [Circular],
+                                                  },
+                                                ],
+                                                "_subclasse": "",
+                                              },
+                                            },
+                                            "_nos": [],
+                                            "_simbolo": "identificador",
+                                          },
+                                        ],
+                                        "_simbolo": "<expressao_fator>",
+                                      },
+                                    ],
+                                    "_simbolo": "<expressao_termo>",
+                                  },
+                                ],
+                                "_simbolo": "<expressao>",
+                              },
+                              Arvore {
+                                "_extra": Lexema {
+                                  "_coluna": 16,
+                                  "_linha": 6,
+                                  "_palavra": "+",
+                                  "_token": Token {
+                                    "_classe": "op-aritmetico",
+                                    "_lexemas": [
+                                      [Circular],
+                                    ],
+                                    "_subclasse": "adi",
+                                  },
+                                },
+                                "_nos": [],
+                                "_simbolo": "op-aritmetico-adi",
+                              },
+                              Arvore {
+                                "_extra": null,
+                                "_nos": [
+                                  Arvore {
+                                    "_extra": null,
+                                    "_nos": [
+                                      Arvore {
+                                        "_extra": Lexema {
+                                          "_coluna": 18,
+                                          "_linha": 6,
+                                          "_palavra": "hugo",
+                                          "_token": Token {
+                                            "_classe": "identificador",
+                                            "_lexemas": [
+                                              Lexema {
+                                                "_coluna": 4,
+                                                "_linha": 1,
+                                                "_palavra": "var",
+                                                "_token": [Circular],
+                                              },
+                                              Lexema {
+                                                "_coluna": 4,
+                                                "_linha": 2,
+                                                "_palavra": "hugo",
+                                                "_token": [Circular],
+                                              },
+                                              Lexema {
+                                                "_coluna": 4,
+                                                "_linha": 4,
+                                                "_palavra": "var",
+                                                "_token": [Circular],
+                                              },
+                                              Lexema {
+                                                "_coluna": 4,
+                                                "_linha": 5,
+                                                "_palavra": "hugo",
+                                                "_token": [Circular],
+                                              },
+                                              Lexema {
+                                                "_coluna": 12,
+                                                "_linha": 6,
+                                                "_palavra": "var",
+                                                "_token": [Circular],
+                                              },
+                                              [Circular],
+                                            ],
+                                            "_subclasse": "",
+                                          },
+                                        },
+                                        "_nos": [],
+                                        "_simbolo": "identificador",
+                                      },
+                                    ],
+                                    "_simbolo": "<expressao_fator>",
+                                  },
+                                ],
+                                "_simbolo": "<expressao_termo>",
+                              },
+                            ],
+                            "_simbolo": "<expressao>",
+                          },
+                        ],
+                        "_simbolo": "<retorno_valor>",
+                      },
+                      Arvore {
+                        "_extra": Lexema {
+                          "_coluna": 22,
+                          "_linha": 6,
+                          "_palavra": ";",
+                          "_token": Token {
+                            "_classe": "especial",
+                            "_lexemas": [
+                              Lexema {
+                                "_coluna": 12,
+                                "_linha": 1,
+                                "_palavra": ";",
+                                "_token": [Circular],
+                              },
+                              Lexema {
+                                "_coluna": 13,
+                                "_linha": 2,
+                                "_palavra": ";",
+                                "_token": [Circular],
+                              },
+                              Lexema {
+                                "_coluna": 11,
+                                "_linha": 4,
+                                "_palavra": ";",
+                                "_token": [Circular],
+                              },
+                              Lexema {
+                                "_coluna": 13,
+                                "_linha": 5,
+                                "_palavra": ";",
+                                "_token": [Circular],
+                              },
+                              [Circular],
+                            ],
+                            "_subclasse": "del",
+                          },
+                        },
+                        "_nos": [],
+                        "_simbolo": "especial-del",
+                      },
+                    ],
+                    "_simbolo": "<retorne_principal>",
+                  },
+                ],
+                "_simbolo": "<comando>",
+              },
+            ],
+            "_simbolo": "<lista_comando>",
+          },
+          Arvore {
+            "_extra": Lexema {
+              "_coluna": 0,
+              "_linha": 7,
+              "_palavra": "fim",
+              "_token": Token {
+                "_classe": "comando",
+                "_lexemas": [
+                  [Circular],
+                ],
+                "_subclasse": "fim",
+              },
+            },
+            "_nos": [],
+            "_simbolo": "comando-fim",
+          },
+        ],
+        "_simbolo": "<bloco_principal>",
+      },
+    ],
+    "_simbolo": "<programa>",
+  },
+  "_tabelaDeSimbolos": [
+    SimboloIdentificador {
+      "_nome": "var",
+      "_tipo": "int",
+      "_token": Token {
+        "_classe": "identificador",
+        "_lexemas": [
+          Lexema {
+            "_coluna": 4,
+            "_linha": 1,
+            "_palavra": "var",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 4,
+            "_linha": 2,
+            "_palavra": "hugo",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 4,
+            "_linha": 4,
+            "_palavra": "var",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 4,
+            "_linha": 5,
+            "_palavra": "hugo",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 12,
+            "_linha": 6,
+            "_palavra": "var",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 18,
+            "_linha": 6,
+            "_palavra": "hugo",
+            "_token": [Circular],
+          },
+        ],
+        "_subclasse": "",
+      },
+    },
+    SimboloIdentificador {
+      "_nome": "hugo",
+      "_tipo": "int",
+      "_token": Token {
+        "_classe": "identificador",
+        "_lexemas": [
+          Lexema {
+            "_coluna": 4,
+            "_linha": 1,
+            "_palavra": "var",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 4,
+            "_linha": 2,
+            "_palavra": "hugo",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 4,
+            "_linha": 4,
+            "_palavra": "var",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 4,
+            "_linha": 5,
+            "_palavra": "hugo",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 12,
+            "_linha": 6,
+            "_palavra": "var",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 18,
+            "_linha": 6,
+            "_palavra": "hugo",
+            "_token": [Circular],
+          },
+        ],
+        "_subclasse": "",
+      },
+    },
+  ],
+}
+`;
+
+exports[`CompilerExpressions Generic test 4`] = `
+[
+  Arvore {
+    "_extra": Lexema {
+      "_coluna": 8,
+      "_linha": 4,
+      "_palavra": "=",
+      "_token": Token {
+        "_classe": "especial",
+        "_lexemas": [
+          [Circular],
+          Lexema {
+            "_coluna": 9,
+            "_linha": 5,
+            "_palavra": "=",
+            "_token": [Circular],
+          },
+        ],
+        "_subclasse": "atr",
+      },
+    },
+    "_nos": [
+      Arvore {
+        "_extra": Lexema {
+          "_coluna": 4,
+          "_linha": 4,
+          "_palavra": "var",
+          "_token": Token {
+            "_classe": "identificador",
+            "_lexemas": [
+              Lexema {
+                "_coluna": 4,
+                "_linha": 1,
+                "_palavra": "var",
+                "_token": [Circular],
+              },
+              Lexema {
+                "_coluna": 4,
+                "_linha": 2,
+                "_palavra": "hugo",
+                "_token": [Circular],
+              },
+              [Circular],
+              Lexema {
+                "_coluna": 4,
+                "_linha": 5,
+                "_palavra": "hugo",
+                "_token": [Circular],
+              },
+              Lexema {
+                "_coluna": 12,
+                "_linha": 6,
+                "_palavra": "var",
+                "_token": [Circular],
+              },
+              Lexema {
+                "_coluna": 18,
+                "_linha": 6,
+                "_palavra": "hugo",
+                "_token": [Circular],
+              },
+            ],
+            "_subclasse": "",
+          },
+        },
+        "_nos": [],
+        "_simbolo": "var",
+      },
+      Arvore {
+        "_extra": Lexema {
+          "_coluna": 10,
+          "_linha": 4,
+          "_palavra": "0",
+          "_token": Token {
+            "_classe": "literal-int",
+            "_lexemas": [
+              [Circular],
+              Lexema {
+                "_coluna": 11,
+                "_linha": 5,
+                "_palavra": "10",
+                "_token": [Circular],
+              },
+            ],
+            "_subclasse": "",
+          },
+        },
+        "_nos": [],
+        "_simbolo": "0",
+      },
+    ],
+    "_simbolo": "=",
+  },
+  Arvore {
+    "_extra": Lexema {
+      "_coluna": 9,
+      "_linha": 5,
+      "_palavra": "=",
+      "_token": Token {
+        "_classe": "especial",
+        "_lexemas": [
+          Lexema {
+            "_coluna": 8,
+            "_linha": 4,
+            "_palavra": "=",
+            "_token": [Circular],
+          },
+          [Circular],
+        ],
+        "_subclasse": "atr",
+      },
+    },
+    "_nos": [
+      Arvore {
+        "_extra": Lexema {
+          "_coluna": 4,
+          "_linha": 5,
+          "_palavra": "hugo",
+          "_token": Token {
+            "_classe": "identificador",
+            "_lexemas": [
+              Lexema {
+                "_coluna": 4,
+                "_linha": 1,
+                "_palavra": "var",
+                "_token": [Circular],
+              },
+              Lexema {
+                "_coluna": 4,
+                "_linha": 2,
+                "_palavra": "hugo",
+                "_token": [Circular],
+              },
+              Lexema {
+                "_coluna": 4,
+                "_linha": 4,
+                "_palavra": "var",
+                "_token": [Circular],
+              },
+              [Circular],
+              Lexema {
+                "_coluna": 12,
+                "_linha": 6,
+                "_palavra": "var",
+                "_token": [Circular],
+              },
+              Lexema {
+                "_coluna": 18,
+                "_linha": 6,
+                "_palavra": "hugo",
+                "_token": [Circular],
+              },
+            ],
+            "_subclasse": "",
+          },
+        },
+        "_nos": [],
+        "_simbolo": "hugo",
+      },
+      Arvore {
+        "_extra": Lexema {
+          "_coluna": 11,
+          "_linha": 5,
+          "_palavra": "10",
+          "_token": Token {
+            "_classe": "literal-int",
+            "_lexemas": [
+              Lexema {
+                "_coluna": 10,
+                "_linha": 4,
+                "_palavra": "0",
+                "_token": [Circular],
+              },
+              [Circular],
+            ],
+            "_subclasse": "",
+          },
+        },
+        "_nos": [],
+        "_simbolo": "10",
+      },
+    ],
+    "_simbolo": "=",
+  },
+  Arvore {
+    "_extra": Lexema {
+      "_coluna": 4,
+      "_linha": 6,
+      "_palavra": "retorne",
+      "_token": Token {
+        "_classe": "comando",
+        "_lexemas": [
+          [Circular],
+        ],
+        "_subclasse": "reto",
+      },
+    },
+    "_nos": [
+      Arvore {
+        "_extra": Lexema {
+          "_coluna": 16,
+          "_linha": 6,
+          "_palavra": "+",
+          "_token": Token {
+            "_classe": "op-aritmetico",
+            "_lexemas": [
+              [Circular],
+            ],
+            "_subclasse": "adi",
+          },
+        },
+        "_nos": [
+          Arvore {
+            "_extra": Lexema {
+              "_coluna": 12,
+              "_linha": 6,
+              "_palavra": "var",
+              "_token": Token {
+                "_classe": "identificador",
+                "_lexemas": [
+                  Lexema {
+                    "_coluna": 4,
+                    "_linha": 1,
+                    "_palavra": "var",
+                    "_token": [Circular],
+                  },
+                  Lexema {
+                    "_coluna": 4,
+                    "_linha": 2,
+                    "_palavra": "hugo",
+                    "_token": [Circular],
+                  },
+                  Lexema {
+                    "_coluna": 4,
+                    "_linha": 4,
+                    "_palavra": "var",
+                    "_token": [Circular],
+                  },
+                  Lexema {
+                    "_coluna": 4,
+                    "_linha": 5,
+                    "_palavra": "hugo",
+                    "_token": [Circular],
+                  },
+                  [Circular],
+                  Lexema {
+                    "_coluna": 18,
+                    "_linha": 6,
+                    "_palavra": "hugo",
+                    "_token": [Circular],
+                  },
+                ],
+                "_subclasse": "",
+              },
+            },
+            "_nos": [],
+            "_simbolo": "var",
+          },
+          Arvore {
+            "_extra": Lexema {
+              "_coluna": 18,
+              "_linha": 6,
+              "_palavra": "hugo",
+              "_token": Token {
+                "_classe": "identificador",
+                "_lexemas": [
+                  Lexema {
+                    "_coluna": 4,
+                    "_linha": 1,
+                    "_palavra": "var",
+                    "_token": [Circular],
+                  },
+                  Lexema {
+                    "_coluna": 4,
+                    "_linha": 2,
+                    "_palavra": "hugo",
+                    "_token": [Circular],
+                  },
+                  Lexema {
+                    "_coluna": 4,
+                    "_linha": 4,
+                    "_palavra": "var",
+                    "_token": [Circular],
+                  },
+                  Lexema {
+                    "_coluna": 4,
+                    "_linha": 5,
+                    "_palavra": "hugo",
+                    "_token": [Circular],
+                  },
+                  Lexema {
+                    "_coluna": 12,
+                    "_linha": 6,
+                    "_palavra": "var",
+                    "_token": [Circular],
+                  },
+                  [Circular],
+                ],
+                "_subclasse": "",
+              },
+            },
+            "_nos": [],
+            "_simbolo": "hugo",
+          },
+        ],
+        "_simbolo": "+",
+      },
+    ],
+    "_simbolo": "retorne",
+  },
+]
+`;
+
+exports[`CompilerExpressions Generic test 5`] = `
+[
+  SimboloIdentificador {
+    "_nome": "var",
+    "_tipo": "int",
+    "_token": Token {
+      "_classe": "identificador",
+      "_lexemas": [
+        Lexema {
+          "_coluna": 4,
+          "_linha": 1,
+          "_palavra": "var",
+          "_token": [Circular],
+        },
+        Lexema {
+          "_coluna": 4,
+          "_linha": 2,
+          "_palavra": "hugo",
+          "_token": [Circular],
+        },
+        Lexema {
+          "_coluna": 4,
+          "_linha": 4,
+          "_palavra": "var",
+          "_token": [Circular],
+        },
+        Lexema {
+          "_coluna": 4,
+          "_linha": 5,
+          "_palavra": "hugo",
+          "_token": [Circular],
+        },
+        Lexema {
+          "_coluna": 12,
+          "_linha": 6,
+          "_palavra": "var",
+          "_token": [Circular],
+        },
+        Lexema {
+          "_coluna": 18,
+          "_linha": 6,
+          "_palavra": "hugo",
+          "_token": [Circular],
+        },
+      ],
+      "_subclasse": "",
+    },
+  },
+  SimboloIdentificador {
+    "_nome": "hugo",
+    "_tipo": "int",
+    "_token": Token {
+      "_classe": "identificador",
+      "_lexemas": [
+        Lexema {
+          "_coluna": 4,
+          "_linha": 1,
+          "_palavra": "var",
+          "_token": [Circular],
+        },
+        Lexema {
+          "_coluna": 4,
+          "_linha": 2,
+          "_palavra": "hugo",
+          "_token": [Circular],
+        },
+        Lexema {
+          "_coluna": 4,
+          "_linha": 4,
+          "_palavra": "var",
+          "_token": [Circular],
+        },
+        Lexema {
+          "_coluna": 4,
+          "_linha": 5,
+          "_palavra": "hugo",
+          "_token": [Circular],
+        },
+        Lexema {
+          "_coluna": 12,
+          "_linha": 6,
+          "_palavra": "var",
+          "_token": [Circular],
+        },
+        Lexema {
+          "_coluna": 18,
+          "_linha": 6,
+          "_palavra": "hugo",
+          "_token": [Circular],
+        },
+      ],
+      "_subclasse": "",
+    },
+  },
+]
+`;
+
+exports[`CompilerExpressions Generic test 6`] = `
+Intermediario {
+  "_comandos": [
+    [
+      Instrucao {
+        "_argumentos": [
+          "0",
+        ],
+        "_operador": "=",
+        "_operando": "<0>",
+      },
+      Instrucao {
+        "_argumentos": [
+          "<0>",
+        ],
+        "_operador": "=",
+        "_operando": "var",
+      },
+    ],
+    [
+      Instrucao {
+        "_argumentos": [
+          "10",
+        ],
+        "_operador": "=",
+        "_operando": "<0>",
+      },
+      Instrucao {
+        "_argumentos": [
+          "<0>",
+        ],
+        "_operador": "=",
+        "_operando": "hugo",
+      },
+    ],
+    [
+      Instrucao {
+        "_argumentos": [
+          "hugo",
+        ],
+        "_operador": "=",
+        "_operando": "<0>",
+      },
+      Instrucao {
+        "_argumentos": [
+          "var",
+        ],
+        "_operador": "=",
+        "_operando": "<1>",
+      },
+      Instrucao {
+        "_argumentos": [
+          "<1>",
+          "<0>",
+        ],
+        "_operador": "+",
+        "_operando": "<2>",
+      },
+      Instrucao {
+        "_argumentos": [
+          "<2>",
+        ],
+        "_operador": "retorne",
+        "_operando": "retorne",
+      },
+    ],
+  ],
+  "_temp": 1,
+}
+`;
+
+exports[`CompilerExpressions Generic test 7`] = `
+[
+  [
+    Instrucao {
+      "_argumentos": [
+        "0",
+      ],
+      "_operador": "=",
+      "_operando": "<0>",
+    },
+    Instrucao {
+      "_argumentos": [
+        "<0>",
+      ],
+      "_operador": "=",
+      "_operando": "var",
+    },
+  ],
+  [
+    Instrucao {
+      "_argumentos": [
+        "10",
+      ],
+      "_operador": "=",
+      "_operando": "<0>",
+    },
+    Instrucao {
+      "_argumentos": [
+        "<0>",
+      ],
+      "_operador": "=",
+      "_operando": "hugo",
+    },
+  ],
+  [
+    Instrucao {
+      "_argumentos": [
+        "hugo",
+      ],
+      "_operador": "=",
+      "_operando": "<0>",
+    },
+    Instrucao {
+      "_argumentos": [
+        "var",
+      ],
+      "_operador": "=",
+      "_operando": "<1>",
+    },
+    Instrucao {
+      "_argumentos": [
+        "<1>",
+        "<0>",
+      ],
+      "_operador": "+",
+      "_operando": "<2>",
+    },
+    Instrucao {
+      "_argumentos": [
+        "<2>",
+      ],
+      "_operador": "retorne",
+      "_operando": "retorne",
+    },
+  ],
+  {
+    "gerado": [
+      Instrucao {
+        "_argumentos": [
+          "0",
+        ],
+        "_operador": "=",
+        "_operando": "<0>",
+      },
+      Instrucao {
+        "_argumentos": [
+          "<0>",
+        ],
+        "_operador": "=",
+        "_operando": "var",
+      },
+    ],
+    "linha": 4,
+    "otimizado": [
+      Instrucao {
+        "_argumentos": [
+          "0",
+        ],
+        "_operador": "=",
+        "_operando": "var",
+      },
+    ],
+  },
+  {
+    "gerado": [
+      Instrucao {
+        "_argumentos": [
+          "10",
+        ],
+        "_operador": "=",
+        "_operando": "<0>",
+      },
+      Instrucao {
+        "_argumentos": [
+          "<0>",
+        ],
+        "_operador": "=",
+        "_operando": "hugo",
+      },
+    ],
+    "linha": 5,
+    "otimizado": [
+      Instrucao {
+        "_argumentos": [
+          "10",
+        ],
+        "_operador": "=",
+        "_operando": "hugo",
+      },
+    ],
+  },
+  {
+    "gerado": [
+      Instrucao {
+        "_argumentos": [
+          "hugo",
+        ],
+        "_operador": "=",
+        "_operando": "<0>",
+      },
+      Instrucao {
+        "_argumentos": [
+          "var",
+        ],
+        "_operador": "=",
+        "_operando": "<1>",
+      },
+      Instrucao {
+        "_argumentos": [
+          "<1>",
+          "<0>",
+        ],
+        "_operador": "+",
+        "_operando": "<2>",
+      },
+      Instrucao {
+        "_argumentos": [
+          "<2>",
+        ],
+        "_operador": "retorne",
+        "_operando": "retorne",
+      },
+    ],
+    "linha": 6,
+    "otimizado": [
+      Instrucao {
+        "_argumentos": [
+          "var",
+          "hugo",
+        ],
+        "_operador": "+",
+        "_operando": "<0>",
+      },
+      Instrucao {
+        "_argumentos": [
+          "<0>",
+        ],
+        "_operador": "retorne",
+        "_operando": "retorne",
+      },
+    ],
+  },
+]
+`;
+
+exports[`CompilerExpressions Generic test 8`] = `
+[
+  [
+    Instrucao {
+      "_argumentos": [
+        "0",
+      ],
+      "_operador": "=",
+      "_operando": "var",
+    },
+  ],
+  [
+    Instrucao {
+      "_argumentos": [
+        "10",
+      ],
+      "_operador": "=",
+      "_operando": "hugo",
+    },
+  ],
+  [
+    Instrucao {
+      "_argumentos": [
+        "var",
+        "hugo",
+      ],
+      "_operador": "+",
+      "_operando": "<0>",
+    },
+    Instrucao {
+      "_argumentos": [
+        "<0>",
+      ],
+      "_operador": "retorne",
+      "_operando": "retorne",
+    },
+  ],
+]
+`;
+
+exports[`CompilerExpressions Generic test 9`] = `
+Mips {
+  "_registradoresTeporarios": {
+    "$t0": null,
+    "$t1": null,
+    "$t2": null,
+    "$t3": null,
+    "$t4": null,
+    "$t5": null,
+    "$t6": null,
+    "$t7": null,
+    "$t8": null,
+    "$t9": null,
+  },
+  "_tabeladeVariaveis": [
+    SimboloIdentificador {
+      "_nome": "var",
+      "_tipo": "int",
+      "_token": Token {
+        "_classe": "identificador",
+        "_lexemas": [
+          Lexema {
+            "_coluna": 4,
+            "_linha": 1,
+            "_palavra": "var",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 4,
+            "_linha": 2,
+            "_palavra": "hugo",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 4,
+            "_linha": 4,
+            "_palavra": "var",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 4,
+            "_linha": 5,
+            "_palavra": "hugo",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 12,
+            "_linha": 6,
+            "_palavra": "var",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 18,
+            "_linha": 6,
+            "_palavra": "hugo",
+            "_token": [Circular],
+          },
+        ],
+        "_subclasse": "",
+      },
+    },
+    SimboloIdentificador {
+      "_nome": "hugo",
+      "_tipo": "int",
+      "_token": Token {
+        "_classe": "identificador",
+        "_lexemas": [
+          Lexema {
+            "_coluna": 4,
+            "_linha": 1,
+            "_palavra": "var",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 4,
+            "_linha": 2,
+            "_palavra": "hugo",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 4,
+            "_linha": 4,
+            "_palavra": "var",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 4,
+            "_linha": 5,
+            "_palavra": "hugo",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 12,
+            "_linha": 6,
+            "_palavra": "var",
+            "_token": [Circular],
+          },
+          Lexema {
+            "_coluna": 18,
+            "_linha": 6,
+            "_palavra": "hugo",
+            "_token": [Circular],
+          },
+        ],
+        "_subclasse": "",
+      },
+    },
+  ],
+  "_texto": [
+    Instrucao {
+      "_argumentos": [
+        "$zero",
+        "0",
+      ],
+      "_operador": "addi",
+      "_operando": "$t0",
+    },
+    Instrucao {
+      "_argumentos": [
+        "id_int_var",
+      ],
+      "_operador": "sw",
+      "_operando": "$t0",
+    },
+    Instrucao {
+      "_argumentos": [
+        "$zero",
+        "10",
+      ],
+      "_operador": "addi",
+      "_operando": "$t0",
+    },
+    Instrucao {
+      "_argumentos": [
+        "id_int_hugo",
+      ],
+      "_operador": "sw",
+      "_operando": "$t0",
+    },
+    Instrucao {
+      "_argumentos": [
+        "id_int_var",
+      ],
+      "_operador": "lw",
+      "_operando": "$t0",
+    },
+    Instrucao {
+      "_argumentos": [
+        "id_int_hugo",
+      ],
+      "_operador": "lw",
+      "_operando": "$t1",
+    },
+    Instrucao {
+      "_argumentos": [
+        "$t0",
+        "$t1",
+      ],
+      "_operador": "add",
+      "_operando": "$t0",
+    },
+    Instrucao {
+      "_argumentos": [
+        "$zero",
+        "17",
+      ],
+      "_operador": "addi",
+      "_operando": "$v0",
+    },
+    Instrucao {
+      "_argumentos": [
+        "$zero",
+        "$t0",
+      ],
+      "_operador": "add",
+      "_operando": "$a0",
+    },
+    Instrucao {
+      "_argumentos": [],
+      "_operador": "syscall",
+      "_operando": "",
+    },
+  ],
+}
+`;
+
+exports[`CompilerExpressions Generic test 10`] = `
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "name": "variaveis",
+            },
+          ],
+          "name": "comando-vari",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "name": "var",
+                    },
+                  ],
+                  "name": "identificador",
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "name": ":",
+                    },
+                  ],
+                  "name": "especial-dpo",
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "name": "int",
+                        },
+                      ],
+                      "name": "nome-escalar-int",
+                    },
+                  ],
+                  "name": "<declaracao_tipo>",
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "name": ";",
+                    },
+                  ],
+                  "name": "especial-del",
+                },
+              ],
+              "name": "<declaracao>",
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "name": "hugo",
+                        },
+                      ],
+                      "name": "identificador",
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "name": ":",
+                        },
+                      ],
+                      "name": "especial-dpo",
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "name": "int",
+                            },
+                          ],
+                          "name": "nome-escalar-int",
+                        },
+                      ],
+                      "name": "<declaracao_tipo>",
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "name": ";",
+                        },
+                      ],
+                      "name": "especial-del",
+                    },
+                  ],
+                  "name": "<declaracao>",
+                },
+              ],
+              "name": "<lista_declaracao>",
+            },
+          ],
+          "name": "<lista_declaracao>",
+        },
+      ],
+      "name": "<bloco_declaracao>",
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "name": "inicio",
+            },
+          ],
+          "name": "comando-inic",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "name": "var",
+                                },
+                              ],
+                              "name": "identificador",
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "name": "=",
+                                },
+                              ],
+                              "name": "especial-atr",
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [
+                                                {
+                                                  "children": [
+                                                    {
+                                                      "children": [],
+                                                      "name": "0",
+                                                    },
+                                                  ],
+                                                  "name": "literal-int",
+                                                },
+                                              ],
+                                              "name": "<literal>",
+                                            },
+                                          ],
+                                          "name": "<expressao_fator>",
+                                        },
+                                      ],
+                                      "name": "<expressao_termo>",
+                                    },
+                                  ],
+                                  "name": "<expressao>",
+                                },
+                              ],
+                              "name": "<retorno_valor>",
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "name": ";",
+                                },
+                              ],
+                              "name": "especial-del",
+                            },
+                          ],
+                          "name": "<atribuicao>",
+                        },
+                      ],
+                      "name": "<comando>",
+                    },
+                  ],
+                  "name": "<lista_comando>",
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "name": "hugo",
+                            },
+                          ],
+                          "name": "identificador",
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "name": "=",
+                            },
+                          ],
+                          "name": "especial-atr",
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [
+                                                {
+                                                  "children": [],
+                                                  "name": "10",
+                                                },
+                                              ],
+                                              "name": "literal-int",
+                                            },
+                                          ],
+                                          "name": "<literal>",
+                                        },
+                                      ],
+                                      "name": "<expressao_fator>",
+                                    },
+                                  ],
+                                  "name": "<expressao_termo>",
+                                },
+                              ],
+                              "name": "<expressao>",
+                            },
+                          ],
+                          "name": "<retorno_valor>",
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "name": ";",
+                            },
+                          ],
+                          "name": "especial-del",
+                        },
+                      ],
+                      "name": "<atribuicao>",
+                    },
+                  ],
+                  "name": "<comando>",
+                },
+              ],
+              "name": "<lista_comando>",
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "name": "retorne",
+                        },
+                      ],
+                      "name": "comando-reto",
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "name": "var",
+                                            },
+                                          ],
+                                          "name": "identificador",
+                                        },
+                                      ],
+                                      "name": "<expressao_fator>",
+                                    },
+                                  ],
+                                  "name": "<expressao_termo>",
+                                },
+                              ],
+                              "name": "<expressao>",
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "name": "+",
+                                },
+                              ],
+                              "name": "op-aritmetico-adi",
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [],
+                                          "name": "hugo",
+                                        },
+                                      ],
+                                      "name": "identificador",
+                                    },
+                                  ],
+                                  "name": "<expressao_fator>",
+                                },
+                              ],
+                              "name": "<expressao_termo>",
+                            },
+                          ],
+                          "name": "<expressao>",
+                        },
+                      ],
+                      "name": "<retorno_valor>",
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "name": ";",
+                        },
+                      ],
+                      "name": "especial-del",
+                    },
+                  ],
+                  "name": "<retorne_principal>",
+                },
+              ],
+              "name": "<comando>",
+            },
+          ],
+          "name": "<lista_comando>",
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "name": "fim",
+            },
+          ],
+          "name": "comando-fim",
+        },
+      ],
+      "name": "<bloco_principal>",
+    },
+  ],
+  "name": "<programa>",
+}
+`;
