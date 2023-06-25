@@ -4,12 +4,9 @@ import Tree from "react-d3-tree";
 
 import CodeEditor from "components/CodeEditor";
 
-import Arvore from "./Ed/sintatico/Arvore";
-import SimboloIdentificador from "./Ed/semantico/SimboloIdentificador";
-
-import Sintatico from "./Ed/sintatico/Sintatico";
-import Semantico from "./Ed/semantico/Semantico";
-import Intermediario from "./Ed/sintese/Intermediario";
+import Sintatico from "./sintatico/Sintatico.mjs";
+import Semantico from "./semantico/Semantico.mjs";
+import Intermediario from "./sintese/Intermediario.mjs";
 
 import Mips from "./Ed/sintese/Mips.mjs";
 
@@ -20,10 +17,12 @@ import {
   TableHeader,
   TableRow,
 } from "components/Table/styles";
+import Arvore, { ReactD3Tree, getReactD3Tree } from "./sintatico/Arvore";
+import SimboloIdentificador from "./semantico/SimboloIdentificador.mjs";
 
 const CompilerExpressions = () => {
   const tree = useRef<HTMLDivElement>(null);
-  const [syntaxTree, setSyntaxTree] = useState<Arvore | null>(null);
+  const [syntaxTree, setSyntaxTree] = useState<ReactD3Tree | null>(null);
   const [expressionsTrees, setExpressionsTrees] = useState<Arvore[] | null>(
     null
   );
@@ -52,16 +51,17 @@ const CompilerExpressions = () => {
     //   mips.adicionarInstrucoes(optimizados[i]);
     // }
 
-    // setSymbolTable(tabelaDeSimbolos);
-    // setSyntaxTree(arvoreSintatica);
-    // setExpressionsTrees(arvoresDeExpressoes);
+    const d3tree = getReactD3Tree(arvoreSintatica!);
+    setSyntaxTree(d3tree);
+    setSymbolTable(tabelaDeSimbolos);
+    setExpressionsTrees(arvoresDeExpressoes);
 
-    // tree.current?.scrollIntoView();
-    console.log(sintatico);
-    console.log(arvoreSintatica);
-    console.log(semantico);
+    tree.current?.scrollIntoView();
+    // console.log(sintatico);
+    // console.log(arvoreSintatica);
+    // console.log(semantico);
     console.log(arvoresDeExpressoes);
-    console.log(tabelaDeSimbolos);
+    // console.log(tabelaDeSimbolos);
     // console.log(intermediario);
     // console.log(gerados);
     // console.log(optimizados);
@@ -124,18 +124,23 @@ fim`}
       ) : null}
 
       {expressionsTrees ? <h2>Árvores de expressões</h2> : null}
-      {expressionsTrees?.map((tree, index) => (
-        <S.TreeWrapper key={`${tree.name}${index}`} style={{ height: "30rem" }}>
-          {tree && (
-            <Tree
-              orientation="vertical"
-              data={tree}
-              translate={{ x: 600, y: 40 }}
-              collapsible={false}
-            />
-          )}
-        </S.TreeWrapper>
-      ))}
+      {expressionsTrees
+        ?.map((tree) => getReactD3Tree(tree))
+        ?.map((tree, index) => (
+          <S.TreeWrapper
+            key={`${tree.name}${index}`}
+            style={{ height: "30rem" }}
+          >
+            {tree && (
+              <Tree
+                orientation="vertical"
+                data={tree}
+                translate={{ x: 600, y: 40 }}
+                collapsible={false}
+              />
+            )}
+          </S.TreeWrapper>
+        ))}
     </S.Container>
   );
 };

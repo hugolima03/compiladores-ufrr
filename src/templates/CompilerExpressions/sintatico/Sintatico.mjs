@@ -1,9 +1,9 @@
-import gramatica from './Regras.mjs'
+import gramatica from './Regras'
 import PrecedenciaFraca from './PrecedenciaFraca.mjs';
-import Arvore from './Arvore.mjs';
-import Lexico from '../lexico/Lexico.mjs';
+import Arvore from './Arvore';
+import Lexico from '../lexico/Lexico';
 import LexicoBuffer from '../lexico/LexicoBuffer.mjs';
-import getType from '../getType.mjs';
+import getType from '../getType';
 
 export default class Sintatico {
 

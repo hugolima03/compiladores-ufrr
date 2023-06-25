@@ -1,6 +1,6 @@
-import Padroes from './Padroes.mjs';
-import ParametroInvalido from '../exception/ParametroInvalido.mjs';
-import getType from '../getType.mjs';
+import Padroes from './Padroes';
+import ParametroInvalido from '../exception/ParametroInvalido';
+import getType from '../getType';
 
 export default class LexicoBuffer {
 

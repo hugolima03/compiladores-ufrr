@@ -1,41 +1,41 @@
-import Production from './Production'
+import Producao from './Producao'
 
 export default class Gramatica {
-    _vazio: string
-    _terminais: string[]
-    _naoTerminais: string[]
-    _producoes: { [key: string]: Production[] }
 
-    constructor(producoes: { [key: string]: string[] }, vazio: string) {
+    constructor (producoes, vazio) {
+
         this._naoTerminais = Object.keys(producoes);
         this._vazio = vazio;
         this._producoes = {};
 
-        let terminais: string[] = [];
+        let terminais = [];
         for (const snt of this._naoTerminais) {
 
             this._producoes[snt] = [];
             const prods = producoes[snt];
             for (const corpo of prods) {
 
-                const p = new Production(snt, corpo, this._vazio);
+                const p = new Producao(snt, corpo, this._vazio);
                 this._producoes[snt].push(p);
+
                 terminais = [
                     ...terminais,
-                    ...p.right.filter(s => !this._naoTerminais.includes(s))
+                    ...p.corpo.filter(s => !this._naoTerminais.includes(s))
                 ];
             }
         }
+
         this._terminais = terminais.filter((i, p) => terminais.indexOf(i) === p);
     }
 
     get vazio() { return this._vazio; }
 
-    producao(snt: string, indice: number) {
-        if (typeof (indice) !== 'number') indice = 0;
+    producao (snt, indice) {
+
+        if(typeof(indice) !== 'number') indice = 0;
 
         const producoes = this.buscarProducoesPorNaoTerminal(snt);
-        if (indice < 0 || indice >= producoes.length) {
+        if(indice < 0 || indice >= producoes.length) {
             throw new Error('Produção é inválida');
         }
 
@@ -43,7 +43,7 @@ export default class Gramatica {
     }
 
     get producoes() {
-        let producoes:Production[] = [];
+        let producoes = [];
         for (const snt of this._naoTerminais) {
             producoes = [
                 ...producoes,
@@ -53,18 +53,18 @@ export default class Gramatica {
         return producoes;
     }
 
-    buscarProducoesPorNaoTerminal(snt: string) {
-        if (typeof (this._producoes[snt]) === 'undefined') {
+    buscarProducoesPorNaoTerminal (snt) {
+        if (typeof(this._producoes[snt]) === 'undefined') {
             throw new Error('O símbolo não terminai não foi definido')
         }
         return this._producoes[snt];
     }
 
-    simboloEhNaoTerminal(simbolo: string) {
+    simboloEhNaoTerminal(simbolo) {
         return this._naoTerminais.includes(simbolo);
     }
 
-    simboloEhVazio(simbolo: string) {
+    simboloEhVazio(simbolo) {
         return this._vazio === simbolo;
     }
 }

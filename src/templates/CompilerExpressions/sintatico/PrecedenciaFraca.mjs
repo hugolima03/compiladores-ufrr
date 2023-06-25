@@ -1,6 +1,6 @@
-import ParametroInvalido from '../exception/ParametroInvalido.mjs'
-import ErroGramatical from '../exception/ErroGramatical.mjs'
-import getType from '../getType.mjs'
+import ParametroInvalido from '../exception/ParametroInvalido'
+import ErroGramatical from '../exception/ErroGramatical'
+import getType from '../getType'
 
 export default class PrecedenciaFraca {
 
