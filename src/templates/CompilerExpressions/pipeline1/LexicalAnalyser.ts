@@ -72,7 +72,7 @@ export class LexicalAnalyser {
                     lexemas.push(spe);
                     continue;
                 }
-                console.log(LexicalAnalyser._separarPorOperadores(spe))
+
                 lexemas = [
                     ...lexemas,
                     ...LexicalAnalyser._separarPorOperadores(spe) // ["    ", "var", "=", "0", ";"]
