@@ -39,17 +39,14 @@ export default class Pipeline2 {
     return variavel;
   }
 
-  validarDeclaracoes() {
-    const bloco = this._arvore.encontrarTodosNosPreOrdem(
-      "<bloco_declaracao>",
-      1
-    );
+  generateSymbolTable() {
+    const bloco = this._arvore.findAllNodes("<bloco_declaracao>", 1);
     if (bloco.length === 0) return;
 
-    const declaracoes = bloco[0].encontrarTodosNosPreOrdem("<declaracao>");
+    const declaracoes = bloco[0].findAllNodes("<declaracao>");
     for (const dec of declaracoes) {
-      const id = dec.encontrarTodosNosPreOrdem("identificador", 1)[0];
-      const tipo = dec.encontrarTodosNosPreOrdem("<declaracao_tipo>")[0].nos[0];
+      const id = dec.findAllNodes("identificador", 1)[0];
+      const tipo = dec.findAllNodes("<declaracao_tipo>")[0].nos[0];
 
       if (this._existeSimbolo(id.extra?.palavra)) {
         throw ErroSemantico(id.extra, "redeclaracao");
@@ -65,55 +62,17 @@ export default class Pipeline2 {
     }
   }
 
-  validarComandos() {
-    if (this._tabelaDeSimbolos.length === 0) this.validarDeclaracoes();
-
-    const bloco = this._arvore.encontrarTodosNosPreOrdem(
-      "<bloco_principal>",
-      1
-    )[0];
-    const comandos = bloco.encontrarTodosNosPreOrdem("<comando>");
-    const arvores = [];
-
-    for (const c of comandos) {
-      switch (c.nos[0].simbolo) {
-        case "<atribuicao>":
-          arvores.push(this._validarAtribuicao(c.nos[0]));
-          break;
-        case "<retorne_principal>":
-          arvores.push(this._validarRetornePrincipal(c.nos[0]));
-          break;
-        default:
-          throw ErroSemantico("", "comando-invalido");
-      }
-    }
-
-    // TODO remover
-    const retorneComandos = arvores.filter((a) => a.simbolo === "retorne");
-    if (retorneComandos.length > 1) {
-      throw ErroSemantico(
-        retorneComandos.map((r) => r.extra),
-        "multiplos-retorne"
-      );
-    }
-
-    return arvores;
-  }
-
   _validarAtribuicao(atribuicao: Tree) {
-    const id = atribuicao.encontrarTodosNosPreOrdem("identificador", 1)[0];
+    const id = atribuicao.findAllNodes("identificador", 1)[0];
     const variavel = this._buscarEValidarIdentificador(id);
 
     const esquerda = new Tree(id.extra!.palavra);
     esquerda.extra = id.extra;
 
-    const atrOperador = atribuicao.encontrarTodosNosPreOrdem(
-      "especial-atr",
-      1
-    )[0];
+    const atrOperador = atribuicao.findAllNodes("especial-atr", 1)[0];
 
     const direita = this._validarExpressao(
-      atribuicao.encontrarTodosNosPreOrdem("<expressao>", 2)[0],
+      atribuicao.findAllNodes("<expressao>", 2)[0],
       variavel.tipo
     );
 
@@ -126,7 +85,7 @@ export default class Pipeline2 {
 
   _validarRetornePrincipal(retorne: Tree) {
     const no = this._validarExpressao(
-      retorne.encontrarTodosNosPreOrdem("<expressao>", 2)[0],
+      retorne.findAllNodes("<expressao>", 2)[0],
       "int"
     );
 
@@ -207,8 +166,29 @@ export default class Pipeline2 {
   }
 
   start() {
+    // Step 1: Gerar tabela de símbolos
+    this.generateSymbolTable();
+
+    // Step 2: Validar comandos
+    const bloco = this._arvore.findAllNodes("<bloco_principal>", 1)[0];
+    const comandos = bloco.findAllNodes("<comando>");
+    const arvoresDeExpressoes = [];
+
+    for (const c of comandos) {
+      switch (c.nos[0].simbolo) {
+        case "<atribuicao>": // Step 2.1: Validar atribuição
+          arvoresDeExpressoes.push(this._validarAtribuicao(c.nos[0]));
+          break;
+        case "<retorne_principal>": // Step 2.2: Validar retorno
+          arvoresDeExpressoes.push(this._validarRetornePrincipal(c.nos[0]));
+          break;
+        default:
+          throw ErroSemantico("", "comando-invalido");
+      }
+    }
+
     return {
-      arvoresDeExpressoes: this.validarComandos(),
+      arvoresDeExpressoes,
       tabelaDeSimbolos: this.tabelaDeSimbolos,
     };
   }
