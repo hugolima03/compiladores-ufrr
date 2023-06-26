@@ -63,7 +63,7 @@ export class Tree {
     encontrarTodosNosPreOrdem(simbolo: string, maxNivel?: number) {
         const listaNos: Tree[] = [];
 
-        if (typeof maxNivel === "number" && maxNivel > 0) {
+        if (maxNivel !== undefined && maxNivel > 0) {
             this.preOrdemMaxNivel(
                 (no: Tree) => {
                     if (no.simbolo === simbolo) listaNos.push(no);
