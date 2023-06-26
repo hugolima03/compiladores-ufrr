@@ -6,7 +6,7 @@ import { Tree } from "../pipeline1/Tree";
 
 export default class Pipeline2 {
   _arvore: Tree;
-  _tabelaDeSimbolos: any[];
+  _tabelaDeSimbolos: SimboloIdentificador[];
 
   constructor(arvore: Tree) {
     this._arvore = arvore;
@@ -37,11 +37,6 @@ export default class Pipeline2 {
     }
 
     return variavel;
-  }
-
-  validar() {
-    this.validarDeclaracoes();
-    return this.validarComandos();
   }
 
   validarDeclaracoes() {
@@ -93,6 +88,7 @@ export default class Pipeline2 {
       }
     }
 
+    // TODO remover
     const retorneComandos = arvores.filter((a) => a.simbolo === "retorne");
     if (retorneComandos.length > 1) {
       throw ErroSemantico(

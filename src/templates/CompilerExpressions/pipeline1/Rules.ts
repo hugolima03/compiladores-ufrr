@@ -1,5 +1,11 @@
 import { Grammar } from './Grammar'
 
+// Referências
+// https://condor.depaul.edu/ichu/csc447/notes/wk2/pascal.html
+// http://www.irietools.com/iriepascal/progref534.html
+// https://www2.seas.gwu.edu/~hchoi/teaching/cs160d/pascal.pdf
+// https://www.cs.utexas.edu/users/novak/grammar.html
+
 const grammar = new Grammar({
 
     // Bloco base do programa
