@@ -30,9 +30,9 @@ const CompilerExpressions = () => {
   const [mipsCode, setMipsCode] = useState<Mips | null>(null);
 
   function onSubmit(sourceCode: string) {
-    const arvoreSintatica = new Pipeline1(sourceCode).start();
+    const syntaxTree = new Pipeline1(sourceCode).start();
 
-    const { arvoresDeExpressoes, tabelaDeSimbolos } = new Pipeline2(arvoreSintatica!).start();
+    const { arvoresDeExpressoes, tabelaDeSimbolos } = new Pipeline2(syntaxTree!).start();
 
     const intermediario = new Intermediario(arvoresDeExpressoes);
     const gerados = intermediario.comandos;
@@ -49,7 +49,7 @@ const CompilerExpressions = () => {
       mips.adicionarInstrucoes(optimizados[i]);
     }
 
-    const d3tree = getReactD3Tree(arvoreSintatica!);
+    const d3tree = getReactD3Tree(syntaxTree!);
     setSyntaxTree(d3tree);
     setSymbolTable(tabelaDeSimbolos);
     setExpressionsTrees(arvoresDeExpressoes);
