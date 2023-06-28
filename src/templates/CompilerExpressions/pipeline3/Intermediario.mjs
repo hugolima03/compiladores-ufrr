@@ -1,4 +1,4 @@
-import Instrucao from './Instrucao.mjs';
+import Instrucao from './Instrucao';
 import { matchExact } from '../utils/Patterns'
 
 export default class Intermediario {

@@ -1,5 +1,5 @@
 import { matchExact } from '../utils/Patterns'
-import Instrucao from '../pipeline3/Instrucao.mjs'
+import Instrucao from '../pipeline3/Instrucao'
 
 export default class Mips {
 

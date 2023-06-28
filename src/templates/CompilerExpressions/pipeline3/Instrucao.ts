@@ -1,7 +1,10 @@
 import getType from '../getType'
 export default class Instrucao {
+    _operador: string
+    _operando: string
+    _argumentos: string[]
 
-    constructor(operador, operando, argumentos) {
+    constructor(operador: string, operando: string, argumentos: string[]) {
         this._operador = operador;
         this._operando = operando;
         this._argumentos = getType(argumentos) === 'object' ? argumentos : [];
@@ -12,8 +15,8 @@ export default class Instrucao {
     get argumentos() { return [...this._argumentos]; }
     get totalArgs() { return this._argumentos.length; }
 
-    argumento(indice) {
-        if(indice < 0 || indice >= this.totalArgs) return null;
+    argumento(indice: number) {
+        if (indice < 0 || indice >= this.totalArgs) return null;
         return this._argumentos[indice];
     }
 
