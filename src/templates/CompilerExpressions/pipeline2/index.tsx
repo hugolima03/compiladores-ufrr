@@ -172,15 +172,15 @@ export default class Pipeline2 {
     // Step 2: Validar comandos
     const bloco = this._syntaxTree.findAllNodes("<bloco_principal>", 1)[0];
     const comandos = bloco.findAllNodes("<comando>");
-    const arvoresDeExpressoes = [];
+    const expressions = [];
 
     for (const c of comandos) {
       switch (c.nos[0].simbolo) {
         case "<atribuicao>": // Step 2.1: Validar atribuição
-          arvoresDeExpressoes.push(this._validateAssignment(c.nos[0]));
+          expressions.push(this._validateAssignment(c.nos[0]));
           break;
         case "<retorne_principal>": // Step 2.2: Validar retorno
-          arvoresDeExpressoes.push(this._validateReturn(c.nos[0]));
+          expressions.push(this._validateReturn(c.nos[0]));
           break;
         default:
           throw ErroSemantico("", "comando-invalido");
@@ -188,7 +188,7 @@ export default class Pipeline2 {
     }
  
     return {
-      arvoresDeExpressoes,
+      expressions,
       tabelaDeSimbolos: this.symbolList,
     };
   }

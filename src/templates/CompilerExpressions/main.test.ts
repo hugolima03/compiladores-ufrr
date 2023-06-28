@@ -20,11 +20,11 @@ fim`
 
     const arvoreSintatica = new Pipeline1(sourceCode).start();
 
-    const { arvoresDeExpressoes, tabelaDeSimbolos } = new Pipeline2(
+    const { expressions, tabelaDeSimbolos } = new Pipeline2(
       arvoreSintatica!
     ).start();
 
-    const intermediario = new Intermediario(arvoresDeExpressoes);
+    const intermediario = new Intermediario(expressions);
     const gerados = intermediario.comandos;
     const optimizados = intermediario.optimizar();
 
@@ -33,7 +33,7 @@ fim`
       gerados.push({
         gerado: gerados[i],
         otimizado: optimizados[i],
-        linha: arvoresDeExpressoes[i].extra!.linha,
+        linha: expressions[i].extra!.linha,
       } as any);
 
       mips.adicionarInstrucoes(optimizados[i]);
@@ -42,7 +42,7 @@ fim`
     const d3tree = getReactD3Tree(arvoreSintatica!);
 
     expect(arvoreSintatica).toMatchSnapshot()
-    expect(arvoresDeExpressoes).toMatchSnapshot()
+    expect(expressions).toMatchSnapshot()
     expect(tabelaDeSimbolos).toMatchSnapshot()
     expect(intermediario).toMatchSnapshot()
     expect(gerados).toMatchSnapshot()

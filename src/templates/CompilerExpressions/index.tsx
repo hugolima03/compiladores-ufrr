@@ -32,9 +32,10 @@ const CompilerExpressions = () => {
   function onSubmit(sourceCode: string) {
     const syntaxTree = new Pipeline1(sourceCode).start();
 
-    const { arvoresDeExpressoes, tabelaDeSimbolos } = new Pipeline2(syntaxTree!).start();
+    const { expressions, tabelaDeSimbolos } = new Pipeline2(syntaxTree!).start();
 
-    const intermediario = new Intermediario(arvoresDeExpressoes);
+    const intermediario = new Intermediario(expressions);
+
     const gerados = intermediario.comandos;
     const optimizados = intermediario.optimizar();
 
@@ -43,7 +44,7 @@ const CompilerExpressions = () => {
       gerados.push({
         gerado: gerados[i],
         otimizado: optimizados[i],
-        linha: arvoresDeExpressoes[i].extra!.linha,
+        linha: expressions[i].extra!.linha,
       } as any);
 
       mips.adicionarInstrucoes(optimizados[i]);
@@ -52,13 +53,13 @@ const CompilerExpressions = () => {
     const d3tree = getReactD3Tree(syntaxTree!);
     setSyntaxTree(d3tree);
     setSymbolTable(tabelaDeSimbolos);
-    setExpressionsTrees(arvoresDeExpressoes);
+    setExpressionsTrees(expressions);
     setMipsCode(mips);
 
     // console.log(sintatico);
     // console.log(arvoreSintatica);
     // console.log(semantico);
-    // console.log(arvoresDeExpressoes);
+    // console.log(expressions);
     // console.log(tabelaDeSimbolos);
     // console.log(intermediario);
     // console.log(gerados);
