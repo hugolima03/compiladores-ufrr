@@ -4,266 +4,271 @@ import { matchExact } from "../utils/Patterns";
 
 import { Tree } from "../pipeline1/Tree";
 
+type TokenType =
+  | "literal-int"
+  | "identificador"
+  | "op-aritmetico-sub"
+  | "op-aritmetico-adi"
+  | "op-aritmetico-mul"
+  | "op-aritmetico-div"
+  | "op-aritmetico-mod";
+
 export default class Intermediario {
-    _temp: number;
-    _comandos: Instrucao[][];
+  _temp: number;
+  _comandos: Instrucao[][];
 
-    constructor(comandos: Tree[]) {
-        this._temp = 0;
-        this._comandos = this._parsearComandos(comandos);
+  constructor(comandos: Tree[]) {
+    this._temp = 0;
+    this._comandos = this._parsearComandos(comandos);
+  }
+
+  get comandos() {
+    const comandos = [];
+    for (const com of this._comandos) comandos.push(com.map((c) => c.copiar()));
+    return comandos;
+  }
+
+  get totalComandos() {
+    return this._comandos.length;
+  }
+
+  optimizar() {
+    const otimizados = [];
+    const comandos = this.comandos;
+    for (const c of comandos) {
+      let otimizado = this._otimizarAtribuicoes(c);
+      otimizados.push(this._otimizarComPropriedadesAlgebricas(otimizado));
     }
 
-    get comandos() {
-        const comandos = [];
-        for (const com of this._comandos) comandos.push(com.map((c) => c.copiar()));
-        return comandos;
-    }
-    get totalComandos() {
-        return this._comandos.length;
-    }
+    return otimizados;
+  }
 
-    optimizar() {
-        const otimizados = [];
-        const comandos = this.comandos;
-        for (const c of comandos) {
-            let otimizado = this._otimizarAtribuicoes(c);
-            otimizados.push(this._otimizarComPropriedadesAlgebricas(otimizado));
-        }
+  _parsearComandos(comandos: Tree[]) {
+    const gerados: Instrucao[][] = [];
 
-        return otimizados;
+    for (const c of comandos) {
+      gerados.push(this._parsearComando(c)!);
     }
 
-    _parsearComandos(comandos: Tree[]) {
-        const gerados: Instrucao[][] = [];
+    return gerados;
+  }
 
-        for (const c of comandos) {
-            gerados.push(this._parsearComando(c)!);
-        }
-
-        return gerados;
+  _parsearComando(comando: Tree) {
+    switch (comando.simbolo) {
+      case "=":
+        return this._parsearAtribuicao(comando);
+        break;
+      case "retorne":
+        return this._parsearRetorne(comando);
+        break;
     }
+  }
 
-    _parsearComando(comando: Tree) {
-        switch (comando.simbolo) {
-            case "=":
-                return this._parsearAtribuicao(comando);
-                break;
-            case "retorne":
-                return this._parsearRetorne(comando);
-                break;
-        }
-    }
+  _parsearAtribuicao(atribuicao: Tree) {
+    this._resetarTemporario();
+    const instrucoes = this._parsearExpressao(atribuicao.nos[1]);
 
-    _parsearAtribuicao(atribuicao: Tree) {
-        this._resetarTemporario();
+    return [
+      new Instrucao("=",
+        atribuicao.nos[0].simbolo, // var
+        [instrucoes[0].operando]), // 10
+      ...instrucoes,
+    ].reverse();
+  }
 
-        const instrucoes = this._parsearExpressao(atribuicao.nos[1]);
+  _parsearRetorne(retorne: Tree) {
+    this._resetarTemporario();
+
+    const instrucoes = this._parsearExpressao(retorne.nos[0]);
+    return [
+      new Instrucao("retorne", retorne.simbolo, [instrucoes[0].operando]),
+      ...instrucoes,
+    ].reverse();
+  }
+
+  _parsearExpressao(expressao: Tree): Instrucao[] {
+    const token = expressao.extra!.token;
+    const nos = expressao.nos;
+
+    switch (token.tipo as TokenType) {
+      case "literal-int":
+      case "identificador":
         return [
-            new Instrucao("=", atribuicao.nos[0].simbolo, [instrucoes[0].operando]),
-            ...instrucoes,
-        ].reverse();
-    }
+          new Instrucao("=", this._gerarTemporario(), [expressao.simbolo]),
+        ];
+        break;
 
-    _parsearRetorne(retorne: Tree) {
-        this._resetarTemporario();
-
-        const instrucoes = this._parsearExpressao(retorne.nos[0]);
+      case "op-aritmetico-sub":
+        if (nos.length === 1) {
+          const filho = this._parsearExpressao(nos[0]);
+          return [
+            new Instrucao(expressao.simbolo, this._gerarTemporario(), [
+              filho[0].operando,
+            ]),
+            ...filho,
+          ];
+        }
+      case "op-aritmetico-adi":
+      case "op-aritmetico-mul":
+      case "op-aritmetico-div":
+      case "op-aritmetico-mod":
+        const dir = this._parsearExpressao(nos[1]);
+        const esq = this._parsearExpressao(nos[0]);
         return [
-            new Instrucao("retorne", retorne.simbolo, [instrucoes[0].operando]),
-            ...instrucoes,
-        ].reverse();
+          new Instrucao(expressao.simbolo, this._gerarTemporario(), [
+            esq[0].operando,
+            dir[0].operando,
+          ]),
+          ...esq,
+          ...dir,
+        ];
+        break;
+    }
+  }
+
+  _otimizarAtribuicoes(instrucoes: Instrucao[]) {
+    const atribuicoesTempValor: Instrucao[] = [];
+    const atribuicoesValorTemp: Instrucao[] = [];
+
+    for (const inst of instrucoes) {
+      if (inst.operador !== "=") continue;
+      if (inst.totalArgs !== 1) continue;
+      if (!this._ehTemporario(inst.operando)) continue;
+      atribuicoesTempValor.push(inst);
     }
 
-    _parsearExpressao(expressao: Tree): Instrucao[] {
-        const token = expressao.extra!.token;
-        const nos = expressao.nos;
-
-        switch (
-        token.tipo as
-        | "literal-int"
-        | "identificador"
-        | "op-aritmetico-sub"
-        | "op-aritmetico-adi"
-        | "op-aritmetico-mul"
-        | "op-aritmetico-div"
-        | "op-aritmetico-mod"
-        ) {
-            case "literal-int":
-            case "identificador":
-                return [
-                    new Instrucao("=", this._gerarTemporario(), [expressao.simbolo]),
-                ];
-                break;
-
-            case "op-aritmetico-sub":
-                if (nos.length === 1) {
-                    const filho: any = this._parsearExpressao(nos[0]);
-                    return [
-                        new Instrucao(expressao.simbolo, this._gerarTemporario(), [
-                            filho[0].operando,
-                        ]),
-                        ...filho,
-                    ];
-                }
-            case "op-aritmetico-adi":
-            case "op-aritmetico-mul":
-            case "op-aritmetico-div":
-            case "op-aritmetico-mod":
-                const dir = this._parsearExpressao(nos[1]);
-                const esq = this._parsearExpressao(nos[0]);
-                return [
-                    new Instrucao(expressao.simbolo, this._gerarTemporario(), [
-                        esq[0].operando,
-                        dir[0].operando,
-                    ]),
-                    ...esq,
-                    ...dir,
-                ];
-                break;
+    for (const a of atribuicoesTempValor) {
+      for (const inst of instrucoes) {
+        if (a === inst) continue;
+        while (inst._argumentos.includes(a.operando)) {
+          const indice = inst._argumentos.indexOf(a.operando);
+          inst._argumentos[indice] = a.argumento(0)!;
         }
+      }
     }
 
-    _otimizarAtribuicoes(instrucoes: Instrucao[]) {
-        const atribuicoesTempValor: Instrucao[] = [];
-        const atribuicoesValorTemp: Instrucao[] = [];
+    for (const inst of instrucoes) {
+      if (inst.operador !== "=") continue;
+      if (inst.totalArgs !== 1) continue;
+      if (this._ehTemporario(inst.operando)) continue;
+      if (!this._ehTemporario(inst.argumento(0)!)) continue;
+      atribuicoesValorTemp.push(inst);
+    }
 
-        for (const inst of instrucoes) {
-            if (inst.operador !== "=") continue;
-            if (inst.totalArgs !== 1) continue;
-            if (!this._ehTemporario(inst.operando)) continue;
-            atribuicoesTempValor.push(inst);
-        }
+    for (const a of atribuicoesValorTemp) {
+      for (const inst of instrucoes) {
+        if (a === inst) continue;
+        if (inst.operando !== a.argumento(0)) continue;
+        inst._operando = a.operando;
+      }
+    }
 
-        for (const a of atribuicoesTempValor) {
-            for (const inst of instrucoes) {
-                if (a === inst) continue;
-                while (inst._argumentos.includes(a.operando)) {
-                    const indice = inst._argumentos.indexOf(a.operando);
-                    inst._argumentos[indice] = a.argumento(0)!;
-                }
-            }
-        }
-
-        for (const inst of instrucoes) {
-            if (inst.operador !== "=") continue;
-            if (inst.totalArgs !== 1) continue;
-            if (this._ehTemporario(inst.operando)) continue;
-            if (!this._ehTemporario(inst.argumento(0)!)) continue;
-            atribuicoesValorTemp.push(inst);
-        }
-
-        for (const a of atribuicoesValorTemp) {
-            for (const inst of instrucoes) {
-                if (a === inst) continue;
-                if (inst.operando !== a.argumento(0)) continue;
-                inst._operando = a.operando;
-            }
-        }
-
-        return this._ajustarTemporarios(
-            instrucoes.filter((i) => {
-                return !(
-                    atribuicoesTempValor.includes(i) || atribuicoesValorTemp.includes(i)
-                );
-            })
+    return this._ajustarTemporarios(
+      instrucoes.filter((i) => {
+        return !(
+          atribuicoesTempValor.includes(i) || atribuicoesValorTemp.includes(i)
         );
+      })
+    );
+  }
+
+  _otimizarComPropriedadesAlgebricas(instrucoes: Instrucao[]) {
+    for (const inst of instrucoes) {
+      if (inst.operador === "retorne") continue;
+      if (inst.operador === "=") continue;
+
+      const args = inst.argumentos;
+      switch (inst.operador) {
+        case "+":
+          if (parseInt(args[0]) === 0 && parseInt(args[1]) === 0) {
+            inst._operador = "=";
+            inst._argumentos = ["0"];
+          } else if (parseInt(args[0]) !== 0 && parseInt(args[1]) === 0) {
+            inst._operador = "=";
+            inst._argumentos = [args[0]];
+          } else if (parseInt(args[0]) === 0 && parseInt(args[1]) !== 0) {
+            inst._operador = "=";
+            inst._argumentos = [args[1]];
+          }
+          break;
+        case "-":
+          if (parseInt(args[0]) === 0 && parseInt(args[1]) === 0) {
+            inst._operador = "=";
+            inst._argumentos = ["0"];
+          } else if (parseInt(args[0]) !== 0 && parseInt(args[1]) === 0) {
+            inst._operador = "=";
+            inst._argumentos = [args[0]];
+          }
+          break;
+        case "*":
+          if (parseInt(args[0]) === 1 && parseInt(args[1]) === 1) {
+            inst._operador = "=";
+            inst._argumentos = ["1"];
+          } else if (parseInt(args[0]) !== 0 && parseInt(args[1]) === 1) {
+            inst._operador = "=";
+            inst._argumentos = [args[0]];
+          } else if (parseInt(args[0]) === 1 && parseInt(args[1]) !== 1) {
+            inst._operador = "=";
+            inst._argumentos = [args[1]];
+          }
+          break;
+        case "/":
+          if (parseInt(args[0]) === 1 && parseInt(args[1]) === 1) {
+            inst._operador = "=";
+            inst._argumentos = ["1"];
+          } else if (parseInt(args[0]) !== 1 && parseInt(args[1]) === 1) {
+            inst._operador = "=";
+            inst._argumentos = [args[0]];
+          }
+          break;
+        case "%":
+          if (parseInt(args[0]) === 1 && parseInt(args[1]) === 1) {
+            inst._operador = "=";
+            inst._argumentos = ["0"];
+          } else if (parseInt(args[0]) !== 1 && parseInt(args[1]) === 1) {
+            inst._operador = "=";
+            inst._argumentos = ["0"];
+          }
+          break;
+      }
     }
 
-    _otimizarComPropriedadesAlgebricas(instrucoes: Instrucao[]) {
-        for (const inst of instrucoes) {
-            if (inst.operador === "retorne") continue;
-            if (inst.operador === "=") continue;
+    return instrucoes;
+  }
 
-            const args = inst.argumentos;
-            switch (inst.operador) {
-                case "+":
-                    if (parseInt(args[0]) === 0 && parseInt(args[1]) === 0) {
-                        inst._operador = "=";
-                        inst._argumentos = ["0"];
-                    } else if (parseInt(args[0]) !== 0 && parseInt(args[1]) === 0) {
-                        inst._operador = "=";
-                        inst._argumentos = [args[0]];
-                    } else if (parseInt(args[0]) === 0 && parseInt(args[1]) !== 0) {
-                        inst._operador = "=";
-                        inst._argumentos = [args[1]];
-                    }
-                    break;
-                case "-":
-                    if (parseInt(args[0]) === 0 && parseInt(args[1]) === 0) {
-                        inst._operador = "=";
-                        inst._argumentos = ["0"];
-                    } else if (parseInt(args[0]) !== 0 && parseInt(args[1]) === 0) {
-                        inst._operador = "=";
-                        inst._argumentos = [args[0]];
-                    }
-                    break;
-                case "*":
-                    if (parseInt(args[0]) === 1 && parseInt(args[1]) === 1) {
-                        inst._operador = "=";
-                        inst._argumentos = ["1"];
-                    } else if (parseInt(args[0]) !== 0 && parseInt(args[1]) === 1) {
-                        inst._operador = "=";
-                        inst._argumentos = [args[0]];
-                    } else if (parseInt(args[0]) === 1 && parseInt(args[1]) !== 1) {
-                        inst._operador = "=";
-                        inst._argumentos = [args[1]];
-                    }
-                    break;
-                case "/":
-                    if (parseInt(args[0]) === 1 && parseInt(args[1]) === 1) {
-                        inst._operador = "=";
-                        inst._argumentos = ["1"];
-                    } else if (parseInt(args[0]) !== 1 && parseInt(args[1]) === 1) {
-                        inst._operador = "=";
-                        inst._argumentos = [args[0]];
-                    }
-                    break;
-                case "%":
-                    if (parseInt(args[0]) === 1 && parseInt(args[1]) === 1) {
-                        inst._operador = "=";
-                        inst._argumentos = ["0"];
-                    } else if (parseInt(args[0]) !== 1 && parseInt(args[1]) === 1) {
-                        inst._operador = "=";
-                        inst._argumentos = ["0"];
-                    }
-                    break;
-            }
-        }
+  _ajustarTemporarios(instrucoes: Instrucao[]) {
+    let temp: string[] = [];
 
-        return instrucoes;
+    for (const i of instrucoes) {
+      if (this._ehTemporario(i.operando)) temp.push(i.operando);
+      for (const a of i.argumentos) {
+        if (this._ehTemporario(a)) temp.push(a);
+      }
     }
 
-    _ajustarTemporarios(instrucoes: Instrucao[]) {
-        let temp: string[] = [];
+    temp = temp.filter((i, p) => temp.indexOf(i) === p);
+    this._resetarTemporario();
 
-        for (const i of instrucoes) {
-            if (this._ehTemporario(i.operando)) temp.push(i.operando);
-            for (const a of i.argumentos) {
-                if (this._ehTemporario(a)) temp.push(a);
-            }
-        }
-
-        temp = temp.filter((i, p) => temp.indexOf(i) === p);
-        this._resetarTemporario();
-
-        for (const t of temp) {
-            const novoTemp = this._gerarTemporario();
-            for (const i of instrucoes) {
-                if (i.operando === t) i._operando = novoTemp;
-                i._argumentos = i._argumentos.map((a) => (a === t ? novoTemp : a));
-            }
-        }
-
-        return instrucoes;
+    for (const t of temp) {
+      const novoTemp = this._gerarTemporario();
+      for (const i of instrucoes) {
+        if (i.operando === t) i._operando = novoTemp;
+        i._argumentos = i._argumentos.map((a) => (a === t ? novoTemp : a));
+      }
     }
 
-    _ehTemporario(simbolo: string) {
-        return matchExact(simbolo, /^<\d+>$/);
-    }
-    _resetarTemporario() {
-        this._temp = 0;
-    }
-    _gerarTemporario() {
-        return ["<", this._temp++, ">"].join("");
-    }
+    return instrucoes;
+  }
+
+  _ehTemporario(simbolo: string) {
+    return matchExact(simbolo, /^<\d+>$/);
+  }
+
+  _resetarTemporario() {
+    this._temp = 0;
+  }
+
+  _gerarTemporario() {
+    return ["<", this._temp++, ">"].join("");
+  }
 }
