@@ -1,6 +1,6 @@
 import { Tree } from "../pipeline1/Tree";
 
-import Intermediario from "./Intermediario.mjs";
+import Intermediario from "./Intermediario";
 
 export default class Pipeline2 {
   expressions: Tree[];
