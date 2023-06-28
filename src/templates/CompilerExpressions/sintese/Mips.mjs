@@ -1,5 +1,5 @@
 import { matchExact } from '../utils/Patterns'
-import Instrucao from './Instrucao.mjs'
+import Instrucao from '../pipeline3/Instrucao.mjs'
 
 export default class Mips {
 
@@ -7,7 +7,7 @@ export default class Mips {
         this._tabeladeVariaveis = tabelaDeSimbolos;
         this._texto = [];
 
-        const registradoresTeporarios = Array(10).fill().map((_, i) => '$t'+i)
+        const registradoresTeporarios = Array(10).fill().map((_, i) => '$t' + i)
         this._registradoresTeporarios = {};
         for (const r of registradoresTeporarios) {
             this._registradoresTeporarios[r] = null;
@@ -28,36 +28,36 @@ export default class Mips {
         return bloco;
     }
 
-    get blocoTexto() { return [... this._texto ]; }
+    get blocoTexto() { return [... this._texto]; }
 
     adicionarInstrucoes(instrucoes) {
 
         instrucoes = [...instrucoes];
 
-        while(instrucoes.length > 0) {
+        while (instrucoes.length > 0) {
             const inst = instrucoes.shift();
 
             const args = this._parsearArgumentos(inst.argumentos);
             this._liberarRegistradoresSemUso(instrucoes);
 
-            if(inst.operador !== 'retorne') {
+            if (inst.operador !== 'retorne') {
 
                 const operando = this._parsearOperando(inst.operando);
 
-                if(this._ehOpAritmetico(inst.operador)) {
-                    this._codificarOperacaoAritmetica (
+                if (this._ehOpAritmetico(inst.operador)) {
+                    this._codificarOperacaoAritmetica(
                         inst.operador,
                         operando,
                         args
                     );
                 }
 
-                if(this._ehVariavel(inst.operando)) {
+                if (this._ehVariavel(inst.operando)) {
                     this._texto.push(
                         new Instrucao(
                             'sw',
                             operando,
-                            [ this._codificarNomeVariavel(inst.operando) ]
+                            [this._codificarNomeVariavel(inst.operando)]
                         )
                     );
                 }
@@ -79,10 +79,10 @@ export default class Mips {
 
             case '+':
                 this._texto.push(new Instrucao('add', operando, argumentos));
-            break;
+                break;
 
             case '-':
-                if(argumentos.length !== 1) {
+                if (argumentos.length !== 1) {
                     this._texto.push(new Instrucao('sub', operando, argumentos));
                 }
                 else {
@@ -90,35 +90,35 @@ export default class Mips {
                         new Instrucao('sub', operando, ['$zero', argumentos[0]])
                     );
                 }
-            break;
+                break;
 
             case '*':
                 this._texto.push(
-                    new Instrucao('mult', argumentos[0], [ argumentos[1] ])
+                    new Instrucao('mult', argumentos[0], [argumentos[1]])
                 );
                 this._texto.push(new Instrucao('mflo', operando));
-            break;
+                break;
 
             case '/':
                 this._texto.push(
-                    new Instrucao('div', argumentos[0], [ argumentos[1] ])
+                    new Instrucao('div', argumentos[0], [argumentos[1]])
                 );
                 this._texto.push(new Instrucao('mflo', operando));
-            break;
+                break;
 
             case '%':
                 this._texto.push(
-                    new Instrucao('div', argumentos[0], [ argumentos[1] ])
+                    new Instrucao('div', argumentos[0], [argumentos[1]])
                 );
                 this._texto.push(new Instrucao('mfhi', operando));
-            break;
+                break;
         }
     }
 
     _parsearOperando(simbolo) {
         let registrador = this._econtrarRegistradorComValor(simbolo);
 
-        if(registrador === null) {
+        if (registrador === null) {
             registrador = this._buscaRegistradorVazio();
             this._defineValorParaRegistrador(simbolo, registrador);
         }
@@ -132,10 +132,10 @@ export default class Mips {
 
             let registrador = this._econtrarRegistradorComValor(arg);
 
-            if(registrador === null) registrador = this._buscaRegistradorVazio();
+            if (registrador === null) registrador = this._buscaRegistradorVazio();
             else return registrador;
 
-            if(this._ehVariavel(arg)) {
+            if (this._ehVariavel(arg)) {
                 this._texto.push(
                     new Instrucao(
                         'lw',
@@ -162,7 +162,7 @@ export default class Mips {
     _codificarNomeVariavel(simbolo) {
         const variavel = this._tabeladeVariaveis.find(v => v.nome === simbolo);
         if (variavel === undefined) return null;
-        return ['id', variavel.tipo, variavel.nome].join('_') ;
+        return ['id', variavel.tipo, variavel.nome].join('_');
     }
 
     _ehVariavel(simbolo) {
@@ -171,13 +171,13 @@ export default class Mips {
 
     _ehTemporario(simbolo) { return matchExact(simbolo, /^<\d+>$/); }
 
-    _ehOpAritmetico (simbolo) {
+    _ehOpAritmetico(simbolo) {
         return ['+', '-', '*', '/', '%'].includes(simbolo);
     }
 
     _liberarRegistradoresSemUso(instrucoes) {
 
-        if(instrucoes.length === 0) {
+        if (instrucoes.length === 0) {
             this._resetarRegistradores();
             return;
         }
@@ -185,7 +185,7 @@ export default class Mips {
         const nomes = Object.keys(this._registradoresTeporarios);
         const comValorDefinido = [];
         for (const reg of nomes) {
-            if(this._registradoresTeporarios[reg] === null) continue;
+            if (this._registradoresTeporarios[reg] === null) continue;
             comValorDefinido.push(reg);
         }
 
@@ -194,22 +194,22 @@ export default class Mips {
 
             let ehReutilizado = false;
             for (const inst of instrucoes) {
-                if(inst.argumentos.includes(valor)){
+                if (inst.argumentos.includes(valor)) {
                     ehReutilizado = true;
                     break;
                 }
             }
-            if(!ehReutilizado) this._defineValorParaRegistrador(null, reg);
+            if (!ehReutilizado) this._defineValorParaRegistrador(null, reg);
         }
     }
 
-    _resetarRegistradores () {
+    _resetarRegistradores() {
         const nomes = Object.keys(this._registradoresTeporarios);
         for (const reg of nomes) this._registradoresTeporarios[reg] = null;
     }
 
     _defineValorParaRegistrador(valor, registrador) {
-        if(typeof(this._registradoresTeporarios[registrador]) !== 'undefined') {
+        if (typeof (this._registradoresTeporarios[registrador]) !== 'undefined') {
             this._registradoresTeporarios[registrador] = valor;
         }
     }
@@ -217,7 +217,7 @@ export default class Mips {
     _buscaRegistradorVazio() {
         const nomes = Object.keys(this._registradoresTeporarios);
         for (const reg of nomes) {
-            if(this._registradoresTeporarios[reg] !== null) continue;
+            if (this._registradoresTeporarios[reg] !== null) continue;
             return reg
         }
         throw 'Sem registradores disponiveis';
@@ -226,7 +226,7 @@ export default class Mips {
     _econtrarRegistradorComValor(valor) {
         const nomes = Object.keys(this._registradoresTeporarios);
         for (const reg of nomes) {
-            if(this._registradoresTeporarios[reg] !== valor) continue;
+            if (this._registradoresTeporarios[reg] !== valor) continue;
             return reg
         }
         return null;

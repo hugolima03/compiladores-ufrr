@@ -1,11 +1,9 @@
-import { getReactD3Tree } from "./pipeline1/Tree";
-
-import Intermediario from "./sintese/Intermediario.mjs";
-
 import Mips from "./sintese/Mips.mjs";
+import { getReactD3Tree } from "./pipeline1/Tree";
 
 import Pipeline1 from "./pipeline1";
 import Pipeline2 from "./pipeline2";
+import Pipeline3 from "./pipeline3";
 
 describe('CompilerExpressions', () => {
   it('Generic test', () => {
@@ -24,9 +22,7 @@ fim`
       arvoreSintatica!
     ).start();
 
-    const intermediario = new Intermediario(expressions);
-    const gerados = intermediario.comandos;
-    const optimizados = intermediario.optimizar();
+    const { gerados, intermediario, optimizados } = new Pipeline3(expressions).start()
 
     const mips = new Mips(tabelaDeSimbolos);
     for (let i = 0; i < intermediario.totalComandos; ++i) {

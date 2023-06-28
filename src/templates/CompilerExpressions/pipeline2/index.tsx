@@ -186,7 +186,7 @@ export default class Pipeline2 {
           throw ErroSemantico("", "comando-invalido");
       }
     }
- 
+
     return {
       expressions,
       tabelaDeSimbolos: this.symbolList,

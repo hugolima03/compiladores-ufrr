@@ -12,15 +12,14 @@ import {
   TableRow,
 } from "components/Table/styles";
 
-
 import { Tree, ReactD3Tree, getReactD3Tree } from "./pipeline1/Tree";
 import SimboloIdentificador from "./pipeline2/SimboloIdentificador";
 
 import Pipeline1 from "./pipeline1";
 import Pipeline2 from "./pipeline2";
+import Pipeline3 from "./pipeline3";
 
 import Mips from "./sintese/Mips.mjs";
-import Intermediario from "./sintese/Intermediario.mjs";
 
 const CompilerExpressions = () => {
   const tree = useRef<HTMLDivElement>(null);
@@ -32,12 +31,13 @@ const CompilerExpressions = () => {
   function onSubmit(sourceCode: string) {
     const syntaxTree = new Pipeline1(sourceCode).start();
 
-    const { expressions, tabelaDeSimbolos } = new Pipeline2(syntaxTree!).start();
+    const { expressions, tabelaDeSimbolos } = new Pipeline2(
+      syntaxTree!
+    ).start();
 
-    const intermediario = new Intermediario(expressions);
-
-    const gerados = intermediario.comandos;
-    const optimizados = intermediario.optimizar();
+    const { intermediario, gerados, optimizados } = new Pipeline3(
+      expressions
+    ).start();
 
     const mips = new Mips(tabelaDeSimbolos);
     for (let i = 0; i < intermediario.totalComandos; ++i) {
