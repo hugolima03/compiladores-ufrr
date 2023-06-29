@@ -39,14 +39,11 @@ const CompilerExpressions = () => {
       syntaxTree!
     ).start();
 
-    const { gerados, optimizados } = new Pipeline3(expressions).start();
+    const { nonOptimizedInstructions, optimizedInstructions } = new Pipeline3(
+      expressions
+    ).start();
 
-    const d3tree = getReactD3Tree(syntaxTree!);
-    setSyntaxTree(d3tree);
-    setSymbolTable(tabelaDeSimbolos);
-    setNonOptimizedInstructions(gerados.filter((g) => Array.isArray(g)));
-    setOptimizedInstructions(optimizados);
-
+    
     // console.log(sintatico);
     // console.log(arvoreSintatica);
     // console.log(semantico);
@@ -59,6 +56,13 @@ const CompilerExpressions = () => {
     // console.log(gerados);
     // console.log(optimizados);
     // console.log(mips);
+    const d3tree = getReactD3Tree(syntaxTree!);
+    setSyntaxTree(d3tree);
+    setSymbolTable(tabelaDeSimbolos);
+    setNonOptimizedInstructions(
+      nonOptimizedInstructions.filter((g) => Array.isArray(g))
+    );
+    setOptimizedInstructions(optimizedInstructions);
     tree.current?.scrollIntoView();
   }
 
@@ -131,9 +135,7 @@ fim`}
                   <TableRow key={`${instruction.operator}${index}`}>
                     <TableDatacell>{instruction.operator}</TableDatacell>
                     <TableDatacell>{instruction.operand}</TableDatacell>
-                    <TableDatacell>
-                      {instruction.args.toString()}
-                    </TableDatacell>
+                    <TableDatacell>{instruction.args.toString()}</TableDatacell>
                   </TableRow>
                 ))
               )}
@@ -159,9 +161,7 @@ fim`}
                   <TableRow key={`${instruction.operator}${index}`}>
                     <TableDatacell>{instruction.operator}</TableDatacell>
                     <TableDatacell>{instruction.operand}</TableDatacell>
-                    <TableDatacell>
-                      {instruction.args.toString()}
-                    </TableDatacell>
+                    <TableDatacell>{instruction.args.toString()}</TableDatacell>
                   </TableRow>
                 ))
               )}

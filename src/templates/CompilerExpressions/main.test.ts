@@ -21,7 +21,7 @@ fim`
       arvoreSintatica!
     ).start();
 
-    const { gerados, optimizados } = new Pipeline3(expressions).start()
+    const { nonOptimizedInstructions, optimizedInstructions } = new Pipeline3(expressions).start()
 
     // const mips = new Mips(tabelaDeSimbolos);
     // for (let i = 0; i < intermediario.totalComandos; ++i) {
@@ -40,8 +40,8 @@ fim`
     expect(expressions).toMatchSnapshot()
     expect(tabelaDeSimbolos).toMatchSnapshot()
     // expect(intermediario).toMatchSnapshot()
-    expect(gerados).toMatchSnapshot()
-    expect(optimizados).toMatchSnapshot()
+    expect(nonOptimizedInstructions).toMatchSnapshot()
+    expect(optimizedInstructions).toMatchSnapshot()
     // expect(mips).toMatchSnapshot()
     expect(d3tree).toMatchSnapshot()
   })

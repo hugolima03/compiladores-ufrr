@@ -13,30 +13,30 @@ type TokenType =
   | "op-aritmetico-div"
   | "op-aritmetico-mod";
 
-export default class Intermediario {
+export default class Pipeline3 {
   _temp: number;
-  _comandos: Instruction[][];
+  _commands: Instruction[][];
 
   constructor(comandos: Tree[]) {
     this._temp = 0;
 
-    const gerados: Instruction[][] = [];
+    const nonOptimizedInstructions: Instruction[][] = [];
 
     for (const c of comandos) {
-      gerados.push(this._parsearComando(c)!);
+      nonOptimizedInstructions.push(this._parsearComando(c)!);
     }
 
-    this._comandos = gerados;
+    this._commands = nonOptimizedInstructions;
   }
 
   get comandos() {
-    const comandos = [];
-    for (const com of this._comandos) comandos.push(com.map((c) => c.copy()));
-    return comandos;
+    const commands = [];
+    for (const com of this._commands) commands.push(com.map((c) => c.copy()));
+    return commands;
   }
 
   get totalComandos() {
-    return this._comandos.length;
+    return this._commands.length;
   }
 
   optimize() {
@@ -272,6 +272,9 @@ export default class Intermediario {
   }
 
   start() {
-    return { gerados: this.comandos, optimizados: this.optimize() };
+    return {
+      nonOptimizedInstructions: this.comandos,
+      optimizedInstructions: this.optimize(),
+    };
   }
 }
