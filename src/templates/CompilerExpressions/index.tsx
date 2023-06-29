@@ -128,11 +128,11 @@ fim`}
             <tbody>
               {nonOptimizedInstructions?.map((instructionList) =>
                 instructionList?.map((instruction, index) => (
-                  <TableRow key={`${instruction.operador}${index}`}>
-                    <TableDatacell>{instruction.operador}</TableDatacell>
-                    <TableDatacell>{instruction.operando}</TableDatacell>
+                  <TableRow key={`${instruction.operator}${index}`}>
+                    <TableDatacell>{instruction.operator}</TableDatacell>
+                    <TableDatacell>{instruction.operand}</TableDatacell>
                     <TableDatacell>
-                      {instruction.argumentos.toString()}
+                      {instruction.args.toString()}
                     </TableDatacell>
                   </TableRow>
                 ))
@@ -156,11 +156,11 @@ fim`}
             <tbody>
               {optimizedInstructions?.map((instructionList) =>
                 instructionList?.map((instruction, index) => (
-                  <TableRow key={`${instruction.operador}${index}`}>
-                    <TableDatacell>{instruction.operador}</TableDatacell>
-                    <TableDatacell>{instruction.operando}</TableDatacell>
+                  <TableRow key={`${instruction.operator}${index}`}>
+                    <TableDatacell>{instruction.operator}</TableDatacell>
+                    <TableDatacell>{instruction.operand}</TableDatacell>
                     <TableDatacell>
-                      {instruction.argumentos.toString()}
+                      {instruction.args.toString()}
                     </TableDatacell>
                   </TableRow>
                 ))

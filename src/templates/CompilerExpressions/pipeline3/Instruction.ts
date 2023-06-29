@@ -1,27 +1,27 @@
 import getType from '../getType'
 
 export default class Instruction {
-    _operador: string
-    _operando: string
-    _argumentos: string[]
+    _operator: string
+    _operand: string
+    _arguments: string[]
 
-    constructor(operador: string, operando: string, argumentos: string[]) {
-        this._operador = operador;
-        this._operando = operando;
-        this._argumentos = getType(argumentos) === 'object' ? argumentos : [];
+    constructor(operator: string, operand: string, args: string[]) {
+        this._operator = operator;
+        this._operand = operand;
+        this._arguments = getType(args) === 'object' ? args : [];
     }
 
-    get operando() { return this._operando; }
-    get operador() { return this._operador; }
-    get argumentos() { return [...this._argumentos]; }
-    get totalArgs() { return this._argumentos.length; }
+    get operand() { return this._operand; }
+    get operator() { return this._operator; }
+    get args() { return [...this._arguments]; }
+    get totalArgs() { return this._arguments.length; }
 
-    argumento(indice: number) {
+    arg(indice: number) {
         if (indice < 0 || indice >= this.totalArgs) return null;
-        return this._argumentos[indice];
+        return this._arguments[indice];
     }
 
-    copiar() {
-        return new Instruction(this._operador, this._operando, [...this._argumentos]);
+    copy() {
+        return new Instruction(this._operator, this._operand, [...this._arguments]);
     }
 }

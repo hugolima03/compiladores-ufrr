@@ -37,7 +37,7 @@ export default class Mips {
         while (instrucoes.length > 0) {
             const inst = instrucoes.shift();
 
-            const args = this._parsearArgumentos(inst.argumentos);
+            const args = this._parsearArgumentos(inst.args);
             this._liberarRegistradoresSemUso(instrucoes);
 
             if (inst.operador !== 'retorne') {
@@ -194,7 +194,7 @@ export default class Mips {
 
             let ehReutilizado = false;
             for (const inst of instrucoes) {
-                if (inst.argumentos.includes(valor)) {
+                if (inst.args.includes(valor)) {
                     ehReutilizado = true;
                     break;
                 }

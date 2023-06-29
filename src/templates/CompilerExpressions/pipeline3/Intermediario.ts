@@ -31,7 +31,7 @@ export default class Intermediario {
 
   get comandos() {
     const comandos = [];
-    for (const com of this._comandos) comandos.push(com.map((c) => c.copiar()));
+    for (const com of this._comandos) comandos.push(com.map((c) => c.copy()));
     return comandos;
   }
 
@@ -68,7 +68,7 @@ export default class Intermediario {
     return [
       new Instruction("=",
         atribuicao.nos[0].simbolo, // var
-        [instrucoes[0].operando]), // 10
+        [instrucoes[0].operand]), // 10
       ...instrucoes,
     ].reverse();
   }
@@ -78,7 +78,7 @@ export default class Intermediario {
 
     const instrucoes = this._parsearExpressao(retorne.nos[0]);
     return [
-      new Instruction("retorne", retorne.simbolo, [instrucoes[0].operando]),
+      new Instruction("retorne", retorne.simbolo, [instrucoes[0].operand]),
       ...instrucoes,
     ].reverse();
   }
@@ -100,7 +100,7 @@ export default class Intermediario {
           const filho = this._parsearExpressao(nos[0]);
           return [
             new Instruction(expressao.simbolo, this._gerarTemporario(), [
-              filho[0].operando,
+              filho[0].operand,
             ]),
             ...filho,
           ];
@@ -113,8 +113,8 @@ export default class Intermediario {
         const esq = this._parsearExpressao(nos[0]);
         return [
           new Instruction(expressao.simbolo, this._gerarTemporario(), [
-            esq[0].operando,
-            dir[0].operando,
+            esq[0].operand,
+            dir[0].operand,
           ]),
           ...esq,
           ...dir,
@@ -128,35 +128,35 @@ export default class Intermediario {
     const atribuicoesValorTemp: Instruction[] = [];
 
     for (const inst of instrucoes) {
-      if (inst.operador !== "=") continue;
+      if (inst.operator !== "=") continue;
       if (inst.totalArgs !== 1) continue;
-      if (!this._ehTemporario(inst.operando)) continue;
+      if (!this._ehTemporario(inst.operand)) continue;
       atribuicoesTempValor.push(inst);
     }
 
     for (const a of atribuicoesTempValor) {
       for (const inst of instrucoes) {
         if (a === inst) continue;
-        while (inst._argumentos.includes(a.operando)) {
-          const indice = inst._argumentos.indexOf(a.operando);
-          inst._argumentos[indice] = a.argumento(0)!;
+        while (inst._arguments.includes(a.operand)) {
+          const indice = inst._arguments.indexOf(a.operand);
+          inst._arguments[indice] = a.arg(0)!;
         }
       }
     }
 
     for (const inst of instrucoes) {
-      if (inst.operador !== "=") continue;
+      if (inst.operator !== "=") continue;
       if (inst.totalArgs !== 1) continue;
-      if (this._ehTemporario(inst.operando)) continue;
-      if (!this._ehTemporario(inst.argumento(0)!)) continue;
+      if (this._ehTemporario(inst.operand)) continue;
+      if (!this._ehTemporario(inst.arg(0)!)) continue;
       atribuicoesValorTemp.push(inst);
     }
 
     for (const a of atribuicoesValorTemp) {
       for (const inst of instrucoes) {
         if (a === inst) continue;
-        if (inst.operando !== a.argumento(0)) continue;
-        inst._operando = a.operando;
+        if (inst.operand !== a.arg(0)) continue;
+        inst._operand = a.operand;
       }
     }
 
@@ -171,60 +171,60 @@ export default class Intermediario {
 
   _otimizarComPropriedadesAlgebricas(instrucoes: Instruction[]) {
     for (const inst of instrucoes) {
-      if (inst.operador === "retorne") continue;
-      if (inst.operador === "=") continue;
+      if (inst.operator === "retorne") continue;
+      if (inst.operator === "=") continue;
 
-      const args = inst.argumentos;
-      switch (inst.operador) {
+      const args = inst.args;
+      switch (inst.operator) {
         case "+":
           if (parseInt(args[0]) === 0 && parseInt(args[1]) === 0) {
-            inst._operador = "=";
-            inst._argumentos = ["0"];
+            inst._operator = "=";
+            inst._arguments = ["0"];
           } else if (parseInt(args[0]) !== 0 && parseInt(args[1]) === 0) {
-            inst._operador = "=";
-            inst._argumentos = [args[0]];
+            inst._operator = "=";
+            inst._arguments = [args[0]];
           } else if (parseInt(args[0]) === 0 && parseInt(args[1]) !== 0) {
-            inst._operador = "=";
-            inst._argumentos = [args[1]];
+            inst._operator = "=";
+            inst._arguments = [args[1]];
           }
           break;
         case "-":
           if (parseInt(args[0]) === 0 && parseInt(args[1]) === 0) {
-            inst._operador = "=";
-            inst._argumentos = ["0"];
+            inst._operator = "=";
+            inst._arguments = ["0"];
           } else if (parseInt(args[0]) !== 0 && parseInt(args[1]) === 0) {
-            inst._operador = "=";
-            inst._argumentos = [args[0]];
+            inst._operator = "=";
+            inst._arguments = [args[0]];
           }
           break;
         case "*":
           if (parseInt(args[0]) === 1 && parseInt(args[1]) === 1) {
-            inst._operador = "=";
-            inst._argumentos = ["1"];
+            inst._operator = "=";
+            inst._arguments = ["1"];
           } else if (parseInt(args[0]) !== 0 && parseInt(args[1]) === 1) {
-            inst._operador = "=";
-            inst._argumentos = [args[0]];
+            inst._operator = "=";
+            inst._arguments = [args[0]];
           } else if (parseInt(args[0]) === 1 && parseInt(args[1]) !== 1) {
-            inst._operador = "=";
-            inst._argumentos = [args[1]];
+            inst._operator = "=";
+            inst._arguments = [args[1]];
           }
           break;
         case "/":
           if (parseInt(args[0]) === 1 && parseInt(args[1]) === 1) {
-            inst._operador = "=";
-            inst._argumentos = ["1"];
+            inst._operator = "=";
+            inst._arguments = ["1"];
           } else if (parseInt(args[0]) !== 1 && parseInt(args[1]) === 1) {
-            inst._operador = "=";
-            inst._argumentos = [args[0]];
+            inst._operator = "=";
+            inst._arguments = [args[0]];
           }
           break;
         case "%":
           if (parseInt(args[0]) === 1 && parseInt(args[1]) === 1) {
-            inst._operador = "=";
-            inst._argumentos = ["0"];
+            inst._operator = "=";
+            inst._arguments = ["0"];
           } else if (parseInt(args[0]) !== 1 && parseInt(args[1]) === 1) {
-            inst._operador = "=";
-            inst._argumentos = ["0"];
+            inst._operator = "=";
+            inst._arguments = ["0"];
           }
           break;
       }
@@ -237,8 +237,8 @@ export default class Intermediario {
     let temp: string[] = [];
 
     for (const i of instrucoes) {
-      if (this._ehTemporario(i.operando)) temp.push(i.operando);
-      for (const a of i.argumentos) {
+      if (this._ehTemporario(i.operand)) temp.push(i.operand);
+      for (const a of i.args) {
         if (this._ehTemporario(a)) temp.push(a);
       }
     }
@@ -249,8 +249,8 @@ export default class Intermediario {
     for (const t of temp) {
       const novoTemp = this._gerarTemporario();
       for (const i of instrucoes) {
-        if (i.operando === t) i._operando = novoTemp;
-        i._argumentos = i._argumentos.map((a) => (a === t ? novoTemp : a));
+        if (i.operand === t) i._operand = novoTemp;
+        i._arguments = i._arguments.map((a) => (a === t ? novoTemp : a));
       }
     }
 
