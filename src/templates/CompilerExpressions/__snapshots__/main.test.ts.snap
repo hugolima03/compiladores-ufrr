@@ -1360,65 +1360,65 @@ Intermediario {
   "_comandos": [
     [
       Instruction {
-        "_argumentos": [
+        "_arguments": [
           "0",
         ],
-        "_operador": "=",
-        "_operando": "<0>",
+        "_operand": "<0>",
+        "_operator": "=",
       },
       Instruction {
-        "_argumentos": [
+        "_arguments": [
           "<0>",
         ],
-        "_operador": "=",
-        "_operando": "var",
+        "_operand": "var",
+        "_operator": "=",
       },
     ],
     [
       Instruction {
-        "_argumentos": [
+        "_arguments": [
           "10",
         ],
-        "_operador": "=",
-        "_operando": "<0>",
+        "_operand": "<0>",
+        "_operator": "=",
       },
       Instruction {
-        "_argumentos": [
+        "_arguments": [
           "<0>",
         ],
-        "_operador": "=",
-        "_operando": "hugo",
+        "_operand": "hugo",
+        "_operator": "=",
       },
     ],
     [
       Instruction {
-        "_argumentos": [
+        "_arguments": [
           "hugo",
         ],
-        "_operador": "=",
-        "_operando": "<0>",
+        "_operand": "<0>",
+        "_operator": "=",
       },
       Instruction {
-        "_argumentos": [
+        "_arguments": [
           "var",
         ],
-        "_operador": "=",
-        "_operando": "<1>",
+        "_operand": "<1>",
+        "_operator": "=",
       },
       Instruction {
-        "_argumentos": [
+        "_arguments": [
           "<1>",
           "<0>",
         ],
-        "_operador": "+",
-        "_operando": "<2>",
+        "_operand": "<2>",
+        "_operator": "+",
       },
       Instruction {
-        "_argumentos": [
+        "_arguments": [
           "<2>",
         ],
-        "_operador": "retorne",
-        "_operando": "retorne",
+        "_operand": "retorne",
+        "_operator": "retorne",
       },
     ],
   ],
@@ -1430,171 +1430,171 @@ exports[`CompilerExpressions Generic test 5`] = `
 [
   [
     Instruction {
-      "_argumentos": [
+      "_arguments": [
         "0",
       ],
-      "_operador": "=",
-      "_operando": "<0>",
+      "_operand": "<0>",
+      "_operator": "=",
     },
     Instruction {
-      "_argumentos": [
+      "_arguments": [
         "<0>",
       ],
-      "_operador": "=",
-      "_operando": "var",
+      "_operand": "var",
+      "_operator": "=",
     },
   ],
   [
     Instruction {
-      "_argumentos": [
+      "_arguments": [
         "10",
       ],
-      "_operador": "=",
-      "_operando": "<0>",
+      "_operand": "<0>",
+      "_operator": "=",
     },
     Instruction {
-      "_argumentos": [
+      "_arguments": [
         "<0>",
       ],
-      "_operador": "=",
-      "_operando": "hugo",
+      "_operand": "hugo",
+      "_operator": "=",
     },
   ],
   [
     Instruction {
-      "_argumentos": [
+      "_arguments": [
         "hugo",
       ],
-      "_operador": "=",
-      "_operando": "<0>",
+      "_operand": "<0>",
+      "_operator": "=",
     },
     Instruction {
-      "_argumentos": [
+      "_arguments": [
         "var",
       ],
-      "_operador": "=",
-      "_operando": "<1>",
+      "_operand": "<1>",
+      "_operator": "=",
     },
     Instruction {
-      "_argumentos": [
+      "_arguments": [
         "<1>",
         "<0>",
       ],
-      "_operador": "+",
-      "_operando": "<2>",
+      "_operand": "<2>",
+      "_operator": "+",
     },
     Instruction {
-      "_argumentos": [
+      "_arguments": [
         "<2>",
       ],
-      "_operador": "retorne",
-      "_operando": "retorne",
+      "_operand": "retorne",
+      "_operator": "retorne",
     },
   ],
   {
     "gerado": [
       Instruction {
-        "_argumentos": [
+        "_arguments": [
           "0",
         ],
-        "_operador": "=",
-        "_operando": "<0>",
+        "_operand": "<0>",
+        "_operator": "=",
       },
       Instruction {
-        "_argumentos": [
+        "_arguments": [
           "<0>",
         ],
-        "_operador": "=",
-        "_operando": "var",
+        "_operand": "var",
+        "_operator": "=",
       },
     ],
     "linha": 4,
     "otimizado": [
       Instruction {
-        "_argumentos": [
+        "_arguments": [
           "0",
         ],
-        "_operador": "=",
-        "_operando": "var",
+        "_operand": "var",
+        "_operator": "=",
       },
     ],
   },
   {
     "gerado": [
       Instruction {
-        "_argumentos": [
+        "_arguments": [
           "10",
         ],
-        "_operador": "=",
-        "_operando": "<0>",
+        "_operand": "<0>",
+        "_operator": "=",
       },
       Instruction {
-        "_argumentos": [
+        "_arguments": [
           "<0>",
         ],
-        "_operador": "=",
-        "_operando": "hugo",
+        "_operand": "hugo",
+        "_operator": "=",
       },
     ],
     "linha": 5,
     "otimizado": [
       Instruction {
-        "_argumentos": [
+        "_arguments": [
           "10",
         ],
-        "_operador": "=",
-        "_operando": "hugo",
+        "_operand": "hugo",
+        "_operator": "=",
       },
     ],
   },
   {
     "gerado": [
       Instruction {
-        "_argumentos": [
+        "_arguments": [
           "hugo",
         ],
-        "_operador": "=",
-        "_operando": "<0>",
+        "_operand": "<0>",
+        "_operator": "=",
       },
       Instruction {
-        "_argumentos": [
+        "_arguments": [
           "var",
         ],
-        "_operador": "=",
-        "_operando": "<1>",
+        "_operand": "<1>",
+        "_operator": "=",
       },
       Instruction {
-        "_argumentos": [
+        "_arguments": [
           "<1>",
           "<0>",
         ],
-        "_operador": "+",
-        "_operando": "<2>",
+        "_operand": "<2>",
+        "_operator": "+",
       },
       Instruction {
-        "_argumentos": [
+        "_arguments": [
           "<2>",
         ],
-        "_operador": "retorne",
-        "_operando": "retorne",
+        "_operand": "retorne",
+        "_operator": "retorne",
       },
     ],
     "linha": 6,
     "otimizado": [
       Instruction {
-        "_argumentos": [
+        "_arguments": [
           "var",
           "hugo",
         ],
-        "_operador": "+",
-        "_operando": "<0>",
+        "_operand": "<0>",
+        "_operator": "+",
       },
       Instruction {
-        "_argumentos": [
+        "_arguments": [
           "<0>",
         ],
-        "_operador": "retorne",
-        "_operando": "retorne",
+        "_operand": "retorne",
+        "_operator": "retorne",
       },
     ],
   },
@@ -1605,37 +1605,37 @@ exports[`CompilerExpressions Generic test 6`] = `
 [
   [
     Instruction {
-      "_argumentos": [
+      "_arguments": [
         "0",
       ],
-      "_operador": "=",
-      "_operando": "var",
+      "_operand": "var",
+      "_operator": "=",
     },
   ],
   [
     Instruction {
-      "_argumentos": [
+      "_arguments": [
         "10",
       ],
-      "_operador": "=",
-      "_operando": "hugo",
+      "_operand": "hugo",
+      "_operator": "=",
     },
   ],
   [
     Instruction {
-      "_argumentos": [
+      "_arguments": [
         "var",
         "hugo",
       ],
-      "_operador": "+",
-      "_operando": "<0>",
+      "_operand": "<0>",
+      "_operator": "+",
     },
     Instruction {
-      "_argumentos": [
+      "_arguments": [
         "<0>",
       ],
-      "_operador": "retorne",
-      "_operando": "retorne",
+      "_operand": "retorne",
+      "_operator": "retorne",
     },
   ],
 ]
@@ -1751,77 +1751,34 @@ Mips {
   ],
   "_texto": [
     Instruction {
-      "_argumentos": [
+      "_arguments": [
         "$zero",
         "0",
       ],
-      "_operador": "addi",
-      "_operando": "$t0",
+      "_operand": "$t0",
+      "_operator": "addi",
     },
     Instruction {
-      "_argumentos": [
-        "id_int_var",
-      ],
-      "_operador": "sw",
-      "_operando": "$t0",
-    },
-    Instruction {
-      "_argumentos": [
+      "_arguments": [
         "$zero",
         "10",
       ],
-      "_operador": "addi",
-      "_operando": "$t0",
+      "_operand": "$t0",
+      "_operator": "addi",
     },
     Instruction {
-      "_argumentos": [
-        "id_int_hugo",
-      ],
-      "_operador": "sw",
-      "_operando": "$t0",
-    },
-    Instruction {
-      "_argumentos": [
+      "_arguments": [
         "id_int_var",
       ],
-      "_operador": "lw",
-      "_operando": "$t0",
+      "_operand": "$t0",
+      "_operator": "lw",
     },
     Instruction {
-      "_argumentos": [
+      "_arguments": [
         "id_int_hugo",
       ],
-      "_operador": "lw",
-      "_operando": "$t1",
-    },
-    Instruction {
-      "_argumentos": [
-        "$t0",
-        "$t1",
-      ],
-      "_operador": "add",
-      "_operando": "$t0",
-    },
-    Instruction {
-      "_argumentos": [
-        "$zero",
-        "17",
-      ],
-      "_operador": "addi",
-      "_operando": "$v0",
-    },
-    Instruction {
-      "_argumentos": [
-        "$zero",
-        "$t0",
-      ],
-      "_operador": "add",
-      "_operando": "$a0",
-    },
-    Instruction {
-      "_argumentos": [],
-      "_operador": "syscall",
-      "_operando": "",
+      "_operand": "$t1",
+      "_operator": "lw",
     },
   ],
 }
