@@ -39,12 +39,12 @@ export default class Intermediario {
     return this._comandos.length;
   }
 
-  optimizar() {
+  optimize() {
     const otimizados = [];
     const comandos = this.comandos;
     for (const c of comandos) {
-      let otimizado = this._otimizarAtribuicoes(c);
-      otimizados.push(this._otimizarComPropriedadesAlgebricas(otimizado));
+      let otimizado = this._optimizeAssignments(c);
+      otimizados.push(this._optimizeWithAlgebraicProperties(otimizado));
     }
 
     return otimizados;
@@ -62,8 +62,8 @@ export default class Intermediario {
   }
 
   _parsearAtribuicao(atribuicao: Tree) {
-    this._resetarTemporario();
-    const instrucoes = this._parsearExpressao(atribuicao.nos[1]);
+    this._resetTempVar();
+    const instrucoes = this._parseExpression(atribuicao.nos[1]);
 
     return [
       new Instruction(
@@ -76,16 +76,16 @@ export default class Intermediario {
   }
 
   _parsearRetorne(retorne: Tree) {
-    this._resetarTemporario();
+    this._resetTempVar();
 
-    const instrucoes = this._parsearExpressao(retorne.nos[0]);
+    const instrucoes = this._parseExpression(retorne.nos[0]);
     return [
       new Instruction("retorne", retorne.simbolo, [instrucoes[0].operand]),
       ...instrucoes,
     ].reverse();
   }
 
-  _parsearExpressao(expressao: Tree): Instruction[] {
+  _parseExpression(expressao: Tree): Instruction[] {
     const token = expressao.extra!.token;
     const nos = expressao.nos;
 
@@ -93,15 +93,15 @@ export default class Intermediario {
       case "literal-int":
       case "identificador":
         return [
-          new Instruction("=", this._gerarTemporario(), [expressao.simbolo]),
+          new Instruction("=", this._generateTempVar(), [expressao.simbolo]),
         ];
         break;
 
       case "op-aritmetico-sub":
         if (nos.length === 1) {
-          const filho = this._parsearExpressao(nos[0]);
+          const filho = this._parseExpression(nos[0]);
           return [
-            new Instruction(expressao.simbolo, this._gerarTemporario(), [
+            new Instruction(expressao.simbolo, this._generateTempVar(), [
               filho[0].operand,
             ]),
             ...filho,
@@ -111,10 +111,10 @@ export default class Intermediario {
       case "op-aritmetico-mul":
       case "op-aritmetico-div":
       case "op-aritmetico-mod":
-        const dir = this._parsearExpressao(nos[1]);
-        const esq = this._parsearExpressao(nos[0]);
+        const dir = this._parseExpression(nos[1]);
+        const esq = this._parseExpression(nos[0]);
         return [
-          new Instruction(expressao.simbolo, this._gerarTemporario(), [
+          new Instruction(expressao.simbolo, this._generateTempVar(), [
             esq[0].operand,
             dir[0].operand,
           ]),
@@ -125,14 +125,14 @@ export default class Intermediario {
     }
   }
 
-  _otimizarAtribuicoes(instrucoes: Instruction[]) {
+  _optimizeAssignments(instrucoes: Instruction[]) {
     const atribuicoesTempValor: Instruction[] = [];
     const atribuicoesValorTemp: Instruction[] = [];
 
     for (const inst of instrucoes) {
       if (inst.operator !== "=") continue;
       if (inst.totalArgs !== 1) continue;
-      if (!this._ehTemporario(inst.operand)) continue;
+      if (!this._isTempVar(inst.operand)) continue;
       atribuicoesTempValor.push(inst);
     }
 
@@ -149,8 +149,8 @@ export default class Intermediario {
     for (const inst of instrucoes) {
       if (inst.operator !== "=") continue;
       if (inst.totalArgs !== 1) continue;
-      if (this._ehTemporario(inst.operand)) continue;
-      if (!this._ehTemporario(inst.arg(0)!)) continue;
+      if (this._isTempVar(inst.operand)) continue;
+      if (!this._isTempVar(inst.arg(0)!)) continue;
       atribuicoesValorTemp.push(inst);
     }
 
@@ -171,7 +171,7 @@ export default class Intermediario {
     );
   }
 
-  _otimizarComPropriedadesAlgebricas(instrucoes: Instruction[]) {
+  _optimizeWithAlgebraicProperties(instrucoes: Instruction[]) {
     for (const inst of instrucoes) {
       if (inst.operator === "retorne") continue;
       if (inst.operator === "=") continue;
@@ -239,17 +239,17 @@ export default class Intermediario {
     let temp: string[] = [];
 
     for (const i of instrucoes) {
-      if (this._ehTemporario(i.operand)) temp.push(i.operand);
+      if (this._isTempVar(i.operand)) temp.push(i.operand);
       for (const a of i.args) {
-        if (this._ehTemporario(a)) temp.push(a);
+        if (this._isTempVar(a)) temp.push(a);
       }
     }
 
     temp = temp.filter((i, p) => temp.indexOf(i) === p);
-    this._resetarTemporario();
+    this._resetTempVar();
 
     for (const t of temp) {
-      const novoTemp = this._gerarTemporario();
+      const novoTemp = this._generateTempVar();
       for (const i of instrucoes) {
         if (i.operand === t) i._operand = novoTemp;
         i._arguments = i._arguments.map((a) => (a === t ? novoTemp : a));
@@ -259,19 +259,19 @@ export default class Intermediario {
     return instrucoes;
   }
 
-  _ehTemporario(simbolo: string) {
+  _isTempVar(simbolo: string) {
     return matchExact(simbolo, /^<\d+>$/);
   }
 
-  _resetarTemporario() {
+  _resetTempVar() {
     this._temp = 0;
   }
 
-  _gerarTemporario() {
+  _generateTempVar() {
     return ["<", this._temp++, ">"].join("");
   }
 
   start() {
-    return { gerados: this.comandos, optimizados: this.optimizar() };
+    return { gerados: this.comandos, optimizados: this.optimize() };
   }
 }
