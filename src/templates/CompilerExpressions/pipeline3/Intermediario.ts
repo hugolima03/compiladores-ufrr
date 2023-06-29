@@ -19,7 +19,14 @@ export default class Intermediario {
 
   constructor(comandos: Tree[]) {
     this._temp = 0;
-    this._comandos = this._parsearComandos(comandos);
+
+    const gerados: Instrucao[][] = [];
+
+    for (const c of comandos) {
+      gerados.push(this._parsearComando(c)!);
+    }
+
+    this._comandos = gerados;
   }
 
   get comandos() {
@@ -41,16 +48,6 @@ export default class Intermediario {
     }
 
     return otimizados;
-  }
-
-  _parsearComandos(comandos: Tree[]) {
-    const gerados: Instrucao[][] = [];
-
-    for (const c of comandos) {
-      gerados.push(this._parsearComando(c)!);
-    }
-
-    return gerados;
   }
 
   _parsearComando(comando: Tree) {
