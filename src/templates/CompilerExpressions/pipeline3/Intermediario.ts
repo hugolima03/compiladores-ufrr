@@ -1,4 +1,4 @@
-import Instrucao from "./Instrucao";
+import Instruction from "./Instruction";
 
 import { matchExact } from "../utils/Patterns";
 
@@ -15,12 +15,12 @@ type TokenType =
 
 export default class Intermediario {
   _temp: number;
-  _comandos: Instrucao[][];
+  _comandos: Instruction[][];
 
   constructor(comandos: Tree[]) {
     this._temp = 0;
 
-    const gerados: Instrucao[][] = [];
+    const gerados: Instruction[][] = [];
 
     for (const c of comandos) {
       gerados.push(this._parsearComando(c)!);
@@ -66,7 +66,7 @@ export default class Intermediario {
     const instrucoes = this._parsearExpressao(atribuicao.nos[1]);
 
     return [
-      new Instrucao("=",
+      new Instruction("=",
         atribuicao.nos[0].simbolo, // var
         [instrucoes[0].operando]), // 10
       ...instrucoes,
@@ -78,12 +78,12 @@ export default class Intermediario {
 
     const instrucoes = this._parsearExpressao(retorne.nos[0]);
     return [
-      new Instrucao("retorne", retorne.simbolo, [instrucoes[0].operando]),
+      new Instruction("retorne", retorne.simbolo, [instrucoes[0].operando]),
       ...instrucoes,
     ].reverse();
   }
 
-  _parsearExpressao(expressao: Tree): Instrucao[] {
+  _parsearExpressao(expressao: Tree): Instruction[] {
     const token = expressao.extra!.token;
     const nos = expressao.nos;
 
@@ -91,7 +91,7 @@ export default class Intermediario {
       case "literal-int":
       case "identificador":
         return [
-          new Instrucao("=", this._gerarTemporario(), [expressao.simbolo]),
+          new Instruction("=", this._gerarTemporario(), [expressao.simbolo]),
         ];
         break;
 
@@ -99,7 +99,7 @@ export default class Intermediario {
         if (nos.length === 1) {
           const filho = this._parsearExpressao(nos[0]);
           return [
-            new Instrucao(expressao.simbolo, this._gerarTemporario(), [
+            new Instruction(expressao.simbolo, this._gerarTemporario(), [
               filho[0].operando,
             ]),
             ...filho,
@@ -112,7 +112,7 @@ export default class Intermediario {
         const dir = this._parsearExpressao(nos[1]);
         const esq = this._parsearExpressao(nos[0]);
         return [
-          new Instrucao(expressao.simbolo, this._gerarTemporario(), [
+          new Instruction(expressao.simbolo, this._gerarTemporario(), [
             esq[0].operando,
             dir[0].operando,
           ]),
@@ -123,9 +123,9 @@ export default class Intermediario {
     }
   }
 
-  _otimizarAtribuicoes(instrucoes: Instrucao[]) {
-    const atribuicoesTempValor: Instrucao[] = [];
-    const atribuicoesValorTemp: Instrucao[] = [];
+  _otimizarAtribuicoes(instrucoes: Instruction[]) {
+    const atribuicoesTempValor: Instruction[] = [];
+    const atribuicoesValorTemp: Instruction[] = [];
 
     for (const inst of instrucoes) {
       if (inst.operador !== "=") continue;
@@ -169,7 +169,7 @@ export default class Intermediario {
     );
   }
 
-  _otimizarComPropriedadesAlgebricas(instrucoes: Instrucao[]) {
+  _otimizarComPropriedadesAlgebricas(instrucoes: Instruction[]) {
     for (const inst of instrucoes) {
       if (inst.operador === "retorne") continue;
       if (inst.operador === "=") continue;
@@ -233,7 +233,7 @@ export default class Intermediario {
     return instrucoes;
   }
 
-  _ajustarTemporarios(instrucoes: Instrucao[]) {
+  _ajustarTemporarios(instrucoes: Instruction[]) {
     let temp: string[] = [];
 
     for (const i of instrucoes) {

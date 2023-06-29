@@ -19,7 +19,7 @@ import Pipeline1 from "./pipeline1";
 import Pipeline2 from "./pipeline2";
 import Pipeline3 from "./pipeline3";
 
-import Instrucao from "./pipeline3/Instrucao";
+import Instrucao from "./pipeline3/Instruction";
 
 const CompilerExpressions = () => {
   const tree = useRef<HTMLDivElement>(null);
@@ -39,9 +39,7 @@ const CompilerExpressions = () => {
       syntaxTree!
     ).start();
 
-    const { intermediario, gerados, optimizados } = new Pipeline3(
-      expressions
-    ).start();
+    const { gerados, optimizados } = new Pipeline3(expressions).start();
 
     const d3tree = getReactD3Tree(syntaxTree!);
     setSyntaxTree(d3tree);

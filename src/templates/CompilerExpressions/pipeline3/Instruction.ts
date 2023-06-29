@@ -1,5 +1,6 @@
 import getType from '../getType'
-export default class Instrucao {
+
+export default class Instruction {
     _operador: string
     _operando: string
     _argumentos: string[]
@@ -32,6 +33,6 @@ export default class Instrucao {
     }
 
     copiar() {
-        return new Instrucao(this._operador, this._operando, [...this._argumentos]);
+        return new Instruction(this._operador, this._operando, [...this._argumentos]);
     }
 }
