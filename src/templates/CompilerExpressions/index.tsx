@@ -20,13 +20,18 @@ import Pipeline2 from "./pipeline2";
 import Pipeline3 from "./pipeline3";
 
 import Mips from "./sintese/Mips.mjs";
+import Instrucao from "./pipeline3/Instrucao";
 
 const CompilerExpressions = () => {
   const tree = useRef<HTMLDivElement>(null);
   const [syntaxTree, setSyntaxTree] = useState<ReactD3Tree | null>(null);
-  const [expressionsTrees, setExpressionsTrees] = useState<Tree[] | null>(null);
   const [symbolTable, setSymbolTable] = useState<SimboloIdentificador[]>();
-  const [mipsCode, setMipsCode] = useState<Mips | null>(null);
+  const [nonOptimizedInstructions, setNonOptimizedInstructions] = useState<
+    Instrucao[][] | null
+  >(null);
+  const [optimizedInstructions, setOptimizedInstructions] = useState<
+    Instrucao[][] | null
+  >(null);
 
   function onSubmit(sourceCode: string) {
     const syntaxTree = new Pipeline1(sourceCode).start();
@@ -53,8 +58,8 @@ const CompilerExpressions = () => {
     const d3tree = getReactD3Tree(syntaxTree!);
     setSyntaxTree(d3tree);
     setSymbolTable(tabelaDeSimbolos);
-    setExpressionsTrees(expressions);
-    setMipsCode(mips);
+    setNonOptimizedInstructions(gerados.filter((g) => Array.isArray(g)));
+    setOptimizedInstructions(optimizados);
 
     // console.log(sintatico);
     // console.log(arvoreSintatica);
@@ -123,46 +128,9 @@ fim`}
         </>
       ) : null}
 
-      {expressionsTrees ? <h2>Árvores de expressões</h2> : null}
-      {expressionsTrees
-        ?.map((tree) => getReactD3Tree(tree))
-        ?.map((tree, index) => (
-          <S.TreeWrapper
-            key={`${tree.name}${index}`}
-            style={{ height: "30rem" }}
-          >
-            {tree && (
-              <ReactD3TreeComponent.Tree
-                orientation="vertical"
-                data={tree}
-                translate={{ x: 600, y: 40 }}
-                collapsible={false}
-              />
-            )}
-          </S.TreeWrapper>
-        ))}
-
-      {mipsCode ? (
+      {nonOptimizedInstructions ? (
         <>
-          <h2>Variaveis</h2>
-          <Table style={{ margin: 0 }}>
-            <thead>
-              <TableRow>
-                <TableHeader>Variável</TableHeader>
-              </TableRow>
-            </thead>
-            <tbody>
-              {mipsCode._tabeladeVariaveis.map(
-                (instrucao: any, index: number) => (
-                  <TableRow key={`${instrucao._nome}${index}`}>
-                    <TableDatacell>{`${instrucao._nome}${instrucao._nome}`}</TableDatacell>
-                  </TableRow>
-                )
-              )}
-            </tbody>
-          </Table>
-
-          <h2>Instruções geradas</h2>
+          <h2>Instruções não otimizadas</h2>
           <Table style={{ margin: 0 }}>
             <thead>
               <TableRow>
@@ -172,15 +140,45 @@ fim`}
               </TableRow>
             </thead>
             <tbody>
-              {mipsCode._texto.map((instrucao, index) => (
-                <TableRow key={`${instrucao._operador}${index}`}>
-                  <TableDatacell>{instrucao._operador}</TableDatacell>
-                  <TableDatacell>{instrucao._operando}</TableDatacell>
-                  <TableDatacell>
-                    {Array(instrucao._argumentos).toString()}
-                  </TableDatacell>
-                </TableRow>
-              ))}
+              {nonOptimizedInstructions?.map((instructionList) =>
+                instructionList?.map((instruction) => (
+                  <TableRow key={instruction.comoString()}>
+                    <TableDatacell>{instruction.operador}</TableDatacell>
+                    <TableDatacell>{instruction.operando}</TableDatacell>
+                    <TableDatacell>
+                      {instruction.argumentos.toString()}
+                    </TableDatacell>
+                  </TableRow>
+                ))
+              )}
+            </tbody>
+          </Table>
+        </>
+      ) : null}
+
+      {optimizedInstructions ? (
+        <>
+          <h2>Instruções otimizadas</h2>
+          <Table style={{ margin: 0 }}>
+            <thead>
+              <TableRow>
+                <TableHeader>Operador</TableHeader>
+                <TableHeader>Operando</TableHeader>
+                <TableHeader>Argumentos</TableHeader>
+              </TableRow>
+            </thead>
+            <tbody>
+              {optimizedInstructions?.map((instructionList) =>
+                instructionList?.map((instruction) => (
+                  <TableRow key={instruction.comoString()}>
+                    <TableDatacell>{instruction.operador}</TableDatacell>
+                    <TableDatacell>{instruction.operando}</TableDatacell>
+                    <TableDatacell>
+                      {instruction.argumentos.toString()}
+                    </TableDatacell>
+                  </TableRow>
+                ))
+              )}
             </tbody>
           </Table>
         </>
