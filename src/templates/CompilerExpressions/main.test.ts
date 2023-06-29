@@ -1,4 +1,3 @@
-import Mips from "./sintese/Mips.mjs";
 import { getReactD3Tree } from "./pipeline1/Tree";
 
 import Pipeline1 from "./pipeline1";
@@ -22,28 +21,28 @@ fim`
       arvoreSintatica!
     ).start();
 
-    const { gerados, intermediario, optimizados } = new Pipeline3(expressions).start()
+    const { gerados, optimizados } = new Pipeline3(expressions).start()
 
-    const mips = new Mips(tabelaDeSimbolos);
-    for (let i = 0; i < intermediario.totalComandos; ++i) {
-      gerados.push({
-        gerado: gerados[i],
-        otimizado: optimizados[i],
-        linha: expressions[i].extra!.linha,
-      } as any);
+    // const mips = new Mips(tabelaDeSimbolos);
+    // for (let i = 0; i < intermediario.totalComandos; ++i) {
+    //   gerados.push({
+    //     gerado: gerados[i],
+    //     otimizado: optimizados[i],
+    //     linha: expressions[i].extra!.linha,
+    //   } as any);
 
-      mips.adicionarInstrucoes(optimizados[i]);
-    }
+    //   mips.adicionarInstrucoes(optimizados[i]);
+    // }
 
     const d3tree = getReactD3Tree(arvoreSintatica!);
 
     expect(arvoreSintatica).toMatchSnapshot()
     expect(expressions).toMatchSnapshot()
     expect(tabelaDeSimbolos).toMatchSnapshot()
-    expect(intermediario).toMatchSnapshot()
+    // expect(intermediario).toMatchSnapshot()
     expect(gerados).toMatchSnapshot()
     expect(optimizados).toMatchSnapshot()
-    expect(mips).toMatchSnapshot()
+    // expect(mips).toMatchSnapshot()
     expect(d3tree).toMatchSnapshot()
   })
 })

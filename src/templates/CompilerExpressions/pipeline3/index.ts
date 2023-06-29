@@ -66,9 +66,11 @@ export default class Intermediario {
     const instrucoes = this._parsearExpressao(atribuicao.nos[1]);
 
     return [
-      new Instruction("=",
+      new Instruction(
+        "=",
         atribuicao.nos[0].simbolo, // var
-        [instrucoes[0].operand]), // 10
+        [instrucoes[0].operand]
+      ), // 10
       ...instrucoes,
     ].reverse();
   }
@@ -267,5 +269,9 @@ export default class Intermediario {
 
   _gerarTemporario() {
     return ["<", this._temp++, ">"].join("");
+  }
+
+  start() {
+    return { gerados: this.comandos, optimizados: this.optimizar() };
   }
 }
