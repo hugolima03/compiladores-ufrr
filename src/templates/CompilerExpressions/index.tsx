@@ -127,8 +127,8 @@ fim`}
             </thead>
             <tbody>
               {nonOptimizedInstructions?.map((instructionList) =>
-                instructionList?.map((instruction) => (
-                  <TableRow key={instruction.comoString()}>
+                instructionList?.map((instruction, index) => (
+                  <TableRow key={`${instruction.operador}${index}`}>
                     <TableDatacell>{instruction.operador}</TableDatacell>
                     <TableDatacell>{instruction.operando}</TableDatacell>
                     <TableDatacell>
@@ -155,8 +155,8 @@ fim`}
             </thead>
             <tbody>
               {optimizedInstructions?.map((instructionList) =>
-                instructionList?.map((instruction) => (
-                  <TableRow key={instruction.comoString()}>
+                instructionList?.map((instruction, index) => (
+                  <TableRow key={`${instruction.operador}${index}`}>
                     <TableDatacell>{instruction.operador}</TableDatacell>
                     <TableDatacell>{instruction.operando}</TableDatacell>
                     <TableDatacell>

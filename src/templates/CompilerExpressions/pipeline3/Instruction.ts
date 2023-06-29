@@ -21,17 +21,6 @@ export default class Instruction {
         return this._argumentos[indice];
     }
 
-    comoString() {
-        return [
-            this.operador,
-            '(',
-            ...this._argumentos,
-            ')',
-            '->',
-            this.operando
-        ].join(' ');
-    }
-
     copiar() {
         return new Instruction(this._operador, this._operando, [...this._argumentos]);
     }
