@@ -1,5 +1,5 @@
 import { matchExact } from '../utils/Patterns'
-import Instrucao from '../pipeline3/Instrucao'
+import Instruction from '../pipeline3/Instruction'
 
 export default class Mips {
 
@@ -54,7 +54,7 @@ export default class Mips {
 
                 if (this._ehVariavel(inst.operando)) {
                     this._texto.push(
-                        new Instrucao(
+                        new Instruction(
                             'sw',
                             operando,
                             [this._codificarNomeVariavel(inst.operando)]
@@ -63,9 +63,9 @@ export default class Mips {
                 }
             }
             else {
-                this._texto.push(new Instrucao('addi', '$v0', ['$zero', '17']));
-                this._texto.push(new Instrucao('add', '$a0', ['$zero', args[0]]));
-                this._texto.push(new Instrucao('syscall', ''));
+                this._texto.push(new Instruction('addi', '$v0', ['$zero', '17']));
+                this._texto.push(new Instruction('add', '$a0', ['$zero', args[0]]));
+                this._texto.push(new Instruction('syscall', ''));
             }
 
             this._liberarRegistradoresSemUso(instrucoes);
@@ -78,39 +78,39 @@ export default class Mips {
         switch (operador) {
 
             case '+':
-                this._texto.push(new Instrucao('add', operando, argumentos));
+                this._texto.push(new Instruction('add', operando, argumentos));
                 break;
 
             case '-':
                 if (argumentos.length !== 1) {
-                    this._texto.push(new Instrucao('sub', operando, argumentos));
+                    this._texto.push(new Instruction('sub', operando, argumentos));
                 }
                 else {
                     this._texto.push(
-                        new Instrucao('sub', operando, ['$zero', argumentos[0]])
+                        new Instruction('sub', operando, ['$zero', argumentos[0]])
                     );
                 }
                 break;
 
             case '*':
                 this._texto.push(
-                    new Instrucao('mult', argumentos[0], [argumentos[1]])
+                    new Instruction('mult', argumentos[0], [argumentos[1]])
                 );
-                this._texto.push(new Instrucao('mflo', operando));
+                this._texto.push(new Instruction('mflo', operando));
                 break;
 
             case '/':
                 this._texto.push(
-                    new Instrucao('div', argumentos[0], [argumentos[1]])
+                    new Instruction('div', argumentos[0], [argumentos[1]])
                 );
-                this._texto.push(new Instrucao('mflo', operando));
+                this._texto.push(new Instruction('mflo', operando));
                 break;
 
             case '%':
                 this._texto.push(
-                    new Instrucao('div', argumentos[0], [argumentos[1]])
+                    new Instruction('div', argumentos[0], [argumentos[1]])
                 );
-                this._texto.push(new Instrucao('mfhi', operando));
+                this._texto.push(new Instruction('mfhi', operando));
                 break;
         }
     }
@@ -137,7 +137,7 @@ export default class Mips {
 
             if (this._ehVariavel(arg)) {
                 this._texto.push(
-                    new Instrucao(
+                    new Instruction(
                         'lw',
                         registrador,
                         [this._codificarNomeVariavel(arg)]
@@ -146,7 +146,7 @@ export default class Mips {
             }
             else if (!this._ehTemporario(arg)) {
                 this._texto.push(
-                    new Instrucao(
+                    new Instruction(
                         'addi',
                         registrador,
                         ['$zero', arg]
