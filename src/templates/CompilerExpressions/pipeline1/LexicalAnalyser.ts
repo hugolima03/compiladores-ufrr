@@ -10,7 +10,7 @@ export class LexicalAnalyser {
         this._tokensReconhecidos = [];
     }
 
-    _buscarTokenPelaLexema(lexema: string) {
+    _getTokenByLexeme(lexema: string) {
         const classe = getTokenClass(lexema);
         const subclasse = getTokenSubClass(lexema, classe!);
 
@@ -25,9 +25,9 @@ export class LexicalAnalyser {
         return token;
     }
 
-    tokenizarLinha(entrada: string, linha: number) {
+    tokenizeRow(entrada: string, linha: number) {
         // "    var: int;""
-        const lexemasStr = LexicalAnalyser._parsearLexemas(entrada); // Popula a lista de strings de lexema
+        const lexemasStr = LexicalAnalyser._parseLexemes(entrada); // Popula a lista de strings de lexema
         // ["    ", "var", ":", " ", "int", ";"]
 
         let coluna = 0;
@@ -37,7 +37,7 @@ export class LexicalAnalyser {
         for (const l of lexemasStr) {
             if (!isSpace(l)) { // Removendo espaços
 
-                const token = this._buscarTokenPelaLexema(l); // Encontrando o token para o lexema
+                const token = this._getTokenByLexeme(l); // Encontrando o token para o lexema
                 const lexema = new Lexeme(l, linha, coluna, token);
 
                 if (token === undefined || token.tipo === 'sem-categoria') {
@@ -52,8 +52,8 @@ export class LexicalAnalyser {
         return lexemas;
     }
 
-    static _parsearLexemas(entrada: string) { // "    var: int;""
-        const separarPorStringLiterais = LexicalAnalyser._separarPorStringLiterais(entrada);
+    static _parseLexemes(entrada: string) { // "    var: int;""
+        const separarPorStringLiterais = LexicalAnalyser._splitByStringLiterals(entrada);
 
         let lexemas: string[] = [];
 
@@ -64,7 +64,7 @@ export class LexicalAnalyser {
                 continue;
             }
 
-            const separarPorEspacos = LexicalAnalyser._separarPorEspacos(spsl);
+            const separarPorEspacos = LexicalAnalyser._splitBySpaces(spsl);
             // ["    ", "var=0;"]
             for (const spe of separarPorEspacos) {
 
@@ -75,14 +75,14 @@ export class LexicalAnalyser {
 
                 lexemas = [
                     ...lexemas,
-                    ...LexicalAnalyser._separarPorOperadores(spe) // ["    ", "var", "=", "0", ";"]
+                    ...LexicalAnalyser._splitByOperators(spe) // ["    ", "var", "=", "0", ";"]
                 ];
             }
         }
         return lexemas;
     }
 
-    static _separarPorStringLiterais(entrada: string) {
+    static _splitByStringLiterals(entrada: string) {
 
         const stringRegex = new RegExp(patterns.stringLiteral, 'g');
         const strs = Array.from(entrada.matchAll(stringRegex));
@@ -107,7 +107,7 @@ export class LexicalAnalyser {
         return fragmentos;
     }
 
-    static _separarPorEspacos(entrada: string) {
+    static _splitBySpaces(entrada: string) {
 
         const strs = Array.from(entrada.matchAll(patterns.espacos));
 
@@ -130,7 +130,7 @@ export class LexicalAnalyser {
         return fragmentos;
     }
 
-    static _separarPorOperadores(entrada: string) {
+    static _splitByOperators(entrada: string) {
 
         const operadores = [
             ...patterns.opAritmeticos,
