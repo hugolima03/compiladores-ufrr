@@ -32,17 +32,17 @@ const grammar = new Grammar({
     // Bloco de código principal
     // Padrão: "inicio ... fim"
     '<statement_part>': [
-        'command-BEGIN <lista_comando> command-END.',
+        'command-BEGIN <statement_list> command-END.',
         'command-BEGIN command-END.'
     ],
 
     // Lista de comandos
-    '<lista_comando>': ['<lista_comando> <comando>', '<comando>'],
-    '<comando>': ['<atribuicao>', '<retorne_principal>'],
+    '<statement_list>': ['<statement_list> <command>', '<command>'],
+    '<command>': ['<assignment>', '<retorne_principal>'],
 
     // Atribuição
     // Padrão: var = ... ;
-    '<atribuicao>': ['identifier symbol-atr <retorno_valor> symbol-delimiter'],
+    '<assignment>': ['identifier symbol-atr <retorno_valor> symbol-delimiter'],
 
     // Retorno de valor e encerramento
     // Padrão: retorne ... ;

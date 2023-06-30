@@ -174,12 +174,12 @@ export default class Pipeline2 {
 
     // Step 2: Validar comandos
     const bloco = this._syntaxTree.findAllNodes("<statement_part>", 1)[0];
-    const comandos = bloco.findAllNodes("<comando>");
+    const comandos = bloco.findAllNodes("<command>");
     const expressions = [];
 
     for (const c of comandos) {
       switch (c.nos[0].simbolo) {
-        case "<atribuicao>": // Step 2.1: Validar atribuição
+        case "<assignment>": // Step 2.1: Validar atribuição
           expressions.push(this._validateAssignment(c.nos[0]));
           break;
         case "<retorne_principal>": // Step 2.2: Validar retorno
