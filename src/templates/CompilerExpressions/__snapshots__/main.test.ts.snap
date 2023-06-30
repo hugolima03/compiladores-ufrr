@@ -11,17 +11,17 @@ Tree {
           "_extra": Lexeme {
             "_coluna": 0,
             "_linha": 0,
-            "_palavra": "variaveis",
+            "_palavra": "VAR",
             "_token": Token {
               "_classe": "comando",
               "_lexemas": [
                 [Circular],
               ],
-              "_subclasse": "vari",
+              "_subclasse": "VAR",
             },
           },
           "_nos": [],
-          "_simbolo": "comando-vari",
+          "_simbolo": "comando-VAR",
         },
         Tree {
           "_extra": null,
@@ -57,13 +57,13 @@ Tree {
                           "_token": [Circular],
                         },
                         Lexeme {
-                          "_coluna": 12,
+                          "_coluna": 11,
                           "_linha": 6,
                           "_palavra": "var",
                           "_token": [Circular],
                         },
                         Lexeme {
-                          "_coluna": 18,
+                          "_coluna": 17,
                           "_linha": 6,
                           "_palavra": "hugo",
                           "_token": [Circular],
@@ -153,7 +153,7 @@ Tree {
                           "_token": [Circular],
                         },
                         Lexeme {
-                          "_coluna": 22,
+                          "_coluna": 21,
                           "_linha": 6,
                           "_palavra": ";",
                           "_token": [Circular],
@@ -202,13 +202,13 @@ Tree {
                               "_token": [Circular],
                             },
                             Lexeme {
-                              "_coluna": 12,
+                              "_coluna": 11,
                               "_linha": 6,
                               "_palavra": "var",
                               "_token": [Circular],
                             },
                             Lexeme {
-                              "_coluna": 18,
+                              "_coluna": 17,
                               "_linha": 6,
                               "_palavra": "hugo",
                               "_token": [Circular],
@@ -298,7 +298,7 @@ Tree {
                               "_token": [Circular],
                             },
                             Lexeme {
-                              "_coluna": 22,
+                              "_coluna": 21,
                               "_linha": 6,
                               "_palavra": ";",
                               "_token": [Circular],
@@ -329,17 +329,17 @@ Tree {
           "_extra": Lexeme {
             "_coluna": 0,
             "_linha": 3,
-            "_palavra": "inicio",
+            "_palavra": "BEGIN",
             "_token": Token {
               "_classe": "comando",
               "_lexemas": [
                 [Circular],
               ],
-              "_subclasse": "inic",
+              "_subclasse": "BEGIN",
             },
           },
           "_nos": [],
-          "_simbolo": "comando-inic",
+          "_simbolo": "comando-BEGIN",
         },
         Tree {
           "_extra": null,
@@ -384,13 +384,13 @@ Tree {
                                       "_token": [Circular],
                                     },
                                     Lexeme {
-                                      "_coluna": 12,
+                                      "_coluna": 11,
                                       "_linha": 6,
                                       "_palavra": "var",
                                       "_token": [Circular],
                                     },
                                     Lexeme {
-                                      "_coluna": 18,
+                                      "_coluna": 17,
                                       "_linha": 6,
                                       "_palavra": "hugo",
                                       "_token": [Circular],
@@ -504,7 +504,7 @@ Tree {
                                       "_token": [Circular],
                                     },
                                     Lexeme {
-                                      "_coluna": 22,
+                                      "_coluna": 21,
                                       "_linha": 6,
                                       "_palavra": ";",
                                       "_token": [Circular],
@@ -559,13 +559,13 @@ Tree {
                                 },
                                 [Circular],
                                 Lexeme {
-                                  "_coluna": 12,
+                                  "_coluna": 11,
                                   "_linha": 6,
                                   "_palavra": "var",
                                   "_token": [Circular],
                                 },
                                 Lexeme {
-                                  "_coluna": 18,
+                                  "_coluna": 17,
                                   "_linha": 6,
                                   "_palavra": "hugo",
                                   "_token": [Circular],
@@ -679,7 +679,7 @@ Tree {
                                 },
                                 [Circular],
                                 Lexeme {
-                                  "_coluna": 22,
+                                  "_coluna": 21,
                                   "_linha": 6,
                                   "_palavra": ";",
                                   "_token": [Circular],
@@ -710,17 +710,17 @@ Tree {
                       "_extra": Lexeme {
                         "_coluna": 4,
                         "_linha": 6,
-                        "_palavra": "retorne",
+                        "_palavra": "return",
                         "_token": Token {
                           "_classe": "comando",
                           "_lexemas": [
                             [Circular],
                           ],
-                          "_subclasse": "reto",
+                          "_subclasse": "return",
                         },
                       },
                       "_nos": [],
-                      "_simbolo": "comando-reto",
+                      "_simbolo": "comando-return",
                     },
                     Tree {
                       "_extra": null,
@@ -739,7 +739,7 @@ Tree {
                                       "_nos": [
                                         Tree {
                                           "_extra": Lexeme {
-                                            "_coluna": 12,
+                                            "_coluna": 11,
                                             "_linha": 6,
                                             "_palavra": "var",
                                             "_token": Token {
@@ -771,7 +771,7 @@ Tree {
                                                 },
                                                 [Circular],
                                                 Lexeme {
-                                                  "_coluna": 18,
+                                                  "_coluna": 17,
                                                   "_linha": 6,
                                                   "_palavra": "hugo",
                                                   "_token": [Circular],
@@ -794,7 +794,7 @@ Tree {
                             },
                             Tree {
                               "_extra": Lexeme {
-                                "_coluna": 16,
+                                "_coluna": 15,
                                 "_linha": 6,
                                 "_palavra": "+",
                                 "_token": Token {
@@ -816,7 +816,7 @@ Tree {
                                   "_nos": [
                                     Tree {
                                       "_extra": Lexeme {
-                                        "_coluna": 18,
+                                        "_coluna": 17,
                                         "_linha": 6,
                                         "_palavra": "hugo",
                                         "_token": Token {
@@ -847,7 +847,7 @@ Tree {
                                               "_token": [Circular],
                                             },
                                             Lexeme {
-                                              "_coluna": 12,
+                                              "_coluna": 11,
                                               "_linha": 6,
                                               "_palavra": "var",
                                               "_token": [Circular],
@@ -874,7 +874,7 @@ Tree {
                     },
                     Tree {
                       "_extra": Lexeme {
-                        "_coluna": 22,
+                        "_coluna": 21,
                         "_linha": 6,
                         "_palavra": ";",
                         "_token": Token {
@@ -925,17 +925,17 @@ Tree {
           "_extra": Lexeme {
             "_coluna": 0,
             "_linha": 7,
-            "_palavra": "fim",
+            "_palavra": "END.",
             "_token": Token {
               "_classe": "comando",
               "_lexemas": [
                 [Circular],
               ],
-              "_subclasse": "fim",
+              "_subclasse": "END.",
             },
           },
           "_nos": [],
-          "_simbolo": "comando-fim",
+          "_simbolo": "comando-END.",
         },
       ],
       "_simbolo": "<statement_part>",
@@ -995,13 +995,13 @@ exports[`CompilerExpressions Generic test 2`] = `
                 "_token": [Circular],
               },
               Lexeme {
-                "_coluna": 12,
+                "_coluna": 11,
                 "_linha": 6,
                 "_palavra": "var",
                 "_token": [Circular],
               },
               Lexeme {
-                "_coluna": 18,
+                "_coluna": 17,
                 "_linha": 6,
                 "_palavra": "hugo",
                 "_token": [Circular],
@@ -1086,13 +1086,13 @@ exports[`CompilerExpressions Generic test 2`] = `
               },
               [Circular],
               Lexeme {
-                "_coluna": 12,
+                "_coluna": 11,
                 "_linha": 6,
                 "_palavra": "var",
                 "_token": [Circular],
               },
               Lexeme {
-                "_coluna": 18,
+                "_coluna": 17,
                 "_linha": 6,
                 "_palavra": "hugo",
                 "_token": [Circular],
@@ -1133,19 +1133,19 @@ exports[`CompilerExpressions Generic test 2`] = `
     "_extra": Lexeme {
       "_coluna": 4,
       "_linha": 6,
-      "_palavra": "retorne",
+      "_palavra": "return",
       "_token": Token {
         "_classe": "comando",
         "_lexemas": [
           [Circular],
         ],
-        "_subclasse": "reto",
+        "_subclasse": "return",
       },
     },
     "_nos": [
       Tree {
         "_extra": Lexeme {
-          "_coluna": 16,
+          "_coluna": 15,
           "_linha": 6,
           "_palavra": "+",
           "_token": Token {
@@ -1159,7 +1159,7 @@ exports[`CompilerExpressions Generic test 2`] = `
         "_nos": [
           Tree {
             "_extra": Lexeme {
-              "_coluna": 12,
+              "_coluna": 11,
               "_linha": 6,
               "_palavra": "var",
               "_token": Token {
@@ -1191,7 +1191,7 @@ exports[`CompilerExpressions Generic test 2`] = `
                   },
                   [Circular],
                   Lexeme {
-                    "_coluna": 18,
+                    "_coluna": 17,
                     "_linha": 6,
                     "_palavra": "hugo",
                     "_token": [Circular],
@@ -1205,7 +1205,7 @@ exports[`CompilerExpressions Generic test 2`] = `
           },
           Tree {
             "_extra": Lexeme {
-              "_coluna": 18,
+              "_coluna": 17,
               "_linha": 6,
               "_palavra": "hugo",
               "_token": Token {
@@ -1236,7 +1236,7 @@ exports[`CompilerExpressions Generic test 2`] = `
                     "_token": [Circular],
                   },
                   Lexeme {
-                    "_coluna": 12,
+                    "_coluna": 11,
                     "_linha": 6,
                     "_palavra": "var",
                     "_token": [Circular],
@@ -1253,7 +1253,7 @@ exports[`CompilerExpressions Generic test 2`] = `
         "_simbolo": "+",
       },
     ],
-    "_simbolo": "retorne",
+    "_simbolo": "return",
   },
 ]
 `;
@@ -1291,13 +1291,13 @@ exports[`CompilerExpressions Generic test 3`] = `
           "_token": [Circular],
         },
         Lexeme {
-          "_coluna": 12,
+          "_coluna": 11,
           "_linha": 6,
           "_palavra": "var",
           "_token": [Circular],
         },
         Lexeme {
-          "_coluna": 18,
+          "_coluna": 17,
           "_linha": 6,
           "_palavra": "hugo",
           "_token": [Circular],
@@ -1337,13 +1337,13 @@ exports[`CompilerExpressions Generic test 3`] = `
           "_token": [Circular],
         },
         Lexeme {
-          "_coluna": 12,
+          "_coluna": 11,
           "_linha": 6,
           "_palavra": "var",
           "_token": [Circular],
         },
         Lexeme {
-          "_coluna": 18,
+          "_coluna": 17,
           "_linha": 6,
           "_palavra": "hugo",
           "_token": [Circular],
@@ -1416,8 +1416,8 @@ exports[`CompilerExpressions Generic test 4`] = `
       "_arguments": [
         "<2>",
       ],
-      "_operand": "retorne",
-      "_operator": "retorne",
+      "_operand": "return",
+      "_operator": "return",
     },
   ],
 ]
@@ -1456,8 +1456,8 @@ exports[`CompilerExpressions Generic test 5`] = `
       "_arguments": [
         "<0>",
       ],
-      "_operand": "retorne",
-      "_operator": "retorne",
+      "_operand": "return",
+      "_operator": "return",
     },
   ],
 ]
@@ -1472,10 +1472,10 @@ exports[`CompilerExpressions Generic test 6`] = `
           "children": [
             {
               "children": [],
-              "name": "variaveis",
+              "name": "VAR",
             },
           ],
-          "name": "comando-vari",
+          "name": "comando-VAR",
         },
         {
           "children": [
@@ -1588,10 +1588,10 @@ exports[`CompilerExpressions Generic test 6`] = `
           "children": [
             {
               "children": [],
-              "name": "inicio",
+              "name": "BEGIN",
             },
           ],
-          "name": "comando-inic",
+          "name": "comando-BEGIN",
         },
         {
           "children": [
@@ -1755,10 +1755,10 @@ exports[`CompilerExpressions Generic test 6`] = `
                       "children": [
                         {
                           "children": [],
-                          "name": "retorne",
+                          "name": "return",
                         },
                       ],
-                      "name": "comando-reto",
+                      "name": "comando-return",
                     },
                     {
                       "children": [
@@ -1844,10 +1844,10 @@ exports[`CompilerExpressions Generic test 6`] = `
           "children": [
             {
               "children": [],
-              "name": "fim",
+              "name": "END.",
             },
           ],
-          "name": "comando-fim",
+          "name": "comando-END.",
         },
       ],
       "name": "<statement_part>",

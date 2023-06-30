@@ -12,8 +12,8 @@ describe('CompilerExpressions', () => {
 BEGIN
     var = 0;
     hugo = 10;
-    retorne var + hugo;
-END`
+    return var + hugo;
+END.`
 
     const arvoreSintatica = new Pipeline1(sourceCode).start();
 
