@@ -76,8 +76,8 @@ const CompilerExpressions = () => {
 BEGIN
     var = 0;
     hugo = 10;
-    retorne var + hugo;
-END`}
+    return var + hugo;
+END.`}
         onSubmit={onSubmit}
       />
 

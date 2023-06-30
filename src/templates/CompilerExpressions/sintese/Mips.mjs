@@ -40,7 +40,7 @@ export default class Mips {
             const args = this._parsearArgumentos(inst.args);
             this._liberarRegistradoresSemUso(instrucoes);
 
-            if (inst.operador !== 'retorne') {
+            if (inst.operador !== 'return') {
 
                 const operando = this._parsearOperando(inst.operando);
 

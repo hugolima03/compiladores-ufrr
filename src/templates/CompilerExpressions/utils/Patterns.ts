@@ -3,7 +3,7 @@ export const patterns = {
     especiais: ["=", "(", ")", ",", ":", ";"],
 
     nomeEscalares: ["int"],
-    palavras: ["VAR", "BEGIN", "END", "retorne"],
+    palavras: ["VAR", "BEGIN", "END.", "return"],
 
     stringLiteral: "([\"'])(?:(?=(\\\\?))\\2.)*?\\1",
     intLiteral: /^[1-9][0-9]*|0([1-7][0-7]*|x[0-9a-zA-Z]+)?$/,

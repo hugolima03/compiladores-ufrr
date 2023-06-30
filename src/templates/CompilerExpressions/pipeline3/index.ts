@@ -55,7 +55,7 @@ export default class Pipeline3 {
       case "=":
         return this._parsearAtribuicao(comando);
         break;
-      case "retorne":
+      case "return":
         return this._parsearRetorne(comando);
         break;
     }
@@ -80,7 +80,7 @@ export default class Pipeline3 {
 
     const instrucoes = this._parseExpression(retorne.nos[0]);
     return [
-      new Instruction("retorne", retorne.simbolo, [instrucoes[0].operand]),
+      new Instruction("return", retorne.simbolo, [instrucoes[0].operand]),
       ...instrucoes,
     ].reverse();
   }
@@ -173,7 +173,7 @@ export default class Pipeline3 {
 
   _optimizeMathOperations(instrucoes: Instruction[]) {
     for (const inst of instrucoes) {
-      if (inst.operator === "retorne") continue;
+      if (inst.operator === "return") continue;
       if (inst.operator === "=") continue;
 
       const args = inst.args;

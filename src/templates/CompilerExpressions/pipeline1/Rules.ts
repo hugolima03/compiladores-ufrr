@@ -31,8 +31,8 @@ const grammar = new Grammar({
     // Bloco de código principal
     // Padrão: "inicio ... fim"
     '<bloco_principal>': [
-        'comando-BEGIN <lista_comando> comando-END',
-        'comando-BEGIN comando-END'
+        'comando-BEGIN <lista_comando> comando-END.',
+        'comando-BEGIN comando-END.'
     ],
 
     // Lista de comandos
@@ -45,7 +45,7 @@ const grammar = new Grammar({
 
     // Retorno de valor e encerramento
     // Padrão: retorne ... ;
-    '<retorne_principal>': ['comando-retorne <retorno_valor> especial-del'],
+    '<retorne_principal>': ['comando-return <retorno_valor> especial-del'],
 
     '<retorno_valor>': ['<expressao>'],
 
