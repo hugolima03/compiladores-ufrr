@@ -6,14 +6,14 @@ import Pipeline3 from "./pipeline3";
 
 describe('CompilerExpressions', () => {
   it('Generic test', () => {
-    const sourceCode = `variaveis
+    const sourceCode = `VAR
     var: int;
     hugo: int;
-inicio
+BEGIN
     var = 0;
     hugo = 10;
     retorne var + hugo;
-fim`
+END`
 
     const arvoreSintatica = new Pipeline1(sourceCode).start();
 

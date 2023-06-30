@@ -17,7 +17,7 @@ const grammar = new Grammar({
 
     // Bloco de declaração de variáveis
     // Padrão: "var: ..."
-    '<bloco_declaracao>': ['comando-vari <lista_declaracao>'],
+    '<bloco_declaracao>': ['comando-VAR <lista_declaracao>'],
     '<lista_declaracao>': [
         '<declaracao> <lista_declaracao>',
         '<declaracao>'
@@ -31,8 +31,8 @@ const grammar = new Grammar({
     // Bloco de código principal
     // Padrão: "inicio ... fim"
     '<bloco_principal>': [
-        'comando-inic <lista_comando> comando-fim',
-        'comando-inic comando-fim'
+        'comando-BEGIN <lista_comando> comando-END',
+        'comando-BEGIN comando-END'
     ],
 
     // Lista de comandos
@@ -45,7 +45,7 @@ const grammar = new Grammar({
 
     // Retorno de valor e encerramento
     // Padrão: retorne ... ;
-    '<retorne_principal>': ['comando-reto <retorno_valor> especial-del'],
+    '<retorne_principal>': ['comando-retorne <retorno_valor> especial-del'],
 
     '<retorno_valor>': ['<expressao>'],
 

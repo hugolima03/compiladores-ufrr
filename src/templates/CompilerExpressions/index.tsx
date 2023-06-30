@@ -70,14 +70,14 @@ const CompilerExpressions = () => {
     <S.Container>
       <CodeEditor
         title="CompilerExpressions"
-        defaultValue={`variaveis
+        defaultValue={`VAR
     var: int;
     hugo: int;
-inicio
+BEGIN
     var = 0;
     hugo = 10;
     retorne var + hugo;
-fim`}
+END`}
         onSubmit={onSubmit}
       />
 

@@ -3,7 +3,7 @@ export const patterns = {
     especiais: ["=", "(", ")", ",", ":", ";"],
 
     nomeEscalares: ["int"],
-    palavras: ["variaveis", "inicio", "fim", "retorne"],
+    palavras: ["VAR", "BEGIN", "END", "retorne"],
 
     stringLiteral: "([\"'])(?:(?=(\\\\?))\\2.)*?\\1",
     intLiteral: /^[1-9][0-9]*|0([1-7][0-7]*|x[0-9a-zA-Z]+)?$/,
@@ -42,7 +42,10 @@ export const getTokenClass = (lexema: string) => {
 export const tokenSubClass = {
     "nome-escalar": (s: string) =>
         patterns.nomeEscalares.find((t) => t === s)?.substr(0, 4),
-    comando: (s: string) => patterns.palavras.find((t) => t === s)?.substr(0, 4),
+    comando: (s: string) => {
+        console.log(patterns.palavras.find((t) => t === s)?.substr(0, 4))
+        return patterns.palavras.find((t) => t === s)
+    },
     "op-aritmetico": (s: string) => {
         return {
             "+": "adi",
@@ -71,7 +74,6 @@ export const getTokenSubClass = (lexema: string, classe: string) => {
     return tokenSubClass[classe as keyof typeof tokenSubClass](lexema);
 };
 
-
 export type Automaton = {
     name: string;
     states: { label: string; value: number }[];
@@ -84,7 +86,9 @@ export type Automaton = {
 const reconizeSentence = (sentence: string, automaton: Automaton): boolean => {
     let currentState = automaton.initialState;
     for (let i = 0; i < sentence.length; i++) {
-        const char = automaton.alphabet.find((t) => t.label === sentence.charAt(i))?.value;
+        const char = automaton.alphabet.find(
+            (t) => t.label === sentence.charAt(i)
+        )?.value;
         if (currentState !== undefined && char !== undefined) {
             currentState = automaton.transitions[char][currentState];
         } else {
@@ -92,10 +96,10 @@ const reconizeSentence = (sentence: string, automaton: Automaton): boolean => {
         }
     }
     if (automaton.finalStates.includes(currentState)) {
-        return true
+        return true;
     }
-    return false
-}
+    return false;
+};
 
 const automaton = {
     name: "literal-int",
