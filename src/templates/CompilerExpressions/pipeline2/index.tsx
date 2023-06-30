@@ -186,7 +186,7 @@ export default class Pipeline2 {
           expressions.push(this._validateReturn(c.nos[0]));
           break;
         default:
-          throw ErroSemantico("", "comando-invalido");
+          throw ErroSemantico("", "command-invalido");
       }
     }
 

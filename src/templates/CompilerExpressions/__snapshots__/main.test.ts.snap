@@ -21,7 +21,7 @@ Tree {
             },
           },
           "_nos": [],
-          "_simbolo": "comando-VAR",
+          "_simbolo": "command-VAR",
         },
         Tree {
           "_extra": null,
@@ -339,7 +339,7 @@ Tree {
             },
           },
           "_nos": [],
-          "_simbolo": "comando-BEGIN",
+          "_simbolo": "command-BEGIN",
         },
         Tree {
           "_extra": null,
@@ -720,7 +720,7 @@ Tree {
                         },
                       },
                       "_nos": [],
-                      "_simbolo": "comando-return",
+                      "_simbolo": "command-return",
                     },
                     Tree {
                       "_extra": null,
@@ -935,7 +935,7 @@ Tree {
             },
           },
           "_nos": [],
-          "_simbolo": "comando-END.",
+          "_simbolo": "command-END.",
         },
       ],
       "_simbolo": "<statement_part>",
@@ -1475,7 +1475,7 @@ exports[`CompilerExpressions Generic test 6`] = `
               "name": "VAR",
             },
           ],
-          "name": "comando-VAR",
+          "name": "command-VAR",
         },
         {
           "children": [
@@ -1591,7 +1591,7 @@ exports[`CompilerExpressions Generic test 6`] = `
               "name": "BEGIN",
             },
           ],
-          "name": "comando-BEGIN",
+          "name": "command-BEGIN",
         },
         {
           "children": [
@@ -1758,7 +1758,7 @@ exports[`CompilerExpressions Generic test 6`] = `
                           "name": "return",
                         },
                       ],
-                      "name": "comando-return",
+                      "name": "command-return",
                     },
                     {
                       "children": [
@@ -1847,7 +1847,7 @@ exports[`CompilerExpressions Generic test 6`] = `
               "name": "END.",
             },
           ],
-          "name": "comando-END.",
+          "name": "command-END.",
         },
       ],
       "name": "<statement_part>",
