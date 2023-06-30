@@ -53,7 +53,6 @@ export const tokenSubClass = {
         }[s];
     },
     symbol: (s: string) => {
-        console.log(s);
         return {
             "=": "atr",
             "(": "apa",
