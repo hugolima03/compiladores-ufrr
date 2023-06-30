@@ -48,7 +48,7 @@ export default class Pipeline2 {
 
     const declaracoes = bloco[0].findAllNodes("<variable_declaration>");
     for (const dec of declaracoes) {
-      const id = dec.findAllNodes("identificador", 1)[0];
+      const id = dec.findAllNodes("identifier", 1)[0];
       const tipo = dec.findAllNodes("<type>")[0].nos[0];
 
       if (this._isUndefined(id.extra?.palavra)) {
@@ -66,7 +66,7 @@ export default class Pipeline2 {
   }
 
   _validateAssignment(atribuicao: Tree) {
-    const id = atribuicao.findAllNodes("identificador", 1)[0];
+    const id = atribuicao.findAllNodes("identifier", 1)[0];
     const variavel = this._validateIdentifier(id);
 
     const esquerda = new Tree(id.extra!.palavra);
@@ -146,7 +146,7 @@ export default class Pipeline2 {
   _validateExpressionFator(fator: Tree, tipo: string): Tree {
     const nos = fator.nos;
 
-    if (nos[0].simbolo === "identificador") {
+    if (nos[0].simbolo === "identifier") {
       this._validateIdentifier(nos[0], tipo);
       const atual = new Tree(nos[0].extra!.palavra);
       atual.extra = nos[0].extra;

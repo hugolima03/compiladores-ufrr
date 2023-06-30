@@ -6,7 +6,7 @@ import { Tree } from "../pipeline1/Tree";
 
 type TokenType =
   | "literal-int"
-  | "identificador"
+  | "identifier"
   | "op-aritmetico-sub"
   | "op-aritmetico-adi"
   | "op-aritmetico-mul"
@@ -91,7 +91,7 @@ export default class Pipeline3 {
 
     switch (token.tipo as TokenType) {
       case "literal-int":
-      case "identificador":
+      case "identifier":
         return [
           new Instruction("=", this._generateTempVar(), [expressao.simbolo]),
         ];
