@@ -1,9 +1,8 @@
 import { Lexeme } from "../pipeline1/Lexeme";
-
-export type CustomError = { detalhes?: { encontrado: Lexeme } } & Error
+import { CustomError } from "./ErroSemantico";
 
 export default function ErroLexico(encontrado: Lexeme) {
     const exc: CustomError = new Error('Erro léxico');
-    exc.detalhes = { encontrado: encontrado };
+    exc.message = `Erro léxico! Linha ${encontrado._linha + 1} coluna ${encontrado._coluna + 1}`;
     return exc;
 }

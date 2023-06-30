@@ -20,6 +20,9 @@ import Pipeline2 from "./pipeline2";
 import Pipeline3 from "./pipeline3";
 
 import Instrucao from "./pipeline3/Instruction";
+import { CustomError } from "./exception/ErroSemantico";
+import { Warning } from "@styled-icons/entypo";
+import { ErrorItem, ErrorsWrapper } from "components/CodeEditor/styles";
 
 const CompilerExpressions = () => {
   const tree = useRef<HTMLDivElement>(null);
@@ -32,38 +35,34 @@ const CompilerExpressions = () => {
     Instrucao[][] | null
   >(null);
 
+  const [error, setError] = useState<string | null>(null);
+
   function onSubmit(sourceCode: string) {
-    const syntaxTree = new Pipeline1(sourceCode).start();
+    try {
+      const syntaxTree = new Pipeline1(sourceCode).start();
 
-    const { expressions, tabelaDeSimbolos } = new Pipeline2(
-      syntaxTree!
-    ).start();
+      const { expressions, tabelaDeSimbolos } = new Pipeline2(
+        syntaxTree!
+      ).start();
 
-    const { nonOptimizedInstructions, optimizedInstructions } = new Pipeline3(
-      expressions
-    ).start();
+      const { nonOptimizedInstructions, optimizedInstructions } = new Pipeline3(
+        expressions
+      ).start();
 
-    
-    // console.log(sintatico);
-    // console.log(arvoreSintatica);
-    // console.log(semantico);
-    // console.log(expressions);
-    // console.log(tabelaDeSimbolos);
-    // console.log(intermediario);
-    // console.log(gerados);
-    // console.log(optimizados);
-    // console.log(mips);
-    // console.log(gerados);
-    // console.log(optimizados);
-    // console.log(mips);
-    const d3tree = getReactD3Tree(syntaxTree!);
-    setSyntaxTree(d3tree);
-    setSymbolTable(tabelaDeSimbolos);
-    setNonOptimizedInstructions(
-      nonOptimizedInstructions.filter((g) => Array.isArray(g))
-    );
-    setOptimizedInstructions(optimizedInstructions);
-    tree.current?.scrollIntoView();
+      const d3tree = getReactD3Tree(syntaxTree!);
+      setSyntaxTree(d3tree);
+      setSymbolTable(tabelaDeSimbolos);
+      setNonOptimizedInstructions(
+        nonOptimizedInstructions.filter((g) => Array.isArray(g))
+      );
+      setOptimizedInstructions(optimizedInstructions);
+      tree.current?.scrollIntoView();
+
+      setError(null);
+    } catch (err) {
+      const error = err as CustomError;
+      setError(error.message);
+    }
   }
 
   return (
@@ -82,6 +81,15 @@ BEGIN
 END.`}
         onSubmit={onSubmit}
       />
+
+      {error ? (
+        <ErrorsWrapper>
+          <ErrorItem type="compilation">
+            <Warning />
+            <p>{error}</p>
+          </ErrorItem>
+        </ErrorsWrapper>
+      ) : null}
 
       <h2>Árvore sintática</h2>
 
