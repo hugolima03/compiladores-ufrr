@@ -7,11 +7,11 @@ import { Tree } from "../pipeline1/Tree";
 type TokenType =
   | "literal-int"
   | "identifier"
-  | "op-aritmetico-sub"
-  | "op-aritmetico-adi"
-  | "op-aritmetico-mul"
-  | "op-aritmetico-div"
-  | "op-aritmetico-mod";
+  | "op-arithmetic-sub"
+  | "op-arithmetic-adi"
+  | "op-arithmetic-mul"
+  | "op-arithmetic-div"
+  | "op-arithmetic-mod";
 
 export default class Pipeline3 {
   _temp: number;
@@ -97,7 +97,7 @@ export default class Pipeline3 {
         ];
         break;
 
-      case "op-aritmetico-sub":
+      case "op-arithmetic-sub":
         if (nos.length === 1) {
           const filho = this._parseExpression(nos[0]);
           return [
@@ -107,10 +107,10 @@ export default class Pipeline3 {
             ...filho,
           ];
         }
-      case "op-aritmetico-adi":
-      case "op-aritmetico-mul":
-      case "op-aritmetico-div":
-      case "op-aritmetico-mod":
+      case "op-arithmetic-adi":
+      case "op-arithmetic-mul":
+      case "op-arithmetic-div":
+      case "op-arithmetic-mod":
         const dir = this._parseExpression(nos[1]);
         const esq = this._parseExpression(nos[0]);
         return [

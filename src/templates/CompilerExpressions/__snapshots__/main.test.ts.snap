@@ -13,7 +13,7 @@ Tree {
             "_linha": 0,
             "_palavra": "VAR",
             "_token": Token {
-              "_classe": "comando",
+              "_classe": "command",
               "_lexemas": [
                 [Circular],
               ],
@@ -35,7 +35,7 @@ Tree {
                     "_linha": 1,
                     "_palavra": "var",
                     "_token": Token {
-                      "_classe": "identificador",
+                      "_classe": "identifier",
                       "_lexemas": [
                         [Circular],
                         Lexeme {
@@ -73,7 +73,7 @@ Tree {
                     },
                   },
                   "_nos": [],
-                  "_simbolo": "identificador",
+                  "_simbolo": "identifier",
                 },
                 Tree {
                   "_extra": Lexeme {
@@ -81,7 +81,7 @@ Tree {
                     "_linha": 1,
                     "_palavra": ":",
                     "_token": Token {
-                      "_classe": "especial",
+                      "_classe": "symbol",
                       "_lexemas": [
                         [Circular],
                         Lexeme {
@@ -91,7 +91,7 @@ Tree {
                           "_token": [Circular],
                         },
                       ],
-                      "_subclasse": "dpo",
+                      "_subclasse": "colon",
                     },
                   },
                   "_nos": [],
@@ -131,7 +131,7 @@ Tree {
                     "_linha": 1,
                     "_palavra": ";",
                     "_token": Token {
-                      "_classe": "especial",
+                      "_classe": "symbol",
                       "_lexemas": [
                         [Circular],
                         Lexeme {
@@ -159,7 +159,7 @@ Tree {
                           "_token": [Circular],
                         },
                       ],
-                      "_subclasse": "del",
+                      "_subclasse": "delimiter",
                     },
                   },
                   "_nos": [],
@@ -180,7 +180,7 @@ Tree {
                         "_linha": 2,
                         "_palavra": "hugo",
                         "_token": Token {
-                          "_classe": "identificador",
+                          "_classe": "identifier",
                           "_lexemas": [
                             Lexeme {
                               "_coluna": 4,
@@ -218,7 +218,7 @@ Tree {
                         },
                       },
                       "_nos": [],
-                      "_simbolo": "identificador",
+                      "_simbolo": "identifier",
                     },
                     Tree {
                       "_extra": Lexeme {
@@ -226,7 +226,7 @@ Tree {
                         "_linha": 2,
                         "_palavra": ":",
                         "_token": Token {
-                          "_classe": "especial",
+                          "_classe": "symbol",
                           "_lexemas": [
                             Lexeme {
                               "_coluna": 7,
@@ -236,7 +236,7 @@ Tree {
                             },
                             [Circular],
                           ],
-                          "_subclasse": "dpo",
+                          "_subclasse": "colon",
                         },
                       },
                       "_nos": [],
@@ -276,7 +276,7 @@ Tree {
                         "_linha": 2,
                         "_palavra": ";",
                         "_token": Token {
-                          "_classe": "especial",
+                          "_classe": "symbol",
                           "_lexemas": [
                             Lexeme {
                               "_coluna": 12,
@@ -304,7 +304,7 @@ Tree {
                               "_token": [Circular],
                             },
                           ],
-                          "_subclasse": "del",
+                          "_subclasse": "delimiter",
                         },
                       },
                       "_nos": [],
@@ -331,7 +331,7 @@ Tree {
             "_linha": 3,
             "_palavra": "BEGIN",
             "_token": Token {
-              "_classe": "comando",
+              "_classe": "command",
               "_lexemas": [
                 [Circular],
               ],
@@ -362,7 +362,7 @@ Tree {
                                 "_linha": 4,
                                 "_palavra": "var",
                                 "_token": Token {
-                                  "_classe": "identificador",
+                                  "_classe": "identifier",
                                   "_lexemas": [
                                     Lexeme {
                                       "_coluna": 4,
@@ -400,7 +400,7 @@ Tree {
                                 },
                               },
                               "_nos": [],
-                              "_simbolo": "identificador",
+                              "_simbolo": "identifier",
                             },
                             Tree {
                               "_extra": Lexeme {
@@ -408,7 +408,7 @@ Tree {
                                 "_linha": 4,
                                 "_palavra": "=",
                                 "_token": Token {
-                                  "_classe": "especial",
+                                  "_classe": "symbol",
                                   "_lexemas": [
                                     [Circular],
                                     Lexeme {
@@ -465,10 +465,10 @@ Tree {
                                               "_simbolo": "<literal>",
                                             },
                                           ],
-                                          "_simbolo": "<expressao_fator>",
+                                          "_simbolo": "<expression_factor>",
                                         },
                                       ],
-                                      "_simbolo": "<expressao_termo>",
+                                      "_simbolo": "<term_expression>",
                                     },
                                   ],
                                   "_simbolo": "<expression>",
@@ -482,7 +482,7 @@ Tree {
                                 "_linha": 4,
                                 "_palavra": ";",
                                 "_token": Token {
-                                  "_classe": "especial",
+                                  "_classe": "symbol",
                                   "_lexemas": [
                                     Lexeme {
                                       "_coluna": 12,
@@ -510,7 +510,7 @@ Tree {
                                       "_token": [Circular],
                                     },
                                   ],
-                                  "_subclasse": "del",
+                                  "_subclasse": "delimiter",
                                 },
                               },
                               "_nos": [],
@@ -537,7 +537,7 @@ Tree {
                             "_linha": 5,
                             "_palavra": "hugo",
                             "_token": Token {
-                              "_classe": "identificador",
+                              "_classe": "identifier",
                               "_lexemas": [
                                 Lexeme {
                                   "_coluna": 4,
@@ -575,7 +575,7 @@ Tree {
                             },
                           },
                           "_nos": [],
-                          "_simbolo": "identificador",
+                          "_simbolo": "identifier",
                         },
                         Tree {
                           "_extra": Lexeme {
@@ -583,7 +583,7 @@ Tree {
                             "_linha": 5,
                             "_palavra": "=",
                             "_token": Token {
-                              "_classe": "especial",
+                              "_classe": "symbol",
                               "_lexemas": [
                                 Lexeme {
                                   "_coluna": 8,
@@ -640,10 +640,10 @@ Tree {
                                           "_simbolo": "<literal>",
                                         },
                                       ],
-                                      "_simbolo": "<expressao_fator>",
+                                      "_simbolo": "<expression_factor>",
                                     },
                                   ],
-                                  "_simbolo": "<expressao_termo>",
+                                  "_simbolo": "<term_expression>",
                                 },
                               ],
                               "_simbolo": "<expression>",
@@ -657,7 +657,7 @@ Tree {
                             "_linha": 5,
                             "_palavra": ";",
                             "_token": Token {
-                              "_classe": "especial",
+                              "_classe": "symbol",
                               "_lexemas": [
                                 Lexeme {
                                   "_coluna": 12,
@@ -685,7 +685,7 @@ Tree {
                                   "_token": [Circular],
                                 },
                               ],
-                              "_subclasse": "del",
+                              "_subclasse": "delimiter",
                             },
                           },
                           "_nos": [],
@@ -712,7 +712,7 @@ Tree {
                         "_linha": 6,
                         "_palavra": "return",
                         "_token": Token {
-                          "_classe": "comando",
+                          "_classe": "command",
                           "_lexemas": [
                             [Circular],
                           ],
@@ -743,7 +743,7 @@ Tree {
                                             "_linha": 6,
                                             "_palavra": "var",
                                             "_token": Token {
-                                              "_classe": "identificador",
+                                              "_classe": "identifier",
                                               "_lexemas": [
                                                 Lexeme {
                                                   "_coluna": 4,
@@ -781,13 +781,13 @@ Tree {
                                             },
                                           },
                                           "_nos": [],
-                                          "_simbolo": "identificador",
+                                          "_simbolo": "identifier",
                                         },
                                       ],
-                                      "_simbolo": "<expressao_fator>",
+                                      "_simbolo": "<expression_factor>",
                                     },
                                   ],
-                                  "_simbolo": "<expressao_termo>",
+                                  "_simbolo": "<term_expression>",
                                 },
                               ],
                               "_simbolo": "<expression>",
@@ -798,7 +798,7 @@ Tree {
                                 "_linha": 6,
                                 "_palavra": "+",
                                 "_token": Token {
-                                  "_classe": "op-aritmetico",
+                                  "_classe": "op-arithmetic",
                                   "_lexemas": [
                                     [Circular],
                                   ],
@@ -806,7 +806,7 @@ Tree {
                                 },
                               },
                               "_nos": [],
-                              "_simbolo": "op-aritmetico-adi",
+                              "_simbolo": "op-arithmetic-adi",
                             },
                             Tree {
                               "_extra": null,
@@ -820,7 +820,7 @@ Tree {
                                         "_linha": 6,
                                         "_palavra": "hugo",
                                         "_token": Token {
-                                          "_classe": "identificador",
+                                          "_classe": "identifier",
                                           "_lexemas": [
                                             Lexeme {
                                               "_coluna": 4,
@@ -858,13 +858,13 @@ Tree {
                                         },
                                       },
                                       "_nos": [],
-                                      "_simbolo": "identificador",
+                                      "_simbolo": "identifier",
                                     },
                                   ],
-                                  "_simbolo": "<expressao_fator>",
+                                  "_simbolo": "<expression_factor>",
                                 },
                               ],
-                              "_simbolo": "<expressao_termo>",
+                              "_simbolo": "<term_expression>",
                             },
                           ],
                           "_simbolo": "<expression>",
@@ -878,7 +878,7 @@ Tree {
                         "_linha": 6,
                         "_palavra": ";",
                         "_token": Token {
-                          "_classe": "especial",
+                          "_classe": "symbol",
                           "_lexemas": [
                             Lexeme {
                               "_coluna": 12,
@@ -906,7 +906,7 @@ Tree {
                             },
                             [Circular],
                           ],
-                          "_subclasse": "del",
+                          "_subclasse": "delimiter",
                         },
                       },
                       "_nos": [],
@@ -927,7 +927,7 @@ Tree {
             "_linha": 7,
             "_palavra": "END.",
             "_token": Token {
-              "_classe": "comando",
+              "_classe": "command",
               "_lexemas": [
                 [Circular],
               ],
@@ -953,7 +953,7 @@ exports[`CompilerExpressions Generic test 2`] = `
       "_linha": 4,
       "_palavra": "=",
       "_token": Token {
-        "_classe": "especial",
+        "_classe": "symbol",
         "_lexemas": [
           [Circular],
           Lexeme {
@@ -973,7 +973,7 @@ exports[`CompilerExpressions Generic test 2`] = `
           "_linha": 4,
           "_palavra": "var",
           "_token": Token {
-            "_classe": "identificador",
+            "_classe": "identifier",
             "_lexemas": [
               Lexeme {
                 "_coluna": 4,
@@ -1044,7 +1044,7 @@ exports[`CompilerExpressions Generic test 2`] = `
       "_linha": 5,
       "_palavra": "=",
       "_token": Token {
-        "_classe": "especial",
+        "_classe": "symbol",
         "_lexemas": [
           Lexeme {
             "_coluna": 8,
@@ -1064,7 +1064,7 @@ exports[`CompilerExpressions Generic test 2`] = `
           "_linha": 5,
           "_palavra": "hugo",
           "_token": Token {
-            "_classe": "identificador",
+            "_classe": "identifier",
             "_lexemas": [
               Lexeme {
                 "_coluna": 4,
@@ -1135,7 +1135,7 @@ exports[`CompilerExpressions Generic test 2`] = `
       "_linha": 6,
       "_palavra": "return",
       "_token": Token {
-        "_classe": "comando",
+        "_classe": "command",
         "_lexemas": [
           [Circular],
         ],
@@ -1149,7 +1149,7 @@ exports[`CompilerExpressions Generic test 2`] = `
           "_linha": 6,
           "_palavra": "+",
           "_token": Token {
-            "_classe": "op-aritmetico",
+            "_classe": "op-arithmetic",
             "_lexemas": [
               [Circular],
             ],
@@ -1163,7 +1163,7 @@ exports[`CompilerExpressions Generic test 2`] = `
               "_linha": 6,
               "_palavra": "var",
               "_token": Token {
-                "_classe": "identificador",
+                "_classe": "identifier",
                 "_lexemas": [
                   Lexeme {
                     "_coluna": 4,
@@ -1209,7 +1209,7 @@ exports[`CompilerExpressions Generic test 2`] = `
               "_linha": 6,
               "_palavra": "hugo",
               "_token": Token {
-                "_classe": "identificador",
+                "_classe": "identifier",
                 "_lexemas": [
                   Lexeme {
                     "_coluna": 4,
@@ -1264,7 +1264,7 @@ exports[`CompilerExpressions Generic test 3`] = `
     "_nome": "var",
     "_tipo": "int",
     "_token": Token {
-      "_classe": "identificador",
+      "_classe": "identifier",
       "_lexemas": [
         Lexeme {
           "_coluna": 4,
@@ -1310,7 +1310,7 @@ exports[`CompilerExpressions Generic test 3`] = `
     "_nome": "hugo",
     "_tipo": "int",
     "_token": Token {
-      "_classe": "identificador",
+      "_classe": "identifier",
       "_lexemas": [
         Lexeme {
           "_coluna": 4,
@@ -1488,7 +1488,7 @@ exports[`CompilerExpressions Generic test 6`] = `
                       "name": "var",
                     },
                   ],
-                  "name": "identificador",
+                  "name": "identifier",
                 },
                 {
                   "children": [
@@ -1536,7 +1536,7 @@ exports[`CompilerExpressions Generic test 6`] = `
                           "name": "hugo",
                         },
                       ],
-                      "name": "identificador",
+                      "name": "identifier",
                     },
                     {
                       "children": [
@@ -1610,7 +1610,7 @@ exports[`CompilerExpressions Generic test 6`] = `
                                   "name": "var",
                                 },
                               ],
-                              "name": "identificador",
+                              "name": "identifier",
                             },
                             {
                               "children": [
@@ -1644,10 +1644,10 @@ exports[`CompilerExpressions Generic test 6`] = `
                                               "name": "<literal>",
                                             },
                                           ],
-                                          "name": "<expressao_fator>",
+                                          "name": "<expression_factor>",
                                         },
                                       ],
-                                      "name": "<expressao_termo>",
+                                      "name": "<term_expression>",
                                     },
                                   ],
                                   "name": "<expression>",
@@ -1684,7 +1684,7 @@ exports[`CompilerExpressions Generic test 6`] = `
                               "name": "hugo",
                             },
                           ],
-                          "name": "identificador",
+                          "name": "identifier",
                         },
                         {
                           "children": [
@@ -1718,10 +1718,10 @@ exports[`CompilerExpressions Generic test 6`] = `
                                           "name": "<literal>",
                                         },
                                       ],
-                                      "name": "<expressao_fator>",
+                                      "name": "<expression_factor>",
                                     },
                                   ],
-                                  "name": "<expressao_termo>",
+                                  "name": "<term_expression>",
                                 },
                               ],
                               "name": "<expression>",
@@ -1777,13 +1777,13 @@ exports[`CompilerExpressions Generic test 6`] = `
                                               "name": "var",
                                             },
                                           ],
-                                          "name": "identificador",
+                                          "name": "identifier",
                                         },
                                       ],
-                                      "name": "<expressao_fator>",
+                                      "name": "<expression_factor>",
                                     },
                                   ],
-                                  "name": "<expressao_termo>",
+                                  "name": "<term_expression>",
                                 },
                               ],
                               "name": "<expression>",
@@ -1795,7 +1795,7 @@ exports[`CompilerExpressions Generic test 6`] = `
                                   "name": "+",
                                 },
                               ],
-                              "name": "op-aritmetico-adi",
+                              "name": "op-arithmetic-adi",
                             },
                             {
                               "children": [
@@ -1808,13 +1808,13 @@ exports[`CompilerExpressions Generic test 6`] = `
                                           "name": "hugo",
                                         },
                                       ],
-                                      "name": "identificador",
+                                      "name": "identifier",
                                     },
                                   ],
-                                  "name": "<expressao_fator>",
+                                  "name": "<expression_factor>",
                                 },
                               ],
-                              "name": "<expressao_termo>",
+                              "name": "<term_expression>",
                             },
                           ],
                           "name": "<expression>",

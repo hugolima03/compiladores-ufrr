@@ -113,7 +113,7 @@ export default class Pipeline2 {
       return atual;
     }
 
-    if (nos[0].simbolo === "op-aritmetico-sub") {
+    if (nos[0].simbolo === "op-arithmetic-sub") {
       const atual = new Tree(nos[0].extra!.palavra);
       atual.extra = nos[0].extra;
 
@@ -129,7 +129,7 @@ export default class Pipeline2 {
   _validateExpressionTerm(termo: Tree, tipo: string) {
     const nos = termo.nos;
 
-    if (nos[0].simbolo === "<expressao_termo>") {
+    if (nos[0].simbolo === "<term_expression>") {
       const atual = new Tree(nos[1].extra!.palavra);
       atual.extra = nos[1].extra;
 

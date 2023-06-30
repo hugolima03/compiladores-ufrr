@@ -38,26 +38,26 @@ const grammar = new Grammar({
     '<return>': ['<expression>'],
 
     '<expression>': [
-        '<expression> op-aritmetico-adi <expressao_termo>',
-        '<expression> op-aritmetico-sub <expressao_termo>',
-        'op-aritmetico-sub <expressao_termo>',
-        '<expressao_termo>'
+        '<expression> op-arithmetic-adi <term_expression>',
+        '<expression> op-arithmetic-sub <term_expression>',
+        'op-arithmetic-sub <term_expression>',
+        '<term_expression>'
     ],
 
-    '<expressao_termo>': [
-        '<expressao_termo> op-aritmetico-mul <expressao_fator>',
-        '<expressao_termo> op-aritmetico-div <expressao_fator>',
-        '<expressao_termo> op-aritmetico-mod <expressao_fator>',
-        '<expressao_fator>'
+    '<term_expression>': [
+        '<term_expression> op-arithmetic-mul <expression_factor>',
+        '<term_expression> op-arithmetic-div <expression_factor>',
+        '<term_expression> op-arithmetic-mod <expression_factor>',
+        '<expression_factor>'
     ],
 
-    '<expressao_fator>': [
+    '<expression_factor>': [
         'symbol-apa <expression> symbol-fpa',
         'identifier',
         '<literal>'
     ],
 
     '<literal>': ['literal-int']
-}, '<vazio>');
+}, '<empty>');
 
 export default grammar;
