@@ -18,15 +18,15 @@ const grammar = new Grammar({
 
     // Bloco de declaração de variáveis
     // Padrão: "var: ..."
-    '<variable_declaration_part>': ['command-VAR <lista_declaracao>'],
-    '<lista_declaracao>': [
-        '<declaracao> <lista_declaracao>',
-        '<declaracao>'
+    '<variable_declaration_part>': ['command-VAR <variable_declaration_list>'],
+    '<variable_declaration_list>': [
+        '<variable_declaration> <variable_declaration_list>',
+        '<variable_declaration>'
     ],
 
     // Declaração de variável no padrão
     // Padrão: "nome: tipo;"
-    '<declaracao>': ['identificador especial-dpo <declaracao_tipo> especial-del'],
+    '<variable_declaration>': ['identificador especial-dpo <declaracao_tipo> especial-del'],
     '<declaracao_tipo>': ['nome-escalar-int'],
 
     // Bloco de código principal

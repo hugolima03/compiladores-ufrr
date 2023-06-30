@@ -46,7 +46,7 @@ export default class Pipeline2 {
     );
     if (bloco.length === 0) return;
 
-    const declaracoes = bloco[0].findAllNodes("<declaracao>");
+    const declaracoes = bloco[0].findAllNodes("<variable_declaration>");
     for (const dec of declaracoes) {
       const id = dec.findAllNodes("identificador", 1)[0];
       const tipo = dec.findAllNodes("<declaracao_tipo>")[0].nos[0];
