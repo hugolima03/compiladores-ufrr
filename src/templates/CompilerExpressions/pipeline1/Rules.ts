@@ -5,6 +5,7 @@ import { Grammar } from './Grammar'
 // http://www.irietools.com/iriepascal/progref534.html
 // https://www2.seas.gwu.edu/~hchoi/teaching/cs160d/pascal.pdf
 // https://www.cs.utexas.edu/users/novak/grammar.html
+// https://www.freepascal.org/docs-html/ref/ref.html
 
 const grammar = new Grammar({
 

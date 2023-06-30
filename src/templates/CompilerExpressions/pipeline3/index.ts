@@ -44,7 +44,7 @@ export default class Pipeline3 {
     const comandos = this.comandos;
     for (const c of comandos) {
       let otimizado = this._optimizeAssignments(c);
-      otimizados.push(this._optimizeWithAlgebraicProperties(otimizado));
+      otimizados.push(this._optimizeMathOperations(otimizado));
     }
 
     return otimizados;
@@ -171,7 +171,7 @@ export default class Pipeline3 {
     );
   }
 
-  _optimizeWithAlgebraicProperties(instrucoes: Instruction[]) {
+  _optimizeMathOperations(instrucoes: Instruction[]) {
     for (const inst of instrucoes) {
       if (inst.operator === "retorne") continue;
       if (inst.operator === "=") continue;
