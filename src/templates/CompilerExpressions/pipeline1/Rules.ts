@@ -26,7 +26,7 @@ const grammar = new Grammar({
 
     // Declaração de variável no padrão
     // Padrão: "nome: tipo;"
-    '<variable_declaration>': ['identificador especial-dpo <type> especial-del'],
+    '<variable_declaration>': ['identificador especial-colon <type> especial-delimiter'],
     '<type>': ['nome-escalar-int'],
 
     // Bloco de código principal
@@ -42,11 +42,11 @@ const grammar = new Grammar({
 
     // Atribuição
     // Padrão: var = ... ;
-    '<atribuicao>': ['identificador especial-atr <retorno_valor> especial-del'],
+    '<atribuicao>': ['identificador especial-atr <retorno_valor> especial-delimiter'],
 
     // Retorno de valor e encerramento
     // Padrão: retorne ... ;
-    '<retorne_principal>': ['command-return <retorno_valor> especial-del'],
+    '<retorne_principal>': ['command-return <retorno_valor> especial-delimiter'],
 
     '<retorno_valor>': ['<expressao>'],
 

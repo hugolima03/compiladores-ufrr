@@ -54,13 +54,14 @@ export const tokenSubClass = {
     }[s];
   },
   especial: (s: string) => {
+    console.log(s)
     return {
       "=": "atr",
       "(": "apa",
       ")": "fpa",
       ",": "vir",
-      ":": "dpo",
-      ";": "del",
+      ":": "colon",
+      ";": "delimiter",
     }[s];
   },
   "literal-int": (s: string) => "",
