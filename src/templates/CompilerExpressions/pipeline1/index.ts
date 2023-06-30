@@ -1,4 +1,4 @@
-import grammar from './Rules';
+import { PascalGrammar } from './PascalGrammar';
 
 import { LexicalAnalyser } from './LexicalAnalyser';
 import { Tree } from './Tree';
@@ -14,7 +14,7 @@ export default class Pipeline1 {
   constructor(sourceCode: string) {
     this._sourceCode = sourceCode
     this._lexico = new LexicalAnalyser();
-    this._analisador = new WeakPrecedenceParser(grammar, '<program>', '$');
+    this._analisador = new WeakPrecedenceParser(PascalGrammar, '<program>', '$');
   }
 
   start() {
@@ -32,7 +32,7 @@ export default class Pipeline1 {
     const prods = this._analisador.analisar(new TokensStack(parsearLexemas, '$', this._sourceCode));
 
     // Step 2: Geração da árvore sintática
-    const arvore = Tree.parsearProducoes(prods, grammar);
+    const arvore = Tree.parsearProducoes(prods, PascalGrammar);
     arvore?.posOrdem((n) => {
       if (!n.ehFolha) return;
       if (n.simbolo !== lexemas[0].token.tipo) return;
