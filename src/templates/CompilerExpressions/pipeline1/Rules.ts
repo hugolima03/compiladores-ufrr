@@ -27,7 +27,7 @@ const grammar = new Grammar({
     // Declaração de variável no padrão
     // Padrão: "nome: tipo;"
     '<variable_declaration>': ['identificador symbol-colon <type> symbol-delimiter'],
-    '<type>': ['nome-escalar-int'],
+    '<type>': ['name-scalar-int'],
 
     // Bloco de código principal
     // Padrão: "inicio ... fim"

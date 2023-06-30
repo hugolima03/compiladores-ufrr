@@ -106,7 +106,7 @@ Tree {
                         "_linha": 1,
                         "_palavra": "int",
                         "_token": Token {
-                          "_classe": "nome-escalar",
+                          "_classe": "name-scalar",
                           "_lexemas": [
                             [Circular],
                             Lexeme {
@@ -120,7 +120,7 @@ Tree {
                         },
                       },
                       "_nos": [],
-                      "_simbolo": "nome-escalar-int",
+                      "_simbolo": "name-scalar-int",
                     },
                   ],
                   "_simbolo": "<type>",
@@ -251,7 +251,7 @@ Tree {
                             "_linha": 2,
                             "_palavra": "int",
                             "_token": Token {
-                              "_classe": "nome-escalar",
+                              "_classe": "name-scalar",
                               "_lexemas": [
                                 Lexeme {
                                   "_coluna": 9,
@@ -265,7 +265,7 @@ Tree {
                             },
                           },
                           "_nos": [],
-                          "_simbolo": "nome-escalar-int",
+                          "_simbolo": "name-scalar-int",
                         },
                       ],
                       "_simbolo": "<type>",
@@ -1508,7 +1508,7 @@ exports[`CompilerExpressions Generic test 6`] = `
                           "name": "int",
                         },
                       ],
-                      "name": "nome-escalar-int",
+                      "name": "name-scalar-int",
                     },
                   ],
                   "name": "<type>",
@@ -1556,7 +1556,7 @@ exports[`CompilerExpressions Generic test 6`] = `
                               "name": "int",
                             },
                           ],
-                          "name": "nome-escalar-int",
+                          "name": "name-scalar-int",
                         },
                       ],
                       "name": "<type>",
