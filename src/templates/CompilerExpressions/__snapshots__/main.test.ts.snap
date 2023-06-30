@@ -123,7 +123,7 @@ Tree {
                       "_simbolo": "nome-escalar-int",
                     },
                   ],
-                  "_simbolo": "<declaracao_tipo>",
+                  "_simbolo": "<type>",
                 },
                 Tree {
                   "_extra": Lexeme {
@@ -268,7 +268,7 @@ Tree {
                           "_simbolo": "nome-escalar-int",
                         },
                       ],
-                      "_simbolo": "<declaracao_tipo>",
+                      "_simbolo": "<type>",
                     },
                     Tree {
                       "_extra": Lexeme {
@@ -1511,7 +1511,7 @@ exports[`CompilerExpressions Generic test 6`] = `
                       "name": "nome-escalar-int",
                     },
                   ],
-                  "name": "<declaracao_tipo>",
+                  "name": "<type>",
                 },
                 {
                   "children": [
@@ -1559,7 +1559,7 @@ exports[`CompilerExpressions Generic test 6`] = `
                           "name": "nome-escalar-int",
                         },
                       ],
-                      "name": "<declaracao_tipo>",
+                      "name": "<type>",
                     },
                     {
                       "children": [

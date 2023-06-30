@@ -49,7 +49,7 @@ export default class Pipeline2 {
     const declaracoes = bloco[0].findAllNodes("<variable_declaration>");
     for (const dec of declaracoes) {
       const id = dec.findAllNodes("identificador", 1)[0];
-      const tipo = dec.findAllNodes("<declaracao_tipo>")[0].nos[0];
+      const tipo = dec.findAllNodes("<type>")[0].nos[0];
 
       if (this._isUndefined(id.extra?.palavra)) {
         throw ErroSemantico(id.extra, "redeclaracao");

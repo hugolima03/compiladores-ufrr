@@ -26,8 +26,8 @@ const grammar = new Grammar({
 
     // Declaração de variável no padrão
     // Padrão: "nome: tipo;"
-    '<variable_declaration>': ['identificador especial-dpo <declaracao_tipo> especial-del'],
-    '<declaracao_tipo>': ['nome-escalar-int'],
+    '<variable_declaration>': ['identificador especial-dpo <type> especial-del'],
+    '<type>': ['nome-escalar-int'],
 
     // Bloco de código principal
     // Padrão: "inicio ... fim"
