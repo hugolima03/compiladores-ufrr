@@ -9,64 +9,41 @@ import { Grammar } from './Grammar'
 // https://www.freepascal.org/docs-html/ref/ref.html
 
 const grammar = new Grammar({
-
-    // Bloco base do programa
     '<program>': [
         '<variable_declaration_part> <statement_part>',
         '<statement_part>'
     ],
 
-    // Bloco de declaração de variáveis
-    // Padrão: "var: ..."
     '<variable_declaration_part>': ['command-VAR <variable_declaration_list>'],
     '<variable_declaration_list>': [
         '<variable_declaration> <variable_declaration_list>',
         '<variable_declaration>'
     ],
 
-    // Declaração de variável no padrão
-    // Padrão: "nome: tipo;"
     '<variable_declaration>': ['identifier symbol-colon <type> symbol-delimiter'],
     '<type>': ['name-scalar-int'],
 
-    // Bloco de código principal
-    // Padrão: "inicio ... fim"
     '<statement_part>': [
         'command-BEGIN <statement_list> command-END.',
         'command-BEGIN command-END.'
     ],
 
-    // Lista de comandos
     '<statement_list>': ['<statement_list> <command>', '<command>'],
-    '<command>': ['<assignment>', '<retorne_principal>'],
+    '<command>': ['<assignment>', '<program_return>'],
 
-    // Atribuição
-    // Padrão: var = ... ;
-    '<assignment>': ['identifier symbol-atr <retorno_valor> symbol-delimiter'],
+    '<assignment>': ['identifier symbol-atr <return> symbol-delimiter'],
 
-    // Retorno de valor e encerramento
-    // Padrão: retorne ... ;
-    '<retorne_principal>': ['command-return <retorno_valor> symbol-delimiter'],
+    '<program_return>': ['command-return <return> symbol-delimiter'],
 
-    '<retorno_valor>': ['<expressao>'],
+    '<return>': ['<expression>'],
 
-    // Expressão aritmetica para soma e subtração
-    // Padrões:
-    // ... + ...
-    // ... - ...
-    // - ...
-    '<expressao>': [
-        '<expressao> op-aritmetico-adi <expressao_termo>',
-        '<expressao> op-aritmetico-sub <expressao_termo>',
+    '<expression>': [
+        '<expression> op-aritmetico-adi <expressao_termo>',
+        '<expression> op-aritmetico-sub <expressao_termo>',
         'op-aritmetico-sub <expressao_termo>',
         '<expressao_termo>'
     ],
 
-    // Expressão aritmetica para multiplicação e divisão
-    // Padrões:
-    // ... * ...
-    // ... / ...
-    // ... % ...
     '<expressao_termo>': [
         '<expressao_termo> op-aritmetico-mul <expressao_fator>',
         '<expressao_termo> op-aritmetico-div <expressao_fator>',
@@ -74,20 +51,13 @@ const grammar = new Grammar({
         '<expressao_fator>'
     ],
 
-    // Valores para as expressões aritmeticas
-    // Padrões:
-    // ... ( ... ) ...
-    // ... var ...
-    // ... literal ...
     '<expressao_fator>': [
-        'symbol-apa <expressao> symbol-fpa',
+        'symbol-apa <expression> symbol-fpa',
         'identifier',
         '<literal>'
     ],
 
-    // Valores liteais
     '<literal>': ['literal-int']
-
 }, '<vazio>');
 
 export default grammar;

@@ -471,10 +471,10 @@ Tree {
                                       "_simbolo": "<expressao_termo>",
                                     },
                                   ],
-                                  "_simbolo": "<expressao>",
+                                  "_simbolo": "<expression>",
                                 },
                               ],
-                              "_simbolo": "<retorno_valor>",
+                              "_simbolo": "<return>",
                             },
                             Tree {
                               "_extra": Lexeme {
@@ -646,10 +646,10 @@ Tree {
                                   "_simbolo": "<expressao_termo>",
                                 },
                               ],
-                              "_simbolo": "<expressao>",
+                              "_simbolo": "<expression>",
                             },
                           ],
-                          "_simbolo": "<retorno_valor>",
+                          "_simbolo": "<return>",
                         },
                         Tree {
                           "_extra": Lexeme {
@@ -790,7 +790,7 @@ Tree {
                                   "_simbolo": "<expressao_termo>",
                                 },
                               ],
-                              "_simbolo": "<expressao>",
+                              "_simbolo": "<expression>",
                             },
                             Tree {
                               "_extra": Lexeme {
@@ -867,10 +867,10 @@ Tree {
                               "_simbolo": "<expressao_termo>",
                             },
                           ],
-                          "_simbolo": "<expressao>",
+                          "_simbolo": "<expression>",
                         },
                       ],
-                      "_simbolo": "<retorno_valor>",
+                      "_simbolo": "<return>",
                     },
                     Tree {
                       "_extra": Lexeme {
@@ -913,7 +913,7 @@ Tree {
                       "_simbolo": "symbol-delimiter",
                     },
                   ],
-                  "_simbolo": "<retorne_principal>",
+                  "_simbolo": "<program_return>",
                 },
               ],
               "_simbolo": "<command>",
@@ -1650,10 +1650,10 @@ exports[`CompilerExpressions Generic test 6`] = `
                                       "name": "<expressao_termo>",
                                     },
                                   ],
-                                  "name": "<expressao>",
+                                  "name": "<expression>",
                                 },
                               ],
-                              "name": "<retorno_valor>",
+                              "name": "<return>",
                             },
                             {
                               "children": [
@@ -1724,10 +1724,10 @@ exports[`CompilerExpressions Generic test 6`] = `
                                   "name": "<expressao_termo>",
                                 },
                               ],
-                              "name": "<expressao>",
+                              "name": "<expression>",
                             },
                           ],
-                          "name": "<retorno_valor>",
+                          "name": "<return>",
                         },
                         {
                           "children": [
@@ -1786,7 +1786,7 @@ exports[`CompilerExpressions Generic test 6`] = `
                                   "name": "<expressao_termo>",
                                 },
                               ],
-                              "name": "<expressao>",
+                              "name": "<expression>",
                             },
                             {
                               "children": [
@@ -1817,10 +1817,10 @@ exports[`CompilerExpressions Generic test 6`] = `
                               "name": "<expressao_termo>",
                             },
                           ],
-                          "name": "<expressao>",
+                          "name": "<expression>",
                         },
                       ],
-                      "name": "<retorno_valor>",
+                      "name": "<return>",
                     },
                     {
                       "children": [
@@ -1832,7 +1832,7 @@ exports[`CompilerExpressions Generic test 6`] = `
                       "name": "symbol-delimiter",
                     },
                   ],
-                  "name": "<retorne_principal>",
+                  "name": "<program_return>",
                 },
               ],
               "name": "<command>",

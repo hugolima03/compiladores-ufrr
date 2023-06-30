@@ -75,7 +75,7 @@ export default class Pipeline2 {
     const atrOperador = atribuicao.findAllNodes("symbol-atr", 1)[0];
 
     const direita = this._validateExpression(
-      atribuicao.findAllNodes("<expressao>", 2)[0],
+      atribuicao.findAllNodes("<expression>", 2)[0],
       variavel.tipo
     );
 
@@ -88,7 +88,7 @@ export default class Pipeline2 {
 
   _validateReturn(retorne: Tree) {
     const no = this._validateExpression(
-      retorne.findAllNodes("<expressao>", 2)[0],
+      retorne.findAllNodes("<expression>", 2)[0],
       "int"
     );
 
@@ -102,7 +102,7 @@ export default class Pipeline2 {
   _validateExpression(expressao: Tree, tipo: string) {
     const nos = expressao.nos;
 
-    if (nos[0].simbolo === "<expressao>") {
+    if (nos[0].simbolo === "<expression>") {
       const atual = new Tree(nos[1].extra!.palavra);
       atual.extra = nos[1].extra;
 
@@ -182,7 +182,7 @@ export default class Pipeline2 {
         case "<assignment>": // Step 2.1: Validar atribuição
           expressions.push(this._validateAssignment(c.nos[0]));
           break;
-        case "<retorne_principal>": // Step 2.2: Validar retorno
+        case "<program_return>": // Step 2.2: Validar retorno
           expressions.push(this._validateReturn(c.nos[0]));
           break;
         default:
