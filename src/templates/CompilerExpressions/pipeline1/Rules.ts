@@ -1,6 +1,7 @@
 import { Grammar } from './Grammar'
 
 // Referências
+// http://www.facom.ufms.br/~ricardo/Courses/CompilerI-2009/Materials/minipascalsyntax.html
 // https://condor.depaul.edu/ichu/csc447/notes/wk2/pascal.html
 // http://www.irietools.com/iriepascal/progref534.html
 // https://www2.seas.gwu.edu/~hchoi/teaching/cs160d/pascal.pdf
@@ -10,14 +11,14 @@ import { Grammar } from './Grammar'
 const grammar = new Grammar({
 
     // Bloco base do programa
-    '<programa>': [
-        '<bloco_declaracao> <bloco_principal>',
-        '<bloco_principal>'
+    '<program>': [
+        '<variable_declaration_part> <statement_part>',
+        '<statement_part>'
     ],
 
     // Bloco de declaração de variáveis
     // Padrão: "var: ..."
-    '<bloco_declaracao>': ['comando-VAR <lista_declaracao>'],
+    '<variable_declaration_part>': ['comando-VAR <lista_declaracao>'],
     '<lista_declaracao>': [
         '<declaracao> <lista_declaracao>',
         '<declaracao>'
@@ -30,7 +31,7 @@ const grammar = new Grammar({
 
     // Bloco de código principal
     // Padrão: "inicio ... fim"
-    '<bloco_principal>': [
+    '<statement_part>': [
         'comando-BEGIN <lista_comando> comando-END.',
         'comando-BEGIN comando-END.'
     ],

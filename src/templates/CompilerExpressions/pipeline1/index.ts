@@ -14,7 +14,7 @@ export default class Pipeline1 {
   constructor(sourceCode: string) {
     this._sourceCode = sourceCode
     this._lexico = new LexicalAnalyser();
-    this._analisador = new WeakPrecedenceParser(grammar, '<programa>', '$');
+    this._analisador = new WeakPrecedenceParser(grammar, '<program>', '$');
   }
 
   start() {

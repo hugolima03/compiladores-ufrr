@@ -40,7 +40,10 @@ export default class Pipeline2 {
   }
 
   generateSymbolTable() {
-    const bloco = this._syntaxTree.findAllNodes("<bloco_declaracao>", 1);
+    const bloco = this._syntaxTree.findAllNodes(
+      "<variable_declaration_part>",
+      1
+    );
     if (bloco.length === 0) return;
 
     const declaracoes = bloco[0].findAllNodes("<declaracao>");
@@ -170,7 +173,7 @@ export default class Pipeline2 {
     this.generateSymbolTable();
 
     // Step 2: Validar comandos
-    const bloco = this._syntaxTree.findAllNodes("<bloco_principal>", 1)[0];
+    const bloco = this._syntaxTree.findAllNodes("<statement_part>", 1)[0];
     const comandos = bloco.findAllNodes("<comando>");
     const expressions = [];
 

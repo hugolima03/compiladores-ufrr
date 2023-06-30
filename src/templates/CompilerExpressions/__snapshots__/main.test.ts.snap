@@ -320,7 +320,7 @@ Tree {
           "_simbolo": "<lista_declaracao>",
         },
       ],
-      "_simbolo": "<bloco_declaracao>",
+      "_simbolo": "<variable_declaration_part>",
     },
     Tree {
       "_extra": null,
@@ -938,10 +938,10 @@ Tree {
           "_simbolo": "comando-fim",
         },
       ],
-      "_simbolo": "<bloco_principal>",
+      "_simbolo": "<statement_part>",
     },
   ],
-  "_simbolo": "<programa>",
+  "_simbolo": "<program>",
 }
 `;
 
@@ -1580,7 +1580,7 @@ exports[`CompilerExpressions Generic test 6`] = `
           "name": "<lista_declaracao>",
         },
       ],
-      "name": "<bloco_declaracao>",
+      "name": "<variable_declaration_part>",
     },
     {
       "children": [
@@ -1850,9 +1850,9 @@ exports[`CompilerExpressions Generic test 6`] = `
           "name": "comando-fim",
         },
       ],
-      "name": "<bloco_principal>",
+      "name": "<statement_part>",
     },
   ],
-  "name": "<programa>",
+  "name": "<program>",
 }
 `;
