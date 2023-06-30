@@ -55,7 +55,7 @@ const CodeEditor = ({
 
       // set textarea value to: text before caret + tab + text after caret
       current.value =
-        current.value.substring(0, start) + "\t" + current.value.substring(end);
+        current.value.substring(0, start) + "  " + current.value.substring(end);
 
       // put caret at right position again
       current.selectionStart = current.selectionEnd = start + 1;

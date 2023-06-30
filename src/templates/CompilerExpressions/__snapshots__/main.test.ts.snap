@@ -1856,3 +1856,3508 @@ exports[`CompilerExpressions Generic test 6`] = `
   "name": "<program>",
 }
 `;
+
+exports[`CompilerExpressions Media teste 1`] = `
+Tree {
+  "_extra": null,
+  "_nos": [
+    Tree {
+      "_extra": null,
+      "_nos": [
+        Tree {
+          "_extra": Lexeme {
+            "_coluna": 0,
+            "_linha": 0,
+            "_palavra": "VAR",
+            "_token": Token {
+              "_classe": "command",
+              "_lexemas": [
+                [Circular],
+              ],
+              "_subclasse": "VAR",
+            },
+          },
+          "_nos": [],
+          "_simbolo": "command-VAR",
+        },
+        Tree {
+          "_extra": null,
+          "_nos": [
+            Tree {
+              "_extra": null,
+              "_nos": [
+                Tree {
+                  "_extra": Lexeme {
+                    "_coluna": 4,
+                    "_linha": 1,
+                    "_palavra": "prova1",
+                    "_token": Token {
+                      "_classe": "identifier",
+                      "_lexemas": [
+                        [Circular],
+                        Lexeme {
+                          "_coluna": 4,
+                          "_linha": 2,
+                          "_palavra": "prova2",
+                          "_token": [Circular],
+                        },
+                        Lexeme {
+                          "_coluna": 4,
+                          "_linha": 3,
+                          "_palavra": "atividades",
+                          "_token": [Circular],
+                        },
+                        Lexeme {
+                          "_coluna": 4,
+                          "_linha": 5,
+                          "_palavra": "prova1",
+                          "_token": [Circular],
+                        },
+                        Lexeme {
+                          "_coluna": 4,
+                          "_linha": 6,
+                          "_palavra": "prova2",
+                          "_token": [Circular],
+                        },
+                        Lexeme {
+                          "_coluna": 4,
+                          "_linha": 7,
+                          "_palavra": "atividades",
+                          "_token": [Circular],
+                        },
+                        Lexeme {
+                          "_coluna": 12,
+                          "_linha": 8,
+                          "_palavra": "prova1",
+                          "_token": [Circular],
+                        },
+                        Lexeme {
+                          "_coluna": 21,
+                          "_linha": 8,
+                          "_palavra": "prova2",
+                          "_token": [Circular],
+                        },
+                        Lexeme {
+                          "_coluna": 30,
+                          "_linha": 8,
+                          "_palavra": "atividades",
+                          "_token": [Circular],
+                        },
+                      ],
+                      "_subclasse": "",
+                    },
+                  },
+                  "_nos": [],
+                  "_simbolo": "identifier",
+                },
+                Tree {
+                  "_extra": Lexeme {
+                    "_coluna": 10,
+                    "_linha": 1,
+                    "_palavra": ":",
+                    "_token": Token {
+                      "_classe": "symbol",
+                      "_lexemas": [
+                        [Circular],
+                        Lexeme {
+                          "_coluna": 10,
+                          "_linha": 2,
+                          "_palavra": ":",
+                          "_token": [Circular],
+                        },
+                        Lexeme {
+                          "_coluna": 14,
+                          "_linha": 3,
+                          "_palavra": ":",
+                          "_token": [Circular],
+                        },
+                      ],
+                      "_subclasse": "colon",
+                    },
+                  },
+                  "_nos": [],
+                  "_simbolo": "symbol-colon",
+                },
+                Tree {
+                  "_extra": null,
+                  "_nos": [
+                    Tree {
+                      "_extra": Lexeme {
+                        "_coluna": 12,
+                        "_linha": 1,
+                        "_palavra": "int",
+                        "_token": Token {
+                          "_classe": "name-scalar",
+                          "_lexemas": [
+                            [Circular],
+                            Lexeme {
+                              "_coluna": 12,
+                              "_linha": 2,
+                              "_palavra": "int",
+                              "_token": [Circular],
+                            },
+                            Lexeme {
+                              "_coluna": 16,
+                              "_linha": 3,
+                              "_palavra": "int",
+                              "_token": [Circular],
+                            },
+                          ],
+                          "_subclasse": "int",
+                        },
+                      },
+                      "_nos": [],
+                      "_simbolo": "name-scalar-int",
+                    },
+                  ],
+                  "_simbolo": "<type>",
+                },
+                Tree {
+                  "_extra": Lexeme {
+                    "_coluna": 15,
+                    "_linha": 1,
+                    "_palavra": ";",
+                    "_token": Token {
+                      "_classe": "symbol",
+                      "_lexemas": [
+                        [Circular],
+                        Lexeme {
+                          "_coluna": 15,
+                          "_linha": 2,
+                          "_palavra": ";",
+                          "_token": [Circular],
+                        },
+                        Lexeme {
+                          "_coluna": 19,
+                          "_linha": 3,
+                          "_palavra": ";",
+                          "_token": [Circular],
+                        },
+                        Lexeme {
+                          "_coluna": 14,
+                          "_linha": 5,
+                          "_palavra": ";",
+                          "_token": [Circular],
+                        },
+                        Lexeme {
+                          "_coluna": 14,
+                          "_linha": 6,
+                          "_palavra": ";",
+                          "_token": [Circular],
+                        },
+                        Lexeme {
+                          "_coluna": 19,
+                          "_linha": 7,
+                          "_palavra": ";",
+                          "_token": [Circular],
+                        },
+                        Lexeme {
+                          "_coluna": 45,
+                          "_linha": 8,
+                          "_palavra": ";",
+                          "_token": [Circular],
+                        },
+                      ],
+                      "_subclasse": "delimiter",
+                    },
+                  },
+                  "_nos": [],
+                  "_simbolo": "symbol-delimiter",
+                },
+              ],
+              "_simbolo": "<variable_declaration>",
+            },
+            Tree {
+              "_extra": null,
+              "_nos": [
+                Tree {
+                  "_extra": null,
+                  "_nos": [
+                    Tree {
+                      "_extra": Lexeme {
+                        "_coluna": 4,
+                        "_linha": 2,
+                        "_palavra": "prova2",
+                        "_token": Token {
+                          "_classe": "identifier",
+                          "_lexemas": [
+                            Lexeme {
+                              "_coluna": 4,
+                              "_linha": 1,
+                              "_palavra": "prova1",
+                              "_token": [Circular],
+                            },
+                            [Circular],
+                            Lexeme {
+                              "_coluna": 4,
+                              "_linha": 3,
+                              "_palavra": "atividades",
+                              "_token": [Circular],
+                            },
+                            Lexeme {
+                              "_coluna": 4,
+                              "_linha": 5,
+                              "_palavra": "prova1",
+                              "_token": [Circular],
+                            },
+                            Lexeme {
+                              "_coluna": 4,
+                              "_linha": 6,
+                              "_palavra": "prova2",
+                              "_token": [Circular],
+                            },
+                            Lexeme {
+                              "_coluna": 4,
+                              "_linha": 7,
+                              "_palavra": "atividades",
+                              "_token": [Circular],
+                            },
+                            Lexeme {
+                              "_coluna": 12,
+                              "_linha": 8,
+                              "_palavra": "prova1",
+                              "_token": [Circular],
+                            },
+                            Lexeme {
+                              "_coluna": 21,
+                              "_linha": 8,
+                              "_palavra": "prova2",
+                              "_token": [Circular],
+                            },
+                            Lexeme {
+                              "_coluna": 30,
+                              "_linha": 8,
+                              "_palavra": "atividades",
+                              "_token": [Circular],
+                            },
+                          ],
+                          "_subclasse": "",
+                        },
+                      },
+                      "_nos": [],
+                      "_simbolo": "identifier",
+                    },
+                    Tree {
+                      "_extra": Lexeme {
+                        "_coluna": 10,
+                        "_linha": 2,
+                        "_palavra": ":",
+                        "_token": Token {
+                          "_classe": "symbol",
+                          "_lexemas": [
+                            Lexeme {
+                              "_coluna": 10,
+                              "_linha": 1,
+                              "_palavra": ":",
+                              "_token": [Circular],
+                            },
+                            [Circular],
+                            Lexeme {
+                              "_coluna": 14,
+                              "_linha": 3,
+                              "_palavra": ":",
+                              "_token": [Circular],
+                            },
+                          ],
+                          "_subclasse": "colon",
+                        },
+                      },
+                      "_nos": [],
+                      "_simbolo": "symbol-colon",
+                    },
+                    Tree {
+                      "_extra": null,
+                      "_nos": [
+                        Tree {
+                          "_extra": Lexeme {
+                            "_coluna": 12,
+                            "_linha": 2,
+                            "_palavra": "int",
+                            "_token": Token {
+                              "_classe": "name-scalar",
+                              "_lexemas": [
+                                Lexeme {
+                                  "_coluna": 12,
+                                  "_linha": 1,
+                                  "_palavra": "int",
+                                  "_token": [Circular],
+                                },
+                                [Circular],
+                                Lexeme {
+                                  "_coluna": 16,
+                                  "_linha": 3,
+                                  "_palavra": "int",
+                                  "_token": [Circular],
+                                },
+                              ],
+                              "_subclasse": "int",
+                            },
+                          },
+                          "_nos": [],
+                          "_simbolo": "name-scalar-int",
+                        },
+                      ],
+                      "_simbolo": "<type>",
+                    },
+                    Tree {
+                      "_extra": Lexeme {
+                        "_coluna": 15,
+                        "_linha": 2,
+                        "_palavra": ";",
+                        "_token": Token {
+                          "_classe": "symbol",
+                          "_lexemas": [
+                            Lexeme {
+                              "_coluna": 15,
+                              "_linha": 1,
+                              "_palavra": ";",
+                              "_token": [Circular],
+                            },
+                            [Circular],
+                            Lexeme {
+                              "_coluna": 19,
+                              "_linha": 3,
+                              "_palavra": ";",
+                              "_token": [Circular],
+                            },
+                            Lexeme {
+                              "_coluna": 14,
+                              "_linha": 5,
+                              "_palavra": ";",
+                              "_token": [Circular],
+                            },
+                            Lexeme {
+                              "_coluna": 14,
+                              "_linha": 6,
+                              "_palavra": ";",
+                              "_token": [Circular],
+                            },
+                            Lexeme {
+                              "_coluna": 19,
+                              "_linha": 7,
+                              "_palavra": ";",
+                              "_token": [Circular],
+                            },
+                            Lexeme {
+                              "_coluna": 45,
+                              "_linha": 8,
+                              "_palavra": ";",
+                              "_token": [Circular],
+                            },
+                          ],
+                          "_subclasse": "delimiter",
+                        },
+                      },
+                      "_nos": [],
+                      "_simbolo": "symbol-delimiter",
+                    },
+                  ],
+                  "_simbolo": "<variable_declaration>",
+                },
+                Tree {
+                  "_extra": null,
+                  "_nos": [
+                    Tree {
+                      "_extra": null,
+                      "_nos": [
+                        Tree {
+                          "_extra": Lexeme {
+                            "_coluna": 4,
+                            "_linha": 3,
+                            "_palavra": "atividades",
+                            "_token": Token {
+                              "_classe": "identifier",
+                              "_lexemas": [
+                                Lexeme {
+                                  "_coluna": 4,
+                                  "_linha": 1,
+                                  "_palavra": "prova1",
+                                  "_token": [Circular],
+                                },
+                                Lexeme {
+                                  "_coluna": 4,
+                                  "_linha": 2,
+                                  "_palavra": "prova2",
+                                  "_token": [Circular],
+                                },
+                                [Circular],
+                                Lexeme {
+                                  "_coluna": 4,
+                                  "_linha": 5,
+                                  "_palavra": "prova1",
+                                  "_token": [Circular],
+                                },
+                                Lexeme {
+                                  "_coluna": 4,
+                                  "_linha": 6,
+                                  "_palavra": "prova2",
+                                  "_token": [Circular],
+                                },
+                                Lexeme {
+                                  "_coluna": 4,
+                                  "_linha": 7,
+                                  "_palavra": "atividades",
+                                  "_token": [Circular],
+                                },
+                                Lexeme {
+                                  "_coluna": 12,
+                                  "_linha": 8,
+                                  "_palavra": "prova1",
+                                  "_token": [Circular],
+                                },
+                                Lexeme {
+                                  "_coluna": 21,
+                                  "_linha": 8,
+                                  "_palavra": "prova2",
+                                  "_token": [Circular],
+                                },
+                                Lexeme {
+                                  "_coluna": 30,
+                                  "_linha": 8,
+                                  "_palavra": "atividades",
+                                  "_token": [Circular],
+                                },
+                              ],
+                              "_subclasse": "",
+                            },
+                          },
+                          "_nos": [],
+                          "_simbolo": "identifier",
+                        },
+                        Tree {
+                          "_extra": Lexeme {
+                            "_coluna": 14,
+                            "_linha": 3,
+                            "_palavra": ":",
+                            "_token": Token {
+                              "_classe": "symbol",
+                              "_lexemas": [
+                                Lexeme {
+                                  "_coluna": 10,
+                                  "_linha": 1,
+                                  "_palavra": ":",
+                                  "_token": [Circular],
+                                },
+                                Lexeme {
+                                  "_coluna": 10,
+                                  "_linha": 2,
+                                  "_palavra": ":",
+                                  "_token": [Circular],
+                                },
+                                [Circular],
+                              ],
+                              "_subclasse": "colon",
+                            },
+                          },
+                          "_nos": [],
+                          "_simbolo": "symbol-colon",
+                        },
+                        Tree {
+                          "_extra": null,
+                          "_nos": [
+                            Tree {
+                              "_extra": Lexeme {
+                                "_coluna": 16,
+                                "_linha": 3,
+                                "_palavra": "int",
+                                "_token": Token {
+                                  "_classe": "name-scalar",
+                                  "_lexemas": [
+                                    Lexeme {
+                                      "_coluna": 12,
+                                      "_linha": 1,
+                                      "_palavra": "int",
+                                      "_token": [Circular],
+                                    },
+                                    Lexeme {
+                                      "_coluna": 12,
+                                      "_linha": 2,
+                                      "_palavra": "int",
+                                      "_token": [Circular],
+                                    },
+                                    [Circular],
+                                  ],
+                                  "_subclasse": "int",
+                                },
+                              },
+                              "_nos": [],
+                              "_simbolo": "name-scalar-int",
+                            },
+                          ],
+                          "_simbolo": "<type>",
+                        },
+                        Tree {
+                          "_extra": Lexeme {
+                            "_coluna": 19,
+                            "_linha": 3,
+                            "_palavra": ";",
+                            "_token": Token {
+                              "_classe": "symbol",
+                              "_lexemas": [
+                                Lexeme {
+                                  "_coluna": 15,
+                                  "_linha": 1,
+                                  "_palavra": ";",
+                                  "_token": [Circular],
+                                },
+                                Lexeme {
+                                  "_coluna": 15,
+                                  "_linha": 2,
+                                  "_palavra": ";",
+                                  "_token": [Circular],
+                                },
+                                [Circular],
+                                Lexeme {
+                                  "_coluna": 14,
+                                  "_linha": 5,
+                                  "_palavra": ";",
+                                  "_token": [Circular],
+                                },
+                                Lexeme {
+                                  "_coluna": 14,
+                                  "_linha": 6,
+                                  "_palavra": ";",
+                                  "_token": [Circular],
+                                },
+                                Lexeme {
+                                  "_coluna": 19,
+                                  "_linha": 7,
+                                  "_palavra": ";",
+                                  "_token": [Circular],
+                                },
+                                Lexeme {
+                                  "_coluna": 45,
+                                  "_linha": 8,
+                                  "_palavra": ";",
+                                  "_token": [Circular],
+                                },
+                              ],
+                              "_subclasse": "delimiter",
+                            },
+                          },
+                          "_nos": [],
+                          "_simbolo": "symbol-delimiter",
+                        },
+                      ],
+                      "_simbolo": "<variable_declaration>",
+                    },
+                  ],
+                  "_simbolo": "<variable_declaration_list>",
+                },
+              ],
+              "_simbolo": "<variable_declaration_list>",
+            },
+          ],
+          "_simbolo": "<variable_declaration_list>",
+        },
+      ],
+      "_simbolo": "<variable_declaration_part>",
+    },
+    Tree {
+      "_extra": null,
+      "_nos": [
+        Tree {
+          "_extra": Lexeme {
+            "_coluna": 2,
+            "_linha": 4,
+            "_palavra": "BEGIN",
+            "_token": Token {
+              "_classe": "command",
+              "_lexemas": [
+                [Circular],
+              ],
+              "_subclasse": "BEGIN",
+            },
+          },
+          "_nos": [],
+          "_simbolo": "command-BEGIN",
+        },
+        Tree {
+          "_extra": null,
+          "_nos": [
+            Tree {
+              "_extra": null,
+              "_nos": [
+                Tree {
+                  "_extra": null,
+                  "_nos": [
+                    Tree {
+                      "_extra": null,
+                      "_nos": [
+                        Tree {
+                          "_extra": null,
+                          "_nos": [
+                            Tree {
+                              "_extra": null,
+                              "_nos": [
+                                Tree {
+                                  "_extra": Lexeme {
+                                    "_coluna": 4,
+                                    "_linha": 5,
+                                    "_palavra": "prova1",
+                                    "_token": Token {
+                                      "_classe": "identifier",
+                                      "_lexemas": [
+                                        Lexeme {
+                                          "_coluna": 4,
+                                          "_linha": 1,
+                                          "_palavra": "prova1",
+                                          "_token": [Circular],
+                                        },
+                                        Lexeme {
+                                          "_coluna": 4,
+                                          "_linha": 2,
+                                          "_palavra": "prova2",
+                                          "_token": [Circular],
+                                        },
+                                        Lexeme {
+                                          "_coluna": 4,
+                                          "_linha": 3,
+                                          "_palavra": "atividades",
+                                          "_token": [Circular],
+                                        },
+                                        [Circular],
+                                        Lexeme {
+                                          "_coluna": 4,
+                                          "_linha": 6,
+                                          "_palavra": "prova2",
+                                          "_token": [Circular],
+                                        },
+                                        Lexeme {
+                                          "_coluna": 4,
+                                          "_linha": 7,
+                                          "_palavra": "atividades",
+                                          "_token": [Circular],
+                                        },
+                                        Lexeme {
+                                          "_coluna": 12,
+                                          "_linha": 8,
+                                          "_palavra": "prova1",
+                                          "_token": [Circular],
+                                        },
+                                        Lexeme {
+                                          "_coluna": 21,
+                                          "_linha": 8,
+                                          "_palavra": "prova2",
+                                          "_token": [Circular],
+                                        },
+                                        Lexeme {
+                                          "_coluna": 30,
+                                          "_linha": 8,
+                                          "_palavra": "atividades",
+                                          "_token": [Circular],
+                                        },
+                                      ],
+                                      "_subclasse": "",
+                                    },
+                                  },
+                                  "_nos": [],
+                                  "_simbolo": "identifier",
+                                },
+                                Tree {
+                                  "_extra": Lexeme {
+                                    "_coluna": 11,
+                                    "_linha": 5,
+                                    "_palavra": "=",
+                                    "_token": Token {
+                                      "_classe": "symbol",
+                                      "_lexemas": [
+                                        [Circular],
+                                        Lexeme {
+                                          "_coluna": 11,
+                                          "_linha": 6,
+                                          "_palavra": "=",
+                                          "_token": [Circular],
+                                        },
+                                        Lexeme {
+                                          "_coluna": 15,
+                                          "_linha": 7,
+                                          "_palavra": "=",
+                                          "_token": [Circular],
+                                        },
+                                      ],
+                                      "_subclasse": "atr",
+                                    },
+                                  },
+                                  "_nos": [],
+                                  "_simbolo": "symbol-atr",
+                                },
+                                Tree {
+                                  "_extra": null,
+                                  "_nos": [
+                                    Tree {
+                                      "_extra": null,
+                                      "_nos": [
+                                        Tree {
+                                          "_extra": null,
+                                          "_nos": [
+                                            Tree {
+                                              "_extra": null,
+                                              "_nos": [
+                                                Tree {
+                                                  "_extra": null,
+                                                  "_nos": [
+                                                    Tree {
+                                                      "_extra": Lexeme {
+                                                        "_coluna": 13,
+                                                        "_linha": 5,
+                                                        "_palavra": "9",
+                                                        "_token": Token {
+                                                          "_classe": "literal-int",
+                                                          "_lexemas": [
+                                                            [Circular],
+                                                            Lexeme {
+                                                              "_coluna": 13,
+                                                              "_linha": 6,
+                                                              "_palavra": "8",
+                                                              "_token": [Circular],
+                                                            },
+                                                            Lexeme {
+                                                              "_coluna": 17,
+                                                              "_linha": 7,
+                                                              "_palavra": "10",
+                                                              "_token": [Circular],
+                                                            },
+                                                            Lexeme {
+                                                              "_coluna": 44,
+                                                              "_linha": 8,
+                                                              "_palavra": "3",
+                                                              "_token": [Circular],
+                                                            },
+                                                          ],
+                                                          "_subclasse": "",
+                                                        },
+                                                      },
+                                                      "_nos": [],
+                                                      "_simbolo": "literal-int",
+                                                    },
+                                                  ],
+                                                  "_simbolo": "<literal>",
+                                                },
+                                              ],
+                                              "_simbolo": "<expression_factor>",
+                                            },
+                                          ],
+                                          "_simbolo": "<term_expression>",
+                                        },
+                                      ],
+                                      "_simbolo": "<expression>",
+                                    },
+                                  ],
+                                  "_simbolo": "<return>",
+                                },
+                                Tree {
+                                  "_extra": Lexeme {
+                                    "_coluna": 14,
+                                    "_linha": 5,
+                                    "_palavra": ";",
+                                    "_token": Token {
+                                      "_classe": "symbol",
+                                      "_lexemas": [
+                                        Lexeme {
+                                          "_coluna": 15,
+                                          "_linha": 1,
+                                          "_palavra": ";",
+                                          "_token": [Circular],
+                                        },
+                                        Lexeme {
+                                          "_coluna": 15,
+                                          "_linha": 2,
+                                          "_palavra": ";",
+                                          "_token": [Circular],
+                                        },
+                                        Lexeme {
+                                          "_coluna": 19,
+                                          "_linha": 3,
+                                          "_palavra": ";",
+                                          "_token": [Circular],
+                                        },
+                                        [Circular],
+                                        Lexeme {
+                                          "_coluna": 14,
+                                          "_linha": 6,
+                                          "_palavra": ";",
+                                          "_token": [Circular],
+                                        },
+                                        Lexeme {
+                                          "_coluna": 19,
+                                          "_linha": 7,
+                                          "_palavra": ";",
+                                          "_token": [Circular],
+                                        },
+                                        Lexeme {
+                                          "_coluna": 45,
+                                          "_linha": 8,
+                                          "_palavra": ";",
+                                          "_token": [Circular],
+                                        },
+                                      ],
+                                      "_subclasse": "delimiter",
+                                    },
+                                  },
+                                  "_nos": [],
+                                  "_simbolo": "symbol-delimiter",
+                                },
+                              ],
+                              "_simbolo": "<assignment>",
+                            },
+                          ],
+                          "_simbolo": "<command>",
+                        },
+                      ],
+                      "_simbolo": "<statement_list>",
+                    },
+                    Tree {
+                      "_extra": null,
+                      "_nos": [
+                        Tree {
+                          "_extra": null,
+                          "_nos": [
+                            Tree {
+                              "_extra": Lexeme {
+                                "_coluna": 4,
+                                "_linha": 6,
+                                "_palavra": "prova2",
+                                "_token": Token {
+                                  "_classe": "identifier",
+                                  "_lexemas": [
+                                    Lexeme {
+                                      "_coluna": 4,
+                                      "_linha": 1,
+                                      "_palavra": "prova1",
+                                      "_token": [Circular],
+                                    },
+                                    Lexeme {
+                                      "_coluna": 4,
+                                      "_linha": 2,
+                                      "_palavra": "prova2",
+                                      "_token": [Circular],
+                                    },
+                                    Lexeme {
+                                      "_coluna": 4,
+                                      "_linha": 3,
+                                      "_palavra": "atividades",
+                                      "_token": [Circular],
+                                    },
+                                    Lexeme {
+                                      "_coluna": 4,
+                                      "_linha": 5,
+                                      "_palavra": "prova1",
+                                      "_token": [Circular],
+                                    },
+                                    [Circular],
+                                    Lexeme {
+                                      "_coluna": 4,
+                                      "_linha": 7,
+                                      "_palavra": "atividades",
+                                      "_token": [Circular],
+                                    },
+                                    Lexeme {
+                                      "_coluna": 12,
+                                      "_linha": 8,
+                                      "_palavra": "prova1",
+                                      "_token": [Circular],
+                                    },
+                                    Lexeme {
+                                      "_coluna": 21,
+                                      "_linha": 8,
+                                      "_palavra": "prova2",
+                                      "_token": [Circular],
+                                    },
+                                    Lexeme {
+                                      "_coluna": 30,
+                                      "_linha": 8,
+                                      "_palavra": "atividades",
+                                      "_token": [Circular],
+                                    },
+                                  ],
+                                  "_subclasse": "",
+                                },
+                              },
+                              "_nos": [],
+                              "_simbolo": "identifier",
+                            },
+                            Tree {
+                              "_extra": Lexeme {
+                                "_coluna": 11,
+                                "_linha": 6,
+                                "_palavra": "=",
+                                "_token": Token {
+                                  "_classe": "symbol",
+                                  "_lexemas": [
+                                    Lexeme {
+                                      "_coluna": 11,
+                                      "_linha": 5,
+                                      "_palavra": "=",
+                                      "_token": [Circular],
+                                    },
+                                    [Circular],
+                                    Lexeme {
+                                      "_coluna": 15,
+                                      "_linha": 7,
+                                      "_palavra": "=",
+                                      "_token": [Circular],
+                                    },
+                                  ],
+                                  "_subclasse": "atr",
+                                },
+                              },
+                              "_nos": [],
+                              "_simbolo": "symbol-atr",
+                            },
+                            Tree {
+                              "_extra": null,
+                              "_nos": [
+                                Tree {
+                                  "_extra": null,
+                                  "_nos": [
+                                    Tree {
+                                      "_extra": null,
+                                      "_nos": [
+                                        Tree {
+                                          "_extra": null,
+                                          "_nos": [
+                                            Tree {
+                                              "_extra": null,
+                                              "_nos": [
+                                                Tree {
+                                                  "_extra": Lexeme {
+                                                    "_coluna": 13,
+                                                    "_linha": 6,
+                                                    "_palavra": "8",
+                                                    "_token": Token {
+                                                      "_classe": "literal-int",
+                                                      "_lexemas": [
+                                                        Lexeme {
+                                                          "_coluna": 13,
+                                                          "_linha": 5,
+                                                          "_palavra": "9",
+                                                          "_token": [Circular],
+                                                        },
+                                                        [Circular],
+                                                        Lexeme {
+                                                          "_coluna": 17,
+                                                          "_linha": 7,
+                                                          "_palavra": "10",
+                                                          "_token": [Circular],
+                                                        },
+                                                        Lexeme {
+                                                          "_coluna": 44,
+                                                          "_linha": 8,
+                                                          "_palavra": "3",
+                                                          "_token": [Circular],
+                                                        },
+                                                      ],
+                                                      "_subclasse": "",
+                                                    },
+                                                  },
+                                                  "_nos": [],
+                                                  "_simbolo": "literal-int",
+                                                },
+                                              ],
+                                              "_simbolo": "<literal>",
+                                            },
+                                          ],
+                                          "_simbolo": "<expression_factor>",
+                                        },
+                                      ],
+                                      "_simbolo": "<term_expression>",
+                                    },
+                                  ],
+                                  "_simbolo": "<expression>",
+                                },
+                              ],
+                              "_simbolo": "<return>",
+                            },
+                            Tree {
+                              "_extra": Lexeme {
+                                "_coluna": 14,
+                                "_linha": 6,
+                                "_palavra": ";",
+                                "_token": Token {
+                                  "_classe": "symbol",
+                                  "_lexemas": [
+                                    Lexeme {
+                                      "_coluna": 15,
+                                      "_linha": 1,
+                                      "_palavra": ";",
+                                      "_token": [Circular],
+                                    },
+                                    Lexeme {
+                                      "_coluna": 15,
+                                      "_linha": 2,
+                                      "_palavra": ";",
+                                      "_token": [Circular],
+                                    },
+                                    Lexeme {
+                                      "_coluna": 19,
+                                      "_linha": 3,
+                                      "_palavra": ";",
+                                      "_token": [Circular],
+                                    },
+                                    Lexeme {
+                                      "_coluna": 14,
+                                      "_linha": 5,
+                                      "_palavra": ";",
+                                      "_token": [Circular],
+                                    },
+                                    [Circular],
+                                    Lexeme {
+                                      "_coluna": 19,
+                                      "_linha": 7,
+                                      "_palavra": ";",
+                                      "_token": [Circular],
+                                    },
+                                    Lexeme {
+                                      "_coluna": 45,
+                                      "_linha": 8,
+                                      "_palavra": ";",
+                                      "_token": [Circular],
+                                    },
+                                  ],
+                                  "_subclasse": "delimiter",
+                                },
+                              },
+                              "_nos": [],
+                              "_simbolo": "symbol-delimiter",
+                            },
+                          ],
+                          "_simbolo": "<assignment>",
+                        },
+                      ],
+                      "_simbolo": "<command>",
+                    },
+                  ],
+                  "_simbolo": "<statement_list>",
+                },
+                Tree {
+                  "_extra": null,
+                  "_nos": [
+                    Tree {
+                      "_extra": null,
+                      "_nos": [
+                        Tree {
+                          "_extra": Lexeme {
+                            "_coluna": 4,
+                            "_linha": 7,
+                            "_palavra": "atividades",
+                            "_token": Token {
+                              "_classe": "identifier",
+                              "_lexemas": [
+                                Lexeme {
+                                  "_coluna": 4,
+                                  "_linha": 1,
+                                  "_palavra": "prova1",
+                                  "_token": [Circular],
+                                },
+                                Lexeme {
+                                  "_coluna": 4,
+                                  "_linha": 2,
+                                  "_palavra": "prova2",
+                                  "_token": [Circular],
+                                },
+                                Lexeme {
+                                  "_coluna": 4,
+                                  "_linha": 3,
+                                  "_palavra": "atividades",
+                                  "_token": [Circular],
+                                },
+                                Lexeme {
+                                  "_coluna": 4,
+                                  "_linha": 5,
+                                  "_palavra": "prova1",
+                                  "_token": [Circular],
+                                },
+                                Lexeme {
+                                  "_coluna": 4,
+                                  "_linha": 6,
+                                  "_palavra": "prova2",
+                                  "_token": [Circular],
+                                },
+                                [Circular],
+                                Lexeme {
+                                  "_coluna": 12,
+                                  "_linha": 8,
+                                  "_palavra": "prova1",
+                                  "_token": [Circular],
+                                },
+                                Lexeme {
+                                  "_coluna": 21,
+                                  "_linha": 8,
+                                  "_palavra": "prova2",
+                                  "_token": [Circular],
+                                },
+                                Lexeme {
+                                  "_coluna": 30,
+                                  "_linha": 8,
+                                  "_palavra": "atividades",
+                                  "_token": [Circular],
+                                },
+                              ],
+                              "_subclasse": "",
+                            },
+                          },
+                          "_nos": [],
+                          "_simbolo": "identifier",
+                        },
+                        Tree {
+                          "_extra": Lexeme {
+                            "_coluna": 15,
+                            "_linha": 7,
+                            "_palavra": "=",
+                            "_token": Token {
+                              "_classe": "symbol",
+                              "_lexemas": [
+                                Lexeme {
+                                  "_coluna": 11,
+                                  "_linha": 5,
+                                  "_palavra": "=",
+                                  "_token": [Circular],
+                                },
+                                Lexeme {
+                                  "_coluna": 11,
+                                  "_linha": 6,
+                                  "_palavra": "=",
+                                  "_token": [Circular],
+                                },
+                                [Circular],
+                              ],
+                              "_subclasse": "atr",
+                            },
+                          },
+                          "_nos": [],
+                          "_simbolo": "symbol-atr",
+                        },
+                        Tree {
+                          "_extra": null,
+                          "_nos": [
+                            Tree {
+                              "_extra": null,
+                              "_nos": [
+                                Tree {
+                                  "_extra": null,
+                                  "_nos": [
+                                    Tree {
+                                      "_extra": null,
+                                      "_nos": [
+                                        Tree {
+                                          "_extra": null,
+                                          "_nos": [
+                                            Tree {
+                                              "_extra": Lexeme {
+                                                "_coluna": 17,
+                                                "_linha": 7,
+                                                "_palavra": "10",
+                                                "_token": Token {
+                                                  "_classe": "literal-int",
+                                                  "_lexemas": [
+                                                    Lexeme {
+                                                      "_coluna": 13,
+                                                      "_linha": 5,
+                                                      "_palavra": "9",
+                                                      "_token": [Circular],
+                                                    },
+                                                    Lexeme {
+                                                      "_coluna": 13,
+                                                      "_linha": 6,
+                                                      "_palavra": "8",
+                                                      "_token": [Circular],
+                                                    },
+                                                    [Circular],
+                                                    Lexeme {
+                                                      "_coluna": 44,
+                                                      "_linha": 8,
+                                                      "_palavra": "3",
+                                                      "_token": [Circular],
+                                                    },
+                                                  ],
+                                                  "_subclasse": "",
+                                                },
+                                              },
+                                              "_nos": [],
+                                              "_simbolo": "literal-int",
+                                            },
+                                          ],
+                                          "_simbolo": "<literal>",
+                                        },
+                                      ],
+                                      "_simbolo": "<expression_factor>",
+                                    },
+                                  ],
+                                  "_simbolo": "<term_expression>",
+                                },
+                              ],
+                              "_simbolo": "<expression>",
+                            },
+                          ],
+                          "_simbolo": "<return>",
+                        },
+                        Tree {
+                          "_extra": Lexeme {
+                            "_coluna": 19,
+                            "_linha": 7,
+                            "_palavra": ";",
+                            "_token": Token {
+                              "_classe": "symbol",
+                              "_lexemas": [
+                                Lexeme {
+                                  "_coluna": 15,
+                                  "_linha": 1,
+                                  "_palavra": ";",
+                                  "_token": [Circular],
+                                },
+                                Lexeme {
+                                  "_coluna": 15,
+                                  "_linha": 2,
+                                  "_palavra": ";",
+                                  "_token": [Circular],
+                                },
+                                Lexeme {
+                                  "_coluna": 19,
+                                  "_linha": 3,
+                                  "_palavra": ";",
+                                  "_token": [Circular],
+                                },
+                                Lexeme {
+                                  "_coluna": 14,
+                                  "_linha": 5,
+                                  "_palavra": ";",
+                                  "_token": [Circular],
+                                },
+                                Lexeme {
+                                  "_coluna": 14,
+                                  "_linha": 6,
+                                  "_palavra": ";",
+                                  "_token": [Circular],
+                                },
+                                [Circular],
+                                Lexeme {
+                                  "_coluna": 45,
+                                  "_linha": 8,
+                                  "_palavra": ";",
+                                  "_token": [Circular],
+                                },
+                              ],
+                              "_subclasse": "delimiter",
+                            },
+                          },
+                          "_nos": [],
+                          "_simbolo": "symbol-delimiter",
+                        },
+                      ],
+                      "_simbolo": "<assignment>",
+                    },
+                  ],
+                  "_simbolo": "<command>",
+                },
+              ],
+              "_simbolo": "<statement_list>",
+            },
+            Tree {
+              "_extra": null,
+              "_nos": [
+                Tree {
+                  "_extra": null,
+                  "_nos": [
+                    Tree {
+                      "_extra": Lexeme {
+                        "_coluna": 4,
+                        "_linha": 8,
+                        "_palavra": "return",
+                        "_token": Token {
+                          "_classe": "command",
+                          "_lexemas": [
+                            [Circular],
+                          ],
+                          "_subclasse": "return",
+                        },
+                      },
+                      "_nos": [],
+                      "_simbolo": "command-return",
+                    },
+                    Tree {
+                      "_extra": null,
+                      "_nos": [
+                        Tree {
+                          "_extra": null,
+                          "_nos": [
+                            Tree {
+                              "_extra": null,
+                              "_nos": [
+                                Tree {
+                                  "_extra": null,
+                                  "_nos": [
+                                    Tree {
+                                      "_extra": null,
+                                      "_nos": [
+                                        Tree {
+                                          "_extra": Lexeme {
+                                            "_coluna": 11,
+                                            "_linha": 8,
+                                            "_palavra": "(",
+                                            "_token": Token {
+                                              "_classe": "symbol",
+                                              "_lexemas": [
+                                                [Circular],
+                                              ],
+                                              "_subclasse": "apa",
+                                            },
+                                          },
+                                          "_nos": [],
+                                          "_simbolo": "symbol-apa",
+                                        },
+                                        Tree {
+                                          "_extra": null,
+                                          "_nos": [
+                                            Tree {
+                                              "_extra": null,
+                                              "_nos": [
+                                                Tree {
+                                                  "_extra": null,
+                                                  "_nos": [
+                                                    Tree {
+                                                      "_extra": null,
+                                                      "_nos": [
+                                                        Tree {
+                                                          "_extra": null,
+                                                          "_nos": [
+                                                            Tree {
+                                                              "_extra": Lexeme {
+                                                                "_coluna": 12,
+                                                                "_linha": 8,
+                                                                "_palavra": "prova1",
+                                                                "_token": Token {
+                                                                  "_classe": "identifier",
+                                                                  "_lexemas": [
+                                                                    Lexeme {
+                                                                      "_coluna": 4,
+                                                                      "_linha": 1,
+                                                                      "_palavra": "prova1",
+                                                                      "_token": [Circular],
+                                                                    },
+                                                                    Lexeme {
+                                                                      "_coluna": 4,
+                                                                      "_linha": 2,
+                                                                      "_palavra": "prova2",
+                                                                      "_token": [Circular],
+                                                                    },
+                                                                    Lexeme {
+                                                                      "_coluna": 4,
+                                                                      "_linha": 3,
+                                                                      "_palavra": "atividades",
+                                                                      "_token": [Circular],
+                                                                    },
+                                                                    Lexeme {
+                                                                      "_coluna": 4,
+                                                                      "_linha": 5,
+                                                                      "_palavra": "prova1",
+                                                                      "_token": [Circular],
+                                                                    },
+                                                                    Lexeme {
+                                                                      "_coluna": 4,
+                                                                      "_linha": 6,
+                                                                      "_palavra": "prova2",
+                                                                      "_token": [Circular],
+                                                                    },
+                                                                    Lexeme {
+                                                                      "_coluna": 4,
+                                                                      "_linha": 7,
+                                                                      "_palavra": "atividades",
+                                                                      "_token": [Circular],
+                                                                    },
+                                                                    [Circular],
+                                                                    Lexeme {
+                                                                      "_coluna": 21,
+                                                                      "_linha": 8,
+                                                                      "_palavra": "prova2",
+                                                                      "_token": [Circular],
+                                                                    },
+                                                                    Lexeme {
+                                                                      "_coluna": 30,
+                                                                      "_linha": 8,
+                                                                      "_palavra": "atividades",
+                                                                      "_token": [Circular],
+                                                                    },
+                                                                  ],
+                                                                  "_subclasse": "",
+                                                                },
+                                                              },
+                                                              "_nos": [],
+                                                              "_simbolo": "identifier",
+                                                            },
+                                                          ],
+                                                          "_simbolo": "<expression_factor>",
+                                                        },
+                                                      ],
+                                                      "_simbolo": "<term_expression>",
+                                                    },
+                                                  ],
+                                                  "_simbolo": "<expression>",
+                                                },
+                                                Tree {
+                                                  "_extra": Lexeme {
+                                                    "_coluna": 19,
+                                                    "_linha": 8,
+                                                    "_palavra": "+",
+                                                    "_token": Token {
+                                                      "_classe": "op-arithmetic",
+                                                      "_lexemas": [
+                                                        [Circular],
+                                                        Lexeme {
+                                                          "_coluna": 28,
+                                                          "_linha": 8,
+                                                          "_palavra": "+",
+                                                          "_token": [Circular],
+                                                        },
+                                                      ],
+                                                      "_subclasse": "adi",
+                                                    },
+                                                  },
+                                                  "_nos": [],
+                                                  "_simbolo": "op-arithmetic-adi",
+                                                },
+                                                Tree {
+                                                  "_extra": null,
+                                                  "_nos": [
+                                                    Tree {
+                                                      "_extra": null,
+                                                      "_nos": [
+                                                        Tree {
+                                                          "_extra": Lexeme {
+                                                            "_coluna": 21,
+                                                            "_linha": 8,
+                                                            "_palavra": "prova2",
+                                                            "_token": Token {
+                                                              "_classe": "identifier",
+                                                              "_lexemas": [
+                                                                Lexeme {
+                                                                  "_coluna": 4,
+                                                                  "_linha": 1,
+                                                                  "_palavra": "prova1",
+                                                                  "_token": [Circular],
+                                                                },
+                                                                Lexeme {
+                                                                  "_coluna": 4,
+                                                                  "_linha": 2,
+                                                                  "_palavra": "prova2",
+                                                                  "_token": [Circular],
+                                                                },
+                                                                Lexeme {
+                                                                  "_coluna": 4,
+                                                                  "_linha": 3,
+                                                                  "_palavra": "atividades",
+                                                                  "_token": [Circular],
+                                                                },
+                                                                Lexeme {
+                                                                  "_coluna": 4,
+                                                                  "_linha": 5,
+                                                                  "_palavra": "prova1",
+                                                                  "_token": [Circular],
+                                                                },
+                                                                Lexeme {
+                                                                  "_coluna": 4,
+                                                                  "_linha": 6,
+                                                                  "_palavra": "prova2",
+                                                                  "_token": [Circular],
+                                                                },
+                                                                Lexeme {
+                                                                  "_coluna": 4,
+                                                                  "_linha": 7,
+                                                                  "_palavra": "atividades",
+                                                                  "_token": [Circular],
+                                                                },
+                                                                Lexeme {
+                                                                  "_coluna": 12,
+                                                                  "_linha": 8,
+                                                                  "_palavra": "prova1",
+                                                                  "_token": [Circular],
+                                                                },
+                                                                [Circular],
+                                                                Lexeme {
+                                                                  "_coluna": 30,
+                                                                  "_linha": 8,
+                                                                  "_palavra": "atividades",
+                                                                  "_token": [Circular],
+                                                                },
+                                                              ],
+                                                              "_subclasse": "",
+                                                            },
+                                                          },
+                                                          "_nos": [],
+                                                          "_simbolo": "identifier",
+                                                        },
+                                                      ],
+                                                      "_simbolo": "<expression_factor>",
+                                                    },
+                                                  ],
+                                                  "_simbolo": "<term_expression>",
+                                                },
+                                              ],
+                                              "_simbolo": "<expression>",
+                                            },
+                                            Tree {
+                                              "_extra": Lexeme {
+                                                "_coluna": 28,
+                                                "_linha": 8,
+                                                "_palavra": "+",
+                                                "_token": Token {
+                                                  "_classe": "op-arithmetic",
+                                                  "_lexemas": [
+                                                    Lexeme {
+                                                      "_coluna": 19,
+                                                      "_linha": 8,
+                                                      "_palavra": "+",
+                                                      "_token": [Circular],
+                                                    },
+                                                    [Circular],
+                                                  ],
+                                                  "_subclasse": "adi",
+                                                },
+                                              },
+                                              "_nos": [],
+                                              "_simbolo": "op-arithmetic-adi",
+                                            },
+                                            Tree {
+                                              "_extra": null,
+                                              "_nos": [
+                                                Tree {
+                                                  "_extra": null,
+                                                  "_nos": [
+                                                    Tree {
+                                                      "_extra": Lexeme {
+                                                        "_coluna": 30,
+                                                        "_linha": 8,
+                                                        "_palavra": "atividades",
+                                                        "_token": Token {
+                                                          "_classe": "identifier",
+                                                          "_lexemas": [
+                                                            Lexeme {
+                                                              "_coluna": 4,
+                                                              "_linha": 1,
+                                                              "_palavra": "prova1",
+                                                              "_token": [Circular],
+                                                            },
+                                                            Lexeme {
+                                                              "_coluna": 4,
+                                                              "_linha": 2,
+                                                              "_palavra": "prova2",
+                                                              "_token": [Circular],
+                                                            },
+                                                            Lexeme {
+                                                              "_coluna": 4,
+                                                              "_linha": 3,
+                                                              "_palavra": "atividades",
+                                                              "_token": [Circular],
+                                                            },
+                                                            Lexeme {
+                                                              "_coluna": 4,
+                                                              "_linha": 5,
+                                                              "_palavra": "prova1",
+                                                              "_token": [Circular],
+                                                            },
+                                                            Lexeme {
+                                                              "_coluna": 4,
+                                                              "_linha": 6,
+                                                              "_palavra": "prova2",
+                                                              "_token": [Circular],
+                                                            },
+                                                            Lexeme {
+                                                              "_coluna": 4,
+                                                              "_linha": 7,
+                                                              "_palavra": "atividades",
+                                                              "_token": [Circular],
+                                                            },
+                                                            Lexeme {
+                                                              "_coluna": 12,
+                                                              "_linha": 8,
+                                                              "_palavra": "prova1",
+                                                              "_token": [Circular],
+                                                            },
+                                                            Lexeme {
+                                                              "_coluna": 21,
+                                                              "_linha": 8,
+                                                              "_palavra": "prova2",
+                                                              "_token": [Circular],
+                                                            },
+                                                            [Circular],
+                                                          ],
+                                                          "_subclasse": "",
+                                                        },
+                                                      },
+                                                      "_nos": [],
+                                                      "_simbolo": "identifier",
+                                                    },
+                                                  ],
+                                                  "_simbolo": "<expression_factor>",
+                                                },
+                                              ],
+                                              "_simbolo": "<term_expression>",
+                                            },
+                                          ],
+                                          "_simbolo": "<expression>",
+                                        },
+                                        Tree {
+                                          "_extra": Lexeme {
+                                            "_coluna": 40,
+                                            "_linha": 8,
+                                            "_palavra": ")",
+                                            "_token": Token {
+                                              "_classe": "symbol",
+                                              "_lexemas": [
+                                                [Circular],
+                                              ],
+                                              "_subclasse": "fpa",
+                                            },
+                                          },
+                                          "_nos": [],
+                                          "_simbolo": "symbol-fpa",
+                                        },
+                                      ],
+                                      "_simbolo": "<expression_factor>",
+                                    },
+                                  ],
+                                  "_simbolo": "<term_expression>",
+                                },
+                                Tree {
+                                  "_extra": Lexeme {
+                                    "_coluna": 42,
+                                    "_linha": 8,
+                                    "_palavra": "/",
+                                    "_token": Token {
+                                      "_classe": "op-arithmetic",
+                                      "_lexemas": [
+                                        [Circular],
+                                      ],
+                                      "_subclasse": "div",
+                                    },
+                                  },
+                                  "_nos": [],
+                                  "_simbolo": "op-arithmetic-div",
+                                },
+                                Tree {
+                                  "_extra": null,
+                                  "_nos": [
+                                    Tree {
+                                      "_extra": null,
+                                      "_nos": [
+                                        Tree {
+                                          "_extra": Lexeme {
+                                            "_coluna": 44,
+                                            "_linha": 8,
+                                            "_palavra": "3",
+                                            "_token": Token {
+                                              "_classe": "literal-int",
+                                              "_lexemas": [
+                                                Lexeme {
+                                                  "_coluna": 13,
+                                                  "_linha": 5,
+                                                  "_palavra": "9",
+                                                  "_token": [Circular],
+                                                },
+                                                Lexeme {
+                                                  "_coluna": 13,
+                                                  "_linha": 6,
+                                                  "_palavra": "8",
+                                                  "_token": [Circular],
+                                                },
+                                                Lexeme {
+                                                  "_coluna": 17,
+                                                  "_linha": 7,
+                                                  "_palavra": "10",
+                                                  "_token": [Circular],
+                                                },
+                                                [Circular],
+                                              ],
+                                              "_subclasse": "",
+                                            },
+                                          },
+                                          "_nos": [],
+                                          "_simbolo": "literal-int",
+                                        },
+                                      ],
+                                      "_simbolo": "<literal>",
+                                    },
+                                  ],
+                                  "_simbolo": "<expression_factor>",
+                                },
+                              ],
+                              "_simbolo": "<term_expression>",
+                            },
+                          ],
+                          "_simbolo": "<expression>",
+                        },
+                      ],
+                      "_simbolo": "<return>",
+                    },
+                    Tree {
+                      "_extra": Lexeme {
+                        "_coluna": 45,
+                        "_linha": 8,
+                        "_palavra": ";",
+                        "_token": Token {
+                          "_classe": "symbol",
+                          "_lexemas": [
+                            Lexeme {
+                              "_coluna": 15,
+                              "_linha": 1,
+                              "_palavra": ";",
+                              "_token": [Circular],
+                            },
+                            Lexeme {
+                              "_coluna": 15,
+                              "_linha": 2,
+                              "_palavra": ";",
+                              "_token": [Circular],
+                            },
+                            Lexeme {
+                              "_coluna": 19,
+                              "_linha": 3,
+                              "_palavra": ";",
+                              "_token": [Circular],
+                            },
+                            Lexeme {
+                              "_coluna": 14,
+                              "_linha": 5,
+                              "_palavra": ";",
+                              "_token": [Circular],
+                            },
+                            Lexeme {
+                              "_coluna": 14,
+                              "_linha": 6,
+                              "_palavra": ";",
+                              "_token": [Circular],
+                            },
+                            Lexeme {
+                              "_coluna": 19,
+                              "_linha": 7,
+                              "_palavra": ";",
+                              "_token": [Circular],
+                            },
+                            [Circular],
+                          ],
+                          "_subclasse": "delimiter",
+                        },
+                      },
+                      "_nos": [],
+                      "_simbolo": "symbol-delimiter",
+                    },
+                  ],
+                  "_simbolo": "<program_return>",
+                },
+              ],
+              "_simbolo": "<command>",
+            },
+          ],
+          "_simbolo": "<statement_list>",
+        },
+        Tree {
+          "_extra": Lexeme {
+            "_coluna": 2,
+            "_linha": 9,
+            "_palavra": "END.",
+            "_token": Token {
+              "_classe": "command",
+              "_lexemas": [
+                [Circular],
+              ],
+              "_subclasse": "END.",
+            },
+          },
+          "_nos": [],
+          "_simbolo": "command-END.",
+        },
+      ],
+      "_simbolo": "<statement_part>",
+    },
+  ],
+  "_simbolo": "<program>",
+}
+`;
+
+exports[`CompilerExpressions Media teste 2`] = `
+[
+  Tree {
+    "_extra": Lexeme {
+      "_coluna": 11,
+      "_linha": 5,
+      "_palavra": "=",
+      "_token": Token {
+        "_classe": "symbol",
+        "_lexemas": [
+          [Circular],
+          Lexeme {
+            "_coluna": 11,
+            "_linha": 6,
+            "_palavra": "=",
+            "_token": [Circular],
+          },
+          Lexeme {
+            "_coluna": 15,
+            "_linha": 7,
+            "_palavra": "=",
+            "_token": [Circular],
+          },
+        ],
+        "_subclasse": "atr",
+      },
+    },
+    "_nos": [
+      Tree {
+        "_extra": Lexeme {
+          "_coluna": 4,
+          "_linha": 5,
+          "_palavra": "prova1",
+          "_token": Token {
+            "_classe": "identifier",
+            "_lexemas": [
+              Lexeme {
+                "_coluna": 4,
+                "_linha": 1,
+                "_palavra": "prova1",
+                "_token": [Circular],
+              },
+              Lexeme {
+                "_coluna": 4,
+                "_linha": 2,
+                "_palavra": "prova2",
+                "_token": [Circular],
+              },
+              Lexeme {
+                "_coluna": 4,
+                "_linha": 3,
+                "_palavra": "atividades",
+                "_token": [Circular],
+              },
+              [Circular],
+              Lexeme {
+                "_coluna": 4,
+                "_linha": 6,
+                "_palavra": "prova2",
+                "_token": [Circular],
+              },
+              Lexeme {
+                "_coluna": 4,
+                "_linha": 7,
+                "_palavra": "atividades",
+                "_token": [Circular],
+              },
+              Lexeme {
+                "_coluna": 12,
+                "_linha": 8,
+                "_palavra": "prova1",
+                "_token": [Circular],
+              },
+              Lexeme {
+                "_coluna": 21,
+                "_linha": 8,
+                "_palavra": "prova2",
+                "_token": [Circular],
+              },
+              Lexeme {
+                "_coluna": 30,
+                "_linha": 8,
+                "_palavra": "atividades",
+                "_token": [Circular],
+              },
+            ],
+            "_subclasse": "",
+          },
+        },
+        "_nos": [],
+        "_simbolo": "prova1",
+      },
+      Tree {
+        "_extra": Lexeme {
+          "_coluna": 13,
+          "_linha": 5,
+          "_palavra": "9",
+          "_token": Token {
+            "_classe": "literal-int",
+            "_lexemas": [
+              [Circular],
+              Lexeme {
+                "_coluna": 13,
+                "_linha": 6,
+                "_palavra": "8",
+                "_token": [Circular],
+              },
+              Lexeme {
+                "_coluna": 17,
+                "_linha": 7,
+                "_palavra": "10",
+                "_token": [Circular],
+              },
+              Lexeme {
+                "_coluna": 44,
+                "_linha": 8,
+                "_palavra": "3",
+                "_token": [Circular],
+              },
+            ],
+            "_subclasse": "",
+          },
+        },
+        "_nos": [],
+        "_simbolo": "9",
+      },
+    ],
+    "_simbolo": "=",
+  },
+  Tree {
+    "_extra": Lexeme {
+      "_coluna": 11,
+      "_linha": 6,
+      "_palavra": "=",
+      "_token": Token {
+        "_classe": "symbol",
+        "_lexemas": [
+          Lexeme {
+            "_coluna": 11,
+            "_linha": 5,
+            "_palavra": "=",
+            "_token": [Circular],
+          },
+          [Circular],
+          Lexeme {
+            "_coluna": 15,
+            "_linha": 7,
+            "_palavra": "=",
+            "_token": [Circular],
+          },
+        ],
+        "_subclasse": "atr",
+      },
+    },
+    "_nos": [
+      Tree {
+        "_extra": Lexeme {
+          "_coluna": 4,
+          "_linha": 6,
+          "_palavra": "prova2",
+          "_token": Token {
+            "_classe": "identifier",
+            "_lexemas": [
+              Lexeme {
+                "_coluna": 4,
+                "_linha": 1,
+                "_palavra": "prova1",
+                "_token": [Circular],
+              },
+              Lexeme {
+                "_coluna": 4,
+                "_linha": 2,
+                "_palavra": "prova2",
+                "_token": [Circular],
+              },
+              Lexeme {
+                "_coluna": 4,
+                "_linha": 3,
+                "_palavra": "atividades",
+                "_token": [Circular],
+              },
+              Lexeme {
+                "_coluna": 4,
+                "_linha": 5,
+                "_palavra": "prova1",
+                "_token": [Circular],
+              },
+              [Circular],
+              Lexeme {
+                "_coluna": 4,
+                "_linha": 7,
+                "_palavra": "atividades",
+                "_token": [Circular],
+              },
+              Lexeme {
+                "_coluna": 12,
+                "_linha": 8,
+                "_palavra": "prova1",
+                "_token": [Circular],
+              },
+              Lexeme {
+                "_coluna": 21,
+                "_linha": 8,
+                "_palavra": "prova2",
+                "_token": [Circular],
+              },
+              Lexeme {
+                "_coluna": 30,
+                "_linha": 8,
+                "_palavra": "atividades",
+                "_token": [Circular],
+              },
+            ],
+            "_subclasse": "",
+          },
+        },
+        "_nos": [],
+        "_simbolo": "prova2",
+      },
+      Tree {
+        "_extra": Lexeme {
+          "_coluna": 13,
+          "_linha": 6,
+          "_palavra": "8",
+          "_token": Token {
+            "_classe": "literal-int",
+            "_lexemas": [
+              Lexeme {
+                "_coluna": 13,
+                "_linha": 5,
+                "_palavra": "9",
+                "_token": [Circular],
+              },
+              [Circular],
+              Lexeme {
+                "_coluna": 17,
+                "_linha": 7,
+                "_palavra": "10",
+                "_token": [Circular],
+              },
+              Lexeme {
+                "_coluna": 44,
+                "_linha": 8,
+                "_palavra": "3",
+                "_token": [Circular],
+              },
+            ],
+            "_subclasse": "",
+          },
+        },
+        "_nos": [],
+        "_simbolo": "8",
+      },
+    ],
+    "_simbolo": "=",
+  },
+  Tree {
+    "_extra": Lexeme {
+      "_coluna": 15,
+      "_linha": 7,
+      "_palavra": "=",
+      "_token": Token {
+        "_classe": "symbol",
+        "_lexemas": [
+          Lexeme {
+            "_coluna": 11,
+            "_linha": 5,
+            "_palavra": "=",
+            "_token": [Circular],
+          },
+          Lexeme {
+            "_coluna": 11,
+            "_linha": 6,
+            "_palavra": "=",
+            "_token": [Circular],
+          },
+          [Circular],
+        ],
+        "_subclasse": "atr",
+      },
+    },
+    "_nos": [
+      Tree {
+        "_extra": Lexeme {
+          "_coluna": 4,
+          "_linha": 7,
+          "_palavra": "atividades",
+          "_token": Token {
+            "_classe": "identifier",
+            "_lexemas": [
+              Lexeme {
+                "_coluna": 4,
+                "_linha": 1,
+                "_palavra": "prova1",
+                "_token": [Circular],
+              },
+              Lexeme {
+                "_coluna": 4,
+                "_linha": 2,
+                "_palavra": "prova2",
+                "_token": [Circular],
+              },
+              Lexeme {
+                "_coluna": 4,
+                "_linha": 3,
+                "_palavra": "atividades",
+                "_token": [Circular],
+              },
+              Lexeme {
+                "_coluna": 4,
+                "_linha": 5,
+                "_palavra": "prova1",
+                "_token": [Circular],
+              },
+              Lexeme {
+                "_coluna": 4,
+                "_linha": 6,
+                "_palavra": "prova2",
+                "_token": [Circular],
+              },
+              [Circular],
+              Lexeme {
+                "_coluna": 12,
+                "_linha": 8,
+                "_palavra": "prova1",
+                "_token": [Circular],
+              },
+              Lexeme {
+                "_coluna": 21,
+                "_linha": 8,
+                "_palavra": "prova2",
+                "_token": [Circular],
+              },
+              Lexeme {
+                "_coluna": 30,
+                "_linha": 8,
+                "_palavra": "atividades",
+                "_token": [Circular],
+              },
+            ],
+            "_subclasse": "",
+          },
+        },
+        "_nos": [],
+        "_simbolo": "atividades",
+      },
+      Tree {
+        "_extra": Lexeme {
+          "_coluna": 17,
+          "_linha": 7,
+          "_palavra": "10",
+          "_token": Token {
+            "_classe": "literal-int",
+            "_lexemas": [
+              Lexeme {
+                "_coluna": 13,
+                "_linha": 5,
+                "_palavra": "9",
+                "_token": [Circular],
+              },
+              Lexeme {
+                "_coluna": 13,
+                "_linha": 6,
+                "_palavra": "8",
+                "_token": [Circular],
+              },
+              [Circular],
+              Lexeme {
+                "_coluna": 44,
+                "_linha": 8,
+                "_palavra": "3",
+                "_token": [Circular],
+              },
+            ],
+            "_subclasse": "",
+          },
+        },
+        "_nos": [],
+        "_simbolo": "10",
+      },
+    ],
+    "_simbolo": "=",
+  },
+  Tree {
+    "_extra": Lexeme {
+      "_coluna": 4,
+      "_linha": 8,
+      "_palavra": "return",
+      "_token": Token {
+        "_classe": "command",
+        "_lexemas": [
+          [Circular],
+        ],
+        "_subclasse": "return",
+      },
+    },
+    "_nos": [
+      Tree {
+        "_extra": Lexeme {
+          "_coluna": 42,
+          "_linha": 8,
+          "_palavra": "/",
+          "_token": Token {
+            "_classe": "op-arithmetic",
+            "_lexemas": [
+              [Circular],
+            ],
+            "_subclasse": "div",
+          },
+        },
+        "_nos": [
+          Tree {
+            "_extra": Lexeme {
+              "_coluna": 28,
+              "_linha": 8,
+              "_palavra": "+",
+              "_token": Token {
+                "_classe": "op-arithmetic",
+                "_lexemas": [
+                  Lexeme {
+                    "_coluna": 19,
+                    "_linha": 8,
+                    "_palavra": "+",
+                    "_token": [Circular],
+                  },
+                  [Circular],
+                ],
+                "_subclasse": "adi",
+              },
+            },
+            "_nos": [
+              Tree {
+                "_extra": Lexeme {
+                  "_coluna": 19,
+                  "_linha": 8,
+                  "_palavra": "+",
+                  "_token": Token {
+                    "_classe": "op-arithmetic",
+                    "_lexemas": [
+                      [Circular],
+                      Lexeme {
+                        "_coluna": 28,
+                        "_linha": 8,
+                        "_palavra": "+",
+                        "_token": [Circular],
+                      },
+                    ],
+                    "_subclasse": "adi",
+                  },
+                },
+                "_nos": [
+                  Tree {
+                    "_extra": Lexeme {
+                      "_coluna": 12,
+                      "_linha": 8,
+                      "_palavra": "prova1",
+                      "_token": Token {
+                        "_classe": "identifier",
+                        "_lexemas": [
+                          Lexeme {
+                            "_coluna": 4,
+                            "_linha": 1,
+                            "_palavra": "prova1",
+                            "_token": [Circular],
+                          },
+                          Lexeme {
+                            "_coluna": 4,
+                            "_linha": 2,
+                            "_palavra": "prova2",
+                            "_token": [Circular],
+                          },
+                          Lexeme {
+                            "_coluna": 4,
+                            "_linha": 3,
+                            "_palavra": "atividades",
+                            "_token": [Circular],
+                          },
+                          Lexeme {
+                            "_coluna": 4,
+                            "_linha": 5,
+                            "_palavra": "prova1",
+                            "_token": [Circular],
+                          },
+                          Lexeme {
+                            "_coluna": 4,
+                            "_linha": 6,
+                            "_palavra": "prova2",
+                            "_token": [Circular],
+                          },
+                          Lexeme {
+                            "_coluna": 4,
+                            "_linha": 7,
+                            "_palavra": "atividades",
+                            "_token": [Circular],
+                          },
+                          [Circular],
+                          Lexeme {
+                            "_coluna": 21,
+                            "_linha": 8,
+                            "_palavra": "prova2",
+                            "_token": [Circular],
+                          },
+                          Lexeme {
+                            "_coluna": 30,
+                            "_linha": 8,
+                            "_palavra": "atividades",
+                            "_token": [Circular],
+                          },
+                        ],
+                        "_subclasse": "",
+                      },
+                    },
+                    "_nos": [],
+                    "_simbolo": "prova1",
+                  },
+                  Tree {
+                    "_extra": Lexeme {
+                      "_coluna": 21,
+                      "_linha": 8,
+                      "_palavra": "prova2",
+                      "_token": Token {
+                        "_classe": "identifier",
+                        "_lexemas": [
+                          Lexeme {
+                            "_coluna": 4,
+                            "_linha": 1,
+                            "_palavra": "prova1",
+                            "_token": [Circular],
+                          },
+                          Lexeme {
+                            "_coluna": 4,
+                            "_linha": 2,
+                            "_palavra": "prova2",
+                            "_token": [Circular],
+                          },
+                          Lexeme {
+                            "_coluna": 4,
+                            "_linha": 3,
+                            "_palavra": "atividades",
+                            "_token": [Circular],
+                          },
+                          Lexeme {
+                            "_coluna": 4,
+                            "_linha": 5,
+                            "_palavra": "prova1",
+                            "_token": [Circular],
+                          },
+                          Lexeme {
+                            "_coluna": 4,
+                            "_linha": 6,
+                            "_palavra": "prova2",
+                            "_token": [Circular],
+                          },
+                          Lexeme {
+                            "_coluna": 4,
+                            "_linha": 7,
+                            "_palavra": "atividades",
+                            "_token": [Circular],
+                          },
+                          Lexeme {
+                            "_coluna": 12,
+                            "_linha": 8,
+                            "_palavra": "prova1",
+                            "_token": [Circular],
+                          },
+                          [Circular],
+                          Lexeme {
+                            "_coluna": 30,
+                            "_linha": 8,
+                            "_palavra": "atividades",
+                            "_token": [Circular],
+                          },
+                        ],
+                        "_subclasse": "",
+                      },
+                    },
+                    "_nos": [],
+                    "_simbolo": "prova2",
+                  },
+                ],
+                "_simbolo": "+",
+              },
+              Tree {
+                "_extra": Lexeme {
+                  "_coluna": 30,
+                  "_linha": 8,
+                  "_palavra": "atividades",
+                  "_token": Token {
+                    "_classe": "identifier",
+                    "_lexemas": [
+                      Lexeme {
+                        "_coluna": 4,
+                        "_linha": 1,
+                        "_palavra": "prova1",
+                        "_token": [Circular],
+                      },
+                      Lexeme {
+                        "_coluna": 4,
+                        "_linha": 2,
+                        "_palavra": "prova2",
+                        "_token": [Circular],
+                      },
+                      Lexeme {
+                        "_coluna": 4,
+                        "_linha": 3,
+                        "_palavra": "atividades",
+                        "_token": [Circular],
+                      },
+                      Lexeme {
+                        "_coluna": 4,
+                        "_linha": 5,
+                        "_palavra": "prova1",
+                        "_token": [Circular],
+                      },
+                      Lexeme {
+                        "_coluna": 4,
+                        "_linha": 6,
+                        "_palavra": "prova2",
+                        "_token": [Circular],
+                      },
+                      Lexeme {
+                        "_coluna": 4,
+                        "_linha": 7,
+                        "_palavra": "atividades",
+                        "_token": [Circular],
+                      },
+                      Lexeme {
+                        "_coluna": 12,
+                        "_linha": 8,
+                        "_palavra": "prova1",
+                        "_token": [Circular],
+                      },
+                      Lexeme {
+                        "_coluna": 21,
+                        "_linha": 8,
+                        "_palavra": "prova2",
+                        "_token": [Circular],
+                      },
+                      [Circular],
+                    ],
+                    "_subclasse": "",
+                  },
+                },
+                "_nos": [],
+                "_simbolo": "atividades",
+              },
+            ],
+            "_simbolo": "+",
+          },
+          Tree {
+            "_extra": Lexeme {
+              "_coluna": 44,
+              "_linha": 8,
+              "_palavra": "3",
+              "_token": Token {
+                "_classe": "literal-int",
+                "_lexemas": [
+                  Lexeme {
+                    "_coluna": 13,
+                    "_linha": 5,
+                    "_palavra": "9",
+                    "_token": [Circular],
+                  },
+                  Lexeme {
+                    "_coluna": 13,
+                    "_linha": 6,
+                    "_palavra": "8",
+                    "_token": [Circular],
+                  },
+                  Lexeme {
+                    "_coluna": 17,
+                    "_linha": 7,
+                    "_palavra": "10",
+                    "_token": [Circular],
+                  },
+                  [Circular],
+                ],
+                "_subclasse": "",
+              },
+            },
+            "_nos": [],
+            "_simbolo": "3",
+          },
+        ],
+        "_simbolo": "/",
+      },
+    ],
+    "_simbolo": "return",
+  },
+]
+`;
+
+exports[`CompilerExpressions Media teste 3`] = `
+[
+  SimboloIdentificador {
+    "_nome": "prova1",
+    "_tipo": "int",
+    "_token": Token {
+      "_classe": "identifier",
+      "_lexemas": [
+        Lexeme {
+          "_coluna": 4,
+          "_linha": 1,
+          "_palavra": "prova1",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 4,
+          "_linha": 2,
+          "_palavra": "prova2",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 4,
+          "_linha": 3,
+          "_palavra": "atividades",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 4,
+          "_linha": 5,
+          "_palavra": "prova1",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 4,
+          "_linha": 6,
+          "_palavra": "prova2",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 4,
+          "_linha": 7,
+          "_palavra": "atividades",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 12,
+          "_linha": 8,
+          "_palavra": "prova1",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 21,
+          "_linha": 8,
+          "_palavra": "prova2",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 30,
+          "_linha": 8,
+          "_palavra": "atividades",
+          "_token": [Circular],
+        },
+      ],
+      "_subclasse": "",
+    },
+  },
+  SimboloIdentificador {
+    "_nome": "prova2",
+    "_tipo": "int",
+    "_token": Token {
+      "_classe": "identifier",
+      "_lexemas": [
+        Lexeme {
+          "_coluna": 4,
+          "_linha": 1,
+          "_palavra": "prova1",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 4,
+          "_linha": 2,
+          "_palavra": "prova2",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 4,
+          "_linha": 3,
+          "_palavra": "atividades",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 4,
+          "_linha": 5,
+          "_palavra": "prova1",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 4,
+          "_linha": 6,
+          "_palavra": "prova2",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 4,
+          "_linha": 7,
+          "_palavra": "atividades",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 12,
+          "_linha": 8,
+          "_palavra": "prova1",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 21,
+          "_linha": 8,
+          "_palavra": "prova2",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 30,
+          "_linha": 8,
+          "_palavra": "atividades",
+          "_token": [Circular],
+        },
+      ],
+      "_subclasse": "",
+    },
+  },
+  SimboloIdentificador {
+    "_nome": "atividades",
+    "_tipo": "int",
+    "_token": Token {
+      "_classe": "identifier",
+      "_lexemas": [
+        Lexeme {
+          "_coluna": 4,
+          "_linha": 1,
+          "_palavra": "prova1",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 4,
+          "_linha": 2,
+          "_palavra": "prova2",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 4,
+          "_linha": 3,
+          "_palavra": "atividades",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 4,
+          "_linha": 5,
+          "_palavra": "prova1",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 4,
+          "_linha": 6,
+          "_palavra": "prova2",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 4,
+          "_linha": 7,
+          "_palavra": "atividades",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 12,
+          "_linha": 8,
+          "_palavra": "prova1",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 21,
+          "_linha": 8,
+          "_palavra": "prova2",
+          "_token": [Circular],
+        },
+        Lexeme {
+          "_coluna": 30,
+          "_linha": 8,
+          "_palavra": "atividades",
+          "_token": [Circular],
+        },
+      ],
+      "_subclasse": "",
+    },
+  },
+]
+`;
+
+exports[`CompilerExpressions Media teste 4`] = `
+[
+  [
+    Instruction {
+      "_arguments": [
+        "9",
+      ],
+      "_operand": "<0>",
+      "_operator": "=",
+    },
+    Instruction {
+      "_arguments": [
+        "<0>",
+      ],
+      "_operand": "prova1",
+      "_operator": "=",
+    },
+  ],
+  [
+    Instruction {
+      "_arguments": [
+        "8",
+      ],
+      "_operand": "<0>",
+      "_operator": "=",
+    },
+    Instruction {
+      "_arguments": [
+        "<0>",
+      ],
+      "_operand": "prova2",
+      "_operator": "=",
+    },
+  ],
+  [
+    Instruction {
+      "_arguments": [
+        "10",
+      ],
+      "_operand": "<0>",
+      "_operator": "=",
+    },
+    Instruction {
+      "_arguments": [
+        "<0>",
+      ],
+      "_operand": "atividades",
+      "_operator": "=",
+    },
+  ],
+  [
+    Instruction {
+      "_arguments": [
+        "3",
+      ],
+      "_operand": "<0>",
+      "_operator": "=",
+    },
+    Instruction {
+      "_arguments": [
+        "atividades",
+      ],
+      "_operand": "<1>",
+      "_operator": "=",
+    },
+    Instruction {
+      "_arguments": [
+        "prova2",
+      ],
+      "_operand": "<2>",
+      "_operator": "=",
+    },
+    Instruction {
+      "_arguments": [
+        "prova1",
+      ],
+      "_operand": "<3>",
+      "_operator": "=",
+    },
+    Instruction {
+      "_arguments": [
+        "<3>",
+        "<2>",
+      ],
+      "_operand": "<4>",
+      "_operator": "+",
+    },
+    Instruction {
+      "_arguments": [
+        "<4>",
+        "<1>",
+      ],
+      "_operand": "<5>",
+      "_operator": "+",
+    },
+    Instruction {
+      "_arguments": [
+        "<5>",
+        "<0>",
+      ],
+      "_operand": "<6>",
+      "_operator": "/",
+    },
+    Instruction {
+      "_arguments": [
+        "<6>",
+      ],
+      "_operand": "return",
+      "_operator": "return",
+    },
+  ],
+]
+`;
+
+exports[`CompilerExpressions Media teste 5`] = `
+[
+  [
+    Instruction {
+      "_arguments": [
+        "9",
+      ],
+      "_operand": "prova1",
+      "_operator": "=",
+    },
+  ],
+  [
+    Instruction {
+      "_arguments": [
+        "8",
+      ],
+      "_operand": "prova2",
+      "_operator": "=",
+    },
+  ],
+  [
+    Instruction {
+      "_arguments": [
+        "10",
+      ],
+      "_operand": "atividades",
+      "_operator": "=",
+    },
+  ],
+  [
+    Instruction {
+      "_arguments": [
+        "prova1",
+        "prova2",
+      ],
+      "_operand": "<0>",
+      "_operator": "+",
+    },
+    Instruction {
+      "_arguments": [
+        "<0>",
+        "atividades",
+      ],
+      "_operand": "<1>",
+      "_operator": "+",
+    },
+    Instruction {
+      "_arguments": [
+        "<1>",
+        "3",
+      ],
+      "_operand": "<2>",
+      "_operator": "/",
+    },
+    Instruction {
+      "_arguments": [
+        "<2>",
+      ],
+      "_operand": "return",
+      "_operator": "return",
+    },
+  ],
+]
+`;
+
+exports[`CompilerExpressions Media teste 6`] = `
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "name": "VAR",
+            },
+          ],
+          "name": "command-VAR",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "name": "prova1",
+                    },
+                  ],
+                  "name": "identifier",
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "name": ":",
+                    },
+                  ],
+                  "name": "symbol-colon",
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "name": "int",
+                        },
+                      ],
+                      "name": "name-scalar-int",
+                    },
+                  ],
+                  "name": "<type>",
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "name": ";",
+                    },
+                  ],
+                  "name": "symbol-delimiter",
+                },
+              ],
+              "name": "<variable_declaration>",
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "name": "prova2",
+                        },
+                      ],
+                      "name": "identifier",
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "name": ":",
+                        },
+                      ],
+                      "name": "symbol-colon",
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "name": "int",
+                            },
+                          ],
+                          "name": "name-scalar-int",
+                        },
+                      ],
+                      "name": "<type>",
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "name": ";",
+                        },
+                      ],
+                      "name": "symbol-delimiter",
+                    },
+                  ],
+                  "name": "<variable_declaration>",
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "name": "atividades",
+                            },
+                          ],
+                          "name": "identifier",
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "name": ":",
+                            },
+                          ],
+                          "name": "symbol-colon",
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "name": "int",
+                                },
+                              ],
+                              "name": "name-scalar-int",
+                            },
+                          ],
+                          "name": "<type>",
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "name": ";",
+                            },
+                          ],
+                          "name": "symbol-delimiter",
+                        },
+                      ],
+                      "name": "<variable_declaration>",
+                    },
+                  ],
+                  "name": "<variable_declaration_list>",
+                },
+              ],
+              "name": "<variable_declaration_list>",
+            },
+          ],
+          "name": "<variable_declaration_list>",
+        },
+      ],
+      "name": "<variable_declaration_part>",
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [],
+              "name": "BEGIN",
+            },
+          ],
+          "name": "command-BEGIN",
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "name": "prova1",
+                                    },
+                                  ],
+                                  "name": "identifier",
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "name": "=",
+                                    },
+                                  ],
+                                  "name": "symbol-atr",
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [
+                                                {
+                                                  "children": [
+                                                    {
+                                                      "children": [
+                                                        {
+                                                          "children": [],
+                                                          "name": "9",
+                                                        },
+                                                      ],
+                                                      "name": "literal-int",
+                                                    },
+                                                  ],
+                                                  "name": "<literal>",
+                                                },
+                                              ],
+                                              "name": "<expression_factor>",
+                                            },
+                                          ],
+                                          "name": "<term_expression>",
+                                        },
+                                      ],
+                                      "name": "<expression>",
+                                    },
+                                  ],
+                                  "name": "<return>",
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "name": ";",
+                                    },
+                                  ],
+                                  "name": "symbol-delimiter",
+                                },
+                              ],
+                              "name": "<assignment>",
+                            },
+                          ],
+                          "name": "<command>",
+                        },
+                      ],
+                      "name": "<statement_list>",
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "name": "prova2",
+                                },
+                              ],
+                              "name": "identifier",
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "name": "=",
+                                },
+                              ],
+                              "name": "symbol-atr",
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [
+                                                {
+                                                  "children": [
+                                                    {
+                                                      "children": [],
+                                                      "name": "8",
+                                                    },
+                                                  ],
+                                                  "name": "literal-int",
+                                                },
+                                              ],
+                                              "name": "<literal>",
+                                            },
+                                          ],
+                                          "name": "<expression_factor>",
+                                        },
+                                      ],
+                                      "name": "<term_expression>",
+                                    },
+                                  ],
+                                  "name": "<expression>",
+                                },
+                              ],
+                              "name": "<return>",
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [],
+                                  "name": ";",
+                                },
+                              ],
+                              "name": "symbol-delimiter",
+                            },
+                          ],
+                          "name": "<assignment>",
+                        },
+                      ],
+                      "name": "<command>",
+                    },
+                  ],
+                  "name": "<statement_list>",
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "name": "atividades",
+                            },
+                          ],
+                          "name": "identifier",
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "name": "=",
+                            },
+                          ],
+                          "name": "symbol-atr",
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [
+                                                {
+                                                  "children": [],
+                                                  "name": "10",
+                                                },
+                                              ],
+                                              "name": "literal-int",
+                                            },
+                                          ],
+                                          "name": "<literal>",
+                                        },
+                                      ],
+                                      "name": "<expression_factor>",
+                                    },
+                                  ],
+                                  "name": "<term_expression>",
+                                },
+                              ],
+                              "name": "<expression>",
+                            },
+                          ],
+                          "name": "<return>",
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "name": ";",
+                            },
+                          ],
+                          "name": "symbol-delimiter",
+                        },
+                      ],
+                      "name": "<assignment>",
+                    },
+                  ],
+                  "name": "<command>",
+                },
+              ],
+              "name": "<statement_list>",
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "name": "return",
+                        },
+                      ],
+                      "name": "command-return",
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "name": "(",
+                                            },
+                                          ],
+                                          "name": "symbol-apa",
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [
+                                                {
+                                                  "children": [
+                                                    {
+                                                      "children": [
+                                                        {
+                                                          "children": [
+                                                            {
+                                                              "children": [
+                                                                {
+                                                                  "children": [],
+                                                                  "name": "prova1",
+                                                                },
+                                                              ],
+                                                              "name": "identifier",
+                                                            },
+                                                          ],
+                                                          "name": "<expression_factor>",
+                                                        },
+                                                      ],
+                                                      "name": "<term_expression>",
+                                                    },
+                                                  ],
+                                                  "name": "<expression>",
+                                                },
+                                                {
+                                                  "children": [
+                                                    {
+                                                      "children": [],
+                                                      "name": "+",
+                                                    },
+                                                  ],
+                                                  "name": "op-arithmetic-adi",
+                                                },
+                                                {
+                                                  "children": [
+                                                    {
+                                                      "children": [
+                                                        {
+                                                          "children": [
+                                                            {
+                                                              "children": [],
+                                                              "name": "prova2",
+                                                            },
+                                                          ],
+                                                          "name": "identifier",
+                                                        },
+                                                      ],
+                                                      "name": "<expression_factor>",
+                                                    },
+                                                  ],
+                                                  "name": "<term_expression>",
+                                                },
+                                              ],
+                                              "name": "<expression>",
+                                            },
+                                            {
+                                              "children": [
+                                                {
+                                                  "children": [],
+                                                  "name": "+",
+                                                },
+                                              ],
+                                              "name": "op-arithmetic-adi",
+                                            },
+                                            {
+                                              "children": [
+                                                {
+                                                  "children": [
+                                                    {
+                                                      "children": [
+                                                        {
+                                                          "children": [],
+                                                          "name": "atividades",
+                                                        },
+                                                      ],
+                                                      "name": "identifier",
+                                                    },
+                                                  ],
+                                                  "name": "<expression_factor>",
+                                                },
+                                              ],
+                                              "name": "<term_expression>",
+                                            },
+                                          ],
+                                          "name": "<expression>",
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "name": ")",
+                                            },
+                                          ],
+                                          "name": "symbol-fpa",
+                                        },
+                                      ],
+                                      "name": "<expression_factor>",
+                                    },
+                                  ],
+                                  "name": "<term_expression>",
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [],
+                                      "name": "/",
+                                    },
+                                  ],
+                                  "name": "op-arithmetic-div",
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "children": [],
+                                              "name": "3",
+                                            },
+                                          ],
+                                          "name": "literal-int",
+                                        },
+                                      ],
+                                      "name": "<literal>",
+                                    },
+                                  ],
+                                  "name": "<expression_factor>",
+                                },
+                              ],
+                              "name": "<term_expression>",
+                            },
+                          ],
+                          "name": "<expression>",
+                        },
+                      ],
+                      "name": "<return>",
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "name": ";",
+                        },
+                      ],
+                      "name": "symbol-delimiter",
+                    },
+                  ],
+                  "name": "<program_return>",
+                },
+              ],
+              "name": "<command>",
+            },
+          ],
+          "name": "<statement_list>",
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "name": "END.",
+            },
+          ],
+          "name": "command-END.",
+        },
+      ],
+      "name": "<statement_part>",
+    },
+  ],
+  "name": "<program>",
+}
+`;

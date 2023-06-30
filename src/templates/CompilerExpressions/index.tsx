@@ -71,12 +71,14 @@ const CompilerExpressions = () => {
       <CodeEditor
         title="CompilerExpressions"
         defaultValue={`VAR
-    prova1: int;
-    prova2: int;
+  prova1: int;
+  prova2: int;
+  atividades: int;
 BEGIN
-    prova1 = 9;
-    prova2 = 8;
-    return prova1 + prova2;
+  prova1 = 9;
+  prova2 = 8;
+  atividades = 10;
+  return (prova1 + prova2 + atividades) / 3;
 END.`}
         onSubmit={onSubmit}
       />
