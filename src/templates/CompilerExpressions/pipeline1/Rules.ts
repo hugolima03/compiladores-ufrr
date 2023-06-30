@@ -26,7 +26,7 @@ const grammar = new Grammar({
 
     // Declaração de variável no padrão
     // Padrão: "nome: tipo;"
-    '<variable_declaration>': ['identificador especial-colon <type> especial-delimiter'],
+    '<variable_declaration>': ['identificador symbol-colon <type> symbol-delimiter'],
     '<type>': ['nome-escalar-int'],
 
     // Bloco de código principal
@@ -42,11 +42,11 @@ const grammar = new Grammar({
 
     // Atribuição
     // Padrão: var = ... ;
-    '<atribuicao>': ['identificador especial-atr <retorno_valor> especial-delimiter'],
+    '<atribuicao>': ['identificador symbol-atr <retorno_valor> symbol-delimiter'],
 
     // Retorno de valor e encerramento
     // Padrão: retorne ... ;
-    '<retorne_principal>': ['command-return <retorno_valor> especial-delimiter'],
+    '<retorne_principal>': ['command-return <retorno_valor> symbol-delimiter'],
 
     '<retorno_valor>': ['<expressao>'],
 
@@ -80,7 +80,7 @@ const grammar = new Grammar({
     // ... var ...
     // ... literal ...
     '<expressao_fator>': [
-        'especial-apa <expressao> especial-fpa',
+        'symbol-apa <expressao> symbol-fpa',
         'identificador',
         '<literal>'
     ],

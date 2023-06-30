@@ -72,7 +72,7 @@ export default class Pipeline2 {
     const esquerda = new Tree(id.extra!.palavra);
     esquerda.extra = id.extra;
 
-    const atrOperador = atribuicao.findAllNodes("especial-atr", 1)[0];
+    const atrOperador = atribuicao.findAllNodes("symbol-atr", 1)[0];
 
     const direita = this._validateExpression(
       atribuicao.findAllNodes("<expressao>", 2)[0],

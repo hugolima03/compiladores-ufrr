@@ -27,7 +27,7 @@ export const tokenClasses = {
   "nome-escalar": (s: string) => patterns.nomeEscalares.includes(s),
   command: (s: string) => patterns.palavras.includes(s),
   "op-aritmetico": (s: string) => patterns.opAritmeticos.includes(s),
-  especial: (s: string) => patterns.especiais.includes(s),
+  symbol: (s: string) => patterns.especiais.includes(s),
   identificador: (s: string) => matchExact(s, patterns.identificadores),
   "literal-int": (s: string) => reconizeSentence(s, automaton), // Não está mais sendo utilizado
   "sem-categoria": (s: string) => true,
@@ -53,7 +53,7 @@ export const tokenSubClass = {
       "%": "mod",
     }[s];
   },
-  especial: (s: string) => {
+  symbol: (s: string) => {
     console.log(s)
     return {
       "=": "atr",
