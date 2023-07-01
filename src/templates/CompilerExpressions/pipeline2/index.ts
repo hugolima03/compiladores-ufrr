@@ -169,6 +169,7 @@ export default class Pipeline2 {
   }
 
   start() {
+    console.log("PIPELINE 2... START!");
     // Step 1: Gerar tabela de símbolos
     this.generateSymbolTable();
 

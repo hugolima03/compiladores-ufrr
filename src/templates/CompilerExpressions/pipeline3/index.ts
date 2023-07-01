@@ -270,6 +270,8 @@ export default class Pipeline3 {
   }
 
   start() {
+    console.log("PIPELINE 1... START!");
+
     return {
       nonOptimizedInstructions: this.comandos,
       optimizedInstructions: this.optimize(),

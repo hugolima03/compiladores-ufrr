@@ -25,29 +25,14 @@ export default class Production {
     return [this.left, " -> ", this.right].join("");
   }
 
-  /**
-   * Aplica a produção na string de entrada pela esquerda na primeira ocorrência
-   * encontradoda símbolo da cabeça, no caso de não ser encontrado, apenas
-   * retorna a stirng de entrada
-   */
   applyByLeft(entrada: string) {
     return this.applyProduction(entrada, entrada.indexOf(this.left));
   }
 
-  /**
-   * Aplica a produção na string de entrada pela direita na primeira ocorrência
-   * encontradoda símbolo da cabeça, no caso de não ser encontrado, apenas
-   * retorna a stirng de entrada
-   */
   applyByRight(entrada: string) {
     return this.applyProduction(entrada, entrada.lastIndexOf(this.left));
   }
 
-  /**
-   * Aplica a produção na string de entrada em uma posição válida que corresponde
-   * ao símbolo da cabeça, caso a posição não seja válida, apenas retorna a
-   * string de entrada
-   */
   applyProduction(entrada: string, posicao: number) {
     if (posicao < 0 || posicao >= entrada.length) return entrada;
     if (entrada.substr(posicao, this.left.length) !== this.left) return entrada;
