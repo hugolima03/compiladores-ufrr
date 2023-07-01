@@ -56,8 +56,10 @@ const CompilerExpressions = () => {
         nonOptimizedInstructions.filter((g) => Array.isArray(g))
       );
       setOptimizedInstructions(optimizedInstructions);
-      tree.current?.scrollIntoView();
 
+      setTimeout(() => {
+        tree.current?.scrollIntoView();
+      }, 400);
       setError(null);
     } catch (err) {
       const error = err as CustomError;
@@ -93,8 +95,8 @@ END.`}
 
       {syntaxTree && (
         <>
-          <h2>Árvore sintática</h2>
-          <S.TreeWrapper ref={tree}>
+          <h2 ref={tree}>Árvore sintática</h2>
+          <S.TreeWrapper>
             <ReactD3TreeComponent.Tree
               orientation="vertical"
               data={syntaxTree}
