@@ -9,7 +9,8 @@ export const Container = styled.div`
   min-height: 100vh;
 
   width: 100vw;
-  padding: 25vh 0;
+  padding-top: 25vh;
+  padding-bottom: 2.4rem;
   /* margin: 25vh auto; */
 
   gap: 1.6rem;
