@@ -38,8 +38,8 @@ export default class Pipeline1 {
     );
 
     // Step 2: Geração da árvore sintática
-    const syntaxTree = Tree.parsearProducoes(productions, PascalGrammar);
-    syntaxTree?.posOrdem((n) => {
+    const syntaxTree = Tree.parseProductions(productions, PascalGrammar);
+    syntaxTree?.postOrder((n) => {
       if (!n.ehFolha) return;
       if (n.simbolo !== lexemes[0].token.tipo) return;
       n.extra = lexemes.shift()!;

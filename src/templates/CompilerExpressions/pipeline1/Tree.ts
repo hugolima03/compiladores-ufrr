@@ -55,9 +55,9 @@ export class Tree {
       no.preOrdemMaxNivel(handle, maxNivel, atual + 1);
   }
 
-  posOrdem(handle: (arv: Tree) => void) {
+  postOrder(handle: (arv: Tree) => void) {
     handle(this);
-    for (const no of this.nos.reverse()) no.posOrdem(handle);
+    for (const no of this.nos.reverse()) no.postOrder(handle);
   }
 
   /** 
@@ -83,11 +83,11 @@ export class Tree {
     return listaNos;
   }
 
-  static parsearProducoes(prods: Production[], gram: Grammar) {
-    return Tree._parsearProducoesDir(prods, gram);
+  static parseProductions(prods: Production[], gram: Grammar) {
+    return Tree._parseProductionsRight(prods, gram);
   }
 
-  static _parsearProducoesDir(prods: Production[], gram: Grammar) {
+  static _parseProductionsRight(prods: Production[], gram: Grammar) {
     // Remove a primeira produção da lista
     const p = prods.shift();
 
@@ -106,7 +106,7 @@ export class Tree {
       }
 
       // Se for um não terminal, chama recursivamente esta função
-      const noFilho = Tree._parsearProducoesDir(prods, gram);
+      const noFilho = Tree._parseProductionsRight(prods, gram);
 
       // Se o nó retornado for válido, adiciona-o como filho
       if (noFilho !== null) no._nos.unshift(noFilho);
