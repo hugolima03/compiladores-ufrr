@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 
 import * as ReactD3TreeComponent from "react-d3-tree";
 
@@ -23,9 +23,11 @@ import Instrucao from "./pipeline3/Instruction";
 import { CustomError } from "./exception/ErroSemantico";
 import { Warning } from "@styled-icons/entypo";
 import { ErrorItem, ErrorsWrapper } from "components/CodeEditor/styles";
+import { WeakPrecedenceParser } from "./pipeline1/WeakPrecedenceParser";
+import { PascalGrammar } from "./pipeline1/PascalGrammar";
 
 const CompilerExpressions = () => {
-  const tree = useRef<HTMLDivElement>(null);
+  const [weakPrecedenceParser, setWeakPrecedenceParser] = useState<WeakPrecedenceParser | null>(null);
   const [syntaxTree, setSyntaxTree] = useState<ReactD3Tree | null>(null);
   const [symbolTable, setSymbolTable] = useState<SimboloIdentificador[]>();
   const [nonOptimizedInstructions, setNonOptimizedInstructions] = useState<
@@ -39,7 +41,7 @@ const CompilerExpressions = () => {
 
   function onSubmit(sourceCode: string) {
     try {
-      const syntaxTree = new Pipeline1(sourceCode).start();
+      const { syntaxTree, weakPrecedenceParser } = new Pipeline1(sourceCode).start();
 
       const { expressions, tabelaDeSimbolos } = new Pipeline2(
         syntaxTree!
@@ -50,6 +52,7 @@ const CompilerExpressions = () => {
       ).start();
 
       const d3tree = getReactD3Tree(syntaxTree!);
+      setWeakPrecedenceParser(weakPrecedenceParser);
       setSyntaxTree(d3tree);
       setSymbolTable(tabelaDeSimbolos);
       setNonOptimizedInstructions(
@@ -57,9 +60,6 @@ const CompilerExpressions = () => {
       );
       setOptimizedInstructions(optimizedInstructions);
 
-      setTimeout(() => {
-        tree.current?.scrollIntoView();
-      }, 400);
       setError(null);
     } catch (err) {
       const error = err as CustomError;
@@ -93,9 +93,40 @@ END.`}
         </ErrorsWrapper>
       ) : null}
 
+      {weakPrecedenceParser && (
+        <S.DRtableWrapper>
+          <h2>Tabela de deslocamento e redução</h2>
+          <Table>
+            <thead>
+              <TableRow>
+                <TableHeader></TableHeader>
+                {PascalGrammar._terminais.map((t) => (
+                  <TableHeader key={t}>{t}</TableHeader>
+                ))}
+                <TableHeader>{weakPrecedenceParser._fdc}</TableHeader>
+              </TableRow>
+            </thead>
+            <tbody>
+              {Object.keys(weakPrecedenceParser._tabelaDR).map((line) => {
+                return (
+                  <TableRow key={line}>
+                    <TableDatacell>{line}</TableDatacell>
+                    {Object.keys(weakPrecedenceParser._tabelaDR![line]).map((r) => (
+                      <TableDatacell key={r}>
+                        {`${weakPrecedenceParser._tabelaDR![line][r] || '-'}`}
+                      </TableDatacell>
+                    ))}
+                  </TableRow>
+                );
+              })}
+            </tbody>
+          </Table>
+        </S.DRtableWrapper>
+      )}
+
       {syntaxTree && (
         <>
-          <h2 ref={tree}>Árvore sintática</h2>
+          <h2>Árvore sintática</h2>
           <S.TreeWrapper>
             <ReactD3TreeComponent.Tree
               orientation="vertical"

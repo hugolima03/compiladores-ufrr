@@ -45,6 +45,6 @@ export default class Pipeline1 {
       n.extra = lexemes.shift()!;
     });
 
-    return syntaxTree;
+    return { syntaxTree, weakPrecedenceParser: this._weakPrecedenceParser };
   }
 }
