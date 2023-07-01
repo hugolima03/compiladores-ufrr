@@ -260,7 +260,7 @@ export default class Pipeline3 {
   }
 
   _isTempVar(simbolo: string) {
-    return matchExact(simbolo, /^<\d+>$/);
+    return matchExact(simbolo, /^t\d+$/);
   }
 
   _resetTempVar() {
@@ -268,7 +268,7 @@ export default class Pipeline3 {
   }
 
   _generateTempVar() {
-    return ["<", this._temp++, ">"].join("");
+    return `t${this._temp++}`;
   }
 
   start() {
