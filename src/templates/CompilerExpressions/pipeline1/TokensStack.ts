@@ -29,10 +29,7 @@ export default class TokensStack {
     this._eof = eof;
   }
 
-  /**
-   * Retorna o próximo token do buffer. Caso o buffer esteja vazio, adiciona os tokens da linha em análise.
-   */
-  get proximo() {
+  get getNext() {
     while (this._buffer.length === 0) {
       if (this._linhas.length === 0) return this._eof; // Acabou as linhas, fim do arquivo
 
