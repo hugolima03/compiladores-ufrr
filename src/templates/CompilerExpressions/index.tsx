@@ -51,15 +51,17 @@ const CompilerExpressions = () => {
         expressions
       ).start();
 
+
+      // Hooks React para renderização
       const d3tree = getReactD3Tree(syntaxTree!);
-      setWeakPrecedenceParser(weakPrecedenceParser);
+
       setSyntaxTree(d3tree);
       setSymbolTable(tabelaDeSimbolos);
+      setWeakPrecedenceParser(weakPrecedenceParser);
       setNonOptimizedInstructions(
         nonOptimizedInstructions.filter((g) => Array.isArray(g))
       );
       setOptimizedInstructions(optimizedInstructions);
-
       setError(null);
     } catch (err) {
       const error = err as CustomError;
