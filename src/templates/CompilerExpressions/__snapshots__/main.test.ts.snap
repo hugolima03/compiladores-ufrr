@@ -1362,12 +1362,12 @@ exports[`CompilerExpressions Generic test 4`] = `
       "_arguments": [
         "0",
       ],
-      "_operand": "<0>",
+      "_operand": "t0",
       "_operator": "=",
     },
     Instruction {
       "_arguments": [
-        "<0>",
+        "t0",
       ],
       "_operand": "var",
       "_operator": "=",
@@ -1378,12 +1378,12 @@ exports[`CompilerExpressions Generic test 4`] = `
       "_arguments": [
         "10",
       ],
-      "_operand": "<0>",
+      "_operand": "t0",
       "_operator": "=",
     },
     Instruction {
       "_arguments": [
-        "<0>",
+        "t0",
       ],
       "_operand": "hugo",
       "_operator": "=",
@@ -1394,27 +1394,27 @@ exports[`CompilerExpressions Generic test 4`] = `
       "_arguments": [
         "hugo",
       ],
-      "_operand": "<0>",
+      "_operand": "t0",
       "_operator": "=",
     },
     Instruction {
       "_arguments": [
         "var",
       ],
-      "_operand": "<1>",
+      "_operand": "t1",
       "_operator": "=",
     },
     Instruction {
       "_arguments": [
-        "<1>",
-        "<0>",
+        "t1",
+        "t0",
       ],
-      "_operand": "<2>",
+      "_operand": "t2",
       "_operator": "+",
     },
     Instruction {
       "_arguments": [
-        "<2>",
+        "t2",
       ],
       "_operand": "return",
       "_operator": "return",
@@ -1449,12 +1449,12 @@ exports[`CompilerExpressions Generic test 5`] = `
         "var",
         "hugo",
       ],
-      "_operand": "<0>",
+      "_operand": "t0",
       "_operator": "+",
     },
     Instruction {
       "_arguments": [
-        "<0>",
+        "t0",
       ],
       "_operand": "return",
       "_operator": "return",
@@ -4570,12 +4570,12 @@ exports[`CompilerExpressions Media teste 4`] = `
       "_arguments": [
         "9",
       ],
-      "_operand": "<0>",
+      "_operand": "t0",
       "_operator": "=",
     },
     Instruction {
       "_arguments": [
-        "<0>",
+        "t0",
       ],
       "_operand": "prova1",
       "_operator": "=",
@@ -4586,12 +4586,12 @@ exports[`CompilerExpressions Media teste 4`] = `
       "_arguments": [
         "8",
       ],
-      "_operand": "<0>",
+      "_operand": "t0",
       "_operator": "=",
     },
     Instruction {
       "_arguments": [
-        "<0>",
+        "t0",
       ],
       "_operand": "prova2",
       "_operator": "=",
@@ -4602,12 +4602,12 @@ exports[`CompilerExpressions Media teste 4`] = `
       "_arguments": [
         "10",
       ],
-      "_operand": "<0>",
+      "_operand": "t0",
       "_operator": "=",
     },
     Instruction {
       "_arguments": [
-        "<0>",
+        "t0",
       ],
       "_operand": "atividades",
       "_operator": "=",
@@ -4618,57 +4618,57 @@ exports[`CompilerExpressions Media teste 4`] = `
       "_arguments": [
         "3",
       ],
-      "_operand": "<0>",
+      "_operand": "t0",
       "_operator": "=",
     },
     Instruction {
       "_arguments": [
         "atividades",
       ],
-      "_operand": "<1>",
+      "_operand": "t1",
       "_operator": "=",
     },
     Instruction {
       "_arguments": [
         "prova2",
       ],
-      "_operand": "<2>",
+      "_operand": "t2",
       "_operator": "=",
     },
     Instruction {
       "_arguments": [
         "prova1",
       ],
-      "_operand": "<3>",
+      "_operand": "t3",
       "_operator": "=",
     },
     Instruction {
       "_arguments": [
-        "<3>",
-        "<2>",
+        "t3",
+        "t2",
       ],
-      "_operand": "<4>",
+      "_operand": "t4",
       "_operator": "+",
     },
     Instruction {
       "_arguments": [
-        "<4>",
-        "<1>",
+        "t4",
+        "t1",
       ],
-      "_operand": "<5>",
+      "_operand": "t5",
       "_operator": "+",
     },
     Instruction {
       "_arguments": [
-        "<5>",
-        "<0>",
+        "t5",
+        "t0",
       ],
-      "_operand": "<6>",
+      "_operand": "t6",
       "_operator": "/",
     },
     Instruction {
       "_arguments": [
-        "<6>",
+        "t6",
       ],
       "_operand": "return",
       "_operator": "return",
@@ -4712,28 +4712,28 @@ exports[`CompilerExpressions Media teste 5`] = `
         "prova1",
         "prova2",
       ],
-      "_operand": "<0>",
+      "_operand": "t0",
       "_operator": "+",
     },
     Instruction {
       "_arguments": [
-        "<0>",
+        "t0",
         "atividades",
       ],
-      "_operand": "<1>",
+      "_operand": "t1",
       "_operator": "+",
     },
     Instruction {
       "_arguments": [
-        "<1>",
+        "t1",
         "3",
       ],
-      "_operand": "<2>",
+      "_operand": "t2",
       "_operator": "/",
     },
     Instruction {
       "_arguments": [
-        "<2>",
+        "t2",
       ],
       "_operand": "return",
       "_operator": "return",

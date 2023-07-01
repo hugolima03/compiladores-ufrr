@@ -10,8 +10,7 @@ type TokenType =
   | "op-arithmetic-sub"
   | "op-arithmetic-adi"
   | "op-arithmetic-mul"
-  | "op-arithmetic-div"
-  | "op-arithmetic-mod";
+  | "op-arithmetic-div";
 
 export default class Pipeline3 {
   _temp: number;
@@ -110,7 +109,6 @@ export default class Pipeline3 {
       case "op-arithmetic-adi":
       case "op-arithmetic-mul":
       case "op-arithmetic-div":
-      case "op-arithmetic-mod":
         const dir = this._parseExpression(nos[1]);
         const esq = this._parseExpression(nos[0]);
         return [

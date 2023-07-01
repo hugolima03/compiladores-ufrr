@@ -1,5 +1,5 @@
 export const patterns = {
-    opAritmeticos: ["+", "-", "*", "/", "%"],
+    opAritmeticos: ["+", "-", "*", "/"],
     especiais: ["=", "(", ")", ",", ":", ";"],
 
     nomeEscalares: ["int"],

@@ -50,7 +50,6 @@ export const PascalGrammar = new Grammar(
     "<term_expression>": [
       "<term_expression> op-arithmetic-mul <expression_factor>",
       "<term_expression> op-arithmetic-div <expression_factor>",
-      "<term_expression> op-arithmetic-mod <expression_factor>",
       "<expression_factor>",
     ],
 
