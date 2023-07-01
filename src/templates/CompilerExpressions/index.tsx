@@ -91,18 +91,19 @@ END.`}
         </ErrorsWrapper>
       ) : null}
 
-      <h2>Árvore sintática</h2>
-
-      <S.TreeWrapper ref={tree}>
-        {syntaxTree && (
-          <ReactD3TreeComponent.Tree
-            orientation="vertical"
-            data={syntaxTree}
-            translate={{ x: 600, y: 40 }}
-            collapsible={false}
-          />
-        )}
-      </S.TreeWrapper>
+      {syntaxTree && (
+        <>
+          <h2>Árvore sintática</h2>
+          <S.TreeWrapper ref={tree}>
+            <ReactD3TreeComponent.Tree
+              orientation="vertical"
+              data={syntaxTree}
+              translate={{ x: 600, y: 40 }}
+              collapsible={false}
+            />
+          </S.TreeWrapper>
+        </>
+      )}
 
       {symbolTable ? (
         <>
