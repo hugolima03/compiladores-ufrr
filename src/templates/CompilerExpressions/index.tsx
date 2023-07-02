@@ -27,7 +27,8 @@ import { WeakPrecedenceParser } from "./pipeline1/WeakPrecedenceParser";
 import { PascalGrammar } from "./pipeline1/PascalGrammar";
 
 const CompilerExpressions = () => {
-  const [weakPrecedenceParser, setWeakPrecedenceParser] = useState<WeakPrecedenceParser | null>(null);
+  const [weakPrecedenceParser, setWeakPrecedenceParser] =
+    useState<WeakPrecedenceParser | null>(null);
   const [syntaxTree, setSyntaxTree] = useState<ReactD3Tree | null>(null);
   const [symbolTable, setSymbolTable] = useState<SimboloIdentificador[]>();
   const [nonOptimizedInstructions, setNonOptimizedInstructions] = useState<
@@ -41,7 +42,9 @@ const CompilerExpressions = () => {
 
   function onSubmit(sourceCode: string) {
     try {
-      const { syntaxTree, weakPrecedenceParser } = new Pipeline1(sourceCode).start();
+      const { syntaxTree, weakPrecedenceParser } = new Pipeline1(
+        sourceCode
+      ).start();
 
       const { expressions, tabelaDeSimbolos } = new Pipeline2(
         syntaxTree!
@@ -50,7 +53,6 @@ const CompilerExpressions = () => {
       const { nonOptimizedInstructions, optimizedInstructions } = new Pipeline3(
         expressions
       ).start();
-
 
       // Hooks React para renderização
       const d3tree = getReactD3Tree(syntaxTree!);
@@ -113,11 +115,13 @@ END.`}
                 return (
                   <TableRow key={line}>
                     <TableDatacell>{line}</TableDatacell>
-                    {Object.keys(weakPrecedenceParser._tabelaDR![line]).map((r) => (
-                      <TableDatacell key={r}>
-                        {`${weakPrecedenceParser._tabelaDR![line][r] || '-'}`}
-                      </TableDatacell>
-                    ))}
+                    {Object.keys(weakPrecedenceParser._tabelaDR![line]).map(
+                      (r) => (
+                        <TableDatacell key={r}>
+                          {`${weakPrecedenceParser._tabelaDR![line][r] || "-"}`}
+                        </TableDatacell>
+                      )
+                    )}
                   </TableRow>
                 );
               })}
@@ -170,8 +174,8 @@ END.`}
           <Table style={{ margin: 0 }}>
             <thead>
               <TableRow>
-                <TableHeader>Operador</TableHeader>
                 <TableHeader>Operando</TableHeader>
+                <TableHeader>Operador</TableHeader>
                 <TableHeader>Argumentos</TableHeader>
               </TableRow>
             </thead>
@@ -179,8 +183,8 @@ END.`}
               {nonOptimizedInstructions?.map((instructionList) =>
                 instructionList?.map((instruction, index) => (
                   <TableRow key={`${instruction.operator}${index}`}>
-                    <TableDatacell>{instruction.operator}</TableDatacell>
                     <TableDatacell>{instruction.operand}</TableDatacell>
+                    <TableDatacell>{instruction.operator}</TableDatacell>
                     <TableDatacell>{instruction.args.toString()}</TableDatacell>
                   </TableRow>
                 ))
@@ -196,8 +200,8 @@ END.`}
           <Table style={{ margin: 0 }}>
             <thead>
               <TableRow>
-                <TableHeader>Operador</TableHeader>
                 <TableHeader>Operando</TableHeader>
+                <TableHeader>Operador</TableHeader>
                 <TableHeader>Argumentos</TableHeader>
               </TableRow>
             </thead>
@@ -205,8 +209,8 @@ END.`}
               {optimizedInstructions?.map((instructionList) =>
                 instructionList?.map((instruction, index) => (
                   <TableRow key={`${instruction.operator}${index}`}>
-                    <TableDatacell>{instruction.operator}</TableDatacell>
                     <TableDatacell>{instruction.operand}</TableDatacell>
+                    <TableDatacell>{instruction.operator}</TableDatacell>
                     <TableDatacell>{instruction.args.toString()}</TableDatacell>
                   </TableRow>
                 ))

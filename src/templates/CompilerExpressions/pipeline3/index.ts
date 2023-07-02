@@ -14,79 +14,63 @@ type TokenType =
 
 export default class Pipeline3 {
   _temp: number;
-  _commands: Instruction[][];
+  _nonOptimizedInstructions: Instruction[][];
 
-  constructor(comandos: Tree[]) {
+  constructor(commands: Tree[]) {
     this._temp = 0;
 
     const nonOptimizedInstructions: Instruction[][] = [];
 
-    for (const c of comandos) {
-      nonOptimizedInstructions.push(this._parsearComando(c)!);
+    for (const c of commands) {
+      nonOptimizedInstructions.push(this._parseCommand(c)!);
     }
-
-    this._commands = nonOptimizedInstructions;
+    this._nonOptimizedInstructions = nonOptimizedInstructions;
   }
 
-  get comandos() {
+  get commands() {
     const commands = [];
-    for (const com of this._commands) commands.push(com.map((c) => c.copy()));
+    for (const com of this._nonOptimizedInstructions) commands.push(com.map((c) => c.copy()));
     return commands;
   }
 
-  get totalComandos() {
-    return this._commands.length;
-  }
-
-  optimize() {
-    const otimizados = [];
-    const comandos = this.comandos;
-    for (const c of comandos) {
-      let otimizado = this._optimizeAssignments(c);
-      otimizados.push(this._optimizeMathOperations(otimizado));
-    }
-
-    return otimizados;
-  }
-
-  _parsearComando(comando: Tree) {
-    switch (comando.simbolo) {
+  _parseCommand(command: Tree) {
+    switch (command.simbolo) {
       case "=":
-        return this._parsearAtribuicao(comando);
+        return this._parseAssignment(command);
         break;
       case "return":
-        return this._parsearRetorne(comando);
+        return this._parseReturn(command);
         break;
     }
   }
 
-  _parsearAtribuicao(atribuicao: Tree) {
+  _parseAssignment(assignmentCommand: Tree) {
     this._resetTempVar();
-    const instrucoes = this._parseExpression(atribuicao.nos[1]);
-
+    // atribuicao.nos[1] é o lado da atribuição que pode conter outras expressões
+    const instructions = this._parseExpression(assignmentCommand.nos[1]);
     return [
       new Instruction(
         "=",
-        atribuicao.nos[0].simbolo, // var
-        [instrucoes[0].operand]
+        assignmentCommand.nos[0].simbolo, // var
+        [instructions[0].operand]
       ), // 10
-      ...instrucoes,
+      ...instructions,
     ].reverse();
   }
 
-  _parsearRetorne(retorne: Tree) {
+  _parseReturn(returnCommand: Tree) {
     this._resetTempVar();
 
-    const instrucoes = this._parseExpression(retorne.nos[0]);
+    const instructions = this._parseExpression(returnCommand.nos[0]);
     return [
-      new Instruction("return", retorne.simbolo, [instrucoes[0].operand]),
-      ...instrucoes,
+      new Instruction("return", returnCommand.simbolo, [instructions[0].operand]),
+      ...instructions,
     ].reverse();
   }
 
   _parseExpression(expressao: Tree): Instruction[] {
     const token = expressao.extra!.token;
-    const nos = expressao.nos;
+    const children = expressao.nos;
 
     switch (token.tipo as TokenType) {
       case "literal-int":
@@ -94,11 +78,10 @@ export default class Pipeline3 {
         return [
           new Instruction("=", this._generateTempVar(), [expressao.simbolo]),
         ];
-        break;
 
       case "op-arithmetic-sub":
-        if (nos.length === 1) {
-          const filho = this._parseExpression(nos[0]);
+        if (children.length === 1) {
+          const filho = this._parseExpression(children[0]);
           return [
             new Instruction(expressao.simbolo, this._generateTempVar(), [
               filho[0].operand,
@@ -109,8 +92,8 @@ export default class Pipeline3 {
       case "op-arithmetic-adi":
       case "op-arithmetic-mul":
       case "op-arithmetic-div":
-        const dir = this._parseExpression(nos[1]);
-        const esq = this._parseExpression(nos[0]);
+        const dir = this._parseExpression(children[1]);
+        const esq = this._parseExpression(children[0]);
         return [
           new Instruction(expressao.simbolo, this._generateTempVar(), [
             esq[0].operand,
@@ -119,8 +102,18 @@ export default class Pipeline3 {
           ...esq,
           ...dir,
         ];
-        break;
     }
+  }
+
+  optimize() {
+    const otimizados = [];
+    const comandos = this.commands;
+    for (const c of comandos) {
+      let otimizado = this._optimizeAssignments(c);
+      otimizados.push(this._optimizeMathOperations(otimizado));
+    }
+
+    return otimizados;
   }
 
   _optimizeAssignments(instrucoes: Instruction[]) {
@@ -273,7 +266,7 @@ export default class Pipeline3 {
     console.log("PIPELINE 1... START!");
 
     return {
-      nonOptimizedInstructions: this.comandos,
+      nonOptimizedInstructions: this.commands,
       optimizedInstructions: this.optimize(),
     };
   }

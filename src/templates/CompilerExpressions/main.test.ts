@@ -15,10 +15,10 @@ BEGIN
     return var + hugo;
 END.`
 
-    const arvoreSintatica = new Pipeline1(sourceCode).start();
+    const { syntaxTree } = new Pipeline1(sourceCode).start();
 
     const { expressions, tabelaDeSimbolos } = new Pipeline2(
-      arvoreSintatica!
+      syntaxTree!
     ).start();
 
     const { nonOptimizedInstructions, optimizedInstructions } = new Pipeline3(expressions).start()
@@ -34,9 +34,9 @@ END.`
     //   mips.adicionarInstrucoes(optimizados[i]);
     // }
 
-    const d3tree = getReactD3Tree(arvoreSintatica!);
+    const d3tree = getReactD3Tree(syntaxTree!);
 
-    expect(arvoreSintatica).toMatchSnapshot()
+    expect(syntaxTree).toMatchSnapshot()
     expect(expressions).toMatchSnapshot()
     expect(tabelaDeSimbolos).toMatchSnapshot()
     // expect(intermediario).toMatchSnapshot()
@@ -58,10 +58,10 @@ END.`
     return (prova1 + prova2 + atividades) / 3;
   END.`
 
-    const arvoreSintatica = new Pipeline1(sourceCode).start();
+    const { syntaxTree } = new Pipeline1(sourceCode).start();
 
     const { expressions, tabelaDeSimbolos } = new Pipeline2(
-      arvoreSintatica!
+      syntaxTree!
     ).start();
 
     const { nonOptimizedInstructions, optimizedInstructions } = new Pipeline3(expressions).start()
@@ -77,9 +77,9 @@ END.`
     //   mips.adicionarInstrucoes(optimizados[i]);
     // }
 
-    const d3tree = getReactD3Tree(arvoreSintatica!);
+    const d3tree = getReactD3Tree(syntaxTree!);
 
-    expect(arvoreSintatica).toMatchSnapshot()
+    expect(syntaxTree).toMatchSnapshot()
     expect(expressions).toMatchSnapshot()
     expect(tabelaDeSimbolos).toMatchSnapshot()
     // expect(intermediario).toMatchSnapshot()
