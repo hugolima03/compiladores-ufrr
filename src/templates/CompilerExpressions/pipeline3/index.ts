@@ -29,7 +29,8 @@ export default class Pipeline3 {
 
   get commands() {
     const commands = [];
-    for (const com of this._nonOptimizedInstructions) commands.push(com.map((c) => c.copy()));
+    for (const com of this._nonOptimizedInstructions)
+      commands.push(com.map((c) => c.copy()));
     return commands;
   }
 
@@ -63,7 +64,9 @@ export default class Pipeline3 {
 
     const instructions = this._parseExpression(returnCommand.nos[0]);
     return [
-      new Instruction("return", returnCommand.simbolo, [instructions[0].operand]),
+      new Instruction("return", returnCommand.simbolo, [
+        instructions[0].operand,
+      ]),
       ...instructions,
     ].reverse();
   }
@@ -106,29 +109,31 @@ export default class Pipeline3 {
   }
 
   optimize() {
-    const otimizados = [];
-    const comandos = this.commands;
-    for (const c of comandos) {
-      let otimizado = this._optimizeAssignments(c);
-      otimizados.push(this._optimizeMathOperations(otimizado));
+    const optimizedCommands = [];
+
+    const commands = this.commands;
+    for (const c of commands) {
+      let optimized = this._optimizeAssignments(c);
+      optimizedCommands.push(optimized);
     }
 
-    return otimizados;
+    return optimizedCommands;
   }
 
-  _optimizeAssignments(instrucoes: Instruction[]) {
-    const atribuicoesTempValor: Instruction[] = [];
-    const atribuicoesValorTemp: Instruction[] = [];
-
-    for (const inst of instrucoes) {
+  _optimizeAssignments(instructions: Instruction[]) {
+    // Caso 1
+    const assignmentsCase1: Instruction[] = [];
+    // Busca por atribuições com variáveis temporários como operandos.
+    for (const inst of instructions) {
       if (inst.operator !== "=") continue;
       if (inst.totalArgs !== 1) continue;
-      if (!this._isTempVar(inst.operand)) continue;
-      atribuicoesTempValor.push(inst);
+      if (!this._isTempVar(inst.operand)) continue; // caso o operando não seja varTemp
+      assignmentsCase1.push(inst);
     }
 
-    for (const a of atribuicoesTempValor) {
-      for (const inst of instrucoes) {
+    // Para cada instrução de atribuição, iteramos sobre as instruções substituindo o valor do argumento, removendo a variável temporária.
+    for (const a of assignmentsCase1) {
+      for (const inst of instructions) {
         if (a === inst) continue;
         while (inst._arguments.includes(a.operand)) {
           const indice = inst._arguments.indexOf(a.operand);
@@ -137,117 +142,59 @@ export default class Pipeline3 {
       }
     }
 
-    for (const inst of instrucoes) {
+    // Caso 2
+    const assignmentsCase2: Instruction[] = [];
+    // Fazemo os mesmo para quando uma instrução tem variáveis temporárias como operando e argumentos.
+    for (const inst of instructions) { // é atribuição, possui um argumento, o operando não é varTemp e o argumento é varTemp
       if (inst.operator !== "=") continue;
       if (inst.totalArgs !== 1) continue;
-      if (this._isTempVar(inst.operand)) continue;
-      if (!this._isTempVar(inst.arg(0)!)) continue;
-      atribuicoesValorTemp.push(inst);
+      if (this._isTempVar(inst.operand)) continue; // caso o operando seja varTemp
+      if (!this._isTempVar(inst.arg(0)!)) continue; // caso o argumento não seja varTemp
+      assignmentsCase2.push(inst);
     }
 
-    for (const a of atribuicoesValorTemp) {
-      for (const inst of instrucoes) {
+    for (const a of assignmentsCase2) {
+      for (const inst of instructions) {
         if (a === inst) continue;
         if (inst.operand !== a.arg(0)) continue;
-        inst._operand = a.operand;
+        inst._operand = a.operand; // Corrige a instrução colocando o literal em seu lugar.
       }
     }
 
-    return this._ajustarTemporarios(
-      instrucoes.filter((i) => {
-        return !(
-          atribuicoesTempValor.includes(i) || atribuicoesValorTemp.includes(i)
-        );
-      })
+    return this._countTempVariablesAgain(
+      instructions.filter(
+        (i) =>
+          !(
+            assignmentsCase1.includes(i) || assignmentsCase2.includes(i)
+          )
+      )
     );
   }
 
-  _optimizeMathOperations(instrucoes: Instruction[]) {
-    for (const inst of instrucoes) {
-      if (inst.operator === "return") continue;
-      if (inst.operator === "=") continue;
-
-      const args = inst.args;
-      switch (inst.operator) {
-        case "+":
-          if (parseInt(args[0]) === 0 && parseInt(args[1]) === 0) {
-            inst._operator = "=";
-            inst._arguments = ["0"];
-          } else if (parseInt(args[0]) !== 0 && parseInt(args[1]) === 0) {
-            inst._operator = "=";
-            inst._arguments = [args[0]];
-          } else if (parseInt(args[0]) === 0 && parseInt(args[1]) !== 0) {
-            inst._operator = "=";
-            inst._arguments = [args[1]];
-          }
-          break;
-        case "-":
-          if (parseInt(args[0]) === 0 && parseInt(args[1]) === 0) {
-            inst._operator = "=";
-            inst._arguments = ["0"];
-          } else if (parseInt(args[0]) !== 0 && parseInt(args[1]) === 0) {
-            inst._operator = "=";
-            inst._arguments = [args[0]];
-          }
-          break;
-        case "*":
-          if (parseInt(args[0]) === 1 && parseInt(args[1]) === 1) {
-            inst._operator = "=";
-            inst._arguments = ["1"];
-          } else if (parseInt(args[0]) !== 0 && parseInt(args[1]) === 1) {
-            inst._operator = "=";
-            inst._arguments = [args[0]];
-          } else if (parseInt(args[0]) === 1 && parseInt(args[1]) !== 1) {
-            inst._operator = "=";
-            inst._arguments = [args[1]];
-          }
-          break;
-        case "/":
-          if (parseInt(args[0]) === 1 && parseInt(args[1]) === 1) {
-            inst._operator = "=";
-            inst._arguments = ["1"];
-          } else if (parseInt(args[0]) !== 1 && parseInt(args[1]) === 1) {
-            inst._operator = "=";
-            inst._arguments = [args[0]];
-          }
-          break;
-        case "%":
-          if (parseInt(args[0]) === 1 && parseInt(args[1]) === 1) {
-            inst._operator = "=";
-            inst._arguments = ["0"];
-          } else if (parseInt(args[0]) !== 1 && parseInt(args[1]) === 1) {
-            inst._operator = "=";
-            inst._arguments = ["0"];
-          }
-          break;
-      }
-    }
-
-    return instrucoes;
-  }
-
-  _ajustarTemporarios(instrucoes: Instruction[]) {
+  _countTempVariablesAgain(instructions: Instruction[]) {
     let temp: string[] = [];
 
-    for (const i of instrucoes) {
+    // Itera sobre as instruções para encontrar varTemps.
+    for (const i of instructions) {
       if (this._isTempVar(i.operand)) temp.push(i.operand);
       for (const a of i.args) {
         if (this._isTempVar(a)) temp.push(a);
       }
     }
 
-    temp = temp.filter((i, p) => temp.indexOf(i) === p);
+    temp = temp.filter((i, p) => temp.indexOf(i) === p); // remove os valores duplicados
     this._resetTempVar();
 
+    // realiza a contagem das variáveis temporárias novamente.
     for (const t of temp) {
       const novoTemp = this._generateTempVar();
-      for (const i of instrucoes) {
+      for (const i of instructions) {
         if (i.operand === t) i._operand = novoTemp;
         i._arguments = i._arguments.map((a) => (a === t ? novoTemp : a));
       }
     }
 
-    return instrucoes;
+    return instructions;
   }
 
   _isTempVar(simbolo: string) {
@@ -259,16 +206,20 @@ export default class Pipeline3 {
   }
 
   _generateTempVar() {
-    const newVariable = this._temp++
+    const newVariable = this._temp++;
     return `t${newVariable}`;
   }
 
   start() {
-    console.log("PIPELINE 1... START!");
+    console.log("PIPELINE 3... START!");
+
+    const nonOptimizedInstructions = this.commands;
+
+    const optimizedInstructions = this.optimize();
 
     return {
-      nonOptimizedInstructions: this.commands,
-      optimizedInstructions: this.optimize(),
+      nonOptimizedInstructions,
+      optimizedInstructions,
     };
   }
 }

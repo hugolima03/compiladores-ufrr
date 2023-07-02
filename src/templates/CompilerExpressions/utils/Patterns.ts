@@ -50,7 +50,6 @@ export const tokenSubClass = {
             "-": "sub",
             "*": "mul",
             "/": "div",
-            "%": "mod",
         }[s];
     },
     symbol: (s: string) => {
