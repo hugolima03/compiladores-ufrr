@@ -259,7 +259,8 @@ export default class Pipeline3 {
   }
 
   _generateTempVar() {
-    return `t${this._temp++}`;
+    const newVariable = this._temp++
+    return `t${newVariable}`;
   }
 
   start() {
