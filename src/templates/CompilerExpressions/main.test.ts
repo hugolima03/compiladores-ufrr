@@ -66,17 +66,6 @@ END.`
 
     const { nonOptimizedInstructions, optimizedInstructions } = new Pipeline3(expressions).start()
 
-    // const mips = new Mips(tabelaDeSimbolos);
-    // for (let i = 0; i < intermediario.totalComandos; ++i) {
-    //   gerados.push({
-    //     gerado: gerados[i],
-    //     otimizado: optimizados[i],
-    //     linha: expressions[i].extra!.linha,
-    //   } as any);
-
-    //   mips.adicionarInstrucoes(optimizados[i]);
-    // }
-
     const d3tree = getReactD3Tree(syntaxTree!);
 
     expect(syntaxTree).toMatchSnapshot()
