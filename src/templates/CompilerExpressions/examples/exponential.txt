@@ -1,0 +1,3 @@
+BEGIN
+  return 2*2;
+END.

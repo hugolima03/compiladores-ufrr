@@ -1,0 +1,5 @@
+VAR
+  variable1: int;
+BEGIN
+  variable1 = 9999999999;
+END.
